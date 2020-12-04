@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LayerFuncs &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="layerfuncs">
+<h1>LayerFuncs<a class="headerlink" href="#layerfuncs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="display.md">Display</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines pointers to the layer driver functions.</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1801789020093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p580584264093531"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1447025685093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1290209619093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1761511737093531"><p>InitDisplay )(uint32_t devId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p854108477093531"><p>int32_t(*</p>
+</p><p id="p858279981093531"><p>Initializes a display device.</p>
+</p></td></tr><tr id="row705927014093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1325594315093531"><p>DeinitDisplay )(uint32_t devId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p642152892093531"><p>int32_t(*</p>
+</p><p id="p1941568498093531"><p>Deinitializes a display device.</p>
+</p></td></tr><tr id="row1375052931093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1619603363093531"><p>GetDisplayInfo )(uint32_t devId, DisplayInfo *dispInfo)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p969801017093531"><p>int32_t(*</p>
+</p><p id="p571383769093531"><p>Obtains information about a display device.</p>
+</p></td></tr><tr id="row657199072093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p529170825093531"><p>OpenLayer )(uint32_t devId, const LayerInfo <em>layerInfo,
+uint32_t</em>layerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2115517563093531"><p>int32_t(*</p>
+</p><p id="p1321274281093531"><p>Opens a layer on a specified display device.</p>
+</p></td></tr><tr id="row484321565093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1003638687093531"><p>CloseLayer )(uint32_t devId, uint32_t layerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p308821775093531"><p>int32_t(*</p>
+</p><p id="p1426803714093531"><p>Closes a layer that is no longer required on a specified display device.</p>
+</p></td></tr><tr id="row1101309460093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1712191943093531"><p>SetLayerVisible )(uint32_t devId, uint32_t layerId, bool visible)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p363999925093531"><p>int32_t(*</p>
+</p><p id="p709852316093531"><p>Sets whether a layer is visible.</p>
+</p></td></tr><tr id="row944841608093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1689743827093531"><p>GetLayerVisibleState )(uint32_t devId, uint32_t layerId, bool *visible)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p291167239093531"><p>int32_t(*</p>
+</p><p id="p1074825475093531"><p>Checks whether a layer is visible.</p>
+</p></td></tr><tr id="row57270837093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p790845491093531"><p>SetLayerSize )(uint32_t devId, uint32_t layerId, IRect *rect)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1090797462093531"><p>int32_t(*</p>
+</p><p id="p1773045931093531"><p>Sets the size of a layer.</p>
+</p></td></tr><tr id="row1511842937093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p311479173093531"><p>GetLayerSize )(uint32_t devId, uint32_t layerId, IRect *rect)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1709282148093531"><p>int32_t(*</p>
+</p><p id="p185929585093531"><p>Obtains the size of a layer.</p>
+</p></td></tr><tr id="row1204712439093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p88960164093531"><p>SetLayerCrop )(uint32_t devId, uint32_t layerId, IRect *rect)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2074544270093531"><p>int32_t(*</p>
+</p><p id="p193713054093531"><p>Sets the rectangular area to crop for a layer.</p>
+</p></td></tr><tr id="row4319023093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1777642484093531"><p>SetLayerZorder )(uint32_t devId, uint32_t layerId, uint32_t zorder)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p184143524093531"><p>int32_t(*</p>
+</p><p id="p1181114921093531"><p>Sets the z-order for a layer.</p>
+</p></td></tr><tr id="row1874075351093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p486334247093531"><p>GetLayerZorder )(uint32_t devId, uint32_t layerId, uint32_t *zorder)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p271904733093531"><p>int32_t(*</p>
+</p><p id="p1476215370093531"><p>Obtains the z-order of a layer.</p>
+</p></td></tr><tr id="row1847792393093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p695525281093531"><p>SetLayerPreMulti )(uint32_t devId, uint32_t layerId, bool preMul)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p759922950093531"><p>int32_t(*</p>
+</p><p id="p267696715093531"><p>Sets layer premultiplication.</p>
+</p></td></tr><tr id="row194655880093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1845156226093531"><p>GetLayerPreMulti )(uint32_t devId, uint32_t layerId, bool *preMul)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1003022766093531"><p>int32_t(*</p>
+</p><p id="p927666764093531"><p>Obtains the premultiplication flag of a layer.</p>
+</p></td></tr><tr id="row400547406093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p265279476093531"><p>SetLayerAlpha )(uint32_t devId, uint32_t layerid, LayerAlpha *alpha)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1439542188093531"><p>int32_t(*</p>
+</p><p id="p1019388064093531"><p>Sets the alpha value for a layer.</p>
+</p></td></tr><tr id="row1294561651093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p721242077093531"><p>GetLayerAlpha )(uint32_t devId, uint32_t layerId, LayerAlpha *alpha)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1979044114093531"><p>int32_t(*</p>
+</p><p id="p910903822093531"><p>Obtains the alpha value of a layer.</p>
+</p></td></tr><tr id="row1184821856093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p601005063093531"><p>SetLayerColorKey )(uint32_t devId, uint32_t layerId, bool enable,
+uint32_t key)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p155517740093531"><p>int32_t(*</p>
+</p><p id="p1736270720093531"><p>Sets the color key for a layer.</p>
+</p></td></tr><tr id="row1888941624093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1748335140093531"><p>GetLayerColorKey )(uint32_t devId, uint32_t layerId, bool <em>enable,
+uint32_t</em>key)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2140044781093531"><p>int32_t(*</p>
+</p><p id="p927857568093531"><p>Obtains the color key of a layer.</p>
+</p></td></tr><tr id="row1901687058093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1699717131093531"><p>SetLayerPalette )(uint32_t devId, uint32_t layerId, uint32_t *palette,
+uint32_t len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p13040619093531"><p>int32_t(*</p>
+</p><p id="p450376859093531"><p>Sets the palette for a layer.</p>
+</p></td></tr><tr id="row1761515508093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p695796286093531"><p>GetLayerPalette )(uint32_t devId, uint32_t layerId, uint32_t *palette,
+uint32_t len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1420431936093531"><p>int32_t(*</p>
+</p><p id="p329947031093531"><p>Obtains the palette of a layer.</p>
+</p></td></tr><tr id="row1382141007093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2050664918093531"><p>SetTransformMode )(uint32_t devId, uint32_t layerId, TransformType type)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p70591593093531"><p>int32_t(*</p>
+</p><p id="p977437106093531"><p>Sets the transform mode for a layer.</p>
+</p></td></tr><tr id="row977558620093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p295434907093531"><p>SetLayerCompression )(uint32_t devId, uint32_t layerId, int32_t
+compType)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1158110644093531"><p>int32_t(*</p>
+</p><p id="p1485653205093531"><p>Sets the compression feature for a layer.</p>
+</p></td></tr><tr id="row290541066093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p138006922093531"><p>GetLayerCompression )(uint32_t devId, uint32_t layerId, int32_t
+*compType)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1246865172093531"><p>int32_t(*</p>
+</p><p id="p2090539520093531"><p>Checks whether the compression feature is enabled for a layer.</p>
+</p></td></tr><tr id="row1975661216093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p903415271093531"><p>SetLayerDirtyRegion )(uint32_t devId, uint32_t layerId, IRect *region)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p66636054093531"><p>int32_t(*</p>
+</p><p id="p1065423353093531"><p>Sets the flushing area for a layer.</p>
+</p></td></tr><tr id="row1724532702093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p574167614093531"><p>GetLayerBuffer )(uint32_t devId, uint32_t layerId, LayerBuffer *buffer)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2089235664093531"><p>int32_t(*</p>
+</p><p id="p1211231736093531"><p>Obtains the buffer of a layer.</p>
+</p></td></tr><tr id="row1347494713093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1849440551093531"><p>Flush )(uint32_t devId, uint32_t layerId, LayerBuffer *buffer)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p262609741093531"><p>int32_t(*</p>
+</p><p id="p2038692562093531"><p>Flushes a layer.</p>
+</p></td></tr><tr id="row1337367313093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2102945464093531"><p>WaitForVBlank )(uint32_t devId, uint32_t layerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1248161901093531"><p>int32_t(*</p>
+</p><p id="p1129923339093531"><p>Waits for the arrival of vertical blanking.</p>
+</p></td></tr><tr id="row1961747558093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p468466593093531"><p>SnapShot )(uint32_t devId, LayerBuffer *buffer)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p527839475093531"><p>int32_t(*</p>
+</p><p id="p294871108093531"><p>Implements the snapshot feature.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="closelayer">
+<h2>CloseLayer<a class="headerlink" href="#closelayer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">CloseLayer</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Closes a layer that is no longer required on a specified display device.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1326945359093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p395676765093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2109815906093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row120617066093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row388381540093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a795f4e168d5b284a9c33f636c278207f">OpenLayer</a></p>
+</div>
+<div class="section" id="deinitdisplay">
+<h2>DeinitDisplay<a class="headerlink" href="#deinitdisplay" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">DeinitDisplay</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Deinitializes a display device.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row758924228093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1798225751093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p602934640093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row417296870093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a0641c3b48542646daa80386122bed46a">InitDisplay</a></p>
+</div>
+<div class="section" id="flush">
+<h2>Flush<a class="headerlink" href="#flush" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">Flush</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">LayerBuffer</span><span class="p">](</span><span class="n">layerbuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">buffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Flushes a layer.</p>
+<p>Display data in the buffer is flushed to a specified layer so that the
+image data is displayed on the screen.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row675629429093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p54443304093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1361074167093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1108364237093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row194761284093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row873215645093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>buffer</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the buffer in which the display data is to
+flush.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="getdisplayinfo">
+<h2>GetDisplayInfo<a class="headerlink" href="#getdisplayinfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetDisplayInfo</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="p">[</span><span class="n">DisplayInfo</span><span class="p">](</span><span class="n">displayinfo</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">dispInfo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains information about a display device.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1252037398093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1708419097093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p102499992093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1053371586093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row408036878093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>dispInfo</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the display device information obtained.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="getlayeralpha">
+<h2>GetLayerAlpha<a class="headerlink" href="#getlayeralpha" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerAlpha</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">LayerAlpha</span><span class="p">](</span><span class="n">layeralpha</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the alpha value of a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1869068225093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1225363482093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1626018140093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1828275366093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row130095139093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1321886392093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alpha</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the obtained alpha value.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a20e554afa2f7b1015fd23ce240344b13">SetLayerAlpha</a></p>
+</div>
+<div class="section" id="getlayerbuffer">
+<h2>GetLayerBuffer<a class="headerlink" href="#getlayerbuffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerBuffer</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">LayerBuffer</span><span class="p">](</span><span class="n">layerbuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">buffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the buffer of a layer.</p>
+<p>After drawing a picture in the buffer, the application calls the
+<a class="reference external" href="layerfuncs.md#abb480bf2b85e93841c49fdc9800bd1e7">Flush</a> function to
+display the picture on the screen.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1085262865093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p944703234093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p482414576093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1858301275093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row2006096958093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1375174231093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>buffer</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the obtained buffer.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#abb480bf2b85e93841c49fdc9800bd1e7">Flush</a></p>
+</div>
+<div class="section" id="getlayercolorkey">
+<h2>GetLayerColorKey<a class="headerlink" href="#getlayercolorkey" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerColorKey</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="nb">bool</span> <span class="o">*</span><span class="n">enable</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="o">*</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the color key of a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row81899739093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p830941648093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2110619386093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row206914393093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row532574434093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1828372537093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>enable</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the color key enable bit.</p>
+</td></tr><tr id="row761109968093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the color key.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a5701fe1e0e2414de577aa5329bd873c9">SetLayerColorKey</a></p>
+</div>
+<div class="section" id="getlayercompression">
+<h2>GetLayerCompression<a class="headerlink" href="#getlayercompression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerCompression</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="o">*</span><span class="n">compType</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Checks whether the compression feature is enabled for a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1959725322093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1279781375093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p895211156093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row342222990093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1022257881093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1171134176093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>compType</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the variable specifying whether the compression
+feature is enabled.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a46c9750d8615dc874b66ac4b10796b24">SetLayerCompression</a></p>
+</div>
+<div class="section" id="getlayerpalette">
+<h2>GetLayerPalette<a class="headerlink" href="#getlayerpalette" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerPalette</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="o">*</span><span class="n">palette</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="nb">len</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the palette of a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1576036959093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p899160420093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2039609593093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row865245955093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1674406385093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1626074369093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>palette</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the obtained palette.</p>
+</td></tr><tr id="row1010174164093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the palette.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a3982c76e093852ef386fc372581be4af">SetLayerPalette</a></p>
+</div>
+<div class="section" id="getlayerpremulti">
+<h2>GetLayerPreMulti<a class="headerlink" href="#getlayerpremulti" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerPreMulti</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="nb">bool</span> <span class="o">*</span><span class="n">preMul</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the premultiplication flag of a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1991316039093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1887410458093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p660237536093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1030127948093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1770627252093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1729116278093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>preMul</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the obtained layer premultiplication flag.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a456aa01ca3ffa81d2e49c0a9487f816f">SetLayerPreMulti</a></p>
+</div>
+<div class="section" id="getlayersize">
+<h2>GetLayerSize<a class="headerlink" href="#getlayersize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerSize</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">IRect</span><span class="p">](</span><span class="n">irect</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">rect</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the size of a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1179113461093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p929921090093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p509335603093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1056608761093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1083453896093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row601771995093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>rect</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the obtained layer size.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#ab58e66b0676b1baa1662c175d43bf219">SetLayerSize</a></p>
+</div>
+<div class="section" id="getlayervisiblestate">
+<h2>GetLayerVisibleState<a class="headerlink" href="#getlayervisiblestate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerVisibleState</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="nb">bool</span> <span class="o">*</span><span class="n">visible</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Checks whether a layer is visible.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row179301628093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p61508176093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2078522371093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row924584418093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row892464969093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row421385068093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>visible</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the obtained layer visibility. The value true
+indicates that the layer is visible, and false indicates that the layer
+is invisible.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#aaa5bf7f98e8dc47510a4f26fb38094b6">SetLayerVisible</a></p>
+</div>
+<div class="section" id="getlayerzorder">
+<h2>GetLayerZorder<a class="headerlink" href="#getlayerzorder" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">GetLayerZorder</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="o">*</span><span class="n">zorder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the z-order of a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1637367783093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1556493325093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p319004314093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1710790864093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row310381938093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row105963335093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>zorder</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the obtained z-order. The value is an integer
+ranging from 0 to 255. A larger z-order value indicates a higher layer.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#aa3803c2a6395651d1538ffb62d29733d">SetLayerZorder</a></p>
+</div>
+<div class="section" id="initdisplay">
+<h2>InitDisplay<a class="headerlink" href="#initdisplay" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">InitDisplay</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Initializes a display device.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row17384343093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p832253932093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2140304851093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row734618597093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a8d7a715d7d2b4bd5ab0db92c2a1eec93">DeinitDisplay</a></p>
+</div>
+<div class="section" id="openlayer">
+<h2>OpenLayer<a class="headerlink" href="#openlayer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">OpenLayer</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">LayerInfo</span><span class="p">](</span><span class="n">layerinfo</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">layerInfo</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="o">*</span><span class="n">layerId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Opens a layer on a specified display device.</p>
+<p>Before using a layer on the GUI, you must open the layer based on the
+layer information. After the layer is opened, you can obtain the layer
+ID and then use other functions based on the layer ID.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row106611282093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p324761645093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p200308706093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1405462089093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row2584690093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerInfo</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the layer information passed to open a layer,
+including the layer type, layer size, and pixel format.</p>
+</td></tr><tr id="row139559933093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the layer ID, which identifies a unique layer.
+The layer ID is returned to the GUI after the layer is successfully
+opened.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a2e375f75209da329f131b914377e9616">CloseLayer</a></p>
+</div>
+<div class="section" id="setlayeralpha">
+<h2>SetLayerAlpha<a class="headerlink" href="#setlayeralpha" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerAlpha</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerid</span><span class="p">,</span> <span class="p">[</span><span class="n">LayerAlpha</span><span class="p">](</span><span class="n">layeralpha</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the alpha value for a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1100759469093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1196420401093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1674907026093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1833544359093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1757367915093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row2025273889093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alpha</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the alpha value to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#acf1e01338eeb0fd957f53ed0d2551394">GetLayerAlpha</a></p>
+</div>
+<div class="section" id="setlayercolorkey">
+<h2>SetLayerColorKey<a class="headerlink" href="#setlayercolorkey" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerColorKey</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">enable</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the color key for a layer.</p>
+<p>The color key is used during layer overlay.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row988694115093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2041875825093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p175497064093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row860406182093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row162588810093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row508898727093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>enable</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Specify whether to enable the color key.</p>
+</td></tr><tr id="row1728112134093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the color key.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#aea882232b6279b8be82c45e889187b24">GetLayerColorKey</a></p>
+</div>
+<div class="section" id="setlayercompression">
+<h2>SetLayerCompression<a class="headerlink" href="#setlayercompression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerCompression</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">compType</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the compression feature for a layer.</p>
+<p>In specific scenarios, images need to be compressed. You can set whether
+to enable layer compression.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1529493241093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1406223806093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1821647985093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row69655650093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row864443729093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row632304956093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>compType</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Specifies whether to enable the compression feature. The value true&gt;/b&gt;
+means to enable compression, and false&gt; means the opposite.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>**** Returns <strong>0</strong> if the operation is successful; returns an error
+code defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise. ****</p>
+<p><strong>See also:</strong></p>
+<p>****
+<a class="reference external" href="layerfuncs.md#ab0b5855ea4ee5228516303cba84907ce">GetLayerCompression</a>
+****</p>
+</div>
+<div class="section" id="setlayercrop">
+<h2>SetLayerCrop<a class="headerlink" href="#setlayercrop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerCrop</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">IRect</span><span class="p">](</span><span class="n">irect</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">rect</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the rectangular area to crop for a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row145522317093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p417430236093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1251325215093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row672930651093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1617062420093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row879691193093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>rect</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the rectangular area to crop.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="setlayerdirtyregion">
+<h2>SetLayerDirtyRegion<a class="headerlink" href="#setlayerdirtyregion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerDirtyRegion</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">IRect</span><span class="p">](</span><span class="n">irect</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">region</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the flushing area for a layer.</p>
+<p>After the GUI draws an image, you must set the layer flushing area
+before calling the
+<a class="reference external" href="layerfuncs.md#abb480bf2b85e93841c49fdc9800bd1e7">Flush</a> function to
+flush the screen.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2060333437093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2054333734093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1904335617093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1636357435093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row290451342093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row7325443093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>region</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the flushing area to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="setlayerpalette">
+<h2>SetLayerPalette<a class="headerlink" href="#setlayerpalette" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerPalette</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="o">*</span><span class="n">palette</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="nb">len</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the palette for a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1126292470093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p938597574093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p221293482093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1704166952093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row653753729093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1400954845093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>palette</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the palette to set.</p>
+</td></tr><tr id="row1705217419093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the palette.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#af713bc39e51dc8168c278e2f126bf4e3">GetLayerPalette</a></p>
+</div>
+<div class="section" id="setlayerpremulti">
+<h2>SetLayerPreMulti<a class="headerlink" href="#setlayerpremulti" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerPreMulti</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">preMul</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets layer premultiplication.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2008335903093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2020796955093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p36368346093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row293165169093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1232136311093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row55797100093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>preMul</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Specifies whether to enable layer premultiplication. The value 1 means
+to enable layer premultiplication, and 0 means the opposite.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a4a0e26f8401da1232f03bb37502ff4bd">GetLayerPreMulti</a></p>
+</div>
+<div class="section" id="setlayersize">
+<h2>SetLayerSize<a class="headerlink" href="#setlayersize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerSize</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">IRect</span><span class="p">](</span><span class="n">irect</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">rect</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the size of a layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row480762880093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1315234625093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p806382432093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1469557999093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row396094898093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row1004138495093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>rect</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the layer size to set, in pixels.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a56be84be25eba64497b2a842c1f68b26">GetLayerSize</a></p>
+</div>
+<div class="section" id="setlayervisible">
+<h2>SetLayerVisible<a class="headerlink" href="#setlayervisible" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerVisible</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">visible</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets whether a layer is visible.</p>
+<p>A visible layer is displayed on the screen, whereas an invisible layer
+is not displayed on the screen.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1820877154093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p447177618093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p603092946093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1255658259093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row2005245510093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row777897011093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>visible</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the visibility to set for the layer. The value true means to
+set the layer to be visible, and false means the opposite.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a6bbff71bb4f17eb84a4db4857a0b0985">GetLayerVisibleState</a></p>
+</div>
+<div class="section" id="setlayerzorder">
+<h2>SetLayerZorder<a class="headerlink" href="#setlayerzorder" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetLayerZorder</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">zorder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the z-order for a layer.</p>
+<p>A larger z-order value indicates a higher layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2131634649093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1946247641093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p725176743093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row792333034093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1252891266093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row606847427093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>zorder</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the z-order to set. The value is an integer ranging from 0 to
+255.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="layerfuncs.md#a5644645442e1d6943b55ce0a6a801b8c">GetLayerZorder</a></p>
+</div>
+<div class="section" id="settransformmode">
+<h2>SetTransformMode<a class="headerlink" href="#settransformmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SetTransformMode</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">,</span> <span class="p">[</span><span class="n">TransformType</span><span class="p">](</span><span class="n">display</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa65f3b21a9a92ff022e435a7304126d2) type)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the transform mode for a layer.</p>
+<p>Using this function, you can rotate, scale, and move the layer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1784814313093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p949541882093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1601894993093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row619059072093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row134464179093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row317716929093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the transformation mode to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="snapshot">
+<h2>SnapShot<a class="headerlink" href="#snapshot" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">SnapShot</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="p">[</span><span class="n">LayerBuffer</span><span class="p">](</span><span class="n">layerbuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">buffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Implements the snapshot feature.</p>
+<p>This function saves the screenshot of image data on the display device
+to the buffer for debugging or as requested by applications.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1618470585093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p818370175093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1883261800093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1315996068093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row823216927093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>buffer</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the buffer for saving screenshots.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="waitforvblank">
+<h2>WaitForVBlank<a class="headerlink" href="#waitforvblank" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">LayerFuncs</span><span class="p">::</span><span class="n">WaitForVBlank</span><span class="p">)</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">devId</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">layerId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Waits for the arrival of vertical blanking.</p>
+<p>This function blocks the process until vertical blanking arrives,
+implementing the synchronization between software and hardware.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row533202272093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1570369132093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p6749341093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row712612358093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of a display device. The value ranges from 0 to 4,
+where 0 indicates the first display device and 4 indicates the last
+display device.</p>
+</td></tr><tr id="row1440376428093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>layerId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the layer ID, which identifies a unique layer. You can perform
+operations on the layer with the specified layer ID.</p>
+</td></tr><tr id="row964608140093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOut</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the maximum duration that the process waits for the arrival of
+vertical blanking.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="display.md#ga12a925dadef7573cd74d63d06824f9b0">DispErrCode</a>
+otherwise.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/layerfuncs.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

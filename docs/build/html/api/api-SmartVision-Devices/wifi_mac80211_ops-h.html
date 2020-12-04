@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wifi_mac80211_ops.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wifi-mac80211-ops-h">
+<h1>wifi_mac80211_ops.h<a class="headerlink" href="#wifi-mac80211-ops-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wlan.md">WLAN</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares Media Access Control (MAC) APIs and functions related to
+control flows.</p>
+<p>This file declares APIs for scanning, connection, disconnection, and
+mode conversion, as well as data structures of the parameters of these
+APIs.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2032615057084834"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p384811771084834"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1088269676084834"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1931248843084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p481619112084834"><p>KeyParams</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1943204476084834"><p>Describes a key.</p>
+</p></td></tr><tr id="row193588226084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1663785965084834"><p>Ieee80211Channel</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p975066648084834"><p>Describes a communication channel.</p>
+</p></td></tr><tr id="row369149342084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1101512997084834"><p>Ieee80211Rate</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p262530186084834"><p>Describes the IEEE 802.11 rate.</p>
+</p></td></tr><tr id="row2143449456084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p170405186084834"><p>Ieee80211McsInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p784666835084834"><p>Describes IEEE 802.11 Modulation and Coding Scheme (MCS) information.</p>
+</p></td></tr><tr id="row1863240130084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1872305437084834"><p>Ieee80211StaHtCap</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1857118199084834"><p>Describes the IEEE 802.11 high-throughput (HT) capability.</p>
+</p></td></tr><tr id="row992638711084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p679570798084834"><p>Ieee80211SupportedBand</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1058798448084834"><p>Describes IEEE 802.11 band information.</p>
+</p></td></tr><tr id="row2110983091084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p298961122084834"><p>Wiphy</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1961856449084834"><p>Describes a wiphy device.</p>
+</p></td></tr><tr id="row1235519113084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p484601109084834"><p>WifiSsid</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p223594919084834"><p>Describes an SSID.</p>
+</p></td></tr><tr id="row184238508084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p799486307084834"><p>ChannelDef</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p739985811084834"><p>Describes a communication channel.</p>
+</p></td></tr><tr id="row1248325131084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p202059886084834"><p>WirelessDev</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1620567909084834"><p>Describes a wireless device.</p>
+</p></td></tr><tr id="row7850097084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p996514700084834"><p>WifiScanRequest</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p902706537084834"><p>Describes scan request parameters.</p>
+</p></td></tr><tr id="row1481060177084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1035807439084834"><p>CryptoSettings</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p779009754084834"><p>Describes cryptography settings.</p>
+</p></td></tr><tr id="row727972448084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p38003701084834"><p>MacAddress</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p72936192084834"><p>Describes the device MAC address.</p>
+</p></td></tr><tr id="row317387377084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p119206230084834"><p>WifiConnectParams</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1635965278084834"><p>Describes parameters for a connection request.</p>
+</p></td></tr><tr id="row1148976339084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p307539681084834"><p>VifParams</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p651555729084834"><p>Describes virtual API parameters.</p>
+</p></td></tr><tr id="row176410118084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p431955289084834"><p>StationDelParameters</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1789824895084834"><p>Describes parameters for canceling a connection.</p>
+</p></td></tr><tr id="row1190967954084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p58876898084834"><p>MacConfigParam</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p225201516084834"><p>Describes MAC configuration parameters.</p>
+</p></td></tr><tr id="row1994661571084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p159350261084834"><p>Mac80211DisconnectParam</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1976095921084834"><p>Describes disconnection parameters.</p>
+</p></td></tr><tr id="row55665046084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1669155536084834"><p>Mac80211Ssids</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1868531868084834"><p>Describes SSIDs.</p>
+</p></td></tr><tr id="row1265233861084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1438349182084834"><p>Mac80211beaconParam</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p47673384084834"><p>Describes beacon parameters.</p>
+</p></td></tr><tr id="row403189812084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1649378101084834"><p>WifiMac80211Ops</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1017483316084834"><p>Describes MAC-layer control APIs that need to be implemented by the
+driver.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row987719948084834"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p787456838084834"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p372650164084834"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row819233921084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1353869964084834"><p>WifiConnectParams</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p983973657084834"><p>typedef struct WifiConnectParams</p>
+</p><p id="p2008666655084834"><p>Describes parameters for a connection request.</p>
+</p></td></tr><tr id="row440968732084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p910900759084834"><p>Mac80211SetMacParam</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p304991451084834"><p>typedef struct MacConfigParam</p>
+</p><p id="p1309948927084834"><p>Describes MAC configuration parameters.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2120011977084834"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1619479146084834"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p751514269084834"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2089751962084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1349667157084834"><p>MacSetType { MAC_BEACON_SET = 0, MAC_BEACON_ADD = 1 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p69093415084834"><p>Enumerates setting types of MAC addresses.</p>
+</p></td></tr><tr id="row1978158464084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1044531126084834"><p>Ieee80211Band { IEEE80211_BAND_2GHZ, IEEE80211_BAND_5GHZ,
+IEEE80211_NUM_BANDS }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p217241545084834"><p>Enumerates frequency bands.</p>
+</p></td></tr><tr id="row438760750084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p901637932084834"><p>WifiChannelType { WIFI_CHAN_NO_HT, WIFI_CHAN_HT20, WIFI_CHAN_HT40MINUS,
+WIFI_CHAN_HT40PLUS }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p618650735084834"><p>Enumerates channel types.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row937815670084834"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1017091292084834"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1297893574084834"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1675457722084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1762550803084834"><p>Mac80211RegisterOps (struct WifiMac80211Ops *ops)
+<strong>attribute</strong>((weak))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1068775402084834"><p>int32_t</p>
+</p><p id="p98791596084834"><p>Registers a WifiMac80211Ops object.</p>
+</p></td></tr><tr id="row297823607084834"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p995469429084834"><p>Mac80211GetOps (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1976301203084834"><p>struct WifiMac80211Ops *</p>
+</p><p id="p1966411142084834"><p>Obtains the WifiMac80211Ops object that the driver needs to implement.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/wifi_mac80211_ops-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

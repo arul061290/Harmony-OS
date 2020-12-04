@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WifiMac80211Ops &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wifimac80211ops">
+<h1>WifiMac80211Ops<a class="headerlink" href="#wifimac80211ops" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wlan.md">WLAN</a></p>
+<p><strong>Description:</strong></p>
+<p>Describes MAC-layer control APIs that need to be implemented by the
+driver.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1067623380084842"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p314058054084842"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1948451261084842"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row949996979084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1733295837084842"><p>changeVirtualIntf )(NetDevice <em>netDev, uint8_t iftype, uint32_t</em>flags,
+struct VifParams *params)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2116096109084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row595855350084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1571497458084842"><p>setSsid )(NetDevice <em>netDev, const uint8_t</em>ssid, uint32_t ssidLen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p705890806084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1067213486084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p218730540084842"><p>setMeshId )(NetDevice <em>netDev, const char</em>meshId, uint32_t meshIdLen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1317294999084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1108018159084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1936236269084842"><p>setMacAddr )(NetDevice <em>netDev, Mac80211SetMacParam</em>param)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1111677984084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1627046804084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p615972082084842"><p>changeBeacon )(NetDevice <em>netDev, Mac80211beaconParam</em>param)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2126262255084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1913706519084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2130112415084842"><p>setChannel )(NetDevice *netDev)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2111894127084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1641937130084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p745692553084842"><p>addKey )(struct NetDevice <em>netdev, uint8_t keyIndex, bool pairwise,
+const uint8_t</em>macAddr, struct KeyParams *params)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p81219953084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row899227140084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p989827613084842"><p>delKey )(struct NetDevice <em>netdev, uint8_t keyIndex, bool pairwise,
+const uint8_t</em>macAddr)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p337546595084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row187742809084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1342372725084842"><p>setDefaultKey )(struct NetDevice *netdev, uint8_t keyIndex, bool
+unicast, bool multicas)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p947245658084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row544275295084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p447583182084842"><p>startAp )(NetDevice *netDev)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1371156885084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1448496561084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p478617089084842"><p>stopAp )(NetDevice *netDev)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p611020684084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1218095205084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1174373987084842"><p>delStation )(NetDevice <em>netDev, const uint8_t</em>macAddr)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p689970439084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row2020735536084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1209283503084842"><p>connect )(NetDevice <em>netDev, WifiConnectParams</em>param)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1620159743084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row1396284153084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p595092656084842"><p>disconnect )(NetDevice *netDev, uint16_t reasonCode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p434373680084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row2072218142084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1666886644084842"><p>startScan )(NetDevice <em>netDev, struct WifiScanRequest</em>param)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1149565783084842"><p>int32_t(*</p>
+</p></td></tr><tr id="row304183241084842"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1686142177084842"><p>abortScan )(NetDevice *netDev)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p68583376084842"><p>int32_t(*</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/wifimac80211ops.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

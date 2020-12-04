@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hdf_base.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hdf-base-h">
+<h1>hdf_base.h<a class="headerlink" href="#hdf-base-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="driverutils.md">DriverUtils</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares driver common types, including the enumerated values returned
+by the function and the macro for obtaining the array size.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2118604838093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1322089123093525"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p635166416093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1393879724093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p496276738093525"><p>HDF_BSP_ERR_START (-100)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row827781206093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p730909232093525"><p>HDF_BSP_ERR_NUM(v) (HDF_BSP_ERR_START + (v))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row566130850093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1875782812093525"><p>HDF_DEV_ERR_START (-200)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row988444295093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p328098433093525"><p>HDF_DEV_ERR_NUM(v) (HDF_DEV_ERR_START + (v))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row636327610093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1037030001093525"><p>HDF_WAIT_FOREVER 0xFFFFFFFF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p756235527093525"><p>Indicates that the function keeps waiting to obtain a semaphore or
+mutex.</p>
+</p></td></tr><tr id="row1557370852093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2124546032093525"><p>HDF_ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1865018801093525"><p>Defines the array size.</p>
+</p></td></tr><tr id="row1541401837093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1286312222093525"><p>HDF_KILO_UNIT 1000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2105498480093525"><p>Defines a time conversion unit, for example, the unit for converting
+from second to millisecond.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1069882028093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1523920182093525"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1621099188093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1073408598093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p894603558093525"><p>HDF_STATUS { HDF_SUCCESS = 0, HDF_FAILURE = -1, HDF_ERR_NOT_SUPPORT =
+-2, HDF_ERR_INVALID_PARAM = -3, HDF_ERR_INVALID_OBJECT = -4,
+HDF_ERR_MALLOC_FAIL = -6, HDF_ERR_TIMEOUT = -7,
+HDF_ERR_THREAD_CREATE_FAIL = -10, HDF_ERR_QUEUE_FULL = -15,
+HDF_ERR_DEVICE_BUSY = -16, HDF_ERR_IO = -17, HDF_ERR_BAD_FD = -18,
+HDF_BSP_ERR_OP = HDF_BSP_ERR_NUM(-1), HDF_ERR_BSP_PLT_API_ERR =
+HDF_BSP_ERR_NUM(-2), HDF_PAL_ERR_DEV_CREATE = HDF_BSP_ERR_NUM(-3),
+HDF_PAL_ERR_INNER = HDF_BSP_ERR_NUM(-4), HDF_DEV_ERR_NO_MEMORY =
+HDF_DEV_ERR_NUM(-1), HDF_DEV_ERR_NO_DEVICE = HDF_DEV_ERR_NUM(-2),
+HDF_DEV_ERR_NO_DEVICE_SERVICE = HDF_DEV_ERR_NUM(-3),
+HDF_DEV_ERR_DEV_INIT_FAIL = HDF_DEV_ERR_NUM(-4),
+HDF_DEV_ERR_PUBLISH_FAIL = HDF_DEV_ERR_NUM(-5),
+HDF_DEV_ERR_ATTACHDEV_FAIL = HDF_DEV_ERR_NUM(-6), HDF_DEV_ERR_NODATA =
+HDF_DEV_ERR_NUM(-7), HDF_DEV_ERR_NORANGE = HDF_DEV_ERR_NUM(-8),
+HDF_DEV_ERR_OP = HDF_DEV_ERR_NUM(-10) }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1950238103093525"><p>Enumerates HDF return value types.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macro-definition-documentation">
+<h2><strong>Macro Definition Documentation</strong><a class="headerlink" href="#macro-definition-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="hdf-bsp-err-num">
+<h2>HDF_BSP_ERR_NUM<a class="headerlink" href="#hdf-bsp-err-num" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HDF_BSP_ERR_NUM( v)   ([HDF_BSP_ERR_START](hdf_base-h.md#aa6370acad4a8ca2031370c833f2ff51f) + (v))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the BSP module error codes.</p>
+</div>
+<div class="section" id="hdf-bsp-err-start">
+<h2>HDF_BSP_ERR_START<a class="headerlink" href="#hdf-bsp-err-start" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HDF_BSP_ERR_START   (-100)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the start of the Board Support Package (BSP) module error codes.</p>
+</div>
+<div class="section" id="hdf-dev-err-num">
+<h2>HDF_DEV_ERR_NUM<a class="headerlink" href="#hdf-dev-err-num" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HDF_DEV_ERR_NUM( v)   ([HDF_DEV_ERR_START](hdf_base-h.md#afdce96b5c938acadb74cdcb09d53cfaf) + (v))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the device module error codes.</p>
+</div>
+<div class="section" id="hdf-dev-err-start">
+<h2>HDF_DEV_ERR_START<a class="headerlink" href="#hdf-dev-err-start" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HDF_DEV_ERR_START   (-200)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the start of the device module error codes.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/hdf_base-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

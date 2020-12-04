@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LINKER &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="linker">
+<h1>LINKER<a class="headerlink" href="#linker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides functions and structures related to linking and loading.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1401306351084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p391479296084825"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p231466388084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1305381503084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p13423372084825"><p>dlfcn.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1465033084084825"><p>Provides functions and structures related to linking and loading.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1264510603084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1765023098084825"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p411603155084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1534629431084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p580560698084825"><p>RTLD_LAZY 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1039447625084825"><p>All undefined symbols in the shared object are not resolved before
+dlopen() returns.</p>
+</p></td></tr><tr id="row516241716084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1329594192084825"><p>RTLD_NOW 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1912809440084825"><p>All undefined symbols in the shared object are resolved before dlopen()
+returns.</p>
+</p></td></tr><tr id="row1865641305084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2142172841084825"><p>RTLD_NOLOAD 4</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1250652025084825"><p>The shared object is not loaded. It can be used to test whether the
+object resides in the memory.</p>
+</p></td></tr><tr id="row1362129475084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1155307019084825"><p>RTLD_NODELETE 4096</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p734018458084825"><p>The shared object is not deleted during dlclose().</p>
+</p></td></tr><tr id="row1646745202084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p413856703084825"><p>RTLD_GLOBAL 256</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1535058742084825"><p>The symbols defined by the loaded shared object can be resolved by other
+shared objects opened later.</p>
+</p></td></tr><tr id="row1629672610084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1864746640084825"><p>RTLD_LOCAL 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1952382172084825"><p>The symbols defined by the loaded shared object cannot be resolved by
+other shared objects opened later.</p>
+</p></td></tr><tr id="row21390697084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1113481075084825"><p>RTLD_NEXT ((void *)-1)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p77250570084825"><p>The next match of the required symbol is searched in the search order
+after the current object.</p>
+</p></td></tr><tr id="row1281839865084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1464345516084825"><p>RTLD_DEFAULT ((void *)0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p38595140084825"><p>The first match of the required symbol is searched in the default shared
+object search order. The search scope includes the global symbols of the
+program and its dependencies, and the global symbols loaded by the
+dlopen() function.</p>
+</p></td></tr><tr id="row1854508129084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p731551837084825"><p>RTLD_DI_LINKMAP 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1812546376084825"><p>The pointer to the link_map structure of the specified handle.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row442721617084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p892210895084825"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1640702598084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1622817765084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1285494619084825"><p>dlclose (void *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1810650637084825"><p>int</p>
+</p><p id="p375954653084825"><p>Closes the DLL of a specified handle.</p>
+</p></td></tr><tr id="row1190872416084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1928172100084825"><p>dlerror (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1863841544084825"><p>char *</p>
+</p><p id="p736658124084825"><p>Obtains the latest error that occurred during a DLL function execution
+failure.</p>
+</p></td></tr><tr id="row1561549575084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1619130112084825"><p>dlopen (const char *filename, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p870530651084825"><p>void *</p>
+</p><p id="p1241362467084825"><p>Opens a DLL and returns its handle.</p>
+</p></td></tr><tr id="row2120726308084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2006475076084825"><p>dlsym (void <em>handle, const char</em>symbol)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p885766960084825"><p>void *</p>
+</p><p id="p1073482357084825"><p>Searches for a specified symbol based on the DLL handle.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dlclose">
+<h2>dlclose()<a class="headerlink" href="#dlclose" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">dlclose</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Closes the DLL of a specified handle.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1679938918084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1993083246084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1221975086084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row934813209084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the loaded DLL handle.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>The symbols associated with the handle may not be removed from the
+caller’s address space even if the
+<a class="reference external" href="linker.md#gaf483b6c4400965aa885f9f1a144138a5">dlclose()</a> function
+returns. The symbols are removed only when the reference count of the
+DLL is 0. The reference count is incremented (by 1) each time the
+<a class="reference external" href="linker.md#gad559be443b3edb0af8835d6ec2c29a3a">dlopen()</a> function is
+explicitly called. In addition, the reference of DLL depended on by
+other DLLs or programs will be counted if it has been implicitly loaded.
+A shared object can be removed from the address space only after all
+references are released.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+if the operation fails.</p>
+</div>
+<div class="section" id="dlerror">
+<h2>dlerror()<a class="headerlink" href="#dlerror" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">dlerror</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the latest error that occurred during a DLL function execution
+failure.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the error if occurred; returns <strong>NULL</strong> if the DLL function
+execution is successful.</p>
+</div>
+<div class="section" id="dlopen">
+<h2>dlopen()<a class="headerlink" href="#dlopen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="o">*</span> <span class="n">dlopen</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Opens a DLL and returns its handle.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row992879704084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1139497308084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p844740991084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1456031842084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>filename</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the file name of the DLL.</p>
+</td></tr><tr id="row1012545503084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>flags</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the flag of the DLL to be loaded.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the DLL handle if the operation is successful; returns <strong>NULL</strong>
+if the operation fails.</p>
+</div>
+<div class="section" id="dlsym">
+<h2>dlsym()<a class="headerlink" href="#dlsym" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="o">*</span> <span class="n">dlsym</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">symbol</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Searches for a specified symbol based on the DLL handle.</p>
+<p>You can also use this function to obtain the loading addresses of global
+variables.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row544373741084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1736147775084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p839346772084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1337981219084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the loaded DLL handle.</p>
+</td></tr><tr id="row1830289209084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>symbol</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the symbol name.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the symbol address if the operation is successful; returns
+<strong>NULL</strong> if the operation fails.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/linker.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driver Message Mechanism Management &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="driver-message-mechanism-management">
+<h1>Driver Message Mechanism Management<a class="headerlink" href="#driver-message-mechanism-management" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="when-to-use">
+<h2>When to Use<a class="headerlink" href="#when-to-use" title="Permalink to this headline">¶</a></h2>
+<p>When user-level applications need to interact with kernel-level drivers,
+the driver message mechanism of the HDF can be used.</p>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p>The message mechanism provides the following features:</p>
+<ol class="arabic simple">
+<li><p>User-level applications send messages to drivers.</p></li>
+<li><p>User-level applications receive events sent by the drivers.</p></li>
+</ol>
+<p><strong>Table 1</strong> APIs for the driver message mechanism</p>
+<table><thead align="left"><tr id="row08282618416"><th class="cellrowborder" valign="top" width="46.379999999999995%" id="mcps1.2.3.1.1"><p id="p382132664112"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="53.620000000000005%" id="mcps1.2.3.1.2"><p id="p4826264419"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1582426174114"><td class="cellrowborder" valign="top" width="46.379999999999995%" headers="mcps1.2.3.1.1 "><p id="p182341916144420"><p>struct HdfIoService <em>HdfIoServiceBind(const char</em>serviceName, mode_t
+permission)</p>
+</p></td><td class="cellrowborder" valign="top" width="53.620000000000005%" headers="mcps1.2.3.1.2 "><p id="p58272614113"><p>Obtains a specified driver service. After the service is obtained, the
+Dispatch function of the service is used to send messages to the driver.</p>
+</p></td></tr><tr id="row578565084913"><td class="cellrowborder" valign="top" width="46.379999999999995%" headers="mcps1.2.3.1.1 "><p id="p15786185024918"><p>void HdfIoServiceRecycle(struct HdfIoService *service);</p>
+</p></td><td class="cellrowborder" valign="top" width="53.620000000000005%" headers="mcps1.2.3.1.2 "><p id="p47861750154912"><p>Releases a specified driver service.</p>
+</p></td></tr><tr id="row1382112617413"><td class="cellrowborder" valign="top" width="46.379999999999995%" headers="mcps1.2.3.1.1 "><p id="p482182611415"><p>int HdfDeviceRegisterEventListener(struct HdfIoService <em>target, struct
+HdfDevEventlistener</em>listener);</p>
+</p></td><td class="cellrowborder" valign="top" width="53.620000000000005%" headers="mcps1.2.3.1.2 "><p id="p18825261412"><p>Receives events sent by the drivers.</p>
+</p></td></tr><tr id="row498956124019"><td class="cellrowborder" valign="top" width="46.379999999999995%" headers="mcps1.2.3.1.1 "><p id="p6412911184019"><p>int HdfDeviceSendEvent(struct HdfDeviceObject <em>deviceObject, uint32_t
+id, struct HdfSBuf</em>data);</p>
+</p></td><td class="cellrowborder" valign="top" width="53.620000000000005%" headers="mcps1.2.3.1.2 "><p id="p1698915634018"><p>Sends events.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Set the value of the <strong>policy</strong> field in the driver configuration
+information to <strong>2</strong> (SERVICE_POLICY_CAPACITY, see <a class="reference external" href="driver-service-management.md">Driver Service
+Management</a>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device_sample</span> <span class="p">::</span> <span class="n">Device</span> <span class="p">{</span>
+    <span class="n">policy</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <strong>permission</strong> field in the driver configuration information
+indicates the permission provided for the driver to create device
+nodes. The default value is <strong>0666</strong>. You can configure the value of
+this field based on the actual application scenario of the driver.</p></li>
+<li><p>Implement the <strong>Dispatch</strong> function of the service base member
+<strong>IDeviceIoService</strong> during service implementation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Process</span> <span class="n">messages</span> <span class="n">delivered</span> <span class="n">by</span> <span class="n">user</span><span class="o">-</span><span class="n">level</span> <span class="n">applications</span><span class="o">.</span>
+<span class="n">int32_t</span> <span class="n">SampleDriverDispatch</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">device</span><span class="p">,</span> <span class="nb">int</span> <span class="n">cmdCode</span><span class="p">,</span> <span class="n">struct</span> <span class="n">HdfSBuf</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">struct</span> <span class="n">HdfSBuf</span> <span class="o">*</span><span class="n">reply</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;sample driver lite A dispatch&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">int32_t</span> <span class="n">SampleDriverBind</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">device</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;test for lite os sample driver A Open!&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">device</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;test for lite os sample driver A Open failed!&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">static</span> <span class="n">struct</span> <span class="n">ISampleDriverService</span> <span class="n">sampleDriverA</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">.</span><span class="n">ioService</span><span class="o">.</span><span class="n">Dispatch</span> <span class="o">=</span> <span class="n">SampleDriverDispatch</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">ServiceA</span> <span class="o">=</span> <span class="n">SampleDriverServiceA</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">ServiceB</span> <span class="o">=</span> <span class="n">SampleDriverServiceB</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="n">device</span><span class="o">-&gt;</span><span class="n">service</span> <span class="o">=</span> <span class="p">(</span><span class="n">struct</span> <span class="n">IDeviceIoService</span> <span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">sampleDriverA</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Define the CMD type in the message processing function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define SAMPLE_WRITE_READ 1    // Read and write operation 1</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enable the user-level application to obtain the service interface and
+send messages to the driver.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>int SendMsg(const char *testMsg)
+{
+    if (testMsg == NULL) {
+        HDF_LOGE(&quot;test msg is null&quot;);
+        return -1;
+    }
+    struct HdfIoService *serv = HdfIoServiceBind(&quot;sample_driver&quot;, 0);
+    if (serv == NULL) {
+        HDF_LOGE(&quot;fail to get service&quot;);
+        return -1;
+    }
+    struct HdfSBuf *data = HdfSBufObtainDefaultSize();
+    if (data == NULL) {
+        HDF_LOGE(&quot;fail to obtain sbuf data&quot;);
+        return -1;
+    }
+    struct HdfSBuf *reply = HdfSBufObtainDefaultSize();
+    if (reply == NULL) {
+        HDF_LOGE(&quot;fail to obtain sbuf reply&quot;);
+        ret = HDF_DEV_ERR_NO_MEMORY;
+        goto out;
+    }
+    if (!HdfSbufWriteString(data, testMsg)) {
+        HDF_LOGE(&quot;fail to write sbuf&quot;);
+        ret = HDF_FAILURE;
+        goto out;
+    }
+    int ret = serv-&gt;dispatcher-&gt;Dispatch(&amp;serv-&gt;object, SAMPLE_WRITE_READ, data, reply);
+    if (ret != HDF_SUCCESS) {
+        HDF_LOGE(&quot;fail to send service call&quot;);
+        goto out;
+    }
+out:
+    HdfSBufRecycle(data);
+    HdfSBufRecycle(reply);
+    HdfIoServiceRecycle(serv);
+    return ret;
+}
+</pre></div>
+</div>
+</li>
+<li><p>Enable the user-level application to receive messages reported by the
+driver.</p>
+<ol class="arabic">
+<li><p>Enable the user-level application to compile the function for
+processing messages reported by the driver.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">OnDevEventReceived</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">priv</span><span class="p">,</span>  <span class="n">uint32_t</span> <span class="nb">id</span><span class="p">,</span> <span class="n">struct</span> <span class="n">HdfSBuf</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">OsalTimespec</span> <span class="n">time</span><span class="p">;</span>
+    <span class="n">OsalGetTime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">time</span><span class="p">);</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> received event at %llu.%llu&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="p">)</span><span class="n">priv</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">sec</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">usec</span><span class="p">);</span>
+
+    <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="n">HdfSbufReadString</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">string</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;fail to read string in event data&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: dev event received: </span><span class="si">%d</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="p">)</span><span class="n">priv</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">string</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enable the user-level application to register the function for
+receiving messages reported by the driver.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">RegisterListen</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">struct</span> <span class="n">HdfIoService</span> <span class="o">*</span><span class="n">serv</span> <span class="o">=</span> <span class="n">HdfIoServiceBind</span><span class="p">(</span><span class="s2">&quot;sample_driver&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">serv</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;fail to get service&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">static</span> <span class="n">struct</span> <span class="n">HdfDevEventlistener</span> <span class="n">listener</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">.</span><span class="n">callBack</span> <span class="o">=</span> <span class="n">OnDevEventReceived</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">priv</span> <span class="o">=</span><span class="s2">&quot;Service0&quot;</span>
+    <span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">HdfDeviceRegisterEventListener</span><span class="p">(</span><span class="n">serv</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">listener</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;fail to register event listener&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">......</span>
+    <span class="n">HdfDeviceUnregisterEventListener</span><span class="p">(</span><span class="n">serv</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">listener</span><span class="p">);</span>
+    <span class="n">HdfIoServiceRecycle</span><span class="p">(</span><span class="n">serv</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enable the driver to report events.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SampleDriverDispatch</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">device</span><span class="p">,</span> <span class="nb">int</span> <span class="n">cmdCode</span><span class="p">,</span> <span class="n">struct</span> <span class="n">HdfSBuf</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">struct</span> <span class="n">HdfSBuf</span> <span class="o">*</span><span class="n">reply</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span> <span class="o">//</span> <span class="n">process</span> <span class="n">api</span> <span class="n">call</span> <span class="n">here</span>
+    <span class="k">return</span> <span class="n">HdfDeviceSendEvent</span><span class="p">(</span><span class="n">deviceObject</span><span class="p">,</span> <span class="n">cmdCode</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/driver-message-mechanism-management.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

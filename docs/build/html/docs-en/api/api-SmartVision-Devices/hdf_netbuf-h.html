@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hdf_netbuf.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hdf-netbuf-h">
+<h1>hdf_netbuf.h<a class="headerlink" href="#hdf-netbuf-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wlan.md">WLAN</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares network data buffers and provides APIs for operating buffer
+queues.</p>
+<p>This file describes the following network data operations for network
+device driver development: Applying for, releasing, and moving a network
+data buffer Initializing a network data buffer queue, placing a network
+data buffer to a queue, and removing a network data buffer from a queue</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1809402544084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p704493289084830"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p305797461084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row492756947084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p752045555084830"><p>NetBuf</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1167495105084830"><p>Records and saves a network data buffer.</p>
+</p></td></tr><tr id="row1903589401084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p346264842084830"><p>NetBufQueue</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2030039728084830"><p>Indicates the queues for storing network data.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row306372467084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1363899640084830"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1383530526084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row860669978084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p193126665084830"><p>MAX_NETBUF_RESEVER_SIZE 68</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1086000371084830"><p>Defines the reserved field of a network data buffer used to store
+private information.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1391135278084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p360696949084830"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1863730264084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row139117772084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1489136239084830"><p>{ E_HEAD_BUF, E_DATA_BUF, E_TAIL_BUF, MAX_BUF_NUM }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p291686347084830"><p>Enumerates the segments of a network data buffer.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1874055758084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1658913838084830"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1261207828084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1410530556084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1802436455084830"><p>NetBufQueueInit (struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1553357123084830"><p>static void</p>
+</p><p id="p1954915200084830"><p>Initializes a network data buffer queue.</p>
+</p></td></tr><tr id="row995819684084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1590205803084830"><p>NetBufQueueSize (const struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p625910844084830"><p>static uint32_t</p>
+</p><p id="p1528203006084830"><p>Obtains the size of a network data buffer queue.</p>
+</p></td></tr><tr id="row991165898084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p302042900084830"><p>NetBufQueueIsEmpty (const struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1007612342084830"><p>static bool</p>
+</p><p id="p657832703084830"><p>Checks whether the network data buffer queue is empty.</p>
+</p></td></tr><tr id="row1773682241084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1662441722084830"><p>NetBufQueueEnqueue (struct NetBufQueue <em>q, struct NetBuf</em>nb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p749774250084830"><p>void</p>
+</p><p id="p251023529084830"><p>Adds a network data buffer to the tail of a queue.</p>
+</p></td></tr><tr id="row396764396084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1033202403084830"><p>NetBufQueueEnqueueHead (struct NetBufQueue <em>q, struct NetBuf</em>nb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1477273027084830"><p>void</p>
+</p><p id="p481618962084830"><p>Adds a network data buffer to the header of a queue.</p>
+</p></td></tr><tr id="row435495855084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p484873437084830"><p>NetBufQueueDequeue (struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2002588702084830"><p>struct NetBuf *</p>
+</p><p id="p140863412084830"><p>Obtains a network data buffer from the header of a queue and deletes it
+from the queue.</p>
+</p></td></tr><tr id="row536183793084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1360315015084830"><p>NetBufQueueDequeueTail (struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1178377946084830"><p>struct NetBuf *</p>
+</p><p id="p1615225889084830"><p>Obtains a network data buffer from the tail of a queue and deletes it
+from the queue.</p>
+</p></td></tr><tr id="row97932756084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1900553448084830"><p>NetBufQueueAtHead (const struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2018834823084830"><p>static struct NetBuf *</p>
+</p><p id="p217931197084830"><p>Obtains the network data buffer from the header of a queue, without
+deleting it from the queue.</p>
+</p></td></tr><tr id="row694494053084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2146667009084830"><p>NetBufQueueAtTail (const struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p927542750084830"><p>static struct NetBuf *</p>
+</p><p id="p93424888084830"><p>Obtains the network data buffer from the tail of a queue, without
+deleting it from the queue.</p>
+</p></td></tr><tr id="row1072343122084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1380231756084830"><p>NetBufQueueClear (struct NetBufQueue *q)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1292845723084830"><p>void</p>
+</p><p id="p1373545309084830"><p>Clears a network data buffer queue and releases the network data buffer
+in the queue.</p>
+</p></td></tr><tr id="row1249885891084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1859137337084830"><p>NetBufQueueConcat (struct NetBufQueue <em>q, struct NetBufQueue</em>add)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p717734055084830"><p>void</p>
+</p><p id="p167330546084830"><p>Moves all network data buffers from one queue to another and clears the
+source queue.</p>
+</p></td></tr><tr id="row1179769917084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1140469434084830"><p>NetBufAlloc (uint32_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1868165751084830"><p>struct NetBuf *</p>
+</p><p id="p1933348750084830"><p>Applies for a network data buffer.</p>
+</p></td></tr><tr id="row1061110537084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1285811158084830"><p>NetBufFree (struct NetBuf *nb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1822794131084830"><p>void</p>
+</p><p id="p1140213095084830"><p>Releases a network data buffer.</p>
+</p></td></tr><tr id="row1659246138084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p919993090084830"><p>NetBufDevAlloc (const struct NetDevice *dev, uint32_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1742194318084830"><p>struct NetBuf *</p>
+</p><p id="p841030219084830"><p>Applies for a network data buffer based on the reserved space and
+requested size set by a network device.</p>
+</p></td></tr><tr id="row139089176084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p719132011084830"><p>NetBufPush (struct NetBuf *nb, uint32_t id, uint32_t len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p748401245084830"><p>void *</p>
+</p><p id="p1933370676084830"><p>Performs operations based on the segment ID of a network data buffer.
+The function is opposite to that of NetBufPop.</p>
+</p></td></tr><tr id="row1879985743084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p358409181084830"><p>NetBufPop (struct NetBuf *nb, uint32_t id, uint32_t len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p744511676084830"><p>void *</p>
+</p><p id="p706397001084830"><p>Performs operations based on the segment ID of a network data buffer.
+The function is opposite to that of NetBufPush.</p>
+</p></td></tr><tr id="row2065723674084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p6122860084830"><p>NetBufGetAddress (const struct NetBuf *nb, uint32_t id)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1701370972084830"><p>static uint8_t *</p>
+</p><p id="p1343041350084830"><p>Obtains the address of a specified buffer segment in a network data
+buffer.</p>
+</p></td></tr><tr id="row400592832084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p370716705084830"><p>NetBufGetRoom (const struct NetBuf *nb, uint32_t id)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1266893295084830"><p>static uint32_t</p>
+</p><p id="p152134116084830"><p>Obtains the size of a specified buffer segment space in a network data
+buffer.</p>
+</p></td></tr><tr id="row1542354106084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1603090642084830"><p>NetBufGetDataLen (const struct NetBuf *nb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1836662798084830"><p>static uint32_t</p>
+</p><p id="p1965460292084830"><p>Obtains the actual data length of the data segment of a network data
+buffer.</p>
+</p></td></tr><tr id="row839827184084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p175450291084830"><p>NetBufResizeRoom (struct NetBuf *nb, uint32_t head, uint32_t tail)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2115158334084830"><p>int32_t</p>
+</p><p id="p680601581084830"><p>Adjusts the size of a network data buffer space.</p>
+</p></td></tr><tr id="row514323445084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p15854358084830"><p>NetBufConcat (struct NetBuf <em>nb, struct NetBuf</em>cnb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p985308129084830"><p>uint32_t</p>
+</p><p id="p1150143583084830"><p>Copies data in a network data buffer to another network data buffer.</p>
+</p></td></tr><tr id="row1164926903084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1758323319084830"><p>Pbuf2NetBuf (const struct NetDevice <em>netdev, struct pbuf</em>lwipBuf)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1114329755084830"><p>struct NetBuf *</p>
+</p><p id="p2081363268084830"><p>Converts the pbuf structure of Lightweight TCP/IP Stack (lwIP) to a
+network data buffer.</p>
+</p></td></tr><tr id="row408820923084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p9103515084830"><p>NetBuf2Pbuf (const struct NetBuf *nb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1273042628084830"><p>struct pbuf *</p>
+</p><p id="p1853076870084830"><p>Converts a network data buffer to the pbuf structure of Lightweight
+TCP/IP Stack (lwIP).</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/hdf_netbuf-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

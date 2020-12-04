@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I2C Overview &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="i2c-overview">
+<h1>I2C Overview<a class="headerlink" href="#i2c-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The Inter-Integrated Circuit (I2C) is a simple, bidirectional, and
+synchronous serial bus that uses merely two wires.</p></li>
+<li><p>In an I2C communication, one controller communicates with one or more
+devices through the serial data line (SDA) and serial clock line
+(SCL), as shown in <a class="reference external" href="#fig1135561232714">Figure 1</a>.</p></li>
+<li><p>I2C data transfer must begin with a <strong>START</strong> condition and end with
+a <strong>STOP</strong> condition. Data is transmitted byte-by-byte from the most
+significant bit to the least significant bit.</p></li>
+<li><p>Each I2C node is recognized by a unique address and can serve as
+either a controller or a device. When the controller needs to
+communicate with a device, it writes the device address to the bus
+through broadcast. A device matching this address sends a response to
+set up a data transfer channel.</p></li>
+<li><p>The I2C APIs define a set of common functions for I2C data transfer,
+including:</p>
+<ul class="simple">
+<li><p>I2C controller management: opening or closing an I2C controller</p></li>
+<li><p>I2C message transfer: custom transfer by using a message array</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Physical connection diagram for I2C</div>
+<div class="line"><img alt="image1" src="../../_images/physical-connection-diagram-for-i2c.png" /></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> APIs available for the I2C driver</p>
+<table><thead align="left"><tr id="row4419501537"><th class="cellrowborder" valign="top" width="18.63%" id="mcps1.2.4.1.1"><p id="p641050105320"><p>Capability</p>
+</p></th><th class="cellrowborder" valign="top" width="28.03%" id="mcps1.2.4.1.2"><p id="p54150165315"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="53.339999999999996%" id="mcps1.2.4.1.3"><p id="p941150145313"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row34145016535"><td class="cellrowborder" rowspan="2" valign="top" width="18.63%" headers="mcps1.2.4.1.1 "><p id="p229610227124"><p>I2C controller management</p>
+</p></td><td class="cellrowborder" valign="top" width="28.03%" headers="mcps1.2.4.1.2 "><p id="p19389143041518"><p>I2cOpen</p>
+</p></td><td class="cellrowborder" valign="top" width="53.339999999999996%" headers="mcps1.2.4.1.3 "><p id="p8738101941716"><p>Opens an I2C controller.</p>
+</p></td></tr><tr id="row5632152611414"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p143890309153"><p>I2cClose</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p573815197171"><p>Closes an I2C controller.</p>
+</p></td></tr><tr id="row15108165391412"><td class="cellrowborder" valign="top" width="18.63%" headers="mcps1.2.4.1.1 "><p id="p91084533141"><p>I2C message transfer</p>
+</p></td><td class="cellrowborder" valign="top" width="28.03%" headers="mcps1.2.4.1.2 "><p id="p13901730101511"><p>I2cTransfer</p>
+</p></td><td class="cellrowborder" valign="top" width="53.339999999999996%" headers="mcps1.2.4.1.3 "><p id="p12738111912171"><p>Performs a custom transfer.</p>
+</p></td></tr></tbody></table><blockquote>
+<div><p><img alt="image2" src="../../_images/icon-note2.gif" /> <strong>NOTE:</strong> All functions provided in this document can be
+called only in kernel mode.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/driver/i2c-overview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

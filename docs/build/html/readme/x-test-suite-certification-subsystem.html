@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X Test Suite Certification Subsystem &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="x-test-suite-certification-subsystem">
+<h1>X Test Suite Certification Subsystem<a class="headerlink" href="#x-test-suite-certification-subsystem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>X test suite is a set of OpenHarmony certification test suites,
+including the currently supported application compatibility test suite
+(ACTS) and the device compatibility test suite (DCTS) that will be
+supported in the future.</p>
+<p>The <strong>test/xts</strong> repository contains the <strong>acts</strong> directory and
+<strong>tools</strong> software package.</p>
+<ul class="simple">
+<li><p>The <strong>acts</strong> directory stores the source code and configuration files
+of ACTS test cases. The ACTS helps device vendors detect the software
+incompatibility as early as possible and ensures that the software is
+compatible to OpenHarmony during the entire development process.</p></li>
+<li><p>The <strong>tools</strong> software package stores the test case development
+framework related to <strong>acts</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>The directory structure of the <strong>test/xts</strong> repository is as follows:</p>
+<p>├── acts</p>
+<p>│ ├── BUILD.gn #Compilation configuration of test cases</p>
+<p>│ └── subsystem_lite # Test case source code</p>
+<p>└── tools</p>
+<p>│ └── build #Templates and scripts related to test cases compilation</p>
+<p>│ └── hcpptest #Source code of the development framework for SmartVision
+device (IP camera) test cases</p>
+<p>│ └── hctest #Source code of the development framework for IoTLink
+module test cases</p>
+<p>│ └── BUILD.gn #Compilation configuration</p>
+<p>│ └── build.sh #Compiling entry</p>
+</div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
+<p>You must use the C language to develop IoTLink module ACTS cases, and
+C++ for SmartVision device (IP camera) ACTS cases.</p>
+</div>
+<div class="section" id="acts-cases-for-the-iotlink-module">
+<h2>ACTS Cases for the IoTLink Module<a class="headerlink" href="#acts-cases-for-the-iotlink-module" title="Permalink to this headline">¶</a></h2>
+<p>The HCTest framework is used.</p>
+<p>The HCTest framework supports the C language and allows you to execute
+your test cases on the connecting module. The framework is enhanced and
+adapted based on the open-source test framework Unity.</p>
+<ol class="arabic simple">
+<li><p>Store test cases in the <strong>test/xts/acts</strong> repository.</p></li>
+</ol>
+<p>├── acts</p>
+<p>│ ├── BUILD.gn</p>
+<p>│ └──subsystem_lite</p>
+<p>│ │ └── module_hal</p>
+<p>│ │ │ └── BUILD.gn</p>
+<p>│ │ │ └── src</p>
+<ol class="arabic simple" start="2">
+<li><p>Write the test case stored in the <strong>src</strong> directory.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Import the test framework.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;hctest.h&quot;</span>
+</pre></div>
+</div>
+<p>(2) Use the <strong>LITE_TEST_SUIT</strong> macro to define names of the subsystem,
+module, and test suite.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/**</span>
+<span class="o">*</span> <span class="nd">@brief</span>  <span class="n">register</span> <span class="n">a</span> <span class="n">test</span> <span class="n">suit</span> <span class="n">named</span> <span class="s2">&quot;IntTestSuite&quot;</span>
+<span class="o">*</span> <span class="nd">@param</span>  <span class="n">test</span> <span class="n">subsystem</span> <span class="n">name</span>
+<span class="o">*</span> <span class="nd">@param</span>  <span class="n">example</span> <span class="n">module</span> <span class="n">name</span>
+<span class="o">*</span> <span class="nd">@param</span>  <span class="n">IntTestSuite</span> <span class="n">test</span> <span class="n">suit</span> <span class="n">name</span>
+<span class="o">*/</span>
+<span class="n">LITE_TEST_SUIT</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">example</span><span class="p">,</span> <span class="n">IntTestSuite</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Define Setup and TearDown.</p></li>
+</ol>
+<p>Format: test suite name+Setup, test suite name+TearDown.</p>
+<p>The Setup and TearDown functions must exist, but function bodies can be
+empty.</p>
+<ol class="arabic simple" start="4">
+<li><p>Use the <strong>LITE_TEST_CASE</strong> macro to write the test case.</p></li>
+</ol>
+<p>Three parameters are involved: test suite name, test case name, and test
+case level.</p>
+<p>The case level can be one of the following:</p>
+<p><strong>Level0</strong>, <strong>Level1</strong>, <strong>Level2</strong>, <strong>Level3</strong>, and <strong>Level4</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LITE_TEST_CASE</span><span class="p">(</span><span class="n">IntTestSuite</span><span class="p">,</span> <span class="n">TestCase001</span><span class="p">,</span> <span class="n">Level0</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Do</span> <span class="n">something</span><span class="o">.</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The following table describes the case levels.</p>
+<table><thead align="left"><tr id="row175461132115812"><th class="cellrowborder" valign="top" width="13.751375137513753%" id="mcps1.1.4.1.1"><p id="p5546193210584"><p>Level</p>
+</p></th><th class="cellrowborder" valign="top" width="11.08110811081108%" id="mcps1.1.4.1.2"><p id="p15546133255813"><p>Definition</p>
+</p></th><th class="cellrowborder" valign="top" width="75.16751675167517%" id="mcps1.1.4.1.3"><p id="p454693295816"><p>Testing Scope</p>
+</p></th></tr></thead><tbody><tr id="row054663212583"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p4546732205817"><p>Level0</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p75464323584"><p>Smoke</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p10547232135819"><p>Verifies basic functionalities of key features and basic DFX attributes
+with the most common input. The pass result indicates that the features
+are runnable.</p>
+</p></td></tr><tr id="row1054743225819"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p35471932105811"><p>Level1</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p135471328585"><p>Basic</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p195475329589"><p>Verifies basic functionalities of key features and basic DFX attributes
+with common input. The pass result indicates that the features are
+testable.</p>
+</p></td></tr><tr id="row654713285815"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p1954793265810"><p>Level2</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p3547232135812"><p>Major</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p5547832195811"><p>Verifies basic functionalities of key features and basic DFX attributes
+with common input and errors. The pass result indicates that the
+features are functional and ready for beta testing.</p>
+</p></td></tr><tr id="row85471332135818"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p185471320586"><p>Level3</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p2547153212582"><p>Regular</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p17547133245813"><p>Verifies functionalities of all key features, and all DFX attributes
+with common and uncommon input combinations or normal and abnormal
+preset conditions.</p>
+</p></td></tr><tr id="row1254710325584"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p554713329584"><p>Level4</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p1454711328588"><p>Rare</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p105479324587"><p>Verifies functionalities of key features under extremely abnormal
+presets and uncommon input combinations.</p>
+</p></td></tr></tbody></table><ol class="arabic simple" start="5">
+<li><p>Use the <strong>RUN_TEST_SUITE</strong> macro to register the test suite.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RUN_TEST_SUITE</span><span class="p">(</span><span class="n">IntTestSuite</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create the configuration file of the test module.</p></li>
+</ol>
+<p>Create a <strong>BUILD.gn</strong> (example) compilation file in each test module
+directory. Specify the name of the compiled static library and its
+dependent header file and library in the compilation file. The format is
+as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;//test/xts/tools/build/suite_lite.gni&quot;</span><span class="p">)</span>
+<span class="n">hctest_suite</span><span class="p">(</span><span class="s2">&quot;ActsDemoTest&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">suite_name</span> <span class="o">=</span> <span class="s2">&quot;acts&quot;</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;src/test_demo.c&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">include_dirs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+    <span class="n">cflags</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;-Wno-error&quot;</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Add compilation options to the <strong>BUILD.gn</strong> file in the <strong>acts</strong>
+directory.</p></li>
+</ol>
+<p>You need to add the test module to the <strong>test/xts/acts/BUILD.gn</strong> script
+in the <strong>acts</strong> directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lite_component</span><span class="p">(</span><span class="s2">&quot;acts&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">board_name</span> <span class="o">==</span> <span class="s2">&quot;liteos_riscv&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">features</span> <span class="o">+=</span> <span class="p">[</span>
+            <span class="o">...</span>
+            <span class="s2">&quot;//xts/acts/subsystem_lite/module_hal:ActsDemoTest&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Run compilation commands.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p><strong>python build.py wifiiot -b debug</strong></p></li>
+<li><p><strong>out/wifiiot</strong></p></li>
+</ol>
+<p>Note: The ACTS compilation middleware used for IoTLink modules is a
+static library, which will be linked to the version image
+<strong>Hi3861_wifiiot_app_allinone.bin</strong>.</p>
+</div>
+<div class="section" id="acts-cases-for-the-smartvision-device-ip-camera">
+<h2>ACTS Cases for the SmartVision Device (IP Camera)<a class="headerlink" href="#acts-cases-for-the-smartvision-device-ip-camera" title="Permalink to this headline">¶</a></h2>
+<p>The HCPP Test framework is enhanced and adapted based on the open-source
+googletest framework.</p>
+<ol class="arabic simple">
+<li><p>Store test cases in the <strong>test/xts/acts</strong> repository.</p></li>
+</ol>
+<p>├── acts</p>
+<p>│ ├── BUILD.gn</p>
+<p>│ └──subsystem_lite</p>
+<p>│ │ └── module_posix</p>
+<p>│ │ │ └── BUILD.gn</p>
+<p>│ │ │ └── src</p>
+<ol class="arabic simple" start="2">
+<li><p>Write the test case stored in the <strong>src</strong> directory.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Import the test framework.</p></li>
+</ol>
+<p>The following statement imports <strong>gtest.h</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;gtest/gtest.h&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Define Setup and TearDown.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestSuite</span><span class="p">:</span> <span class="n">public</span> <span class="n">testing</span><span class="p">::</span><span class="n">Test</span> <span class="p">{</span>
+<span class="n">protected</span><span class="p">:</span>
+<span class="o">//</span> <span class="n">Preset</span> <span class="n">action</span> <span class="n">of</span> <span class="n">the</span> <span class="n">test</span> <span class="n">suite</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">executed</span> <span class="n">before</span> <span class="n">the</span> <span class="n">first</span> <span class="n">test</span> <span class="n">case</span>
+<span class="n">static</span> <span class="n">void</span> <span class="n">SetUpTestCase</span><span class="p">(</span><span class="n">void</span><span class="p">){</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Test</span> <span class="n">suite</span> <span class="n">cleanup</span> <span class="n">action</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">executed</span> <span class="n">after</span> <span class="n">the</span> <span class="n">last</span> <span class="n">test</span> <span class="n">case</span>
+<span class="n">static</span> <span class="n">void</span> <span class="n">TearDownTestCase</span><span class="p">(</span><span class="n">void</span><span class="p">){</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Preset</span> <span class="n">action</span> <span class="n">of</span> <span class="n">the</span> <span class="n">test</span> <span class="n">case</span>
+<span class="n">virtual</span> <span class="n">void</span> <span class="n">SetUp</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Cleanup</span> <span class="n">action</span> <span class="n">of</span> <span class="n">the</span> <span class="n">test</span> <span class="n">case</span>
+<span class="n">virtual</span> <span class="n">void</span> <span class="n">TearDown</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Use the <strong>HWTEST</strong> or <strong>HWTEST_F</strong> macro to write the test case.</p></li>
+</ol>
+<p><strong>HWTEST</strong>: definition of common test cases, including the test suite
+name, test case name, and case marking.</p>
+<p><strong>HWTEST_F</strong>: definition of SetUp and TearDown test cases, including the
+test suite name, test case name, and case marking.</p>
+<p>A macro definition contains three parameters: test suite name, test case
+name, and test case level.</p>
+<p>The case level can be one of the following:</p>
+<p><strong>Level0</strong>, <strong>Level1</strong>, <strong>Level2</strong>, <strong>Level3</strong>, and <strong>Level4</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HWTEST_F</span><span class="p">(</span><span class="n">TestSuite</span><span class="p">,</span> <span class="n">TestCase_0001</span><span class="p">,</span> <span class="n">Level0</span><span class="p">)</span> <span class="p">{</span>
+<span class="o">//</span> <span class="n">Do</span> <span class="n">something</span><span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following table describes the case levels.</p>
+<table><thead align="left"><tr id="row342660796"><th class="cellrowborder" valign="top" width="13.751375137513753%" id="mcps1.1.4.1.1"><p id="p7426201917"><p>Level</p>
+</p></th><th class="cellrowborder" valign="top" width="11.08110811081108%" id="mcps1.1.4.1.2"><p id="p18426201294"><p>Definition</p>
+</p></th><th class="cellrowborder" valign="top" width="75.16751675167517%" id="mcps1.1.4.1.3"><p id="p1426100993"><p>Testing Scope</p>
+</p></th></tr></thead><tbody><tr id="row9427809912"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p124271401594"><p>Level0</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p1042715015915"><p>Smoke</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p174271501293"><p>Verifies basic functionalities of key features and basic DFX attributes
+with the most common input. The pass result indicates that the features
+are runnable.</p>
+</p></td></tr><tr id="row7427300915"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p0427501495"><p>Level1</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p184276018920"><p>Basic</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p1427706911"><p>Verifies basic functionalities of key features and basic DFX attributes
+with common input. The pass result indicates that the features are
+testable.</p>
+</p></td></tr><tr id="row84271603919"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p11427701094"><p>Level2</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p84271208910"><p>Major</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p142711018915"><p>Verifies basic functionalities of key features and basic DFX attributes
+with common input and errors. The pass result indicates that the
+features are functional and ready for beta testing.</p>
+</p></td></tr><tr id="row642715014919"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p9427110794"><p>Level3</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p2427301499"><p>Regular</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p1442730497"><p>Verifies functionalities of all key features, and all DFX attributes
+with common and uncommon input combinations or normal and abnormal
+preset conditions.</p>
+</p></td></tr><tr id="row14427110291"><td class="cellrowborder" valign="top" width="13.751375137513753%" headers="mcps1.1.4.1.1 "><p id="p2427201098"><p>Level4</p>
+</p></td><td class="cellrowborder" valign="top" width="11.08110811081108%" headers="mcps1.1.4.1.2 "><p id="p342770794"><p>Rare</p>
+</p></td><td class="cellrowborder" valign="top" width="75.16751675167517%" headers="mcps1.1.4.1.3 "><p id="p7427701094"><p>Verifies functionalities of key features under extremely abnormal
+presets and uncommon input combinations.</p>
+</p></td></tr></tbody></table><ol class="arabic simple" start="3">
+<li><p>Create the configuration file of the test module.</p></li>
+</ol>
+<p>Create a <strong>BUILD.gn</strong> (example) compilation file in each test module
+directory. Specify the name of the compiled static library and its
+dependent header file and library in the compilation file. Each test
+module is independently compiled into a <strong>.bin</strong> executable file, which
+can be directly mounted to the development board for testing.</p>
+<p>The following is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;//test/xts/tools/build/suite_lite.gni&quot;</span><span class="p">)</span>
+
+<span class="n">hcpptest_suite</span><span class="p">(</span><span class="s2">&quot;ActsDemoTest&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">suite_name</span> <span class="o">=</span> <span class="s2">&quot;acts&quot;</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;src/TestDemo.cpp&quot;</span>
+    <span class="p">]</span>
+
+    <span class="n">include_dirs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;src&quot;</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+    <span class="n">cflags</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;-Wno-error&quot;</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Add compilation options to the <strong>BUILD.gn</strong> file in the <strong>acts</strong>
+directory.</p></li>
+</ol>
+<p>You need to add the test module to the <strong>test/xts/acts/BUILD.gn</strong> script
+in the <strong>acts</strong> directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">lite_component</span><span class="p">(</span><span class="s2">&quot;acts&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="o">...</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">board_name</span> <span class="o">==</span> <span class="s2">&quot;liteos_a&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">features</span> <span class="o">+=</span> <span class="p">[</span>
+            <span class="o">...</span>
+            <span class="s2">&quot;//xts/acts/subsystem_lite/module_posix:ActsDemoTest&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Run compilation commands.</p></li>
+</ol>
+<p>1.1 Hi3518EV300</p>
+<ol class="arabic simple">
+<li><p><strong>python build.py ipcamera_hi3518ev300 -b debug</strong></p></li>
+<li><p><strong>out/ipcamera_hi3518ev300</strong></p></li>
+</ol>
+<p>1.2 Hi3516DV300</p>
+<ol class="arabic simple">
+<li><p><strong>python build.py ipcamera_hi3516dv300 -b debug</strong></p></li>
+<li><p><strong>out/ipcamera_hi3516dv300</strong></p></li>
+</ol>
+<p>Note: The ACTS for the SmartVision device (IP camera) is independently
+compiled to a <strong>.bin</strong> executable file, which can be directly mounted to
+the development board for testing.</p>
+</div>
+<div class="section" id="executing-acts-cases-for-the-iotlink-module">
+<h2>Executing ACTS Cases for the IoTLink Module<a class="headerlink" href="#executing-acts-cases-for-the-iotlink-module" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Obtain the testing software package.</p></li>
+</ol>
+<p>Obtain the image from the
+<strong>outwifiiotHi3861_wifiiot_app_allinone.bin</strong> directory.</p>
+<p>Note: To check whether the ACTS is integrated into the current image, go
+to <strong>outwifiiotHi3861_wifiiot_app.map</strong> to check whether the
+corresponding <strong>.a</strong> file is compiled.</p>
+<ol class="arabic simple" start="2">
+<li><p>Burn the image into the development board.</p></li>
+<li><p>Perform testing.</p></li>
+</ol>
+<p>(1) Use a serial port tool to log in to the development board and save
+information about the serial port.</p>
+<ol class="arabic simple" start="2">
+<li><p>Restart the device and view serial port logs.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Analyze the test result.</p></li>
+</ol>
+<p>View the serial port logs, and the format is as follows:</p>
+<p>The log for each test suite starts with <strong>Start to run test suite:</strong> and
+ends with <strong>xx Tests xx Failures xx Ignored</strong>.</p>
+</div>
+<div class="section" id="executing-acts-cases-for-the-smartvision-device-ip-camera">
+<h2>Executing ACTS Cases for the SmartVision Device (IP Camera)<a class="headerlink" href="#executing-acts-cases-for-the-smartvision-device-ip-camera" title="Permalink to this headline">¶</a></h2>
+<p>Currently, test cases are shared by the NFS and mounted to the
+development board for execution.</p>
+<ol class="arabic">
+<li><p>Set up the environment.</p></li>
+<li><p>Use a network cable or wireless network to connect the IP camera
+development board to your personal computer (PC).</p></li>
+<li><p>Configure the IP address, subnet mask, and gateway for the IP camera
+development board. Ensure that the development board and the PC are
+in the same network segment.</p></li>
+<li><p>Install and register the NFS server on the PC and start the NFS
+service.</p></li>
+<li><p>Run the <strong>mount</strong> command for the IP camera development board to
+ensure that the development board can access NFS shared files on the
+PC.</p>
+<p>Format: <strong>mount</strong>_NFS server IP address_<strong>:/</strong>_NFS shared
+directory_<strong>/</strong>_IP camera development board directory_**
+nfs**</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mount</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.10</span><span class="p">:</span><span class="o">/</span><span class="n">nfs</span> <span class="o">/</span><span class="n">nfs</span> <span class="n">nfs</span>
+</pre></div>
+</div>
+</li>
+<li><p>Execute test cases.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Analyze serial port logs.</p></li>
+</ol>
+<p>(2) Run the <strong>./</strong>_Test module_<strong>.bin</strong> command to execute test
+cases of each test suite.</p>
+</div>
+<div class="section" id="repositories-involved">
+<h2>Repositories Involved<a class="headerlink" href="#repositories-involved" title="Permalink to this headline">¶</a></h2>
+<p>xts_acts</p>
+<p>xts_tools_lite</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/readme/x-test-suite-certification-subsystem.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

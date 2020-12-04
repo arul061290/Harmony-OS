@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development Guidelines on Animators &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="development-guidelines-on-animators">
+<h1>Development Guidelines on Animators<a class="headerlink" href="#development-guidelines-on-animators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="when-to-use">
+<h2>When to Use<a class="headerlink" href="#when-to-use" title="Permalink to this headline">¶</a></h2>
+<p>A UI animator is implemented by calling the callback function you set
+for each tick using the task processing mechanism. The following classes
+are provided for you to implement an animator:</p>
+<ul class="simple">
+<li><p><strong>AnimatorManager</strong>: Manages Animator instances. This is a singleton
+class, which is registered with the system task callback when the
+<strong>Init</strong> function is executed. The system task mechanism ensures that
+each tick invokes the callback function of <strong>AnimatorManager</strong>.</p></li>
+<li><p><strong>Animator</strong>: Represents animator-related attributes, including the
+start and end time of an animator. It also provides animator-specific
+functions, for example, to start and stop an animator, to set the
+animator state, and to obtain the animator.</p></li>
+<li><p><strong>AnimatorCallback</strong>: Implements the content of each tick. You need
+to implement your own logic in this callback class so that the
+desired operation is executed upon the corresponding callback is
+invoked.</p></li>
+</ul>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Available functions for an animator</p>
+<table><thead align="left"><tr id="row1389130182514"><th class="cellrowborder" valign="top" width="17.349999999999998%" id="mcps1.2.4.1.1"><p id="p16390130172517"><p>Module</p>
+</p></th><th class="cellrowborder" valign="top" width="54.13%" id="mcps1.2.4.1.2"><p id="p239060112519"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="28.52%" id="mcps1.2.4.1.3"><p id="p1839012019257"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1533075412415"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p633015547249"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p6330554152411"><p>void Start ()</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p3330155472412"><p>Starts an animator.</p>
+</p></td></tr><tr id="row18330175410241"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p33301454172415"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p12330195419248"><p>void Stop ()</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p23301854162416"><p>Stops the animator.</p>
+</p></td></tr><tr id="row433045420244"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p183301054182410"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p43302054172415"><p>void Pause ()</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p15330854182413"><p>Pauses the animator.</p>
+</p></td></tr><tr id="row1033085492417"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p12331135413244"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p5331165472412"><p>void Resume ()</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p63314543246"><p>Resumes the animator.</p>
+</p></td></tr><tr id="row1331175413240"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p18331454152418"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p15331155472414"><p>uint8_t GetState () const</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p2033125414243"><p>Obtains the current state of the animator.</p>
+</p></td></tr><tr id="row43311554182415"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p33311854172420"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p433165462418"><p>void SetState (uint8_t state)</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p23316546242"><p>Sets the current state for the animator.</p>
+</p></td></tr><tr id="row17331254192419"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p173319547243"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p18332125416243"><p>uint32_t GetTime () const</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p1633295412414"><p>Obtains the total duration of the animator.</p>
+</p></td></tr><tr id="row8332195419241"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p2033211545243"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p123321054172415"><p>void SetTime (uint32_t time)</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p4332105472411"><p>Sets the total duration for the animator.</p>
+</p></td></tr><tr id="row13332125412420"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p17332165482417"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p3332115417243"><p>uint32_t GetRunTime () const</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p733275442419"><p>Obtains the running time of the animator.</p>
+</p></td></tr><tr id="row2033215419249"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p113327549245"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p43321154172417"><p>void SetRunTime (uint32_t runTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p173331354182416"><p>Sets the running time for the animator.</p>
+</p></td></tr><tr id="row20333115417249"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p2333155412240"><p>Animator</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p143335549246"><p>bool IsRepeat () const</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p23336548244"><p>Checks whether the animator is repeated.</p>
+</p></td></tr><tr id="row19333754202418"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p1833319543247"><p>AnimatorCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p6333135402416"><p>virtual void Callback (UIView *view)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p19333854172417"><p>Represents the animator callback. You can implement your own logic in
+this callback.</p>
+</p></td></tr><tr id="row193331854112415"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p1133325482420"><p>AnimatorCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p1433585412411"><p>virtual void OnStop(UIView&amp; view) {}</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p933595412249"><p>Called after the animator stops. You can implement your own logic in
+this callback.</p>
+</p></td></tr><tr id="row83351654192415"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p633525419244"><p>AnimatorManager</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p203351547242"><p>static AnimatorManager* GetInstance()</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p333545412419"><p>Obtains an AnimatorManager instance.</p>
+</p></td></tr><tr id="row3335954202412"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p5335185413247"><p>AnimatorManager</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p11336145442417"><p>void Add (Animator *animator)</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p10336175492416"><p>Adds an animator.</p>
+</p></td></tr><tr id="row18336185422417"><td class="cellrowborder" valign="top" width="17.349999999999998%" headers="mcps1.2.4.1.1 "><p id="p103361554192411"><p>AnimatorManager</p>
+</p></td><td class="cellrowborder" valign="top" width="54.13%" headers="mcps1.2.4.1.2 "><p id="p6336195442412"><p>void Remove(const Animator* animator);</p>
+</p></td><td class="cellrowborder" valign="top" width="28.52%" headers="mcps1.2.4.1.3 "><p id="p233615442420"><p>Removes the animator.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Implement the callback in <strong>AnimatorCallback</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AnimatorCallbackDemo</span> <span class="p">:</span> <span class="n">public</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">AnimatorCallback</span> <span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+    <span class="n">AnimatorCallbackDemo</span><span class="p">(</span><span class="n">int16_t</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">int16_t</span> <span class="n">endPos</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">time</span><span class="p">)</span>
+        <span class="p">:</span> <span class="n">start_</span><span class="p">(</span><span class="n">startPos</span><span class="p">),</span> <span class="n">end_</span><span class="p">(</span><span class="n">endPos</span><span class="p">),</span> <span class="n">time_</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="n">curTime_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="n">virtual</span> <span class="n">void</span> <span class="n">Callback</span><span class="p">(</span><span class="n">OHOS</span><span class="p">::</span><span class="n">UIView</span><span class="o">*</span> <span class="n">view</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">curTime_</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">int16_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">EasingEquation</span><span class="p">::</span><span class="n">CubicEaseIn</span><span class="p">(</span><span class="n">start_</span><span class="p">,</span> <span class="n">end_</span><span class="p">,</span> <span class="n">curTime_</span><span class="p">,</span> <span class="n">time_</span><span class="p">);</span>
+        <span class="n">view</span><span class="o">-&gt;</span><span class="n">Invalidate</span><span class="p">();</span>
+        <span class="n">view</span><span class="o">-&gt;</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">view</span><span class="o">-&gt;</span><span class="n">GetY</span><span class="p">());</span>
+        <span class="n">view</span><span class="o">-&gt;</span><span class="n">Invalidate</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="n">protected</span><span class="p">:</span>
+    <span class="n">int16_t</span> <span class="n">start_</span><span class="p">;</span>
+    <span class="n">int16_t</span> <span class="n">end_</span><span class="p">;</span>
+    <span class="n">uint16_t</span> <span class="n">time_</span><span class="p">;</span>
+    <span class="n">uint16_t</span> <span class="n">curTime_</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</li>
+<li><p>Register <strong>AnimatorCallback</strong> to the animator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UIImageView</span><span class="o">*</span> <span class="n">image</span> <span class="o">=</span> <span class="n">new</span> <span class="n">UIImageView</span><span class="p">();</span>
+<span class="n">image</span><span class="o">-&gt;</span><span class="n">SetSrc</span><span class="p">(</span><span class="s2">&quot;..</span><span class="se">\\</span><span class="s2">config</span><span class="se">\\</span><span class="s2">images</span><span class="se">\\</span><span class="s2">A021_001.bin&quot;</span><span class="p">);</span>
+<span class="n">image</span><span class="o">-&gt;</span><span class="n">SetPosition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="n">AnimatorCallbackDemo</span><span class="o">*</span> <span class="n">callback</span> <span class="o">=</span> <span class="n">new</span> <span class="n">AnimatorCallbackDemo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">338</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+<span class="n">Animator</span><span class="o">*</span> <span class="n">animator</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Animator</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the animator to <strong>AnimatorManager</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AnimatorManager</span><span class="p">::</span><span class="n">GetInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">animator</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Click the buttons in the lower part of the following figure to verify
+that the animation effects are as expected.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Animator effect</div>
+<div class="line"><img alt="image1" src="../../_images/animator-effect.gif" /></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/subsystems/development-guidelines-on-animators.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MultiMedia_Player &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="multimedia-player">
+<h1>MultiMedia_Player<a class="headerlink" href="#multimedia-player" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Defines the <strong>Player</strong> class and provides functions related to media
+playback.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row940251758093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2058768290093523"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p35845808093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1878757213093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p998897416093523"><p>player.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1703897286093523"><p>Declares the Player class, which is used to implement player-related
+operations.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row281962858093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1567208909093523"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p120748523093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1104027601093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1768302336093523"><p>OHOS::Media::PlayerCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p799610645093523"><p>Provides listeners for events and exception notifications that occur
+during media playback.</p>
+</p></td></tr><tr id="row327366035093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2026957602093523"><p>OHOS::Media::Player</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1825133925093523"><p>Provides functions for playing online movies, offline movies, and
+streams, for example, playing local movies and advanced audio coding
+(AAC) streams.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row346100919093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1715950935093523"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p630438291093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row551851306093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1956730746093523"><p>OHOS::Media::PlayerSeekMode : int32_t {
+OHOS::Media::PLAYER_SEEK_PREVIOUS_SYNC = 0,
+OHOS::Media::PLAYER_SEEK_NEXT_SYNC,
+OHOS::Media::PLAYER_SEEK_CLOSEST_SYNC, OHOS::Media::PLAYER_SEEK_CLOSEST,
+OHOS::Media::PLAYER_SEEK_FRAME_INDEX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1562349895093523"><p>Enumerates player seek modes. You can move the current playback position
+of the media to a given time position using the specified mode.</p>
+</p></td></tr><tr id="row1726178255093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1804569146093523"><p>OHOS::Media::PlayerStates : uint32_t { OHOS::Media::PLAYER_STATE_ERROR =
+0, OHOS::Media::PLAYER_IDLE = 1 &lt;&lt; 0, OHOS::Media::PLAYER_INITIALIZED =
+1 &lt;&lt; 1, OHOS::Media::PLAYER_PREPARING = 1 &lt;&lt; 2,
+OHOS::Media::PLAYER_PREPARED = 1 &lt;&lt; 3, OHOS::Media::PLAYER_STARTED = 1
+&lt;&lt; 4, OHOS::Media::PLAYER_PAUSED = 1 &lt;&lt; 5, OHOS::Media::PLAYER_STOPPED =
+1 &lt;&lt; 6, OHOS::Media::PLAYER_PLAYBACK_COMPLETE = 1 &lt;&lt; 7 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2138216958093523"><p>Enumerates player states.</p>
+</p></td></tr><tr id="row1944427446093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p875642596093523"><p>OHOS::Media::PlayerCallback::PlayerInfoType : int32_t {
+OHOS::Media::PlayerCallback::PLAYER_INFO_RENDER_START = 0 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1033040725093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p26931857093523"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1423099871093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row978257349093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p795983879093523"><p>OHOS::Media::PlayerCallback::OnPlaybackComplete ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p753045791093523"><p>virtual void</p>
+</p><p id="p1020935871093523"><p>Called when the playback is complete.</p>
+</p></td></tr><tr id="row2015922353093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p381630073093523"><p>OHOS::Media::PlayerCallback::OnError (int32_t errorType, int32_t
+errorCode)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1052425660093523"><p>virtual void</p>
+</p><p id="p1972512509093523"><p>Called when a playback error occurs.</p>
+</p></td></tr><tr id="row1745825056093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p100510161093523"><p>OHOS::Media::PlayerCallback::OnInfo (int type, int extra)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p930178547093523"><p>virtual void</p>
+</p><p id="p1572435330093523"><p>Called when playback information is received.</p>
+</p></td></tr><tr id="row1107334357093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p61110873093523"><p>OHOS::Media::PlayerCallback::OnVideoSizeChanged (int width, int
+height)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p94048654093523"><p>virtual void</p>
+</p><p id="p2038018477093523"><p>Called when the video image size changes.</p>
+</p></td></tr><tr id="row774248463093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p497241702093523"><p>OHOS::Media::PlayerCallback::OnRewindToComplete ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1995563775093523"><p>virtual void</p>
+</p><p id="p1108546394093523"><p>Called when the rewind is complete.</p>
+</p></td></tr><tr id="row1068233450093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1545954917093523"><p>OHOS::Media::Player::SetSource (const Source &amp;source)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p987122347093523"><p>int32_t</p>
+</p><p id="p202690401093523"><p>Sets the playback source for the player. The corresponding source can be
+the file descriptor (FD) of the local file, local file URI, network URI,
+or media stream.</p>
+</p></td></tr><tr id="row1167655812093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p60510999093523"><p>OHOS::Media::Player::Prepare ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1844410571093523"><p>int32_t</p>
+</p><p id="p328452748093523"><p>Prepares the playback environment and buffers media data.</p>
+</p></td></tr><tr id="row2109130093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p999299209093523"><p>OHOS::Media::Player::Play ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p601998199093523"><p>int32_t</p>
+</p><p id="p1657015634093523"><p>Starts or resumes playback.</p>
+</p></td></tr><tr id="row1564517685093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1090913022093523"><p>OHOS::Media::Player::IsPlaying ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p852652549093523"><p>bool</p>
+</p><p id="p1971319082093523"><p>Checks whether the player is playing.</p>
+</p></td></tr><tr id="row2010011437093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1355589821093523"><p>OHOS::Media::Player::Pause ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1804963677093523"><p>int32_t</p>
+</p><p id="p1101320598093523"><p>Pauses playback.</p>
+</p></td></tr><tr id="row42335008093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1029782500093523"><p>OHOS::Media::Player::Stop ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1319131259093523"><p>int32_t</p>
+</p><p id="p184239133093523"><p>Stops playback.</p>
+</p></td></tr><tr id="row780754947093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1447393020093523"><p>OHOS::Media::Player::Rewind (int64_t mSeconds, int32_t mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p752273112093523"><p>int32_t</p>
+</p><p id="p2043404731093523"><p>Changes the playback position.</p>
+</p></td></tr><tr id="row1891229384093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1810673828093523"><p>OHOS::Media::Player::SetVolume (float leftVolume, float rightVolume)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p723718152093523"><p>int32_t</p>
+</p><p id="p1052023723093523"><p>Sets the volume of the player.</p>
+</p></td></tr><tr id="row899813511093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p948523604093523"><p>OHOS::Media::Player::SetVideoSurface (Surface *surface)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p188092244093523"><p>int32_t</p>
+</p><p id="p1250230867093523"><p>Sets a surface for video playback.</p>
+</p></td></tr><tr id="row1971269955093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1906480078093523"><p>OHOS::Media::Player::EnableSingleLooping (bool loop)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p149217079093523"><p>int32_t</p>
+</p><p id="p2038114744093523"><p>Sets loop playback.</p>
+</p></td></tr><tr id="row2013340823093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1027837038093523"><p>OHOS::Media::Player::IsSingleLooping ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1229502323093523"><p>bool</p>
+</p><p id="p1273987837093523"><p>Checks whether the player is looping.</p>
+</p></td></tr><tr id="row1763533017093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p750468801093523"><p>OHOS::Media::Player::GetCurrentTime (int64_t &amp;time) const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1027985022093523"><p>int32_t</p>
+</p><p id="p486895101093523"><p>Obtains the playback position, accurate to millisecond.</p>
+</p></td></tr><tr id="row841617905093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p455370646093523"><p>OHOS::Media::Player::GetDuration (int64_t &amp;duration) const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1923697119093523"><p>int32_t</p>
+</p><p id="p498396780093523"><p>Obtains the total duration of media files, in milliseconds.</p>
+</p></td></tr><tr id="row1958633865093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1314839790093523"><p>OHOS::Media::Player::GetVideoWidth (int32_t &amp;videoWidth)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1258313814093523"><p>int32_t</p>
+</p><p id="p440752019093523"><p>Obtains the width of the video.</p>
+</p></td></tr><tr id="row935297588093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p687659981093523"><p>OHOS::Media::Player::GetVideoHeight (int32_t &amp;videoHeight)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2098032216093523"><p>int32_t</p>
+</p><p id="p16632305093523"><p>Obtains the height of the video.</p>
+</p></td></tr><tr id="row188316947093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1198004368093523"><p>OHOS::Media::Player::Reset ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p437493524093523"><p>int32_t</p>
+</p><p id="p1078592919093523"><p>Restores the player to the initial state.</p>
+</p></td></tr><tr id="row119798024093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p440601246093523"><p>OHOS::Media::Player::Release ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p279302897093523"><p>int32_t</p>
+</p><p id="p130266954093523"><p>Releases player resources.</p>
+</p></td></tr><tr id="row1164097492093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1464822735093523"><p>OHOS::Media::Player::SetPlayerCallback (const std::shared_ptr&lt;
+PlayerCallback &gt; &amp;cb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p475761426093523"><p>void</p>
+</p><p id="p1002934121093523"><p>Registers a listener to receive events and exception notifications from
+the player.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="playerinfotype">
+<h2>PlayerInfoType<a class="headerlink" href="#playerinfotype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerCallback</span><span class="p">::</span><span class="n">PlayerInfoType</span><span class="p">](</span><span class="n">multimedia_player</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga7dac9dac65cbbea7e411adcf2c314ac5) : int32_t</span>
+</pre></div>
+</div>
+<table><thead align="left"><tr id="row1071397369093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2019190983093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p520458109093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row92855382093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_INFO_RENDER_START</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p298509692093523"><p>Pushed the first video frame for rendering</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="playerseekmode">
+<h2>PlayerSeekMode<a class="headerlink" href="#playerseekmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerSeekMode</span><span class="p">](</span><span class="n">multimedia_player</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad1574e5769b3174c2103a2a8b49e20d4) : int32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates player seek modes. You can move the current playback position
+of the media to a given time position using the specified mode.</p>
+<table><thead align="left"><tr id="row1402548709093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1439611410093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1820702284093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row908320971093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_SEEK_PREVIOUS_SYNC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p120701881093523"><p>Moves the media position to the latest synchronization frame located
+before the given time position.</p>
+</p></td></tr><tr id="row639009217093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_SEEK_NEXT_SYNC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1161989491093523"><p>Moves the media position to the latest synchronization frame located
+after the given time position.</p>
+</p></td></tr><tr id="row784950949093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_SEEK_CLOSEST_SYNC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p407822785093523"><p>Moves the media position to the latest synchronization frame located
+before or after the given time position.</p>
+</p></td></tr><tr id="row1368108200093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_SEEK_CLOSEST</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1720863966093523"><p>Moves the media position to the latest frame located before or after the
+given time position.</p>
+</p></td></tr><tr id="row1815321141093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_SEEK_FRAME_INDEX</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p334033132093523"><p>Moves the media position to a given frame index.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="playerstates">
+<h2>PlayerStates<a class="headerlink" href="#playerstates" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerStates</span><span class="p">](</span><span class="n">multimedia_player</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga8b1147e57c4a67f63f193836302da2b7) : uint32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates player states.</p>
+<table><thead align="left"><tr id="row1076103015093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p410408610093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p888885027093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row130615901093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_STATE_ERROR</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1649030850093523"><p>Error</p>
+</p></td></tr><tr id="row116772091093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_IDLE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1961211234093523"><p>Idle</p>
+</p></td></tr><tr id="row2047290680093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_INITIALIZED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p695559566093523"><p>Initialized</p>
+</p></td></tr><tr id="row229961965093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_PREPARING</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1308499566093523"><p>Preparing</p>
+</p></td></tr><tr id="row1623422409093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_PREPARED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1417216778093523"><p>Prepared</p>
+</p></td></tr><tr id="row1077135938093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_STARTED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p519597822093523"><p>Playback started</p>
+</p></td></tr><tr id="row754091465093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_PAUSED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p627741319093523"><p>Playback paused</p>
+</p></td></tr><tr id="row1755931028093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_STOPPED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p424606401093523"><p>Playback stopped</p>
+</p></td></tr><tr id="row137059613093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PLAYER_PLAYBACK_COMPLETE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p828944934093523"><p>Playback completed</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enablesinglelooping">
+<h2>EnableSingleLooping()<a class="headerlink" href="#enablesinglelooping" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">EnableSingleLooping</span> <span class="p">(</span><span class="nb">bool</span> <span class="n">loop</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets loop playback.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2018496823093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p158502029093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1520042485093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1141966282093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>loop</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Specifies whether to enable loop playback. The value true means to
+enable loop playback, and false means to disable loop playback.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="getcurrenttime">
+<h2>GetCurrentTime()<a class="headerlink" href="#getcurrenttime" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">GetCurrentTime</span> <span class="p">(</span><span class="n">int64_t</span> <span class="o">&amp;</span> <span class="n">time</span><span class="p">)</span> <span class="n">const</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the playback position, accurate to millisecond.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1222280905093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p942358197093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p529273312093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1663229171093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>time</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the playback position.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the playback position is obtained; returns <strong>-1</strong>
+otherwise.</p>
+</div>
+<div class="section" id="getduration">
+<h2>GetDuration()<a class="headerlink" href="#getduration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">GetDuration</span> <span class="p">(</span><span class="n">int64_t</span> <span class="o">&amp;</span> <span class="n">duration</span><span class="p">)</span> <span class="n">const</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the total duration of media files, in milliseconds.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row482664770093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p982140462093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1954739454093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row248554127093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>duration</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the total duration of media files.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the total duration is obtained; returns <strong>-1</strong>
+otherwise.</p>
+</div>
+<div class="section" id="getvideoheight">
+<h2>GetVideoHeight()<a class="headerlink" href="#getvideoheight" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">GetVideoHeight</span> <span class="p">(</span><span class="n">int32_t</span> <span class="o">&amp;</span> <span class="n">videoHeight</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the height of the video.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1453849581093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p692123080093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p808693851093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2016033280093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>videoHeight</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video height.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the video height is obtained; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="getvideowidth">
+<h2>GetVideoWidth()<a class="headerlink" href="#getvideowidth" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">GetVideoWidth</span> <span class="p">(</span><span class="n">int32_t</span> <span class="o">&amp;</span> <span class="n">videoWidth</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the width of the video.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row149212346093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p851477523093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2020134962093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row479614329093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>videoWidth</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video width.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the video width is obtained; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="isplaying">
+<h2>IsPlaying()<a class="headerlink" href="#isplaying" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">IsPlaying</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Checks whether the player is playing.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>true</strong> if the player is playing; returns <strong>false</strong> otherwise.</p>
+</div>
+<div class="section" id="issinglelooping">
+<h2>IsSingleLooping()<a class="headerlink" href="#issinglelooping" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">IsSingleLooping</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Checks whether the player is looping.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>true</strong> if the player is looping; returns <strong>false</strong> otherwise.</p>
+</div>
+<div class="section" id="onerror">
+<h2>OnError()<a class="headerlink" href="#onerror" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerCallback</span><span class="p">::</span><span class="n">OnError</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">errorType</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">errorCode</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when a playback error occurs.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row194672112093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1526285333093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1729468952093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1104451189093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>errorType</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the error type. For details, see PlayerErrorType.</p>
+</td></tr><tr id="row987208970093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>errorCode</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the error code.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="oninfo">
+<h2>OnInfo()<a class="headerlink" href="#oninfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerCallback</span><span class="p">::</span><span class="n">OnInfo</span> <span class="p">(</span><span class="nb">int</span> <span class="nb">type</span><span class="p">,</span> <span class="nb">int</span> <span class="n">extra</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when playback information is received.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row504349483093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p760321514093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p331578673093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1714126022093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the information type. For details, see PlayerInfoType.</p>
+</td></tr><tr id="row222619207093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>extra</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the information code.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="onplaybackcomplete">
+<h2>OnPlaybackComplete()<a class="headerlink" href="#onplaybackcomplete" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerCallback</span><span class="p">::</span><span class="n">OnPlaybackComplete</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when the playback is complete.</p>
+</div>
+<div class="section" id="onrewindtocomplete">
+<h2>OnRewindToComplete()<a class="headerlink" href="#onrewindtocomplete" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerCallback</span><span class="p">::</span><span class="n">OnRewindToComplete</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when the rewind is complete.</p>
+</div>
+<div class="section" id="onvideosizechanged">
+<h2>OnVideoSizeChanged()<a class="headerlink" href="#onvideosizechanged" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">PlayerCallback</span><span class="p">::</span><span class="n">OnVideoSizeChanged</span> <span class="p">(</span><span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="nb">int</span> <span class="n">height</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when the video image size changes.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1364061419093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p62663619093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p810514317093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1216700828093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>width</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video width.</p>
+</td></tr><tr id="row2107565558093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>height</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video height.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="pause">
+<h2>Pause()<a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">Pause</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Pauses playback.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the playback is paused; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="play">
+<h2>Play()<a class="headerlink" href="#play" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">Play</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Starts or resumes playback.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_player.md#gade9bff3268e1c409273749a90700e056">Prepare</a>.
+If the player state is <strong>Prepared</strong>, this function is called to start
+playback. If the player state is <strong>Playback paused</strong>, this function is
+called to resume playback. If the media is playing in an abnormal speed,
+this function is called to restore the playback speed to normal.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the playback starts or resumes; returns <strong>-1</strong>
+otherwise.</p>
+</div>
+<div class="section" id="prepare">
+<h2>Prepare()<a class="headerlink" href="#prepare" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">Prepare</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Prepares the playback environment and buffers media data.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_player.md#gacce284eac910970e405151fd3a1963c0">SetSource</a>.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the playback environment is prepared and media data is
+buffered; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="release">
+<h2>Release()<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">Release</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Releases player resources.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if player resources are released; returns <strong>-1</strong>
+otherwise.</p>
+</div>
+<div class="section" id="reset">
+<h2>Reset()<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">Reset</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Restores the player to the initial state.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the player is restored; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="rewind">
+<h2>Rewind()<a class="headerlink" href="#rewind" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">Rewind</span> <span class="p">(</span><span class="n">int64_t</span> <span class="n">mSeconds</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">mode</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Changes the playback position.</p>
+<p>This function can be used during playback or pause.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row568175111093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p312047219093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1427646125093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1210777311093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>mSeconds</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the target playback position, accurate to second.</p>
+</td></tr><tr id="row1961722149093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>mode</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the player seek mode. For details, see PlayerSeekMode.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the playback position is changed; returns <strong>-1</strong>
+otherwise.</p>
+</div>
+<div class="section" id="setplayercallback">
+<h2>SetPlayerCallback()<a class="headerlink" href="#setplayercallback" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">SetPlayerCallback</span> <span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="p">[</span><span class="n">PlayerCallback</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">media</span><span class="o">-</span><span class="n">playercallback</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">cb</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Registers a listener to receive events and exception notifications from
+the player.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row767685888093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1580801889093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p565006343093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1236656378093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>cb</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the listener to register. For details, see PlayerCallback.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setsource">
+<h2>SetSource()<a class="headerlink" href="#setsource" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">SetSource</span> <span class="p">(</span><span class="n">const</span> <span class="p">[</span><span class="n">Source</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">media</span><span class="o">-</span><span class="n">source</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">source</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the playback source for the player. The corresponding source can be
+the file descriptor (FD) of the local file, local file URI, network URI,
+or media stream.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1583669962093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1296645382093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p294894130093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row839137170093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>source</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the playback source. Currently, only local file URIs and media
+streams are supported. For details, see Source.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="setvideosurface">
+<h2>SetVideoSurface()<a class="headerlink" href="#setvideosurface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">SetVideoSurface</span> <span class="p">([</span><span class="n">Surface</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surface</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">surface</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets a surface for video playback.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1276407228093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1970847770093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p393747016093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2091612498093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>surface</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the surface to set. For details, see Surface.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="setvolume">
+<h2>SetVolume()<a class="headerlink" href="#setvolume" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">SetVolume</span> <span class="p">(</span><span class="nb">float</span> <span class="n">leftVolume</span><span class="p">,</span> <span class="nb">float</span> <span class="n">rightVolume</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the volume of the player.</p>
+<p>This function can be used during playback or pause. The value <strong>0</strong>
+indicates no sound, and <strong>100</strong> indicates the original volume. If no
+audio device is started or no audio stream exists, the value <strong>-1</strong> is
+returned.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row611036490093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p309215691093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1070953914093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1630938742093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>leftVolume</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the target volume of the left audio channel to set, ranging
+from 0 to 300.</p>
+</td></tr><tr id="row326345371093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>rightVolume</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the target volume of the right audio channel to set, ranging
+from 0 to 300.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="stop">
+<h2>Stop()<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Player</span><span class="p">::</span><span class="n">Stop</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Stops playback.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the playback is stopped; returns <strong>-1</strong> otherwise.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/multimedia_player.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

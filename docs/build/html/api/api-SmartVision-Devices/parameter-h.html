@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>parameter.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="parameter-h">
+<h1>parameter.h<a class="headerlink" href="#parameter-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="parameter.md">Parameter</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares functions for obtaining system parameters.</p>
+<p>You can use the provided functions to obtain device information such as
+device type and manufacturer.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row575813877093526"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p696697431093526"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1356045183093526"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1285720453093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p206104182093526"><p>GetParameter (const char <em>key, const char</em>def, char *value, unsigned
+int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p444500031093526"><p>int</p>
+</p><p id="p1679314155093526"><p>Obtains a system parameter matching the specified key.</p>
+</p></td></tr><tr id="row1783791610093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2139375521093526"><p>SetParameter (const char <em>key, const char</em>value)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1427129204093526"><p>int</p>
+</p><p id="p1698306071093526"><p>Sets or updates a system parameter.</p>
+</p></td></tr><tr id="row1024990172093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1395490943093526"><p>GetProductType (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p351743143093526"><p>char *</p>
+</p><p id="p1911851488093526"><p>Obtains the device type.</p>
+</p></td></tr><tr id="row269229994093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1841319269093526"><p>GetManufacture (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1871949540093526"><p>char *</p>
+</p><p id="p169538106093526"><p>Obtains the device manufacturer.</p>
+</p></td></tr><tr id="row1578935332093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1678089340093526"><p>GetBrand (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p204781998093526"><p>char *</p>
+</p><p id="p541336489093526"><p>Obtains the device brand.</p>
+</p></td></tr><tr id="row1454245172093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1480141176093526"><p>GetMarketName (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p14595653093526"><p>char *</p>
+</p><p id="p1933577032093526"><p>Obtains the device marketing name.</p>
+</p></td></tr><tr id="row1739329032093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1012547436093526"><p>GetProductSeries (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p184887966093526"><p>char *</p>
+</p><p id="p47454048093526"><p>Obtains the device series name.</p>
+</p></td></tr><tr id="row1290738908093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1130347580093526"><p>GetProductModel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p541682230093526"><p>char *</p>
+</p><p id="p1708658996093526"><p>Obtains the device authentication model.</p>
+</p></td></tr><tr id="row1029005678093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1172847806093526"><p>GetSoftwareModel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p709658716093526"><p>char *</p>
+</p><p id="p1884561428093526"><p>Obtains the device software model.</p>
+</p></td></tr><tr id="row1648538042093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p832688697093526"><p>GetHardwareModel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1197707001093526"><p>char *</p>
+</p><p id="p184025731093526"><p>Obtains the device hardware model.</p>
+</p></td></tr><tr id="row739505327093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p276505842093526"><p>GetHardwareProfile (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1489747235093526"><p>char *</p>
+</p><p id="p1787016655093526"><p>Obtains the device hardware profile.</p>
+</p></td></tr><tr id="row899485290093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1652413139093526"><p>GetSerial (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p525966006093526"><p>char *</p>
+</p><p id="p1988398468093526"><p>Obtains the device serial number (SN).</p>
+</p></td></tr><tr id="row1501995421093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p284395503093526"><p>GetOsName (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p972535341093526"><p>char *</p>
+</p><p id="p1009030034093526"><p>Obtains the operating system (OS) name.</p>
+</p></td></tr><tr id="row1840811539093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2117231104093526"><p>GetDisplayVersion (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1300975510093526"><p>char *</p>
+</p><p id="p2058749495093526"><p>Obtains the software version visible to users.</p>
+</p></td></tr><tr id="row1411208247093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p150604706093526"><p>GetBootloaderVersion (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1634573192093526"><p>char *</p>
+</p><p id="p1675294114093526"><p>Obtains the bootloader version of this device.</p>
+</p></td></tr><tr id="row948143441093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1000312853093526"><p>GetSecurityPatchTag (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p823595725093526"><p>char *</p>
+</p><p id="p706741897093526"><p>Obtains the security patch tag.</p>
+</p></td></tr><tr id="row991887046093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2040379158093526"><p>GetAbiList (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p358434469093526"><p>char *</p>
+</p><p id="p1273859455093526"><p>Obtains the list of application binary interfaces (ABIs) supported on
+this device.</p>
+</p></td></tr><tr id="row1610970610093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1860842195093526"><p>GetSdkApiLevel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1934676665093526"><p>char *</p>
+</p><p id="p982438614093526"><p>Obtains the SDK API level that matches the current system software.</p>
+</p></td></tr><tr id="row346996081093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p364300669093526"><p>GetFirstApiLevel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1616677510093526"><p>char *</p>
+</p><p id="p1702744619093526"><p>Obtains the first SDK API level of the system software.</p>
+</p></td></tr><tr id="row443706190093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p898549468093526"><p>GetIncrementalVersion (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1392891194093526"><p>char *</p>
+</p><p id="p463639923093526"><p>Obtains the incremental version.</p>
+</p></td></tr><tr id="row104049401093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1550099178093526"><p>GetVersionId (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1666346667093526"><p>char *</p>
+</p><p id="p984381299093526"><p>Obtains the version ID.</p>
+</p></td></tr><tr id="row766715739093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p220269837093526"><p>GetBuildType (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p224008191093526"><p>char *</p>
+</p><p id="p1118624157093526"><p>Obtains the build type.</p>
+</p></td></tr><tr id="row228893744093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1408523894093526"><p>GetBuildUser (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1287223175093526"><p>char *</p>
+</p><p id="p1308541123093526"><p>Obtains the build account user name.</p>
+</p></td></tr><tr id="row1286119286093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p33296698093526"><p>GetBuildHost (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1077439714093526"><p>char *</p>
+</p><p id="p2131691592093526"><p>Obtains the build host name.</p>
+</p></td></tr><tr id="row581417692093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p489540653093526"><p>GetBuildTime (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1299458188093526"><p>char *</p>
+</p><p id="p1846099690093526"><p>Obtains the version build time.</p>
+</p></td></tr><tr id="row642631996093526"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p804327731093526"><p>GetBuildRootHash (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p844051119093526"><p>char *</p>
+</p><p id="p2007109902093526"><p>Obtains the buildroot hash value of this version.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/parameter-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

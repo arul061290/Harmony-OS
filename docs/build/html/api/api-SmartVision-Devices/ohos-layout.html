@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OHOS::Layout &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ohos-layout">
+<h1>OHOS::Layout<a class="headerlink" href="#ohos-layout" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="graphic.md">Graphic</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines the base class of the layout, which indicates the basic data
+types and operations that may be used in the layout.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1097243136093535"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1614918049093535"><p>Public Member Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1292253356093535"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1276783964093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p708369103093535"><p>Layout ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p68454074093535"></p><p id="p275743290093535"><p>A default constructor used to create a Layout instance.</p>
+</p></td></tr><tr id="row1737342721093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p446760740093535"><p>~Layout ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p352568330093535"><p>virtual</p>
+</p><p id="p1921778601093535"><p>A destructor used to delete the Layout instance.</p>
+</p></td></tr><tr id="row1984192521093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2058777418093535"><p>SetLayoutDirection (const DirectionType &amp;direction)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1980718871093535"><p>void</p>
+</p><p id="p285238085093535"><p>Sets the layout direction.</p>
+</p></td></tr><tr id="row1124506475093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p986914600093535"><p>UIViewGroup ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1360583441093535"></p><p id="p586759203093535"><p>A default constructor used to create a UIViewGroup instance.</p>
+</p></td></tr><tr id="row1517877522093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p671314183093535"><p>~UIViewGroup ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p466751651093535"><p>virtual</p>
+</p><p id="p1264486247093535"><p>A destructor used to delete the UIViewGroup instance.</p>
+</p></td></tr><tr id="row1304033909093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p617051247093535"><p>GetViewType () const override</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2084039920093535"><p>UIViewType</p>
+</p><p id="p1420296115093535"><p>Obtains the view type.</p>
+</p></td></tr><tr id="row618128497093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1412255855093535"><p>Add (UIView *view)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p837959702093535"><p>virtual void</p>
+</p><p id="p367764799093535"><p>Adds a child view.</p>
+</p></td></tr><tr id="row888510598093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p825462702093535"><p>Insert (UIView <em>prevView, UIView</em>insertView)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p729777975093535"><p>virtual void</p>
+</p><p id="p104895193093535"><p>Inserts a new child view behind the current one.</p>
+</p></td></tr><tr id="row143041976093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1157046132093535"><p>Remove (UIView *view)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1281811559093535"><p>virtual void</p>
+</p><p id="p1027816896093535"><p>Removes a child view.</p>
+</p></td></tr><tr id="row59356328093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1898664254093535"><p>RemoveAll ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1235136680093535"><p>virtual void</p>
+</p><p id="p1520286989093535"><p>Removes all child views.</p>
+</p></td></tr><tr id="row288942157093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1254434508093535"><p>GetTargetView (const Point &amp;point, UIView **last) override</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1309922577093535"><p>virtual void</p>
+</p><p id="p529906619093535"><p>Obtains the target child view that is visible and can respond to touch
+events based on given coordinates.</p>
+</p></td></tr><tr id="row1473730642093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p183894120093535"><p>MoveChildByOffset (int16_t x, int16_t y)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2004310325093535"><p>virtual void</p>
+</p><p id="p745886222093535"><p>Moves all child views.</p>
+</p></td></tr><tr id="row1191292718093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1905491458093535"><p>GetChildrenHead () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1477933083093535"><p>UIView *</p>
+</p><p id="p543716008093535"><p>Obtains the first child view in this view group.</p>
+</p></td></tr><tr id="row1894997835093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p813268502093535"><p>GetChildrenTail () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p898523067093535"><p>UIView *</p>
+</p><p id="p1448637616093535"><p>Obtains the last child view in this view group.</p>
+</p></td></tr><tr id="row476131838093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2080752944093535"><p>SetDisallowIntercept (bool flag)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p246751527093535"><p>void</p>
+</p><p id="p247737463093535"><p>Sets whether this view group is intercepted upon touch events.</p>
+</p></td></tr><tr id="row2085615091093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p150201304093535"><p>GetChildById (const char *id) const override</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1972383710093535"><p>UIView *</p>
+</p><p id="p914529900093535"><p>Obtains the target child view with a specified ID.</p>
+</p></td></tr><tr id="row2016463690093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1564811845093535"><p>SetAutoSize (bool state)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p137102186093535"><p>void</p>
+</p><p id="p715169031093535"><p>Sets whether the size of this view group is adaptive to that of all
+child views.</p>
+</p></td></tr><tr id="row1806447876093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p192608882093535"><p>UIView ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1168222941093535"></p><p id="p273276837093535"><p>A default constructor used to create an UIView instance.</p>
+</p></td></tr><tr id="row959314893093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p897804878093535"><p>UIView (const char *id)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1087293772093535"></p><p id="p690035420093535"><p>A constructor used to create an UIView instance.</p>
+</p></td></tr><tr id="row966302731093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p680101628093535"><p>~UIView ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p671352243093535"><p>virtual</p>
+</p><p id="p325226122093535"><p>A destructor used to delete the UIView instance.</p>
+</p></td></tr><tr id="row1473957347093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1591051605093535"><p>OnPreDraw (const Rect &amp;invalidatedArea)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1899228648093535"><p>virtual bool</p>
+</p><p id="p256758223093535"><p>Called before a view is drawn. This function is used to check whether
+the parent view of this view needs to be redrawn so as to optimize the
+drawing process.</p>
+</p></td></tr><tr id="row1573456979093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p888371963093535"><p>OnDraw (const Rect &amp;invalidatedArea)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p613821410093535"><p>virtual void</p>
+</p><p id="p988441670093535"><p>Called when a view is drawn.</p>
+</p></td></tr><tr id="row1341046421093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p333105227093535"><p>OnPostDraw (const Rect &amp;invalidatedArea)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2062463244093535"><p>virtual void</p>
+</p><p id="p1627374328093535"><p>Called after a view is drawn.</p>
+</p></td></tr><tr id="row119605352093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p825303484093535"><p>ReMeasure ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p672886564093535"><p>virtual void</p>
+</p><p id="p631436141093535"><p>Remeasures the view size.</p>
+</p></td></tr><tr id="row1345195782093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p924179273093535"><p>Invalidate ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1246667742093535"><p>void</p>
+</p><p id="p984311642093535"><p>Refreshes the invalidated area of the view.</p>
+</p></td></tr><tr id="row634289966093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2054478941093535"><p>InvalidateRect (const Rect &amp;invalidatedArea)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p444617348093535"><p>void</p>
+</p><p id="p1488064131093535"><p>Refreshes a view in a specified invalidated area.</p>
+</p></td></tr><tr id="row296886681093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1636764616093535"><p>OnLongPressEvent (const LongPressEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p924250309093535"><p>virtual bool</p>
+</p><p id="p1062771477093535"><p>Called when the view is long pressed.</p>
+</p></td></tr><tr id="row237100520093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p576149446093535"><p>OnDragStartEvent (const DragEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p828282113093535"><p>virtual bool</p>
+</p><p id="p772529721093535"><p>Called when the view starts to drag.</p>
+</p></td></tr><tr id="row1686540902093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1375992737093535"><p>OnDragEvent (const DragEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1405033465093535"><p>virtual bool</p>
+</p><p id="p667911582093535"><p>Called when the view is being dragged.</p>
+</p></td></tr><tr id="row1900667134093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p460150210093535"><p>OnDragEndEvent (const DragEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1904337034093535"><p>virtual bool</p>
+</p><p id="p1374467017093535"><p>Called when the view stops dragging.</p>
+</p></td></tr><tr id="row2062169995093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p16146573093535"><p>OnClickEvent (const ClickEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p101374147093535"><p>virtual void</p>
+</p><p id="p29833939093535"><p>Called when the view is clicked.</p>
+</p></td></tr><tr id="row460316271093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p386195890093535"><p>OnPressEvent (const PressEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p899376888093535"><p>virtual void</p>
+</p><p id="p291607919093535"><p>Called when the view is pressed.</p>
+</p></td></tr><tr id="row1389409124093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1943924742093535"><p>OnReleaseEvent (const ReleaseEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p55739683093535"><p>virtual void</p>
+</p><p id="p2057385688093535"><p>Called when the view is released.</p>
+</p></td></tr><tr id="row998945537093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2051042892093535"><p>OnCancelEvent (const CancelEvent &amp;event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p54055272093535"><p>virtual void</p>
+</p><p id="p1370636775093535"><p>Called when a click event on the view is canceled.</p>
+</p></td></tr><tr id="row512905523093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1193153883093535"><p>SetOnDragListener (OnDragListener *onDragListener)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p417646143093535"><p>void</p>
+</p><p id="p1275119569093535"><p>Sets a drag event listener for the view.</p>
+</p></td></tr><tr id="row1111957157093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p571371538093535"><p>GetOnDragListener ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1351828975093535"><p>OnDragListener *&amp;</p>
+</p><p id="p2049543509093535"><p>Obtains the drag event listener for the view.</p>
+</p></td></tr><tr id="row76650844093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p95643311093535"><p>SetOnClickListener (OnClickListener *onClickListener)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p694673714093535"><p>void</p>
+</p><p id="p1736647063093535"><p>Sets a click event listener for the view.</p>
+</p></td></tr><tr id="row458275198093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1925141725093535"><p>GetOnClickListener ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1977005660093535"><p>OnClickListener *&amp;</p>
+</p><p id="p1913729473093535"><p>Obtains the click event listener for the view.</p>
+</p></td></tr><tr id="row329492016093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2076445068093535"><p>SetOnLongPressListener (OnLongPressListener *onLongPressListener)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2127796085093535"><p>void</p>
+</p><p id="p579504475093535"><p>Sets a long-press event listener for the view.</p>
+</p></td></tr><tr id="row1431924573093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1227557859093535"><p>GetOnLongPressListener ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1460773006093535"><p>OnLongPressListener *&amp;</p>
+</p><p id="p623767340093535"><p>Obtains the long-press event listener for the view.</p>
+</p></td></tr><tr id="row18763732093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1442124880093535"><p>SetOnTouchListener (OnTouchListener *onTouchListener)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p997928906093535"><p>void</p>
+</p><p id="p430613866093535"><p>Sets a touch event listener for the view.</p>
+</p></td></tr><tr id="row1748487887093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p596190752093535"><p>GetTouchListener ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p177412633093535"><p>OnTouchListener *&amp;</p>
+</p><p id="p379311810093535"><p>Obtains the touch event listener for the view.</p>
+</p></td></tr><tr id="row143706529093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1202293228093535"><p>SetParent (UIView *parent)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1648298617093535"><p>void</p>
+</p><p id="p964624829093535"><p>Sets the parent view for the view.</p>
+</p></td></tr><tr id="row177349145093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2091571448093535"><p>GetParent () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p996158555093535"><p>UIView *</p>
+</p><p id="p1975308421093535"><p>Obtains the parent view of the view.</p>
+</p></td></tr><tr id="row1168981556093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p949155518093535"><p>SetNextSibling (UIView *sibling)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1694691726093535"><p>void</p>
+</p><p id="p2000056455093535"><p>Sets the next sibling view for the view.</p>
+</p></td></tr><tr id="row1905472131093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p410403744093535"><p>GetNextSibling () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2018419487093535"><p>UIView *</p>
+</p><p id="p1186004743093535"><p>Obtains the next sibling view of the view.</p>
+</p></td></tr><tr id="row1355445360093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p98910225093535"><p>SetVisible (bool visible)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1122541542093535"><p>virtual void</p>
+</p><p id="p1204244452093535"><p>Sets whether the view is visible.</p>
+</p></td></tr><tr id="row1935061225093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1897775667093535"><p>IsVisible () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p710719594093535"><p>bool</p>
+</p><p id="p1297708971093535"><p>Checks whether the view is visible.</p>
+</p></td></tr><tr id="row474578139093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p415551095093535"><p>SetTouchable (bool touch)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1062429029093535"><p>void</p>
+</p><p id="p1486165565093535"><p>Sets whether the view is touchable.</p>
+</p></td></tr><tr id="row130502587093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p654533086093535"><p>IsTouchable () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1500565192093535"><p>bool</p>
+</p><p id="p559064163093535"><p>Checks whether the view is touchable.</p>
+</p></td></tr><tr id="row1578458102093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1761629164093535"><p>SetDraggable (bool draggable)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1389249432093535"><p>void</p>
+</p><p id="p1723732590093535"><p>Sets whether the view is draggable.</p>
+</p></td></tr><tr id="row201162151093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1066854789093535"><p>IsDraggable () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p124230251093535"><p>bool</p>
+</p><p id="p1617037020093535"><p>Checks whether the view is draggable.</p>
+</p></td></tr><tr id="row14007848093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1315609253093535"><p>SetDragParentInstead (bool dragParentInstead)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1831434284093535"><p>void</p>
+</p><p id="p2140148674093535"><p>Sets whether to transfer the drag event to the parent view for
+processing when the view is being dragged.</p>
+</p></td></tr><tr id="row748352744093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1016056776093535"><p>IsDragParentInstead () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1679340012093535"><p>bool</p>
+</p><p id="p380062798093535"><p>Obtains whether the view transfers a drag event to the parent view for
+processing.</p>
+</p></td></tr><tr id="row739392575093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2105026318093535"><p>GetRect () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p648228484093535"><p>Rect</p>
+</p><p id="p576463271093535"><p>Obtains the absolute rectangle area of the view. When the view has
+deformation such as rotation, the rectangle area is the intersection set
+of the absolute rectangle area and deformation matrix.</p>
+</p></td></tr><tr id="row693310776093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1343422948093535"><p>GetVisibleRect () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1220820856093535"><p>Rect</p>
+</p><p id="p780823187093535"><p>Obtains the visible absolute rectangle area of the view.</p>
+</p></td></tr><tr id="row348393419093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1267639874093535"><p>GetMaskedRect () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p676779186093535"><p>Rect</p>
+</p><p id="p442159903093535"><p>Obtains the valid absolute rectangle area of the view. The valid area
+refers to the area where the view can be displayed. Generally, the valid
+area is the same as the visible view area, but they may be different in
+the grid layout.</p>
+</p></td></tr><tr id="row493530070093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1859116404093535"><p>GetOrigRect () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1825824152093535"><p>Rect</p>
+</p><p id="p1577735576093535"><p>Obtains the absolute rectangle area of the view.</p>
+</p></td></tr><tr id="row644260780093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1032330118093535"><p>GetContentRect ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1764143968093535"><p>virtual Rect</p>
+</p><p id="p1292580166093535"><p>Obtains the content of the absolute rectangle area of the view. This
+area excludes padding.</p>
+</p></td></tr><tr id="row977031961093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p242359923093535"><p>GetRelativeRect () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p577695143093535"><p>Rect</p>
+</p><p id="p645326276093535"><p>Obtains the rectangular area of the view relative to the parent view,
+that is, the rectangular area relative to the coordinates of the parent
+view.</p>
+</p></td></tr><tr id="row1816430293093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p254899964093535"><p>ResizeVisibleArea (int16_t x, int16_t y, int16_t width, int16_t height)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1511668272093535"><p>void</p>
+</p><p id="p26018869093535"><p>Adjusts the size of the visible area. This operation may affect the
+final display size.</p>
+</p></td></tr><tr id="row2048021359093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p381826607093535"><p>SetWidth (int16_t width)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p469571516093535"><p>virtual void</p>
+</p><p id="p64417744093535"><p>Sets the width for the view.</p>
+</p></td></tr><tr id="row1874508484093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p569658016093535"><p>GetWidth ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p574678558093535"><p>virtual int16_t</p>
+</p><p id="p1475038695093535"><p>Obtains the width for the view.</p>
+</p></td></tr><tr id="row559407516093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p351677187093535"><p>SetHeight (int16_t height)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p970969735093535"><p>virtual void</p>
+</p><p id="p1980233548093535"><p>Sets the height for the view.</p>
+</p></td></tr><tr id="row1376576104093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1207655246093535"><p>GetHeight ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1351408102093535"><p>virtual int16_t</p>
+</p><p id="p1741591116093535"><p>Obtains the height for the view.</p>
+</p></td></tr><tr id="row638355233093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p42413442093535"><p>Resize (int16_t width, int16_t height)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1489707699093535"><p>virtual void</p>
+</p><p id="p644894604093535"><p>Adjusts the size of the view.</p>
+</p></td></tr><tr id="row883014218093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1340088119093535"><p>SetX (int16_t x)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p135364024093535"><p>virtual void</p>
+</p><p id="p1316928253093535"><p>Sets the x-coordinate for the view.</p>
+</p></td></tr><tr id="row1152763161093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p732797116093535"><p>GetX () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1510245482093535"><p>int16_t</p>
+</p><p id="p1445987846093535"><p>Obtains the x-coordinate for the view.</p>
+</p></td></tr><tr id="row1777890598093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1675516019093535"><p>SetY (int16_t y)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1947974166093535"><p>virtual void</p>
+</p><p id="p1265839846093535"><p>Sets the y-coordinate for the view.</p>
+</p></td></tr><tr id="row420209769093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1428740126093535"><p>GetY () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1050739841093535"><p>int16_t</p>
+</p><p id="p889092329093535"><p>Obtains the y-coordinate for the view.</p>
+</p></td></tr><tr id="row1105254182093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1152958758093535"><p>SetPosition (int16_t x, int16_t y)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1452295620093535"><p>virtual void</p>
+</p><p id="p1490306832093535"><p>Sets the position for the view.</p>
+</p></td></tr><tr id="row661735984093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1600856838093535"><p>SetPosition (int16_t x, int16_t y, int16_t width, int16_t height)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1615193585093535"><p>virtual void</p>
+</p><p id="p906837123093535"><p>Adjusts the position and size of the view.</p>
+</p></td></tr><tr id="row915296042093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p636794718093535"><p>IsViewGroup () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p715626228093535"><p>bool</p>
+</p><p id="p2007777722093535"><p>Checks whether the view is a container view.</p>
+</p></td></tr><tr id="row382688773093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1421068828093535"><p>SetIntercept (bool isIntercept)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1653372128093535"><p>void</p>
+</p><p id="p1380717857093535"><p>Sets whether to intercept the drag event. If intercepted, the view does
+not transfer the drag event to the parent view after local processing.</p>
+</p></td></tr><tr id="row878100234093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p506720730093535"><p>SetTransformMap (const TransformMap &amp;transMap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1373361923093535"><p>void</p>
+</p><p id="p2080504281093535"><p>Sets the affine transformation matrix.</p>
+</p></td></tr><tr id="row1146452136093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1485843438093535"><p>GetTransformMap ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1515387959093535"><p>TransformMap &amp;</p>
+</p><p id="p2005806230093535"><p>Obtains an affine transformation matrix.</p>
+</p></td></tr><tr id="row1302879566093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1217547608093535"><p>SetViewId (const char *id)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p501798991093535"><p>void</p>
+</p><p id="p199061512093535"><p>Sets the view ID.</p>
+</p></td></tr><tr id="row1730307080093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p460749374093535"><p>GetViewId () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p343987352093535"><p>const char *</p>
+</p><p id="p1826607221093535"><p>Obtains the view ID.</p>
+</p></td></tr><tr id="row1095714546093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2121112166093535"><p>SetViewIndex (int16_t index)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1793599788093535"><p>void</p>
+</p><p id="p623077550093535"><p>Sets the view index.</p>
+</p></td></tr><tr id="row1035159592093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p907372399093535"><p>GetViewIndex () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1124820674093535"><p>int16_t</p>
+</p><p id="p2072553510093535"><p>Obtains the view index.</p>
+</p></td></tr><tr id="row591146347093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1580998431093535"><p>LayoutChildren (bool neeInvalidate=false)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p40807912093535"><p>virtual void</p>
+</p><p id="p438242733093535"><p>Lays out all child views according to the preset arrangement mode.</p>
+</p></td></tr><tr id="row456751090093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1696540384093535"><p>LayoutCenterOfParent (int16_t xOffSet=0, int16_t yOffset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p729232135093535"><p>void</p>
+</p><p id="p719942069093535"><p>Lays out the view in the center of the parent view.</p>
+</p></td></tr><tr id="row184432067093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2062946767093535"><p>LayoutLeftOfParent (int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p449608304093535"><p>void</p>
+</p><p id="p1120730725093535"><p>Lays out the view on the left of the parent view.</p>
+</p></td></tr><tr id="row1223549244093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2085330892093535"><p>LayoutRightOfParent (int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p954766081093535"><p>void</p>
+</p><p id="p559591499093535"><p>Lays out the view on the right of the parent view.</p>
+</p></td></tr><tr id="row250064695093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p788714074093535"><p>LayoutTopOfParent (int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p326429596093535"><p>void</p>
+</p><p id="p1284057553093535"><p>Lays out the view on the top of the parent view.</p>
+</p></td></tr><tr id="row1068142163093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1169637160093535"><p>LayoutBottomOfParent (int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p737802637093535"><p>void</p>
+</p><p id="p1775225572093535"><p>Lays out the view on the bottom of the parent view.</p>
+</p></td></tr><tr id="row2063547731093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p329408943093535"><p>AlignLeftToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2039670699093535"><p>void</p>
+</p><p id="p1369499211093535"><p>Aligns the view with the left of a sibling view.</p>
+</p></td></tr><tr id="row859697149093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p703282886093535"><p>AlignRightToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1389683630093535"><p>void</p>
+</p><p id="p1644832902093535"><p>Aligns the view with the right of a sibling view.</p>
+</p></td></tr><tr id="row2074697168093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1871335292093535"><p>AlignTopToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p745631023093535"><p>void</p>
+</p><p id="p1222226362093535"><p>Aligns the view with the top of a sibling view.</p>
+</p></td></tr><tr id="row1545492085093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1071884211093535"><p>AlignBottomToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p871524543093535"><p>void</p>
+</p><p id="p844135461093535"><p>Aligns the view with the bottom of a sibling view.</p>
+</p></td></tr><tr id="row1028754228093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p964276650093535"><p>AlignHorCenterToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1446521584093535"><p>void</p>
+</p><p id="p1031268131093535"><p>Aligns the view with the center of a sibling view in the x-axis.</p>
+</p></td></tr><tr id="row223000694093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p276557143093535"><p>AlignVerCenterToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p661123974093535"><p>void</p>
+</p><p id="p1083648290093535"><p>Aligns the view with the center of a sibling view in the y-axis.</p>
+</p></td></tr><tr id="row1460360348093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1302434991093535"><p>LayoutLeftToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p732001231093535"><p>void</p>
+</p><p id="p1809244288093535"><p>Lays out the view on the left of a sibling view.</p>
+</p></td></tr><tr id="row1505324266093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p854166634093535"><p>LayoutRightToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1536340721093535"><p>void</p>
+</p><p id="p1526797304093535"><p>Lays out the view on the right of a sibling view.</p>
+</p></td></tr><tr id="row555115221093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p88035089093535"><p>LayoutTopToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p683122565093535"><p>void</p>
+</p><p id="p1919323121093535"><p>Lays out the view on the above of a sibling view.</p>
+</p></td></tr><tr id="row15832996093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p280042527093535"><p>LayoutBottomToSibling (const char *id, int16_t offset=0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p867813376093535"><p>void</p>
+</p><p id="p1370863047093535"><p>Lays out the view on the below of a sibling view.</p>
+</p></td></tr><tr id="row1732138972093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2130370877093535"><p>SetStyle (Style &amp;style)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p800875197093535"><p>virtual void</p>
+</p><p id="p510530180093535"><p>Sets the view style.</p>
+</p></td></tr><tr id="row1309989407093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2032360125093535"><p>SetStyle (uint8_t key, int64_t value)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p88239686093535"><p>virtual void</p>
+</p><p id="p1953525213093535"><p>Sets a style.</p>
+</p></td></tr><tr id="row71128383093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p704192255093535"><p>GetStyle (uint8_t key) const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1137286800093535"><p>virtual int64_t</p>
+</p><p id="p1405537513093535"><p>Obtains the value of a style.</p>
+</p></td></tr><tr id="row426776328093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1514440360093535"><p>GetStyleConst () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1079653640093535"><p>const Style &amp;</p>
+</p><p id="p277672627093535"><p>Obtains the view style. This function applies to scenarios where the
+style does not need to be modified, which saves memory.</p>
+</p></td></tr><tr id="row1612115872093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1723992103093535"><p>operator new (size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1375081494093535"><p>void *</p>
+</p><p id="p626748058093535"><p>Overrides the new function.</p>
+</p></td></tr><tr id="row1774858035093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2069664735093535"><p>operator delete (void *p)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1756470172093535"><p>void</p>
+</p><p id="p1094987969093535"><p>Overrides the delete function.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="additional-inherited-members">
+<h2>Additional Inherited Members<a class="headerlink" href="#additional-inherited-members" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1955576613093535"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p353003394093535"><p>Additional Inherited Member Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p996340082093535"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row180688748093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1321556195093535"><p>GetAllChildRelativeRect () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1058613723093535"><p>Obtains the rectangle area of a new view group after being adaptive to
+the size of all child views.</p>
+</p></td></tr><tr id="row120170814093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1134573309093535"><p>OnChildChanged ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1962886318093535"><p>Performs operations needed after a child view is added or removed.</p>
+</p></td></tr><tr id="row295108289093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1736560220093535"><p>childrenHead_</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p662357014093535"><p>Indicates the pointer to the first child view of this view group.</p>
+</p></td></tr><tr id="row892858814093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p179790705093535"><p>childrenTail_</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2007178445093535"><p>Indicates the pointer to the last child view of this view group.</p>
+</p></td></tr><tr id="row2023024533093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p589836797093535"><p>childrenNum_</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1797974630093535"><p>Represents the number of child views.</p>
+</p></td></tr><tr id="row193535623093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1123916431093535"><p>isDragging_</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1554348718093535"><p>Specifies the sliding state of this view group.</p>
+</p></td></tr><tr id="row1845092509093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2101825374093535"><p>disallowIntercept_</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1851227187093535"><p>Specifies whether this view group is intercepted upon touch events.</p>
+</p></td></tr><tr id="row871978676093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p539934081093535"><p>isAutoSize_</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p974612764093535"><p>Specifies whether the size of this view group is adaptive to that of all
+child views.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/ohos-layout.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

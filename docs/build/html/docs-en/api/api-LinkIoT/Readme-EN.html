@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinkIoT Modules API &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="linkiot-modules-api">
+<h1>LinkIoT Modules API<a class="headerlink" href="#linkiot-modules-api" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="openharmony-kernel.rst">OpenHarmony Kernel</a></p>
+<ul>
+<li><p><a class="reference external" href="standard-library.rst">Standard Library</a></p>
+<ul>
+<li><p><a class="reference external" href="cmsis.rst">CMSIS</a></p></li>
+<li><p><a class="reference external" href="kal.rst">KAL</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="basic-system-capability-subsystem-set.rst">Basic System Capability Subsystem
+Set</a></p>
+<ul>
+<li><p><a class="reference external" href="communication-subsystem.rst">Communication Subsystem</a></p>
+<ul>
+<li><p><a class="reference external" href="wifiservice.rst">Wifiservice</a></p></li>
+<li><p><a class="reference external" href="softbus.rst">Softbus</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="service-framework-subsystem.rst">Service Framework Subsystem</a></p>
+<ul>
+<li><p><a class="reference external" href="broadcast.rst">Broadcast</a></p></li>
+<li><p><a class="reference external" href="samgr.rst">Samgr</a></p></li>
+<li><p><a class="reference external" href="ohos-init.rst">OHOS Init</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="basic-software-service-subsystem-set-and-hardware-service-subsystem-set.rst">Basic Software Service Subsystem Set and Hardware Service Subsystem
+Set</a></p>
+<ul>
+<li><p><a class="reference external" href="power-management-subsystem.rst">Power Management Subsystem</a></p>
+<ul>
+<li><p><a class="reference external" href="power.rst">Power</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="common-base-library.rst">Common Base Library</a></p>
+<ul>
+<li><p><a class="reference external" href="utils-subsystem.rst">Utils Subsystem</a></p>
+<ul>
+<li><p><a class="reference external" href="kv_store.rst">Kv_store</a></p></li>
+<li><p><a class="reference external" href="parameter.rst">Parameter</a></p></li>
+<li><p><a class="reference external" href="utils_config.rst">Utils_config</a></p></li>
+<li><p><a class="reference external" href="utils_file.rst">Utils_file</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="iot-platform.rst">IoT Platform</a></p>
+<ul>
+<li><p><a class="reference external" href="iot-subsystem.rst">IoT Subsystem</a></p>
+<ul>
+<li><p><a class="reference external" href="wifiiot.rst">Wifiiot</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="header-files-and-data-structures.rst">Header Files and Data
+Structures</a></p>
+<ul>
+<li><p><a class="reference external" href="header-files.rst">Header Files</a></p>
+<ul>
+<li><p><a class="reference external" href="common-h.rst">common.h</a></p></li>
+<li><p><a class="reference external" href="discovery_service-h.rst">discovery_service.h</a></p></li>
+<li><p><a class="reference external" href="feature-h.rst">feature.h</a></p></li>
+<li><p><a class="reference external" href="iunknown-h.rst">iunknown.h</a></p></li>
+<li><p><a class="reference external" href="kal-h.rst">kal.h</a></p></li>
+<li><p><a class="reference external" href="kv_store-h.rst">kv_store.h</a></p></li>
+<li><p><a class="reference external" href="lowpower-h.rst">lowpower.h</a></p></li>
+<li><p><a class="reference external" href="message-h.rst">message.h</a></p></li>
+<li><p><a class="reference external" href="ohos_init-h.rst">ohos_init.h</a></p></li>
+<li><p><a class="reference external" href="parameter-h.rst">parameter.h</a></p></li>
+<li><p><a class="reference external" href="reset-h.rst">reset.h</a></p></li>
+<li><p><a class="reference external" href="session-h.rst">session.h</a></p></li>
+<li><p><a class="reference external" href="station_info-h.rst">station_info.h</a></p></li>
+<li><p><a class="reference external" href="samgr_lite-h.rst">samgr_lite.h</a></p></li>
+<li><p><a class="reference external" href="service-h.rst">service.h</a></p></li>
+<li><p><a class="reference external" href="utils_config-h.rst">utils_config.h</a></p></li>
+<li><p><a class="reference external" href="utils_file-h.rst">utils_file.h</a></p></li>
+<li><p><a class="reference external" href="wifi_device-h.rst">wifi_device.h</a></p></li>
+<li><p><a class="reference external" href="wifi_device_config-h.rst">wifi_device_config.h</a></p></li>
+<li><p><a class="reference external" href="wifi_error_code-h.rst">wifi_error_code.h</a></p></li>
+<li><p><a class="reference external" href="wifi_event-h.rst">wifi_event.h</a></p></li>
+<li><p><a class="reference external" href="wifi_hotspot-h.rst">wifi_hotspot.h</a></p></li>
+<li><p><a class="reference external" href="wifi_hotspot_config-h.rst">wifi_hotspot_config.h</a></p></li>
+<li><p><a class="reference external" href="wifi_linked_info-h.rst">wifi_linked_info.h</a></p></li>
+<li><p><a class="reference external" href="wifi_scan_info-h.rst">wifi_scan_info.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_adc-h.rst">wifiiot_adc.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_at-h.rst">wifiiot_at.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_errno-h.rst">wifiiot_errno.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_flash-h.rst">wifiiot_flash.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_flash_ex-h.rst">wifiiot_flash_ex.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_gpio-h.rst">wifiiot_gpio.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_gpio_ex-h.rst">wifiiot_gpio_ex.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_i2c-h.rst">wifiiot_i2c.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_i2c_ex-h.rst">wifiiot_i2c_ex.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_i2s-h.rst">wifiiot_i2s.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_kal-h.rst">wifiiot_kal.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_partition-h.rst">wifiiot_partition.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_pwm-h.rst">wifiiot_pwm.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_sdio-h.rst">wifiiot_sdio.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_spi-h.rst">wifiiot_spi.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_uart-h.rst">wifiiot_uart.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_uart_ex-h.rst">wifiiot_uart_ex.h</a></p></li>
+<li><p><a class="reference external" href="wifiiot_watchdog-h.rst">wifiiot_watchdog.h</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="data-structures.rst">Data Structures</a></p>
+<ul>
+<li><p><a class="reference external" href="atcmdtbl.rst">AtCmdTbl</a></p></li>
+<li><p><a class="reference external" href="consumer.rst">Consumer</a></p></li>
+<li><p><a class="reference external" href="capabilitymap.rst">CapabilityMap</a></p></li>
+<li><p><a class="reference external" href="commondeviceinfo.rst">CommonDeviceInfo</a></p></li>
+<li><p><a class="reference external" href="devicemap.rst">DeviceMap</a></p></li>
+<li><p><a class="reference external" href="feature.rst">Feature</a></p></li>
+<li><p><a class="reference external" href="hotspotconfig.rst">HotspotConfig</a></p></li>
+<li><p><a class="reference external" href="ipublishcallback.rst">IPublishCallback</a></p></li>
+<li><p><a class="reference external" href="isessionlistener.rst">ISessionListener</a></p></li>
+<li><p><a class="reference external" href="iunknown.rst">IUnknown</a></p></li>
+<li><p><a class="reference external" href="iunknownentry.rst">IUnknownEntry</a></p></li>
+<li><p><a class="reference external" href="identity.rst">Identity</a></p></li>
+<li><p><a class="reference external" href="meminfo.rst">MemInfo</a></p></li>
+<li><p><a class="reference external" href="provider.rst">Provider</a></p></li>
+<li><p><a class="reference external" href="publishinfo.rst">PublishInfo</a></p></li>
+<li><p><a class="reference external" href="request.rst">Request</a></p></li>
+<li><p><a class="reference external" href="response.rst">Response</a></p></li>
+<li><p><a class="reference external" href="subscriber.rst">Subscriber</a></p></li>
+<li><p><a class="reference external" href="stationinfo.rst">StationInfo</a></p></li>
+<li><p><a class="reference external" href="simplevector.rst">SimpleVector</a></p></li>
+<li><p><a class="reference external" href="samgrlite.rst">SamgrLite</a></p></li>
+<li><p><a class="reference external" href="service.rst">Service</a></p></li>
+<li><p><a class="reference external" href="threadinfo.rst">ThreadInfo</a></p></li>
+<li><p><a class="reference external" href="taskconfig.rst">TaskConfig</a></p></li>
+<li><p><a class="reference external" href="wifideviceconfig.rst">WifiDeviceConfig</a></p></li>
+<li><p><a class="reference external" href="wifiscanparams.rst">WifiScanParams</a></p></li>
+<li><p><a class="reference external" href="wifievent.rst">WifiEvent</a></p></li>
+<li><p><a class="reference external" href="wifilinkedinfo.rst">WifiLinkedInfo</a></p></li>
+<li><p><a class="reference external" href="wifiscaninfo.rst">WifiScanInfo</a></p></li>
+<li><p><a class="reference external" href="wifiioti2cdata.rst">WifiIotI2cData</a></p></li>
+<li><p><a class="reference external" href="wifiioti2cfunc.rst">WifiIotI2cFunc</a></p></li>
+<li><p><a class="reference external" href="wifiioti2sattribute.rst">WifiIotI2sAttribute</a></p></li>
+<li><p><a class="reference external" href="wifiiotflashpartitioninfo.rst">WifiIotFlashPartitionInfo</a></p></li>
+<li><p><a class="reference external" href="wifiiotflashpartitiontable.rst">WifiIotFlashPartitionTable</a></p></li>
+<li><p><a class="reference external" href="wifiiotsdioextendfunc.rst">WifiIotSdioExtendFunc</a></p></li>
+<li><p><a class="reference external" href="wifiiotsdioadmatable.rst">WifiIotSdioAdmatable</a></p></li>
+<li><p><a class="reference external" href="wifiiotsdiointcallback.rst">WifiIotSdioIntcallback</a></p></li>
+<li><p><a class="reference external" href="wifiiotspicfgbasicinfo.rst">WifiIotSpiCfgBasicInfo</a></p></li>
+<li><p><a class="reference external" href="wifiiotspicfginitparam.rst">WifiIotSpiCfgInitParam</a></p></li>
+<li><p><a class="reference external" href="wifiiotuartattribute.rst">WifiIotUartAttribute</a></p></li>
+<li><p><a class="reference external" href="wifiiotuartextraattr.rst">WifiIotUartExtraAttr</a></p></li>
+<li><p><a class="reference external" href="osversion_t.rst">osVersion_t</a></p></li>
+<li><p><a class="reference external" href="osthreadattr_t.rst">osThreadAttr_t</a></p></li>
+<li><p><a class="reference external" href="ostimerattr_t.rst">osTimerAttr_t</a></p></li>
+<li><p><a class="reference external" href="oseventflagsattr_t.rst">osEventFlagsAttr_t</a></p></li>
+<li><p><a class="reference external" href="osmutexattr_t.rst">osMutexAttr_t</a></p></li>
+<li><p><a class="reference external" href="ossemaphoreattr_t.rst">osSemaphoreAttr_t</a></p></li>
+<li><p><a class="reference external" href="osmessagequeueattr_t.rst">osMessageQueueAttr_t</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-LinkIoT/Readme-EN.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

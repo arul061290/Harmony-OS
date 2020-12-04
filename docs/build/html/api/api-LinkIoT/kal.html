@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KAL &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="kal">
+<h1>KAL<a class="headerlink" href="#kal" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Defines the kernel adaptation layer (KAL), which provides compatible
+interfaces across different types of OpenHarmony devices.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1279671087090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p168151700090250"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2010788671090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row946968834090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p899763654090250"><p>kal.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p291437502090250"><p>Defines the kernel adaptation layer (KAL), which provides compatible
+interfaces across different types of OpenHarmony devices.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1539818328090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1619231771090250"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p18258118090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1588051321090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1568692327090250"><p>ThreadInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1172898798090250"><p>Describes a thread.</p>
+</p></td></tr><tr id="row1594931788090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1638947350090250"><p>MemInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p743878453090250"><p>Describes a memory pool.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2024385192090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1733199826090250"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1608692438090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row837841792090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p972708954090250"><p>KAL_TASK_NAME_LEN 32</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p875345772090250"><p>Indicates the maximum length of a thread name.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row876615543090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p39172838090250"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1647185032090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row51807949090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1155384547090250"><p>KalTimerType { KAL_TIMER_ONCE = 0, KAL_TIMER_PERIODIC = 1 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1925187365090250"><p>Enumerates timer types.</p>
+</p></td></tr><tr id="row62757079090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p496220096090250"><p>KalErrCode { KAL_OK = 0, KAL_ERR_PARA = 1, KAL_ERR_INNER = 2,
+KAL_ERR_TIMER_STATE = 0x100 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1470168769090250"><p>Enumerates return values of the KAL function.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1485283083090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p160108447090250"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p661992638090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1341192174090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p773017751090250"><p>KalThreadGetInfo (unsigned int threadId, ThreadInfo *info)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p143674785090250"><p>unsigned int</p>
+</p><p id="p349672349090250"><p>Obtains thread information.</p>
+</p></td></tr><tr id="row193746428090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2091595061090250"><p>KalDelayUs (unsigned int us)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1673294868090250"><p>void</p>
+</p><p id="p1083838878090250"><p>Delays a thread.</p>
+</p></td></tr><tr id="row1582032518090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1392107112090250"><p>KalTimerCreate (KalTimerProc func, KalTimerType type, void *arg,
+unsigned int ticks)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1327550482090250"><p>KalTimerId</p>
+</p><p id="p1323777792090250"><p>Creates a timer.</p>
+</p></td></tr><tr id="row1051518793090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p387785760090250"><p>KalTimerStart (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p705703207090250"><p>KalErrCode</p>
+</p><p id="p1110952124090250"><p>Starts a timer.</p>
+</p></td></tr><tr id="row1708085358090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1571623932090250"><p>KalTimerChange (KalTimerId timerId, unsigned int ticks)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p405299670090250"><p>KalErrCode</p>
+</p><p id="p1724878930090250"><p>Changes the duration of a timer.</p>
+</p></td></tr><tr id="row583760966090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p369584604090250"><p>KalTimerStop (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p747521935090250"><p>KalErrCode</p>
+</p><p id="p2004415637090250"><p>Stops a timer.</p>
+</p></td></tr><tr id="row1980928763090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1283503038090250"><p>KalTimerDelete (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1706798424090250"><p>KalErrCode</p>
+</p><p id="p1346894623090250"><p>Deletes a timer.</p>
+</p></td></tr><tr id="row409991002090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1836721559090250"><p>KalTimerIsRunning (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p858486404090250"><p>unsigned int</p>
+</p><p id="p2113773278090250"><p>Checks whether a timer is running.</p>
+</p></td></tr><tr id="row2137173366090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1918730907090250"><p>KalTickToMs (unsigned int ticks)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p459689953090250"><p>unsigned int</p>
+</p><p id="p1285882106090250"><p>Converts system ticks into milliseconds.</p>
+</p></td></tr><tr id="row468227279090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p328827607090250"><p>KalMsToTick (unsigned int millisec)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p722263099090250"><p>unsigned int</p>
+</p><p id="p472525132090250"><p>Converts milliseconds into system ticks.</p>
+</p></td></tr><tr id="row716309176090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1713488711090250"><p>KalGetMemInfo (MemInfo *pmemInfo)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p801026788090250"><p>KalErrCode</p>
+</p><p id="p1090848409090250"><p>Obtains memory information.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="kalerrcode">
+<h2>KalErrCode<a class="headerlink" href="#kalerrcode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">KalErrCode</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga595e811b5dcad5dc834be507d6839c36)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates return values of the KAL function.</p>
+<table><thead align="left"><tr id="row288199108090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1657223263090250"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2016480901090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row781539680090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1587560209090250p0"><p>KAL_OK</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p497584006090250"><p>A successful execution</p>
+</p><p id="p11440164110316"></p></td></tr><tr id="row1485168917090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry21551412090250p0"><p>KAL_ERR_PARA</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2070007331090250"><p>Incorrect parameter</p>
+</p><p id="p1144010419313"></p></td></tr><tr id="row1406949664090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry641308078090250p0"><p>KAL_ERR_INNER</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p539868235090250"><p>Internal execution error</p>
+</p><p id="p1544015411732"></p></td></tr><tr id="row1850551987090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry592386261090250p0"><p>KAL_ERR_TIMER_STATE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1767284033090250"><p>Timer status error</p>
+</p><p id="p6440241631"></p></td></tr></tbody></table></div>
+<div class="section" id="kaltimertype">
+<h2>KalTimerType<a class="headerlink" href="#kaltimertype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">KalTimerType</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#gacde4b0c553c297f66311b87c4bbbb27d)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates timer types.</p>
+<table><thead align="left"><tr id="row329519887090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p627432540090250"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1360280359090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row323851035090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1676693334090250p0"><p>KAL_TIMER_ONCE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1919223126090250"><p>One-shot timer</p>
+</p><p id="p1544854112318"></p></td></tr><tr id="row232535340090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1464454772090250p0"><p>KAL_TIMER_PERIODIC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1168641856090250"><p>Repetitive timer</p>
+</p><p id="p6448841430"></p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="kaldelayus">
+<h2>KalDelayUs()<a class="headerlink" href="#kaldelayus" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">KalDelayUs</span> <span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">us</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Delays a thread.</p>
+<p>The delay unit is microsecond. The actual delay precision can reach only
+the tick level.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row357148926090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p956450764090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1134305722090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row45825837090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry537415473090250p0"><p>us</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry104061947090250p0"><p>Indicates the number of microseconds to delay. The actual delay
+precision is one tick.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="kalgetmeminfo">
+<h2>KalGetMemInfo()<a class="headerlink" href="#kalgetmeminfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">KalErrCode</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga595e811b5dcad5dc834be507d6839c36) KalGetMemInfo ([MemInfo](meminfo.md) * pmemInfo)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains memory information.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row991660390090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p299526827090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1383934611090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1222934779090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1937117894090250p0"><p>pmemInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry315786093090250p0"><p>Indicates the pointer to the memory information.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns an enumerated value defined by
+<a class="reference external" href="kal.md#ga595e811b5dcad5dc834be507d6839c36">KalErrCode</a>, where
+<a class="reference external" href="kal.md#gga595e811b5dcad5dc834be507d6839c36a249642877a22187565c646fcb4c43228">KAL_OK</a>
+indicates a success.</p>
+</div>
+<div class="section" id="kalmstotick">
+<h2>KalMsToTick()<a class="headerlink" href="#kalmstotick" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">KalMsToTick</span> <span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">millisec</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts milliseconds into system ticks.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1808476861090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p195586487090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2029168273090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1612627690090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry229984854090250p0"><p>millisec</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry62392545090250p0"><p>Indicates the milliseconds to convert.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the system ticks generated.</p>
+</div>
+<div class="section" id="kalthreadgetinfo">
+<h2>KalThreadGetInfo()<a class="headerlink" href="#kalthreadgetinfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">KalThreadGetInfo</span> <span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">threadId</span><span class="p">,</span> <span class="p">[</span><span class="n">ThreadInfo</span><span class="p">](</span><span class="n">threadinfo</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">info</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains thread information.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row157772410090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p517328145090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p320788349090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row635552821090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1075927755090250p0"><p>threadId</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry559539319090250p0"><p>Indicates the thread ID.</p>
+</p></td></tr><tr id="row1074772122090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry750154741090250p0"><p>info</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1525186157090250p0"><p>Indicates the pointer to the buffer for storing the obtained thread
+information.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the thread information is obtained; returns a negative
+value otherwise.</p>
+</div>
+<div class="section" id="kalticktoms">
+<h2>KalTickToMs()<a class="headerlink" href="#kalticktoms" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">KalTickToMs</span> <span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ticks</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts system ticks into milliseconds.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1394740911090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1405376294090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1399565358090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1086265717090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1312544656090250p0"><p>ticks</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry387467238090250p0"><p>Indicates the number of ticks to convert.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the milliseconds generated.</p>
+</div>
+<div class="section" id="kaltimerchange">
+<h2>KalTimerChange()<a class="headerlink" href="#kaltimerchange" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">KalErrCode</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga595e811b5dcad5dc834be507d6839c36) KalTimerChange (KalTimerId timerId, unsigned int ticks )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Changes the duration of a timer.</p>
+<p>The timer duration can be changed only before the timer is started.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row837457968090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p306638110090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1010028081090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row221792356090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry794316212090250p0"><p>timerId</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry632643054090250p0"><p>Indicates the ID of the timer whose duration is to change, which is the
+value returned by KalTimerCreate.</p>
+</p></td></tr><tr id="row1115890167090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry166423821090250p0"><p>ticks</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry763994554090250p0"><p>Indicates the new duration of the timer.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns an enumerated value defined by
+<a class="reference external" href="kal.md#ga595e811b5dcad5dc834be507d6839c36">KalErrCode</a>, where
+<a class="reference external" href="kal.md#gga595e811b5dcad5dc834be507d6839c36a249642877a22187565c646fcb4c43228">KAL_OK</a>
+indicates a success.</p>
+</div>
+<div class="section" id="kaltimercreate">
+<h2>KalTimerCreate()<a class="headerlink" href="#kaltimercreate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KalTimerId</span> <span class="n">KalTimerCreate</span> <span class="p">(</span><span class="n">KalTimerProc</span> <span class="n">func</span><span class="p">,</span> <span class="p">[</span><span class="n">KalTimerType</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#gacde4b0c553c297f66311b87c4bbbb27d) type, void * arg, unsigned int ticks )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Creates a timer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row495685141090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1356842829090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1517717949090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1666700858090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry226656396090250p0"><p>func</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry580079398090250p0"><p>Indicates the entry to timer callback. The callback is triggered when
+the timer expires.</p>
+</p></td></tr><tr id="row1723323089090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1477381166090250p0"><p>type</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1519720414090250p0"><p>Indicates the timer type.</p>
+</p></td></tr><tr id="row572683528090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry786468104090250p0"><p>arg</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1024218162090250p0"><p>Indicates the pointer to the argument used in timer callback.</p>
+</p></td></tr><tr id="row638953725090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry807210750090250p0"><p>ticks</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1544463044090250p0"><p>Indicates the duration of the timer to create.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the timer ID; returns <strong>NULL</strong> in the case of an error.</p>
+</div>
+<div class="section" id="kaltimerdelete">
+<h2>KalTimerDelete()<a class="headerlink" href="#kaltimerdelete" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">KalErrCode</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga595e811b5dcad5dc834be507d6839c36) KalTimerDelete (KalTimerId timerId)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Deletes a timer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row241534207090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1478794303090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1618646052090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1064898631090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry194406456090250p0"><p>timerId</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1655546368090250p0"><p>Indicates the ID of the timer to delete, which is the value returned by
+KalTimerCreate.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns an enumerated value defined by
+<a class="reference external" href="kal.md#ga595e811b5dcad5dc834be507d6839c36">KalErrCode</a>, where
+<a class="reference external" href="kal.md#gga595e811b5dcad5dc834be507d6839c36a249642877a22187565c646fcb4c43228">KAL_OK</a>
+indicates a success.</p>
+</div>
+<div class="section" id="kaltimerisrunning">
+<h2>KalTimerIsRunning()<a class="headerlink" href="#kaltimerisrunning" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">KalTimerIsRunning</span> <span class="p">(</span><span class="n">KalTimerId</span> <span class="n">timerId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Checks whether a timer is running.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1285460878090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1575744244090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1006271401090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1453707987090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1047186589090250p0"><p>timerId</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1421223117090250p0"><p>Indicates the ID of the timer to check, which is the value returned by
+KalTimerCreate.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>1</strong> if the timer is running; returns <strong>0</strong> if the timer is not
+running or the input parameter is incorrect.</p>
+</div>
+<div class="section" id="kaltimerstart">
+<h2>KalTimerStart()<a class="headerlink" href="#kaltimerstart" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">KalErrCode</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga595e811b5dcad5dc834be507d6839c36) KalTimerStart (KalTimerId timerId)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Starts a timer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row15726364090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p313569381090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p792177544090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row91856712090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry385879940090250p0"><p>timerId</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry377521522090250p0"><p>Indicates the ID of the timer to start, which is the value returned by
+KalTimerCreate.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns an enumerated value defined by
+<a class="reference external" href="kal.md#ga595e811b5dcad5dc834be507d6839c36">KalErrCode</a>, where
+<a class="reference external" href="kal.md#gga595e811b5dcad5dc834be507d6839c36a249642877a22187565c646fcb4c43228">KAL_OK</a>
+indicates a success.</p>
+</div>
+<div class="section" id="kaltimerstop">
+<h2>KalTimerStop()<a class="headerlink" href="#kaltimerstop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">KalErrCode</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga595e811b5dcad5dc834be507d6839c36) KalTimerStop (KalTimerId timerId)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Stops a timer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1103151354090250"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1293557509090250"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2106193107090250"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row560498489090250"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry334876843090250p0"><p>timerId</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1806602586090250p0"><p>Indicates the ID of the timer to stop, which is the value returned by
+KalTimerCreate.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns an enumerated value defined by
+<a class="reference external" href="kal.md#ga595e811b5dcad5dc834be507d6839c36">KalErrCode</a>, where
+<a class="reference external" href="kal.md#gga595e811b5dcad5dc834be507d6839c36a249642877a22187565c646fcb4c43228">KAL_OK</a>
+indicates a success.</p>
+</div>
+<div class="section" id="variable-documentation">
+<h2><strong>Variable Documentation</strong><a class="headerlink" href="#variable-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bottomofstack">
+<h2>bottomOfStack<a class="headerlink" href="#bottomofstack" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">bottomOfStack</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread stack bottom</p>
+</div>
+<div class="section" id="currused">
+<h2>currUsed<a class="headerlink" href="#currused" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">currUsed</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Current stack space usage</p>
+</div>
+<div class="section" id="eventmask">
+<h2>eventMask<a class="headerlink" href="#eventmask" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">eventMask</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread event mask</p>
+</div>
+<div class="section" id="eventstru">
+<h2>eventStru<a class="headerlink" href="#eventstru" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">eventStru</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread event</p>
+</div>
+<div class="section" id="free">
+<h2>free<a class="headerlink" href="#free" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">free</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Available space of the memory pool, in bytes</p>
+</div>
+<div class="section" id="freelmp">
+<h2>freeLmp<a class="headerlink" href="#freelmp" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">freeLmp</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Available space of the small memory pool, in bytes</p>
+</div>
+<div class="section" id="freenodenum">
+<h2>freeNodeNum<a class="headerlink" href="#freenodenum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">freeNodeNum</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of available nodes in the memory pool</p>
+</div>
+<div class="section" id="id">
+<h2>id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="nb">id</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread ID</p>
+</div>
+<div class="section" id="mallocfailcount">
+<h2>mallocFailCount<a class="headerlink" href="#mallocfailcount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">mallocFailCount</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of memory allocation failures</p>
+</div>
+<div class="section" id="maxfreenodesize">
+<h2>maxFreeNodeSize<a class="headerlink" href="#maxfreenodesize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">maxFreeNodeSize</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Size of the largest available node in the memory pool, in bytes</p>
+</div>
+<div class="section" id="mepc">
+<h2>mepc<a class="headerlink" href="#mepc" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">mepc</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Current thread MEPC</p>
+</div>
+<div class="section" id="mstatus">
+<h2>mstatus<a class="headerlink" href="#mstatus" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">mstatus</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Current thread status</p>
+</div>
+<div class="section" id="name">
+<h2>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">name</span><span class="p">[[</span><span class="n">KAL_TASK_NAME_LEN</span><span class="p">](</span><span class="n">kal</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga5c36b53bd6e8cbdbcd79f702eda94fdc)]</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread name</p>
+</div>
+<div class="section" id="overflowflag">
+<h2>overflowFlag<a class="headerlink" href="#overflowflag" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">overflowFlag</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread stack overflow flag</p>
+</div>
+<div class="section" id="peakused">
+<h2>peakUsed<a class="headerlink" href="#peakused" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">peakUsed</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Peak stack space usage</p>
+</div>
+<div class="section" id="peeksize">
+<h2>peekSize<a class="headerlink" href="#peeksize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">peekSize</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Peak memory usage of the memory pool</p>
+</div>
+<div class="section" id="priority">
+<h2>priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="n">short</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">priority</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread priority</p>
+</div>
+<div class="section" id="ra">
+<h2>ra<a class="headerlink" href="#ra" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">ra</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Current thread RA</p>
+</div>
+<div class="section" id="sp">
+<h2>sp<a class="headerlink" href="#sp" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">sp</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread stack pointer</p>
+</div>
+<div class="section" id="stacksize">
+<h2>stackSize<a class="headerlink" href="#stacksize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">stackSize</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread stack size</p>
+</div>
+<div class="section" id="status">
+<h2>status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="n">short</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">status</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread status</p>
+</div>
+<div class="section" id="taskmutex">
+<h2>taskMutex<a class="headerlink" href="#taskmutex" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="o">*</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">taskMutex</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread mutex</p>
+</div>
+<div class="section" id="tasksem">
+<h2>taskSem<a class="headerlink" href="#tasksem" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="o">*</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">taskSem</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread semaphore</p>
+</div>
+<div class="section" id="topofstack">
+<h2>topOfStack<a class="headerlink" href="#topofstack" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">topOfStack</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Thread stack top</p>
+</div>
+<div class="section" id="total">
+<h2>total<a class="headerlink" href="#total" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">total</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Total space of the memory pool, in bytes</p>
+</div>
+<div class="section" id="totallmp">
+<h2>totalLmp<a class="headerlink" href="#totallmp" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">totalLmp</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Total space of the small memory pool, in bytes</p>
+</div>
+<div class="section" id="tp">
+<h2>tp<a class="headerlink" href="#tp" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">ThreadInfo</span><span class="p">::</span><span class="n">tp</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Current thread TP</p>
+</div>
+<div class="section" id="used">
+<h2>used<a class="headerlink" href="#used" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">used</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Used space of the memory pool, in bytes</p>
+</div>
+<div class="section" id="usedlmp">
+<h2>usedLmp<a class="headerlink" href="#usedlmp" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">usedLmp</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Used space of the small memory pool, in bytes</p>
+</div>
+<div class="section" id="usednodenum">
+<h2>usedNodeNum<a class="headerlink" href="#usednodenum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">MemInfo</span><span class="p">::</span><span class="n">usedNodeNum</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of used nodes in the memory pool</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-LinkIoT/kal.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

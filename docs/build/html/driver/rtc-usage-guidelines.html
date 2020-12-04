@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTC Usage Guidelines &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rtc-usage-guidelines">
+<h1>RTC Usage Guidelines<a class="headerlink" href="#rtc-usage-guidelines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-use">
+<h2>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p>During the OS startup, the HDF loads the RTC driver based on the
+configuration file. The RTC driver detects the RTC component and
+initializes the driver.</p>
+<p><a class="reference external" href="#fig166181128151112">Figure 1</a> illustrates the process of an RTC
+device.</p>
+<p><strong>Figure 1</strong> Process of using an RTC device</p>
+<p><img alt="image1" src="../_images/en-us_image_0000001054728498.png" /></p>
+</div>
+<div class="section" id="creating-an-rtc-device-handle">
+<h2>Creating an RTC Device Handle<a class="headerlink" href="#creating-an-rtc-device-handle" title="Permalink to this headline">¶</a></h2>
+<p>After the RTC driver is loaded successfully, you can use the API
+provided by the HDF and call APIs of the RTC driver.</p>
+<blockquote>
+<div><p><img alt="image2" src="../_images/icon-note2.gif" /> <strong>NOTE:</strong> Currently, only one RTC device is supported in the
+OS.</p>
+</div></blockquote>
+<p>struct DevHandle *RtcOpen(void);</p>
+<p><strong>Table 1</strong> Description of <strong>RtcOpen</strong></p>
+<table><tbody><tr id="row580722985616"><td class="cellrowborder" valign="top" width="21.45%"><p id="p1280722911565"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p5807112965618"><p>Description</p>
+</p></td></tr><tr id="row17807112935611"><td class="cellrowborder" valign="top" width="21.45%"><p id="p13807132915565"><p>void</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p15807429185612"><p>NA</p>
+</p></td></tr><tr id="row1980782911567"><td class="cellrowborder" valign="top" width="21.45%"><p id="p0807529165613"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p9808162935612"><p>Description</p>
+</p></td></tr><tr id="row2808192935615"><td class="cellrowborder" valign="top" width="21.45%"><p id="p380852915567"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p26881319114110"><p>Returns the pointer to if the operation is successful.</p>
+</p></td></tr><tr id="row4808142945615"><td class="cellrowborder" valign="top" width="21.45%"><p id="p188084291561"><p>NULL</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p780852912566"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">DevHandle</span> <span class="o">*</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Obtain</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">device</span> <span class="n">handle</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">RtcOpen</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">handle</span>  <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="releasing-the-rtc-device-handle">
+<h2>Releasing the RTC Device Handle<a class="headerlink" href="#releasing-the-rtc-device-handle" title="Permalink to this headline">¶</a></h2>
+<p>You can call the following function to release the RTC device handle,
+thereby releasing resources of the device:</p>
+<p>void RtcClose(struct DevHandle *handle);</p>
+<p><strong>Table 2</strong> Description of <strong>RtcClose</strong></p>
+<table><tbody><tr id="row10752134216114"><td class="cellrowborder" valign="top" width="21.45%"><p id="p1075217421019"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p117531421411"><p>Description</p>
+</p></td></tr><tr id="row57531442914"><td class="cellrowborder" valign="top" width="21.45%"><p id="p8753164210119"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p17533425113"><p>Pointer to the RTC device handle</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Release</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">device</span> <span class="n">handle</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">RtcClose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registering-rtcalarmcallback">
+<h2>Registering RtcAlarmCallback<a class="headerlink" href="#registering-rtcalarmcallback" title="Permalink to this headline">¶</a></h2>
+<p>After the OS is started, call the following function to register
+<strong>RtcAlarmCallback</strong>, which will be invoked when an alarm is generated
+at the specified time:</p>
+<p>int32_t RtcRegisterAlarmCallback(struct DevHandle *handle, enum
+RtcAlarmIndex alarmIndex, RtcAlarmCallback cb);</p>
+<p><strong>Table 3</strong> Description of <strong>RtcRegisterAlarmCallback</strong></p>
+<table><thead align="left"><tr id="row1060351914386"><th class="cellrowborder" valign="top" width="21.36%" id="mcps1.2.3.1.1"><p id="p14603181917382"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="78.64%" id="mcps1.2.3.1.2"><p id="p36031519183819"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1181618191115"><td class="cellrowborder" valign="top" width="21.36%" headers="mcps1.2.3.1.1 "><p id="p131811218131116"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%" headers="mcps1.2.3.1.2 "><p id="p6181191851111"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row960361918383"><td class="cellrowborder" valign="top" width="21.36%" headers="mcps1.2.3.1.1 "><p id="p1775535165418"><p>alarmIndex</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%" headers="mcps1.2.3.1.2 "><p id="p137551851185412"><p>Alarm index</p>
+</p></td></tr><tr id="row1960431983813"><td class="cellrowborder" valign="top" width="21.36%" headers="mcps1.2.3.1.1 "><p id="p3604719123817"><p>cb</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%" headers="mcps1.2.3.1.2 "><p id="p1560441923818"><p>Callback that will be invoked when an alarm is generated at the
+specified time.</p>
+</p></td></tr><tr id="row11410612183019"><td class="cellrowborder" valign="top" width="21.36%" headers="mcps1.2.3.1.1 "><p id="p460381915385"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%" headers="mcps1.2.3.1.2 "><p id="p96031619153812"><p>Description</p>
+</p></td></tr><tr id="row15410111273017"><td class="cellrowborder" valign="top" width="21.36%" headers="mcps1.2.3.1.1 "><p id="p133081510112813"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%" headers="mcps1.2.3.1.2 "><p id="p530813107289"><p>The operation is successful.</p>
+</p></td></tr><tr id="row1241081213303"><td class="cellrowborder" valign="top" width="21.36%" headers="mcps1.2.3.1.1 "><p id="p1123362173010"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%" headers="mcps1.2.3.1.2 "><p id="p1723362153010"><p>The operation fails.</p>
+</p></td></tr></tbody></table><p>The following is an example of registering <strong>RtcAlarmCallback</strong> for
+processing alarm <strong>RTC_ALARM_INDEX_A</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Register</span> <span class="n">an</span> <span class="n">RTC</span> <span class="n">alarm</span> <span class="n">callback</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">int32_t</span> <span class="n">RtcAlarmACallback</span><span class="p">(</span><span class="n">enum</span> <span class="n">RtcAlarmIndex</span> <span class="n">alarmIndex</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">alarmIndex</span> <span class="o">==</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">alarm</span> <span class="n">A</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">alarmIndex</span> <span class="o">==</span> <span class="n">RTC_ALARM_INDEX_B</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">alarm</span> <span class="n">B</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Register</span> <span class="n">RtcAlarmCallback</span> <span class="k">for</span> <span class="n">alarm</span> <span class="n">A</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcRegisterAlarmCallback</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">,</span> <span class="n">RtcAlarmACallback</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="performing-rtc-related-operations">
+<h2>Performing RTC-related Operations<a class="headerlink" href="#performing-rtc-related-operations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Reading RTC time</p></li>
+</ul>
+<p>Call the following function to read time information from the RTC
+driver, including the year, month, the day fo the week, day, hour,
+minute, second, and millisecond:</p>
+<p>int32_t RtcReadTime(struct DevHandle *handle, struct RtcTime *time);</p>
+<p><strong>Table 4</strong> Description of <strong>RtcReadTime</strong></p>
+<table><tbody><tr id="row31848013417"><td class="cellrowborder" valign="top" width="21.45%"><p id="p1415816132411"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p11158111316410"><p>Description</p>
+</p></td></tr><tr id="row1246615200297"><td class="cellrowborder" valign="top" width="21.45%"><p id="p188871821142917"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p1788742182910"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row10184701945"><td class="cellrowborder" valign="top" width="21.45%"><p id="p104891871157"><p>time</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p204891671156"><p>Pointer to the time information read from the RTC driver. The time
+information includes the year, month, the day of the week, day, hour,
+minute, second, and millisecond.</p>
+</p></td></tr><tr id="row17393154515328"><td class="cellrowborder" valign="top" width="21.45%"><p id="p8158313248"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p161591413741"><p>Description</p>
+</p></td></tr><tr id="row339324593215"><td class="cellrowborder" valign="top" width="21.45%"><p id="p139599615287"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p1895911611284"><p>The operation is successful.</p>
+</p></td></tr><tr id="row15393184519323"><td class="cellrowborder" valign="top" width="21.45%"><p id="p13521182309"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.55%"><p id="p1035216186309"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">struct</span> <span class="n">RtcTime</span> <span class="n">tm</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Read</span> <span class="n">time</span> <span class="n">information</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">RTC</span> <span class="n">driver</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcReadTime</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tm</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Setting RTC time</p></li>
+</ul>
+<p>Call the following function to set the RTC time:</p>
+<p>int32_t RtcWriteTime(struct DevHandle *handle, struct RtcTime *time);</p>
+<p><strong>Table 5</strong> Description of <strong>RtcWriteTime</strong></p>
+<table><tbody><tr id="row924033173613"><td class="cellrowborder" valign="top" width="21.54%"><p id="p16240143143611"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p32401031113610"><p>Description</p>
+</p></td></tr><tr id="row148011248153018"><td class="cellrowborder" valign="top" width="21.54%"><p id="p189641849113018"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p20964249123013"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row024043193619"><td class="cellrowborder" valign="top" width="21.54%"><p id="p157679281384"><p>time</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p167675286381"><p>Pointer to the time information written into the RTC driver. The time
+information includes the year, month, the day of the week, day, hour,
+minute, second, and millisecond.</p>
+</p></td></tr><tr id="row424093120369"><td class="cellrowborder" valign="top" width="21.54%"><p id="p1240143114366"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p18241173133619"><p>Description</p>
+</p></td></tr><tr id="row18241531153610"><td class="cellrowborder" valign="top" width="21.54%"><p id="p8550174182810"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p145503417284"><p>The operation is successful.</p>
+</p></td></tr><tr id="row024153123616"><td class="cellrowborder" valign="top" width="21.54%"><p id="p5602191619300"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p12602131643015"><p>The operation fails.</p>
+</p></td></tr></tbody></table><blockquote>
+<div><p><img alt="image3" src="../_images/icon-note2.gif" /> <strong>NOTE:</strong> The RTC start time is 1970/01/01 Thursday 00:00:00
+(UTC). The maximum value of <strong>year</strong> must be set based on the
+requirements specified in the product manual of the in-use component.
+You do not need to configure the day of the week.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">struct</span> <span class="n">RtcTime</span> <span class="n">tm</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">time</span> <span class="n">to</span> <span class="n">UTC</span> <span class="mi">2020</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span> <span class="mi">00</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">00</span> <span class="o">.</span><span class="mf">000.</span> <span class="o">*/</span>
+<span class="n">tm</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+<span class="n">tm</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+<span class="n">tm</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+<span class="n">tm</span><span class="o">.</span><span class="n">hour</span><span class="o">=</span> <span class="mi">00</span><span class="p">;</span>
+<span class="n">tm</span><span class="o">.</span><span class="n">minute</span> <span class="o">=</span> <span class="mi">59</span><span class="p">;</span>
+<span class="n">tm</span><span class="o">.</span><span class="n">second</span> <span class="o">=</span> <span class="mi">00</span><span class="p">;</span>
+<span class="n">tm</span><span class="o">.</span><span class="n">millisecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Write</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">time</span> <span class="n">information</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcWriteTime</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tm</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Reading the RTC alarm time</p></li>
+</ul>
+<p>Call the following function to read the alarm time:</p>
+<p>int32_t RtcReadAlarm(struct DevHandle *handle, enum RtcAlarmIndex
+alarmIndex, struct RtcTime *time);</p>
+<p><strong>Table 6</strong> Description of <strong>RtcReadAlarm</strong></p>
+<table><tbody><tr id="row133429310140"><td class="cellrowborder" valign="top" width="21.54%"><p id="p9886411201416"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p2886411171417"><p>Description</p>
+</p></td></tr><tr id="row13835647114113"><td class="cellrowborder" valign="top" width="21.54%"><p id="p1183011486412"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p1583074815413"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row113439391410"><td class="cellrowborder" valign="top" width="21.54%"><p id="p132281120194318"><p>alarmIndex</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p1022852034315"><p>Alarm index</p>
+</p></td></tr><tr id="row193431836147"><td class="cellrowborder" valign="top" width="21.54%"><p id="p1926195164011"><p>time</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p112695144013"><p>Pointer to the RTC alarm time information. The time information includes
+the year, month, the day of the week, day, hour, minute, second, and
+millisecond.</p>
+</p></td></tr><tr id="row43438361419"><td class="cellrowborder" valign="top" width="21.54%"><p id="p388715117143"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p088719117143"><p>Description</p>
+</p></td></tr><tr id="row17169595467"><td class="cellrowborder" valign="top" width="21.54%"><p id="p107751111283"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p87751917289"><p>The operation is successful.</p>
+</p></td></tr><tr id="row016911915461"><td class="cellrowborder" valign="top" width="21.54%"><p id="p6833213133013"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.46%"><p id="p168341213143015"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">struct</span> <span class="n">RtcTime</span> <span class="n">alarmTime</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Read</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">alarm</span> <span class="n">time</span> <span class="n">information</span> <span class="n">of</span> <span class="n">alarm</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcReadAlarm</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">alarmTime</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Setting RTC alarm time</p></li>
+</ul>
+<p>Call the following function to set the RTC alarm time based on the alarm
+index:</p>
+<p>int32_t RtcWriteAlarm(struct DevHandle *handle, enum RtcAlarmIndex
+alarmIndex, struct RtcTime *time);</p>
+<p><strong>Table 7</strong> Description of <strong>RtcWriteAlarm</strong></p>
+<table><tbody><tr id="row14793316131710"><td class="cellrowborder" valign="top" width="21.62%"><p id="p1891718412183"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p891712461814"><p>Description</p>
+</p></td></tr><tr id="row18419611133117"><td class="cellrowborder" valign="top" width="21.62%"><p id="p075881210314"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p975811215317"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row11793151613176"><td class="cellrowborder" valign="top" width="21.62%"><p id="p562522145215"><p>alarmIndex</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p126257215217"><p>Alarm index</p>
+</p></td></tr><tr id="row37932016201720"><td class="cellrowborder" valign="top" width="21.62%"><p id="p26269212527"><p>time</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p462602125211"><p>Pointer to the RTC alarm time information. The time information includes
+the year, month, the day of the week, day, hour, minute, second, and
+millisecond.</p>
+</p></td></tr><tr id="row586915225485"><td class="cellrowborder" valign="top" width="21.62%"><p id="p591712441810"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p1591720461810"><p>Description</p>
+</p></td></tr><tr id="row19869122210483"><td class="cellrowborder" valign="top" width="21.62%"><p id="p10798105812717"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p1179817586276"><p>The operation is successful.</p>
+</p></td></tr><tr id="row1686918225483"><td class="cellrowborder" valign="top" width="21.62%"><p id="p16246181033012"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p3246111019309"><p>The operation fails.</p>
+</p></td></tr></tbody></table><blockquote>
+<div><p><img alt="image4" src="../_images/icon-note2.gif" /> <strong>NOTE:</strong> The RTC start time is 1970/01/01 Thursday 00:00:00
+(UTC). The maximum value of <strong>year</strong> must be set based on the
+requirements specified in the product manual of the in-use component.
+You do not need to configure the day of the week.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">struct</span> <span class="n">RtcTime</span> <span class="n">alarmTime</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">alarm</span> <span class="n">time</span> <span class="n">to</span> <span class="mi">2020</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span> <span class="mi">00</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">59</span> <span class="o">.</span><span class="mf">000.</span> <span class="o">*/</span>
+<span class="n">alarmTime</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+<span class="n">alarmTime</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+<span class="n">alarmTime</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+<span class="n">alarmTime</span><span class="o">.</span><span class="n">hour</span> <span class="o">=</span> <span class="mi">00</span><span class="p">;</span>
+<span class="n">alarmTime</span><span class="o">.</span><span class="n">minute</span> <span class="o">=</span> <span class="mi">59</span><span class="p">;</span>
+<span class="n">alarmTime</span><span class="o">.</span><span class="n">second</span> <span class="o">=</span> <span class="mi">59</span><span class="p">;</span>
+<span class="n">alarmTime</span><span class="o">.</span><span class="n">millisecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">alarm</span> <span class="n">time</span> <span class="n">of</span> <span class="n">alarm</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcWriteAlarm</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">alarmTime</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Enabling or disabling alarm interrupts</p></li>
+</ul>
+<p>Before performing alarm operations, use this function to enable alarm
+interrupts, so that <strong>RtcAlarmCallback</strong> will be called when the alarm
+is not generated upon a timeout.</p>
+<p>int32_t RtcAlarmInterruptEnable(struct DevHandle *handle, enum
+RtcAlarmIndex alarmIndex, uint8_t enable);</p>
+<p><strong>Table 8</strong> Description of <strong>RtcAlarmInterruptEnable</strong></p>
+<table><tbody><tr id="row5346853171519"><td class="cellrowborder" valign="top" width="21.36%"><p id="p143464533153"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p113461853171514"><p>Description</p>
+</p></td></tr><tr id="row2125652144213"><td class="cellrowborder" valign="top" width="21.36%"><p id="p3150105313422"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p9151653144212"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row153794518293"><td class="cellrowborder" valign="top" width="21.36%"><p id="p4259165518294"><p>alarmIndex</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p725985522917"><p>Alarm index</p>
+</p></td></tr><tr id="row19346653141518"><td class="cellrowborder" valign="top" width="21.36%"><p id="p6346253101516"><p>enable</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p234655341511"><p>Whether to enable RTC alarm interrupts. Value 1 means to enable alarm
+interrupts and value 0 means to disable alarm interrupts.</p>
+</p></td></tr><tr id="row18346953111513"><td class="cellrowborder" valign="top" width="21.36%"><p id="p53460537156"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p4346153171510"><p>Description</p>
+</p></td></tr><tr id="row1234685314151"><td class="cellrowborder" valign="top" width="21.36%"><p id="p8947195310279"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p99471953152712"><p>The operation is successful.</p>
+</p></td></tr><tr id="row2347115321514"><td class="cellrowborder" valign="top" width="21.36%"><p id="p324855163018"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p7248857302"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Enable</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">alarm</span> <span class="n">interrupts</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcAlarmInterruptEnable</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Reading RTC external frequency</p></li>
+</ul>
+<p>Call the following function to read the frequency of the external
+crystal oscillator connected to the RTC driver:</p>
+<p>int32_t RtcGetFreq(struct DevHandle *handle, uint32_t *freq);</p>
+<p><strong>Table 9</strong> Description of <strong>RtcGetFreq</strong></p>
+<table><tbody><tr id="row1458811241816"><td class="cellrowborder" valign="top" width="21.36%"><p id="p658820241813"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p758812261820"><p>Description</p>
+</p></td></tr><tr id="row831259124219"><td class="cellrowborder" valign="top" width="21.36%"><p id="p171541407431"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p715413094314"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row1358842171820"><td class="cellrowborder" valign="top" width="21.36%"><p id="p258814210188"><p>freq</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p165888211810"><p>Frequency to set for the external crystal oscillator, in Hz</p>
+</p></td></tr><tr id="row2058818281817"><td class="cellrowborder" valign="top" width="21.36%"><p id="p458872151810"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p155880251819"><p>Description</p>
+</p></td></tr><tr id="row35883213183"><td class="cellrowborder" valign="top" width="21.36%"><p id="p8133145211272"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p13133352202719"><p>The operation is successful.</p>
+</p></td></tr><tr id="row135892261811"><td class="cellrowborder" valign="top" width="21.36%"><p id="p152692538292"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p327015313294"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint32_t</span> <span class="n">freq</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Read</span> <span class="n">frequency</span> <span class="n">of</span> <span class="n">the</span> <span class="n">external</span> <span class="n">crystal</span> <span class="n">oscillator</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">driver</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcGetFreq</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">freq</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Setting the frequency of the external crystal oscillator connected to
+the RTC driver</p></li>
+</ul>
+<p>Call the following function to set the frequency of the external crystal
+oscillator connected to the RTC driver:</p>
+<p>int32_t RtcSetFreq(struct DevHandle *handle, uint32_t freq);</p>
+<p><strong>Table 10</strong> Description of <strong>RtcSetFreq</strong></p>
+<table><tbody><tr id="row270119432202"><td class="cellrowborder" valign="top" width="21.36%"><p id="p127011343132010"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p7701184372013"><p>Description</p>
+</p></td></tr><tr id="row36067554319"><td class="cellrowborder" valign="top" width="21.36%"><p id="p881511716433"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p188157714432"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row127019437204"><td class="cellrowborder" valign="top" width="21.36%"><p id="p27019438207"><p>freq</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p167021043182011"><p>Frequency to set for the external crystal oscillator, in Hz</p>
+</p></td></tr><tr id="row97022434205"><td class="cellrowborder" valign="top" width="21.36%"><p id="p1770218431208"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p1170217432201"><p>Description</p>
+</p></td></tr><tr id="row1670212432206"><td class="cellrowborder" valign="top" width="21.36%"><p id="p77021543152017"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p770214310209"><p>The operation is successful.</p>
+</p></td></tr><tr id="row10702194313201"><td class="cellrowborder" valign="top" width="21.36%"><p id="p165182216306"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p651815219302"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint32_t</span> <span class="n">freq</span> <span class="o">=</span> <span class="mi">32768</span><span class="p">;</span> <span class="o">/*</span> <span class="mi">32768</span> <span class="n">Hz</span> <span class="o">*/</span>
+
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">frequency</span> <span class="n">of</span> <span class="n">the</span> <span class="n">external</span> <span class="n">crystal</span> <span class="n">oscillator</span><span class="o">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">the</span> <span class="n">frequency</span> <span class="n">must</span> <span class="n">be</span> <span class="n">configured</span> <span class="ow">in</span> <span class="n">accordance</span> <span class="k">with</span> <span class="n">the</span> <span class="n">requirements</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">product</span> <span class="n">manual</span> <span class="n">of</span> <span class="n">the</span> <span class="ow">in</span><span class="o">-</span><span class="n">use</span> <span class="n">component</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcSetFreq</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">freq</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Resetting the RTC driver</p></li>
+</ul>
+<p>Call the following function to perform a reset on the RTC driver. After
+the reset, the registers are restored to the default values:</p>
+<p>int32_t RtcReset(struct DevHandle *handle);</p>
+<p><strong>Table 11</strong> Description of <strong>RtcReset</strong></p>
+<table><tbody><tr id="row179899311254"><td class="cellrowborder" valign="top" width="21.36%"><p id="p199899314257"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p179897315257"><p>Description</p>
+</p></td></tr><tr id="row14989113118257"><td class="cellrowborder" valign="top" width="21.36%"><p id="p129018136436"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p290111304310"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row7989123111254"><td class="cellrowborder" valign="top" width="21.36%"><p id="p129894313251"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p799013112256"><p>Description</p>
+</p></td></tr><tr id="row9990193142513"><td class="cellrowborder" valign="top" width="21.36%"><p id="p1999043111257"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p1799093182516"><p>The operation is successful.</p>
+</p></td></tr><tr id="row16990133152516"><td class="cellrowborder" valign="top" width="21.36%"><p id="p17536173573015"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.64%"><p id="p1153623503014"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Reset</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">driver</span><span class="o">.</span> <span class="n">After</span> <span class="n">the</span> <span class="n">reset</span><span class="p">,</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">registers</span> <span class="n">are</span> <span class="n">restored</span> <span class="n">to</span> <span class="n">the</span> <span class="n">default</span> <span class="n">values</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcReset</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Reading the configuration of a custom RTC register</p></li>
+</ul>
+<p>Call the following function to read the configuration of a custom RTC
+register based on the register index (one index corresponds to one byte
+of the configuration value):</p>
+<p>int32_t RtcReadReg(struct DevHandle *handle, uint8_t usrDefIndex,
+uint8_t *value);</p>
+<p><strong>Table 12</strong> Description of <strong>RtcReadReg</strong></p>
+<table><tbody><tr id="row92469423320"><td class="cellrowborder" valign="top" width="21.62%"><p id="p102461548331"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p15246847331"><p>Description</p>
+</p></td></tr><tr id="row171318200434"><td class="cellrowborder" valign="top" width="21.62%"><p id="p9895321184320"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p68951214436"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row324614143314"><td class="cellrowborder" valign="top" width="21.62%"><p id="p82466433320"><p>usrDefIndex</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p181671825470"><p>Index of the custom register</p>
+</p></td></tr><tr id="row524716420334"><td class="cellrowborder" valign="top" width="21.62%"><p id="p8247844333"><p>value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p524711413319"><p>Register value</p>
+</p></td></tr><tr id="row112471143334"><td class="cellrowborder" valign="top" width="21.62%"><p id="p1124716483312"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p1524716443313"><p>Description</p>
+</p></td></tr><tr id="row9247194183314"><td class="cellrowborder" valign="top" width="21.62%"><p id="p62476410334"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p152471433317"><p>The operation is successful.</p>
+</p></td></tr><tr id="row1424719410333"><td class="cellrowborder" valign="top" width="21.62%"><p id="p112477417335"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p7247547338"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint8_t</span> <span class="n">usrDefIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Define</span> <span class="n">index</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">the</span> <span class="n">first</span> <span class="n">custom</span> <span class="n">register</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">uint8_t</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Read</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">of</span> <span class="n">a</span> <span class="n">custom</span> <span class="n">RTC</span> <span class="n">register</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="n">register</span> <span class="n">index</span><span class="o">.</span> <span class="n">One</span> <span class="n">index</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">one</span> <span class="n">byte</span> <span class="n">of</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">value</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcReadReg</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">usrDefIndex</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Setting the configuration of a custom RTC register</p></li>
+</ul>
+<p>Call the following function to configure a register based on the
+specified register index (one index corresponds to one byte of the
+configuration value):</p>
+<p>int32_t RtcWriteReg(struct DevHandle *handle, uint8_t usrDefIndex,
+uint8_t value);</p>
+<p><strong>Table 13</strong> Description of <strong>RtcWriteReg</strong></p>
+<table><tbody><tr id="row187221648133611"><td class="cellrowborder" valign="top" width="21.62%"><p id="p2722184823617"><p>Parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p1372374810367"><p>Description</p>
+</p></td></tr><tr id="row1675092612435"><td class="cellrowborder" valign="top" width="21.62%"><p id="p7783927144312"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p197831427134310"><p>Pointer to the RTC device handle</p>
+</p></td></tr><tr id="row1723174815367"><td class="cellrowborder" valign="top" width="21.62%"><p id="p1972364814366"><p>usrDefIndex</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p18723184819365"><p>Index of the custom register</p>
+</p></td></tr><tr id="row2723548163611"><td class="cellrowborder" valign="top" width="21.62%"><p id="p1772364893610"><p>value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p1772324803619"><p>Register value</p>
+</p></td></tr><tr id="row1072314482361"><td class="cellrowborder" valign="top" width="21.62%"><p id="p6723194853618"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p1872314893614"><p>Description</p>
+</p></td></tr><tr id="row20723148173617"><td class="cellrowborder" valign="top" width="21.62%"><p id="p12723348133615"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p472324873620"><p>The operation is successful.</p>
+</p></td></tr><tr id="row127231848123615"><td class="cellrowborder" valign="top" width="21.62%"><p id="p197231148173613"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="78.38000000000001%"><p id="p16723134823618"><p>The operation fails.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint8_t</span> <span class="n">usrDefIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Define</span> <span class="n">index</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">the</span> <span class="n">first</span> <span class="n">custom</span> <span class="n">register</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">uint8_t</span> <span class="n">value</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Configure</span> <span class="n">a</span> <span class="n">register</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">register</span> <span class="n">index</span><span class="o">.</span> <span class="n">One</span> <span class="n">index</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">one</span> <span class="n">byte</span> <span class="n">of</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">value</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">RtcWriteReg</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">usrDefIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/rtc-usage-guidelines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

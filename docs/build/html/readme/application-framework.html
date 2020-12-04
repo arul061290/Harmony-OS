@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Framework &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="application-framework">
+<h1>Application Framework<a class="headerlink" href="#application-framework" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The application framework of OpenHarmony consists of two modules:
+<strong>ability management framework</strong> and <strong>bundle management framework</strong>.</p>
+<p><strong>1. Ability management framework</strong>: This framework is provided by
+OpenHarmony for you to develop OpenHarmony applications. The following
+figure shows the modules in the ability management framework.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Architecture of the Ability management framework</div>
+<div class="line"><img alt="image1" src="../_images/en-us_image_0000001054941316.png" /></div>
+</div>
+<ul>
+<li><p><strong>AbilityKit</strong> is a development kit provided by the ability
+management framework. You can use this kit to develop applications
+based on the <strong>Ability</strong> component. There are two types of
+applications developed based on the <strong>Ability</strong> component: <strong>JS
+Ability</strong> developed using the JavaScript language and <strong>Native
+Ability</strong> developed using the C/C++ language. The <strong>JS application
+development framework</strong> encapsulates JavaScript UI components on the
+basis of the AbilityKit and is used to help you quickly develop JS
+Ability-based applications.</p></li>
+<li><p><strong>Ability</strong> is the minimum unit for the system to schedule
+applications. It is a component that can implement an independent
+functionality. An application can contain one or more <strong>Ability</strong>
+instances. There are two types of templates that you can use to
+create an <strong>Ability</strong> instance: Page and Service.</p>
+<ul class="simple">
+<li><p>An <strong>Ability using the Page template</strong> (Page ability for short)
+provides a UI for interacting with users.</p></li>
+<li><p>An <strong>Ability using the Service template</strong> does not have a UI and
+is used for running background tasks.</p></li>
+</ul>
+</li>
+<li><p>An <strong>AbilitySlice</strong> represents a single screen and its control logic.
+It is specific to Page abilities. A Page ability may contain one
+ability slice or multiple ability slices that provide highly relevant
+capabilities. The following figure shows the relationship between a
+Page ability and its ability slices.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 2</strong> Relationship between a Page ability and its ability
+slices</div>
+<div class="line"><img alt="image2" src="../_images/relationship-between-a-page-ability-and-its-ability-slices.gif" /></div>
+</div>
+</li>
+<li><p><strong>Lifecycle</strong> is a general term for all states of an ability,
+including <strong>UNINITIALIZED</strong>, <strong>INITIAL</strong>, <strong>INACTIVE</strong>, <strong>ACTIVE</strong>,
+and <strong>BACKGROUND</strong>. The following figure shows the lifecycle state
+transition of an ability.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 3</strong> Lifecycle state transition of a Page ability</div>
+<div class="line"><img alt="image3" src="../_images/lifecycle-state-transition-of-a-page-ability.png" /></div>
+</div>
+<p>Description of ability lifecycle states:</p>
+<ul class="simple">
+<li><p><strong>UNINITIALIZED</strong>: The ability is not initialized. This state is a
+temporary state. An ability changes directly to the <strong>INITIAL</strong>
+state upon its creation.</p></li>
+<li><p><strong>INITIAL</strong>: This state refers to the initial or stopped state.
+The ability in this state is not running. The ability enters the
+<strong>INACTIVE</strong> state after it is started.</p></li>
+<li><p><strong>INACTIVE</strong>: The ability is visible but does not gain focus. This
+state is the same as the <strong>ACTIVE</strong> state because the concept of
+window focus is not supported currently.</p></li>
+<li><p><strong>ACTIVE</strong>: The ability is in the foreground and has focus. The
+ability changes from the <strong>ACTIVE</strong> state to the <strong>INACTIVE</strong>
+state before returning to the background.</p></li>
+<li><p><strong>BACKGROUND</strong>: The ability returns to the background. After being
+re-activated, the ability enters the <strong>ACTIVE</strong> state. After being
+destroyed, the ability enters the <strong>INITIAL</strong> state.</p></li>
+</ul>
+</li>
+<li><p><strong>AbilityLoader</strong> is used to register and load <strong>Ability</strong> classes.
+After creating an <strong>Ability</strong> class, you should first call the
+registration API defined in <strong>AbilityLoader</strong> to register the
+<strong>Ability</strong> class name with the ability management framework so that
+this <strong>Ability</strong> can be instantiated when being started.</p></li>
+<li><p><strong>AbilityManager</strong> enables inter-process communication (IPC) between
+the AbilityKit and Ability Manager Service.</p></li>
+<li><p><strong>EventHandler</strong> is provided by the AbilityKit to enable inter-thread
+communication between abilities.</p></li>
+<li><p>The <strong>Ability Manager Service</strong> is a system service used to
+coordinate the running relationships and lifecycle states of
+<strong>Ability</strong> instances. It consists of the following modules:</p>
+<ul class="simple">
+<li><p>The <strong>service startup module</strong> starts and registers the Ability
+Manager Service.</p></li>
+<li><p>The <strong>service interface management module</strong> manages external
+capabilities provided by the Ability Manager Service.</p></li>
+<li><p>The <strong>process management module</strong> starts and destroys processes
+where <strong>Ability</strong> instances are running, and maintains the process
+information.</p></li>
+<li><p>The <strong>ability stack management module</strong> maintains the presentation
+sequence of abilities in the stack.</p></li>
+<li><p>The <strong>lifecycle scheduling module</strong> changes an ability to a
+particular state based on the current operation of the system.</p></li>
+<li><p>The <strong>connection management module</strong> manages connections to
+Service abilities.</p></li>
+</ul>
+</li>
+<li><p>The <strong>AppSpawn</strong> is a system service used to create the process for
+running an ability. This service has high permissions. It sets
+permissions for <strong>Ability</strong> instances and pre-loads some common
+modules to accelerate application startup.</p></li>
+</ul>
+<p><strong>2. Bundle management framework</strong>: This framework is provided by
+OpenHarmony for you to manage application bundles. The following figure
+shows the modules in the bundle management framework.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 4</strong> Architecture of the bundle management framework</div>
+<div class="line"><img alt="image4" src="../_images/architecture-of-the-bundle-management-framework.png" /></div>
+</div>
+<ul class="simple">
+<li><p><strong>BundleKit</strong>: includes external APIs provided by the Bundle Manager
+Service, including the APIs for application installation and
+uninstallation, bundle information query, and bundle state change
+listeners.</p></li>
+<li><p><strong>Bundle scanning module</strong>: parses pre-installed or installed bundles
+on the local device and extracts information from them for the bundle
+management module to manage and make the information persistent for
+storage.</p></li>
+<li><p><strong>Bundle installation module</strong>: installs, uninstalls, and updates a
+bundle. The <strong>Bundle installation service</strong> is an independent process
+used to create or delete installation directories and has high
+permissions.</p></li>
+<li><p><strong>Bundle management module</strong>: manages information related to
+application bundles and stores persistent bundle information.</p></li>
+<li><p><strong>Bundle security management module</strong>: verifies signatures, and
+grants and manages permissions.</p></li>
+</ul>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>The following table describes the source code directory structure of the
+application framework.</p>
+<p><strong>Table 1</strong> Source code directory structure of the application framework</p>
+<table><thead align="left"><tr id="row7977610131417"><th class="cellrowborder" valign="top" width="36.18%" id="mcps1.2.3.1.1"><p id="p18792459121314"><p>Directory</p>
+</p></th><th class="cellrowborder" valign="top" width="63.82%" id="mcps1.2.3.1.2"><p id="p77921459191317"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row17977171010144"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p2793159171311"><p>foundation/aafwk/frameworks/ability_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p879375920132"><p>Core code for AbilityKit</p>
+</p></td></tr><tr id="row6978161091412"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p0780163617556"><p>foundation/aafwk/frameworks/abilitymgr_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p6793059171318"><p>Client code for managing the communication between the AbilityKit and
+Ability Manager Service</p>
+</p></td></tr><tr id="row6978201031415"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p991413565611"><p>foundation/aafwk/frameworks/want_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p0793185971316"><p>Implementation code of the information carrier used for interaction
+between abilities</p>
+</p></td></tr><tr id="row1897841071415"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p20749155715720"><p>foundation/aafwk/interfaces/kits/abilitykit_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p14793959161317"><p>APIs provided by AbilityKit for developers</p>
+</p></td></tr><tr id="row965423512587"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p12654103516589"><p>foundation/aafwk/interfaces/innerkits/abilitymgr_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p12658142611466"><p>APIs provided by the Ability Manager Service for other subsystems</p>
+</p></td></tr><tr id="row673463115813"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p127343312581"><p>foundation/aafwk/interfaces/kits/want_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p191041469363"><p>External APIs of the information carrier used for interaction between
+abilities</p>
+</p></td></tr><tr id="row164593855812"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p1864523835812"><p>foundation/aafwk/services/abilitymgr_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p4645133805811"><p>Implementation code of the Ability Manager Service</p>
+</p></td></tr><tr id="row1869744111581"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p10698114117583"><p>foundation/appexecfwk/interfaces/kits/bundle_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p1169814112585"><p>APIs provided by BundleKit for developers</p>
+</p></td></tr><tr id="row106931420217"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p86931748213"><p>foundation/appexecfwk/interfaces/innerkits/bundlemgr_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p12693148215"><p>Core code for AbilityKit and APIs provided by the Bundle Manager Service
+for other subsystems</p>
+</p></td></tr><tr id="row58381913213"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p11839171152117"><p>foundation/appexecfwk/frameworks/bundle_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p158391810217"><p>Client code for managing the communication between the BundleKit and
+Bundle Manager Service</p>
+</p></td></tr><tr id="row1786831216357"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p1686820126359"><p>foundation/appexecfwk/utils/bundle_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p88681125351"><p>Tool code used in the implementation of the Bundle Manager Service</p>
+</p></td></tr><tr id="row841015115218"><td class="cellrowborder" valign="top" width="36.18%" headers="mcps1.2.3.1.1 "><p id="p14119113219"><p>foundation/appexecfwk/services/bundlemgr_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="63.82%" headers="mcps1.2.3.1.2 "><p id="p64110114210"><p>Implementation code of the Bundle Manager Service</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Language version</p>
+<ul>
+<li><p>C++11 or later</p></li>
+</ul>
+</li>
+<li><p>The specifications of the application framework vary depending on the
+System-on-a-Chip (SoC) and underlying OS capabilities.</p>
+<ul>
+<li><p>Cortex-M RAM and ROM</p>
+<ul>
+<li><p>RAM: greater than 20 KB (recommended)</p></li>
+<li><p>ROM: greater than 300 KB (for the JS application development
+framework and related subsystems, such as UIKit and engine)</p></li>
+</ul>
+</li>
+<li><p>Cortex-A RAM and ROM</p>
+<ul>
+<li><p>RAM: greater than 2 MB (recommended)</p></li>
+<li><p>ROM: greater than 2 MB (for the JS application development
+framework and related subsystems, such as UIKit and engine)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="compiling-the-application-framework">
+<h2>Compiling the Application Framework<a class="headerlink" href="#compiling-the-application-framework" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Add the configuration for application framework compilation. The
+following section uses <strong>hi3516dv300_liteos_a</strong> as an example:</p>
+<ul class="simple">
+<li><p>Add the configuration of <strong>appexecfwk</strong> and <strong>aafwk</strong> under the
+<strong>subsystems</strong> field in the
+<strong>build/lite/platform/hi3516dv300_liteos_a/platform.json</strong> file.
+The sample code is as follows:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;subsystem&quot;</span><span class="p">:</span> <span class="s2">&quot;aafwk&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;ability&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;optional&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;dirs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;foundation/aafwk&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;//foundation/aafwk/frameworks/ability_lite:aafwk_abilitykit_lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/aafwk/frameworks/ability_lite:aafwk_abilityMain_lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/aafwk/frameworks/abilitymgr_lite:aafwk_abilityManager_lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/aafwk/services/abilitymgr_lite:aafwk_services_lite&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;enable_ohos_appexecfwk_feature_ability&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;deps&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;hilog_a&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bundle_mgr&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;system_ability_manager&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;distributed_schedule&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;graphic&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;utils&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ipc&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;third_party&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;cjson&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bounds_checking_function&quot;</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">},</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;subsystem&quot;</span><span class="p">:</span> <span class="s2">&quot;appexecfwk&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;bundle_mgr&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;optional&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;dirs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;foundation/appexecfwk&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;//foundation/appexecfwk/services/bundlemgr_lite:appexecfwk_services_lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/appexecfwk/frameworks/bundle_lite:appexecfwk_kits_lite&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">&quot;deps&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;iam&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;app_verify&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;hilog_a&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;system_ability_manager&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;global_resource_manager&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;graphic&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;utils&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;third_party&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;cjson&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;zlib&quot;</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Add the configuration of particular application framework
+components for compilation in
+<strong>build/lite/config/subsystem/aafwk/BUILD.gn</strong> and
+<strong>/build/lite/config/subsystem/appexecfwk/BUILD.gn</strong>. The sample
+code is as follows:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;//build/lite/config/subsystem/lite_subsystem.gni&quot;</span><span class="p">)</span>
+
+<span class="n">lite_subsystem</span><span class="p">(</span><span class="s2">&quot;aafwk&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">subsystem_components</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;//foundation/aafwk/frameworks/ability_lite:aafwk_abilitykit_lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/aafwk/frameworks/abilitymgr_lite:aafwk_abilityManager_lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/aafwk/services/abilitymgr_lite:aafwk_services_lite&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;//build/lite/config/subsystem/lite_subsystem.gni&quot;</span><span class="p">)</span>
+
+<span class="n">lite_subsystem</span><span class="p">(</span><span class="s2">&quot;appexecfwk&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">subsystem_components</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;//foundation/appexecfwk/kits/appkit_lite:appexecfwk_kit_lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/appexecfwk/services/bundlemgr_lite:appexecfwk_services_lite&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Add the configuration of service modules for compilation in
+<strong>foundation/aafwk</strong> and <strong>foundation/appexecfwk</strong>. Each module
+has its own <strong>BUILD.gn</strong> file.</p></li>
+</ul>
+</li>
+<li><p>After the preceding configurations are complete, run the following
+command to compile the entire system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="n">ipcamera_hi3516dv300</span> <span class="o">-</span><span class="n">b</span> <span class="n">debug</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="running-the-two-services-in-the-application-framework">
+<h2>Running the Two Services in the Application Framework<a class="headerlink" href="#running-the-two-services-in-the-application-framework" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The application framework has two system services <strong>Ability Manager
+Service</strong> and <strong>Bundle Manager Service</strong>. They are running in the
+foundation process.</p></li>
+<li><p><strong>Ability Manager Service</strong> and <strong>Bundle Manager Service</strong> are
+registered with <strong>sa_manager</strong>. <strong>sa_manager</strong> runs in the foundation
+process and sets up a thread runtime environment for the two
+services. For details about how to create and use <strong>Ability Manager
+Service</strong> and <strong>Bundle Manager Service</strong>, see <a class="reference external" href="en-us_topic_0000001051589563.md">Service
+Framework</a>.</p></li>
+<li><p>Add the configuration of <strong>abilityms</strong> and <strong>bundlems</strong> for
+compilation in
+<strong>foundation/distributedschedule/services/safwk_lite/BUILD.gn</strong>. The
+sample code is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ohos_kernel_type</span> <span class="o">==</span> <span class="s2">&quot;liteos_a&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">deps</span> <span class="o">+=</span> <span class="p">[</span>
+        <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/aafwk/services/abilitymgr_lite:abilityms&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/appexecfwk/services/bundlemgr_lite:bundlems&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="running-an-ability-developed-based-on-abilitykit">
+<h2>Running an Ability Developed Based on AbilityKit<a class="headerlink" href="#running-an-ability-developed-based-on-abilitykit" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The demo code of the ability developed based on AbilityKit is stored
+in the <strong>foundation/aafwk/frameworks/ability_lite/example</strong>
+directory. If you need to modify the functionality, modify the code
+in the <strong>entry/src/main/cpp</strong> files or add a new code file, and
+update the configuration in <strong>BUILD.gn</strong> accordingly.</p></li>
+<li><p>Add the configuration for the ability demo for compilation in the
+<strong>build/lite/config/subsystem/aafwk/BUILD.gn</strong> file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;//build/lite/config/subsystem/lite_subsystem.gni&quot;</span><span class="p">)</span>
+
+<span class="n">lite_subsystem</span><span class="p">(</span><span class="s2">&quot;aafwk&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">subsystem_components</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;......&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;//foundation/aafwk/frameworks/ability_lite/example:hiability&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;......&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the following command in the shell to compile the demo. After the
+compilation is successful, the <strong>libhiability.so</strong> file is generated
+in <strong>out/ipcamera_hi3516dv300_liteos_a/dev_tools/example</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="n">ipcamera_hi3516dv300</span> <span class="o">-</span><span class="n">b</span> <span class="n">debug</span>
+</pre></div>
+</div>
+</li>
+<li><p>Compile the <strong>config.json</strong> file. For details, see the
+<strong>config.json</strong> file in the
+<strong>foundation/aafwk/frameworks/ability_lite/example</strong> directory. The
+file content is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;app&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;bundleName&quot;</span><span class="p">:</span> <span class="s2">&quot;com.huawei.hiability&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vendor&quot;</span><span class="p">:</span> <span class="s2">&quot;huawei&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span>
+        <span class="p">},</span>
+       <span class="s2">&quot;apiVersion&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;compatible&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+          <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="mi">3</span>
+       <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;deviceConfig&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;keepAlive&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;module&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;deviceType&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;smartVision&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;distro&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;deliveryWithInstall&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;moduleName&quot;</span><span class="p">:</span> <span class="s2">&quot;hiability&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;moduleType&quot;</span><span class="p">:</span> <span class="s2">&quot;entry&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;abilities&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MainAbility&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;assets/entry/resources/base/media/icon.png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;test app 1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;launchType&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;page&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SecondAbility&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;test app 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;launchType&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;page&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ServiceAbility&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;test app 2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;launchType&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;service&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Generate a HAP.</p>
+<ul>
+<li><p>Add resource files to the <strong>assets/entry/resources/base/media</strong>
+directory based on the following directory structure.</p>
+<p><img alt="image5" src="../_images/en-us_image_0000001055267336.png" /></p>
+</li>
+<li><p>Compress the preceding files into a ZIP package and change the
+file name extension to <strong>.hap</strong>, for example, <strong>hiability.hap</strong>.</p></li>
+</ul>
+</li>
+<li><p>Install the HAP.</p>
+<ul class="simple">
+<li><p>Place the preceding HAP file in a particular directory
+(<strong>/nfs/hap/</strong> in this example).</p></li>
+<li><p>Run the following command to install the HAP:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="nb">bin</span><span class="o">/</span><span class="n">bm</span> <span class="n">install</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">nfs</span><span class="o">/</span><span class="n">hap</span><span class="o">/</span><span class="n">hiability</span><span class="o">.</span><span class="n">hap</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the installation is complete, run the following command to run
+the demo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="nb">bin</span><span class="o">/</span><span class="n">aa</span> <span class="n">start</span> <span class="o">-</span><span class="n">p</span> <span class="n">com</span><span class="o">.</span><span class="n">huawei</span><span class="o">.</span><span class="n">hiability</span> <span class="o">-</span><span class="n">n</span> <span class="n">MainAbility</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="repositories-involved">
+<h2>Repositories Involved<a class="headerlink" href="#repositories-involved" title="Permalink to this headline">¶</a></h2>
+<p>aafwk_frameworks_kits_ability_lite</p>
+<p>aafwk_interfaces_innerkits_abilitykit_lite</p>
+<p>aafwk_frameworks_kits_content_lite</p>
+<p>aafwk_interfaces_innerkits_abilitymgr_lite</p>
+<p>aafwk_interfaces_innerkits_intent_lite</p>
+<p>aafwk_interfaces_kits_ability_lite</p>
+<p>aafwk_services_abilitymgr_lite</p>
+<p>appexecfwk_frameworks_bundle_lite</p>
+<p>appexecfwk_interfaces_innerkits_bundlemgr_lite</p>
+<p>appexecfwk_interfaces_innerkits_appexecfwk_lite</p>
+<p>appexecfwk_services_bundlemgr_lite</p>
+<p>appexecfwk_kits_appkit_lite</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/readme/application-framework.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="faqs">
+<h1>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>What should I do when no command output is displayed?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p>The serial port shows that the connection has been established.
+After the board is restarted, nothing is displayed when you press
+<strong>Enter</strong>.</p>
+</li>
+<li><p><strong>Possible Cause 1</strong></p>
+<p>The serial port is connected incorrectly.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Change the serial port number.</p>
+<p>Start <strong>Device Manager</strong> to check whether the serial port
+connected to the board is the same as that connected to the
+terminal device. If not, perform the following steps to change the
+serial port number.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Procedure for changing the serial port number</div>
+<div class="line"><img alt="image1" src="../../_images/procedure-for-changing-the-serial-port-number-4.png" /></div>
+</div>
+<ol class="arabic simple">
+<li><p>Disconnect from the current serial port.</p></li>
+<li><p>Click <strong>Settings</strong>.</p></li>
+<li><p>Change the serial port number in the dialog box and click
+<strong>OK</strong>.</p></li>
+<li><p>Press <strong>Enter</strong> in the dialog box to check whether any command
+output is displayed after the connection is established.</p></li>
+</ol>
+</li>
+<li><p><strong>Possible Cause 2</strong></p>
+<p>The U-boot of the board is damaged.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Burn the U-boot.</p>
+<p>If the fault persists after you perform the preceding operations,
+the U-boot of the board may be damaged. You can burn the U-boot by
+performing the following steps:</p>
+<ol class="arabic">
+<li><p>Obtain the U-boot file.</p>
+<blockquote>
+<div><p><img alt="image2" src="../../_images/icon-notice3.gif" /> <strong>NOTICE:</strong></p>
+<ol class="arabic simple">
+<li><p>The U-boot file of the board can be obtained from
+<strong>vendorhisihi35xxhi3518ev300ubootoutbootu-boot-hi3518ev300.bin</strong>
+in the open-source package.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Use HiTool to burn the U-boot.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 2</strong> Procedure for burning the U-boot using HiTool</div>
+<div class="line"><img alt="image3" src="../../_images/procedure-for-burning-the-u-boot-using-hitool.png" /></div>
+</div>
+<ol class="arabic simple">
+<li><p>Select the COM7 serial port.</p></li>
+<li><p>Select <strong>Serial</strong> for <strong>Transfer Mode</strong>.</p></li>
+<li><p>Select <strong>Burn Fastboot</strong>.</p></li>
+<li><p>Select <strong>spi nor</strong> for <strong>Flash Type</strong>.</p></li>
+<li><p>Click <strong>Browse</strong> and select the corresponding U-boot file.</p></li>
+<li><p>Click <strong>Burn</strong> to start burning.</p></li>
+</ol>
+</li>
+<li><p>Power off the board and then power it on. Connect the serial
+port after the burning is complete. Serial ports shown in the
+following figure are displayed after the U-boot is burnt.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 3</strong> Serial port displayed after the U-boot is burnt</div>
+<div class="line"><img alt="image4" src="../../_images/serial-port-displayed-after-the-u-boot-is-burnt-5.png" /></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>What should I do when an error is reported when the U-Boot is burnt
+using HiTool?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><strong>Figure 4</strong> Burning error</p>
+<p><img alt="image5" src="../../_images/en-us_image_0000001054421058.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p>The flash type selected by HiTool is incorrect.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Change the flash type in the area marked with <strong>1</strong> in the
+following figure.</p>
+<p><strong>Figure 5</strong> Incorrect flash type</p>
+<p><img alt="image6" src="../../_images/en-us_image_0000001053941057.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message indicating Python cannot be found
+is displayed during compilation and building?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image7" src="../../_images/en-us_image_0000001054476115.png" /></p>
+</li>
+<li><p><strong>Possible Cause 1</strong></p>
+<p>Python is not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Install the Python environment by referring to <a class="reference external" href="setting-up-a-development-environment-1.md#section918195118487">Installing a
+Python
+Environment</a>.</p>
+</li>
+<li><p><strong>Possible Cause 2</strong></p>
+<p><img alt="image8" src="../../_images/en-us_image_0000001054876092.png" /></p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># cd /usr/bin/</span>
+<span class="c1"># which python3</span>
+<span class="c1"># ln -s /usr/local/bin/python3 python</span>
+<span class="c1"># python --version</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p><img alt="image9" src="../../_images/en-us_image_0000001055194682.png" /></p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/quick-start/faqs-2.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

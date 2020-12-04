@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AudioTrackInfo &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="audiotrackinfo">
+<h1>AudioTrackInfo<a class="headerlink" href="#audiotrackinfo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="format.md">Format</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines audio track information.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1903670244093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1384275741093529"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1797541461093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1156399812093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1388791705093529"><p>format</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1232442678093529"><p>CodecFormat</p>
+</p></td></tr><tr id="row941327642093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1261994728093529"><p>profile</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p706957491093529"><p>uint32_t</p>
+</p></td></tr><tr id="row1964789528093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2105056565093529"><p>sampleRate</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2061253995093529"><p>uint32_t</p>
+</p></td></tr><tr id="row1922411288093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p237150281093529"><p>sampleFmt</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2125384557093529"><p>uint16_t</p>
+</p></td></tr><tr id="row882763823093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1900262980093529"><p>channels</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p868658979093529"><p>uint16_t</p>
+</p></td></tr><tr id="row1389326953093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1437874892093529"><p>subStreamID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p635355674093529"><p>int32_t</p>
+</p></td></tr><tr id="row668564043093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1654632933093529"><p>bitrate</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p524801925093529"><p>uint32_t</p>
+</p></td></tr><tr id="row1248892265093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p701986930093529"><p>language [FORMAT_LANGUAGE_LEN]</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1403092836093529"><p>char</p>
+</p></td></tr><tr id="row110365399093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p938789872093529"><p>durationMs</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p467044613093529"><p>int64_t</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bitrate">
+<h2>bitrate<a class="headerlink" href="#bitrate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">bitrate</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio and video bit rate</p>
+</div>
+<div class="section" id="channels">
+<h2>channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint16_t</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">channels</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of audio channels</p>
+</div>
+<div class="section" id="durationms">
+<h2>durationMs<a class="headerlink" href="#durationms" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int64_t</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">durationMs</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Stream duration, in milliseconds</p>
+</div>
+<div class="section" id="format">
+<h2>format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">CodecFormat</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaf7ed135f15d4b218d41705bac0122ba7) AudioTrackInfo::format</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio encoding format. For details, see
+<a class="reference external" href="format.md#gaf7ed135f15d4b218d41705bac0122ba7">CodecFormat</a>.</p>
+</div>
+<div class="section" id="language">
+<h2>language<a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">language</span><span class="p">[[</span><span class="n">FORMAT_LANGUAGE_LEN</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa70508bb1089c99f9aa3d59fcbdfa8eb)]</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio track language</p>
+</div>
+<div class="section" id="profile">
+<h2>profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">profile</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio encoding profile, for example, <strong>0x160(WMAV1)</strong> and <strong>0x161
+(WMAV2)</strong>.</p>
+</div>
+<div class="section" id="samplefmt">
+<h2>sampleFmt<a class="headerlink" href="#samplefmt" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint16_t</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">sampleFmt</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Data storage format of one sample in an audio channel. For details, see
+<a class="reference external" href="format.md#gadf0700999998f587f0017c4d02977b22">AudioSampleFmt</a>.</p>
+</div>
+<div class="section" id="samplerate">
+<h2>sampleRate<a class="headerlink" href="#samplerate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">sampleRate</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio sampling rate, for example, <strong>8000</strong>, <strong>16000</strong>, <strong>24000</strong>,
+<strong>32000</strong>, <strong>11025</strong>, <strong>22050</strong>, <strong>441000</strong>, and <strong>48000</strong></p>
+</div>
+<div class="section" id="substreamid">
+<h2>subStreamID<a class="headerlink" href="#substreamid" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">AudioTrackInfo</span><span class="p">::</span><span class="n">subStreamID</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>ID of the subsidiary audio stream, which is used when the encoding or
+decoding format of the primary stream is not supported for audio
+rendering.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/audiotrackinfo.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

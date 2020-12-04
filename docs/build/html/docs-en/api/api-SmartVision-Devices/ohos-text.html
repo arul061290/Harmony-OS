@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OHOS::Text &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ohos-text">
+<h1>OHOS::Text<a class="headerlink" href="#ohos-text" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="graphic.md">Graphic</a></p>
+<p><strong>Description:</strong></p>
+<p>Represents the base class of <a class="reference external" href="ohos-text.md">Text</a>, providing the text
+attribute setting and text drawing capabilities for components that
+require font display.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row804932818093533"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p79161986093533"><p>Public Member Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1543038753093533"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row392785468093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1817845658093533"><p>Text ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1163839808093533"></p><p id="p79147680093533"><p>A constructor used to create a Text instance.</p>
+</p></td></tr><tr id="row1368946574093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p881004253093533"><p>~Text ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p469942381093533"><p>virtual</p>
+</p><p id="p1891855372093533"><p>A destructor used to delete the Text instance.</p>
+</p></td></tr><tr id="row1143110243093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1782882036093533"><p>SetText (const char *text)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p566880234093533"><p>void</p>
+</p><p id="p2136302840093533"><p>Sets the content for this text.</p>
+</p></td></tr><tr id="row576013084093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1660850838093533"><p>GetText () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p607848449093533"><p>const char *</p>
+</p><p id="p818655908093533"><p>Obtains the content of this text.</p>
+</p></td></tr><tr id="row65890897093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p185436450093533"><p>SetFont (const char *name, uint8_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1951875413093533"><p>void</p>
+</p><p id="p1103505068093533"><p>Sets the font name and size.</p>
+</p></td></tr><tr id="row1520245566093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1247438487093533"><p>SetFontId (uint8_t fontId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p908651714093533"><p>void</p>
+</p><p id="p642757801093533"><p>Sets the font ID.</p>
+</p></td></tr><tr id="row653765165093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p743182417093533"><p>GetFontId () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1816528354093533"><p>uint8_t</p>
+</p><p id="p1478674081093533"><p>Obtains the font ID.</p>
+</p></td></tr><tr id="row28252932093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p925480891093533"><p>SetDirect (UITextLanguageDirect direct)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1189110819093533"><p>void</p>
+</p><p id="p1122780716093533"><p>Sets the direction for this text.</p>
+</p></td></tr><tr id="row1014393018093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p612431794093533"><p>GetDirect () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p518837453093533"><p>UITextLanguageDirect</p>
+</p><p id="p1230940892093533"><p>Obtains the direction of this text.</p>
+</p></td></tr><tr id="row1002709872093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1411058001093533"><p>SetAlign (UITextLanguageAlignment horizontalAlign,
+UITextLanguageAlignment verticalAlign=TEXT_ALIGNMENT_TOP)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2109562979093533"><p>void</p>
+</p><p id="p50899354093533"><p>Sets the alignment mode for this text.</p>
+</p></td></tr><tr id="row1943746739093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1783847850093533"><p>GetHorAlign () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p786219924093533"><p>UITextLanguageAlignment</p>
+</p><p id="p787588128093533"><p>Obtains the horizontal alignment mode.</p>
+</p></td></tr><tr id="row1939051656093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2121211790093533"><p>GetVerAlign () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1847739070093533"><p>UITextLanguageAlignment</p>
+</p><p id="p1160176788093533"><p>Obtains the vertical alignment mode.</p>
+</p></td></tr><tr id="row757152844093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p232482358093533"><p>SetTextRotation (LabelRotateDegree angle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1565723428093533"><p>void</p>
+</p><p id="p1421992531093533"><p>Sets the clockwise rotation angle for this text.</p>
+</p></td></tr><tr id="row1373223216093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p322975862093533"><p>GetTextRotation () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p443442393093533"><p>LabelRotateDegree</p>
+</p><p id="p661503862093533"><p>Obtains the clockwise rotation degree of this text.</p>
+</p></td></tr><tr id="row1063542886093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p681362078093533"><p>GetTextRotateDegree () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p458196079093533"><p>uint16_t</p>
+</p><p id="p352761604093533"><p>Obtains the number of text rotation degrees.</p>
+</p></td></tr><tr id="row971863627093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p960209477093533"><p>GetTextSize () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1679138614093533"><p>Point</p>
+</p><p id="p736980929093533"><p>Obtains the size of this text.</p>
+</p></td></tr><tr id="row1616953332093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p240232983093533"><p>SetExpandWidth (bool expand)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1864611434093533"><p>void</p>
+</p><p id="p409441279093533"><p>Sets whether to adapt the component width to this text.</p>
+</p></td></tr><tr id="row1819872405093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p695934686093533"><p>IsExpandWidth () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p994000844093533"><p>bool</p>
+</p><p id="p131992675093533"><p>Checks whether the component width adapts to this text.</p>
+</p></td></tr><tr id="row833067207093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1901189141093533"><p>SetExpandHeight (bool expand)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p370066073093533"><p>void</p>
+</p><p id="p337015955093533"><p>Sets whether to adapt the component height to this text.</p>
+</p></td></tr><tr id="row241546178093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1250984523093533"><p>IsExpandHeight () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1747997889093533"><p>bool</p>
+</p><p id="p2027145177093533"><p>Checks whether the component height adapts to this text.</p>
+</p></td></tr><tr id="row1358207342093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p183097806093533"><p>GetEllipsisIndex (const Rect &amp;textRect, const Style &amp;style)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1134950564093533"><p>uint16_t</p>
+</p><p id="p1490032055093533"><p>Obtains the index of the character from where text will be replaced by
+ellipses based on the text rectangle and style.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="static-public-attributes">
+<h2>Static Public Attributes<a class="headerlink" href="#static-public-attributes" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row902412138093533"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p990808506093533"><p>Static Public Attribute Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2008903761093533"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row344559005093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p990512809093533"><p>TEXT_ELLIPSIS_END_INV = 0xFFFF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/ohos-text.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>Complete the operations described in <a class="reference external" href="../quick-start/introduction-to-the-hi3861-development-board.md">Getting Started with
+Hi3861</a>.</p>
+<p>LED control examples are stored in the file
+<strong>applications/sample/wifi-iot/app/iothardware/led_example.c</strong>.</p>
+</li>
+<li><p>Understand the cable connections by referring to the schematic
+diagram. The LED is connected to the function multiplexing pin
+WIFI_IOT_IO_NAME_GPIO_9.</p>
+<blockquote>
+<div><p><img alt="image1" src="../../_images/icon-note3.gif" /> <strong>NOTE:</strong> For details about the schematic diagram of the
+development board, contact the Hi3861 customer service personnel.</p>
+</div></blockquote>
+</li>
+<li><p>Initialize the GPIO pin, specify the pin usage, and create a task to
+turn on or off the LED periodically so that the LED blinks.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">LedExampleEntry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">osThreadAttr_t</span> <span class="n">attr</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="n">pin</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">GpioInit</span><span class="p">();</span>
+    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">GPIO</span> <span class="n">pin</span> <span class="mf">9.</span> <span class="o">*/</span>
+    <span class="n">IoSetFunc</span><span class="p">(</span><span class="n">WIFI_IOT_IO_NAME_GPIO_9</span><span class="p">,</span> <span class="n">WIFI_IOT_IO_FUNC_GPIO_9_GPIO</span><span class="p">);</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">pin</span> <span class="mi">9</span> <span class="k">as</span> <span class="n">the</span> <span class="n">output</span> <span class="n">direction</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">GpioSetDir</span><span class="p">(</span><span class="n">WIFI_IOT_IO_NAME_GPIO_9</span><span class="p">,</span> <span class="n">WIFI_IOT_GPIO_DIR_OUT</span><span class="p">);</span>
+
+    <span class="n">attr</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;LedTask&quot;</span><span class="p">;</span>
+    <span class="n">attr</span><span class="o">.</span><span class="n">attr_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="n">U</span><span class="p">;</span>
+    <span class="n">attr</span><span class="o">.</span><span class="n">cb_mem</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="n">attr</span><span class="o">.</span><span class="n">cb_size</span> <span class="o">=</span> <span class="mi">0</span><span class="n">U</span><span class="p">;</span>
+    <span class="n">attr</span><span class="o">.</span><span class="n">stack_mem</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="n">attr</span><span class="o">.</span><span class="n">stack_size</span> <span class="o">=</span> <span class="n">LED_TASK_STACK_SIZE</span><span class="p">;</span>
+    <span class="n">attr</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">LED_TASK_PRIO</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Start</span> <span class="n">the</span> <span class="n">task</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">osThreadNew</span><span class="p">((</span><span class="n">osThreadFunc_t</span><span class="p">)</span><span class="n">LedTask</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attr</span><span class="p">)</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;[LedExample] Falied to create LedTask!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use a cyclic task in which the LED periodically turns on and off to
+implement LED blinking.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="o">*</span><span class="n">LedTask</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">switch</span> <span class="p">(</span><span class="n">g_ledState</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">case</span> <span class="n">LED_ON</span><span class="p">:</span>
+                <span class="n">GpioSetOutputVal</span><span class="p">(</span><span class="n">WIFI_IOT_IO_NAME_GPIO_9</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+                <span class="n">usleep</span><span class="p">(</span><span class="n">LED_INTERVAL_TIME_US</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">case</span> <span class="n">LED_OFF</span><span class="p">:</span>
+                <span class="n">GpioSetOutputVal</span><span class="p">(</span><span class="n">WIFI_IOT_IO_NAME_GPIO_9</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+                <span class="n">usleep</span><span class="p">(</span><span class="n">LED_INTERVAL_TIME_US</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">case</span> <span class="n">LED_SPARK</span><span class="p">:</span>
+                <span class="n">GpioSetOutputVal</span><span class="p">(</span><span class="n">WIFI_IOT_IO_NAME_GPIO_9</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+                <span class="n">usleep</span><span class="p">(</span><span class="n">LED_INTERVAL_TIME_US</span><span class="p">);</span>
+                <span class="n">GpioSetOutputVal</span><span class="p">(</span><span class="n">WIFI_IOT_IO_NAME_GPIO_9</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+                <span class="n">usleep</span><span class="p">(</span><span class="n">LED_INTERVAL_TIME_US</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">default</span><span class="p">:</span>
+                <span class="n">usleep</span><span class="p">(</span><span class="n">LED_INTERVAL_TIME_US</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Call <strong>SYS_RUN()</strong> of OpenHarmony to start the service. (<strong>SYS_RUN</strong>
+is defined in the <strong>ohos_init.h</strong> file.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SYS_RUN</span><span class="p">(</span><span class="n">LedExampleEntry</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Change the <strong>applications/sample/wifi-iot/app/BUILD.gn</strong> file to
+enable <strong>led_example.c</strong> to participate in compilation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;//build/lite/config/component/lite_component.gni&quot;</span><span class="p">)</span>
+<span class="n">lite_component</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;iothardware:led_example&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/guide/development.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

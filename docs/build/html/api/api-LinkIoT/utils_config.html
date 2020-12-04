@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utils_config &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="utils-config">
+<h1>Utils_config<a class="headerlink" href="#utils-config" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Represents the configuration file of the utils subsystem.</p>
+<p>Vendors can set their desired items in the configuration file.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row353183276191846"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1129897927191846"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1358928501191846"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row705672577191846"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p904554909191846"><p>utils_config.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2048228695191846"><p>Represents the configuration file of the utils subsystem.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1082995962191846"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1907032404191846"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1973323971191846"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1797247169191846"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p34374802191846"><p>FEATURE_KV_CACHE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1350513232191846"><p>Specifies whether the KV store supports cache.</p>
+</p></td></tr><tr id="row670155005191846"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p821752142191846"><p>MAX_CACHE_SIZE 10</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1055248294191846"><p>Indicates the number of data items that can be stored in the KV store
+cache.</p>
+</p></td></tr><tr id="row654483972191846"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1862764481191846"><p>MAX_KV_SUM 50</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1667135483191846"><p>Indicates the number of data items that can be stored for each
+application.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macro-definition-documentation">
+<h2><strong>Macro Definition Documentation</strong><a class="headerlink" href="#macro-definition-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="feature-kv-cache">
+<h2>FEATURE_KV_CACHE<a class="headerlink" href="#feature-kv-cache" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define FEATURE_KV_CACHE</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Specifies whether the KV store supports cache.</p>
+<p>If this variable is defined, the KV store supports cache. Vendors
+determine whether to enable this feature. It is enabled by default.</p>
+</div>
+<div class="section" id="max-cache-size">
+<h2>MAX_CACHE_SIZE<a class="headerlink" href="#max-cache-size" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define MAX_CACHE_SIZE   10</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the number of data items that can be stored in the KV store
+cache.</p>
+<p>Default value: 10</p>
+</div>
+<div class="section" id="max-kv-sum">
+<h2>MAX_KV_SUM<a class="headerlink" href="#max-kv-sum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define MAX_KV_SUM   50</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the number of data items that can be stored for each
+application.</p>
+<p>Default value: 50</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-LinkIoT/utils_config.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

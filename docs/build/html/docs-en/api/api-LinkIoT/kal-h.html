@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kal.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="kal-h">
+<h1>kal.h<a class="headerlink" href="#kal-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="kal.md">KAL</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines the kernel adaptation layer (KAL), which provides compatible
+interfaces across different types of OpenHarmony devices.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row404188315090253"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p321089680090253"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1562807747090253"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1894767546090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p39084838090253"><p>ThreadInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1559806079090253"><p>Describes a thread.</p>
+</p></td></tr><tr id="row863787615090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1927252681090253"><p>MemInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1987865632090253"><p>Describes a memory pool.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row788335080090253"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p899119998090253"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p266249916090253"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1617979724090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2023404214090253"><p>KAL_TASK_NAME_LEN 32</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p212690775090253"><p>Indicates the maximum length of a thread name.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row564814656090253"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1377751869090253"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p85963224090253"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1167137464090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2087638916090253"><p>KalTimerType { KAL_TIMER_ONCE = 0, KAL_TIMER_PERIODIC = 1 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p26310895090253"><p>Enumerates timer types.</p>
+</p></td></tr><tr id="row667873585090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1410678834090253"><p>KalErrCode { KAL_OK = 0, KAL_ERR_PARA = 1, KAL_ERR_INNER = 2,
+KAL_ERR_TIMER_STATE = 0x100 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1134221822090253"><p>Enumerates return values of the KAL function.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row632748539090253"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p442643316090253"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1123700939090253"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row17209455090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p427413352090253"><p>KalThreadGetInfo (unsigned int threadId, ThreadInfo *info)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1415645723090253"><p>unsigned int</p>
+</p><p id="p850737189090253"><p>Obtains thread information.</p>
+</p></td></tr><tr id="row1670841451090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1742200963090253"><p>KalDelayUs (unsigned int us)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p133130094090253"><p>void</p>
+</p><p id="p1954589163090253"><p>Delays a thread.</p>
+</p></td></tr><tr id="row1844109992090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1881913301090253"><p>KalTimerCreate (KalTimerProc func, KalTimerType type, void *arg,
+unsigned int ticks)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p861002106090253"><p>KalTimerId</p>
+</p><p id="p1793783535090253"><p>Creates a timer.</p>
+</p></td></tr><tr id="row1648465270090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p778594456090253"><p>KalTimerStart (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p619461507090253"><p>KalErrCode</p>
+</p><p id="p2015605451090253"><p>Starts a timer.</p>
+</p></td></tr><tr id="row2086431181090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p291826078090253"><p>KalTimerChange (KalTimerId timerId, unsigned int ticks)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p327975643090253"><p>KalErrCode</p>
+</p><p id="p843582347090253"><p>Changes the duration of a timer.</p>
+</p></td></tr><tr id="row1695486021090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2092618090090253"><p>KalTimerStop (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p581413607090253"><p>KalErrCode</p>
+</p><p id="p90786480090253"><p>Stops a timer.</p>
+</p></td></tr><tr id="row390305589090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1933688119090253"><p>KalTimerDelete (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2088421267090253"><p>KalErrCode</p>
+</p><p id="p980958829090253"><p>Deletes a timer.</p>
+</p></td></tr><tr id="row1660146321090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p680238357090253"><p>KalTimerIsRunning (KalTimerId timerId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2029238561090253"><p>unsigned int</p>
+</p><p id="p1914481500090253"><p>Checks whether a timer is running.</p>
+</p></td></tr><tr id="row1848707406090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p716818417090253"><p>KalTickToMs (unsigned int ticks)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1345244610090253"><p>unsigned int</p>
+</p><p id="p1668147945090253"><p>Converts system ticks into milliseconds.</p>
+</p></td></tr><tr id="row1981267446090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2104118499090253"><p>KalMsToTick (unsigned int millisec)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1488490032090253"><p>unsigned int</p>
+</p><p id="p838294547090253"><p>Converts milliseconds into system ticks.</p>
+</p></td></tr><tr id="row579375264090253"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p384239589090253"><p>KalGetMemInfo (MemInfo *pmemInfo)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1782121023090253"><p>KalErrCode</p>
+</p><p id="p190962442090253"><p>Obtains memory information.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-LinkIoT/kal-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watchdog Overview &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="watchdog-overview">
+<h1>Watchdog Overview<a class="headerlink" href="#watchdog-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>A watchdog, also called a watchdog timer, is a hardware timing device.
+If an error occurs in the main program of the system and fails to reset
+the watchdog timer, the watchdog timer sends a reset signal to restore
+the system to a normal state.</p>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Watchdog APIs</p>
+<table><thead align="left"><tr id="row4419501537"><th class="cellrowborder" valign="top" width="26.619999999999997%" id="mcps1.2.4.1.1"><p id="p641050105320"><p>Capability</p>
+</p></th><th class="cellrowborder" valign="top" width="32.800000000000004%" id="mcps1.2.4.1.2"><p id="p54150165315"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="40.58%" id="mcps1.2.4.1.3"><p id="p941150145313"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row837081981712"><td class="cellrowborder" rowspan="2" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p681292481718"><p>Open/Close</p>
+</p></td><td class="cellrowborder" valign="top" width="32.800000000000004%" headers="mcps1.2.4.1.2 "><p id="p183701419141710"><p>WatchdogOpen</p>
+</p></td><td class="cellrowborder" valign="top" width="40.58%" headers="mcps1.2.4.1.3 "><p id="p17370161911710"><p>Opens a watchdog.</p>
+</p></td></tr><tr id="row5610415171719"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p661171510173"><p>WatchdogClose</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p11611715161713"><p>Closes a watchdog.</p>
+</p></td></tr><tr id="row337105133315"><td class="cellrowborder" rowspan="2" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p07631557153319"><p>Start/Stop</p>
+</p></td><td class="cellrowborder" valign="top" width="32.800000000000004%" headers="mcps1.2.4.1.2 "><p id="p163765113337"><p>WatchdogStart</p>
+</p></td><td class="cellrowborder" valign="top" width="40.58%" headers="mcps1.2.4.1.3 "><p id="p18376517332"><p>Starts a watchdog.</p>
+</p></td></tr><tr id="row18399184610337"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1740010461335"><p>WatchdogStop</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p19400194633318"><p>Stops a watchdog.</p>
+</p></td></tr><tr id="row34145016535"><td class="cellrowborder" rowspan="2" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p229610227124"><p>Timeout duration</p>
+</p></td><td class="cellrowborder" valign="top" width="32.800000000000004%" headers="mcps1.2.4.1.2 "><p id="p8296182221219"><p>WatchdogSetTimeout</p>
+</p></td><td class="cellrowborder" valign="top" width="40.58%" headers="mcps1.2.4.1.3 "><p id="p16297172213125"><p>Sets the watchdog timeout duration.</p>
+</p></td></tr><tr id="row11585016539"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1095722493616"><p>WatchdogGetTimeout</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p15297162215122"><p>Obtains the watchdog timeout duration.</p>
+</p></td></tr><tr id="row105701653185811"><td class="cellrowborder" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p2571145325819"><p>Status</p>
+</p></td><td class="cellrowborder" valign="top" width="32.800000000000004%" headers="mcps1.2.4.1.2 "><p id="p175711953195814"><p>WatchdogGetStatus</p>
+</p></td><td class="cellrowborder" valign="top" width="40.58%" headers="mcps1.2.4.1.3 "><p id="p331961319210"><p>Obtains the watchdog status.</p>
+</p></td></tr><tr id="row1028182217215"><td class="cellrowborder" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p182818227214"><p>Feeding</p>
+</p></td><td class="cellrowborder" valign="top" width="32.800000000000004%" headers="mcps1.2.4.1.2 "><p id="p17281223219"><p>WatchdogFeed</p>
+</p></td><td class="cellrowborder" valign="top" width="40.58%" headers="mcps1.2.4.1.3 "><p id="p62815221125"><p>Feeds a watchdog, or resets a watchdog timer.</p>
+</p></td></tr></tbody></table><blockquote>
+<div><p><img alt="image1" src="../_images/icon-note2.gif" /> <strong>NOTE:</strong> All functions provided in this document can be
+called only in kernel mode.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/watchdogoverview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,597 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parameter &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="parameter">
+<h1>Parameter<a class="headerlink" href="#parameter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides functions for obtaining system parameters.</p>
+<p>This module can obtain device information such as device type and
+manufacturer.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1248861041093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1728401573093523"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1877853050093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1639769413093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1140487342093523"><p>parameter.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p221033526093523"><p>Declares functions for obtaining system parameters.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1931302609093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1116466615093523"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p733739402093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1020220054093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2092998029093523"><p>GetParameter (const char <em>key, const char</em>def, char *value, unsigned
+int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1882815170093523"><p>int</p>
+</p><p id="p398194718093523"><p>Obtains a system parameter matching the specified key.</p>
+</p></td></tr><tr id="row516669785093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1561252009093523"><p>SetParameter (const char <em>key, const char</em>value)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p264661786093523"><p>int</p>
+</p><p id="p198237632093523"><p>Sets or updates a system parameter.</p>
+</p></td></tr><tr id="row499435826093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1119444072093523"><p>GetProductType (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1313840134093523"><p>char *</p>
+</p><p id="p1979423143093523"><p>Obtains the device type.</p>
+</p></td></tr><tr id="row1486087999093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p18278811093523"><p>GetManufacture (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1299279981093523"><p>char *</p>
+</p><p id="p415050108093523"><p>Obtains the device manufacturer.</p>
+</p></td></tr><tr id="row929437629093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p338850531093523"><p>GetBrand (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p21256843093523"><p>char *</p>
+</p><p id="p1643984360093523"><p>Obtains the device brand.</p>
+</p></td></tr><tr id="row1765685357093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2097463510093523"><p>GetMarketName (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1607330401093523"><p>char *</p>
+</p><p id="p1187060220093523"><p>Obtains the device marketing name.</p>
+</p></td></tr><tr id="row248358973093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p275004468093523"><p>GetProductSeries (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1324899406093523"><p>char *</p>
+</p><p id="p1745516668093523"><p>Obtains the device series name.</p>
+</p></td></tr><tr id="row449315299093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1329084388093523"><p>GetProductModel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p716523645093523"><p>char *</p>
+</p><p id="p1148297952093523"><p>Obtains the device authentication model.</p>
+</p></td></tr><tr id="row756000334093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p170301001093523"><p>GetSoftwareModel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1104137557093523"><p>char *</p>
+</p><p id="p1379173536093523"><p>Obtains the device software model.</p>
+</p></td></tr><tr id="row1675599114093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p328224660093523"><p>GetHardwareModel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1724109733093523"><p>char *</p>
+</p><p id="p1578380183093523"><p>Obtains the device hardware model.</p>
+</p></td></tr><tr id="row1761878580093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p536570485093523"><p>GetHardwareProfile (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p958168334093523"><p>char *</p>
+</p><p id="p707759194093523"><p>Obtains the device hardware profile.</p>
+</p></td></tr><tr id="row1247599877093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2009746469093523"><p>GetSerial (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1840005117093523"><p>char *</p>
+</p><p id="p1455410709093523"><p>Obtains the device serial number (SN).</p>
+</p></td></tr><tr id="row1697329777093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1636918761093523"><p>GetOsName (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p996545081093523"><p>char *</p>
+</p><p id="p1702593018093523"><p>Obtains the operating system (OS) name.</p>
+</p></td></tr><tr id="row1572013438093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1473262768093523"><p>GetDisplayVersion (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p39896933093523"><p>char *</p>
+</p><p id="p1836309266093523"><p>Obtains the software version visible to users.</p>
+</p></td></tr><tr id="row255946012093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p183773978093523"><p>GetBootloaderVersion (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p886296348093523"><p>char *</p>
+</p><p id="p754253369093523"><p>Obtains the bootloader version of this device.</p>
+</p></td></tr><tr id="row364476806093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1554949555093523"><p>GetSecurityPatchTag (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1101119099093523"><p>char *</p>
+</p><p id="p518331584093523"><p>Obtains the security patch tag.</p>
+</p></td></tr><tr id="row936882442093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p387947115093523"><p>GetAbiList (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p131242343093523"><p>char *</p>
+</p><p id="p1878753534093523"><p>Obtains the list of application binary interfaces (ABIs) supported on
+this device.</p>
+</p></td></tr><tr id="row1398996054093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1109412012093523"><p>GetSdkApiLevel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2024078415093523"><p>char *</p>
+</p><p id="p1945282121093523"><p>Obtains the SDK API level that matches the current system software.</p>
+</p></td></tr><tr id="row474514530093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p510507751093523"><p>GetFirstApiLevel (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p356723414093523"><p>char *</p>
+</p><p id="p467908179093523"><p>Obtains the first SDK API level of the system software.</p>
+</p></td></tr><tr id="row689093441093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p879486719093523"><p>GetIncrementalVersion (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1210474311093523"><p>char *</p>
+</p><p id="p958170233093523"><p>Obtains the incremental version.</p>
+</p></td></tr><tr id="row2110253737093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1637011210093523"><p>GetVersionId (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p572131669093523"><p>char *</p>
+</p><p id="p1003059329093523"><p>Obtains the version ID.</p>
+</p></td></tr><tr id="row1296764116093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p123310986093523"><p>GetBuildType (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p997308206093523"><p>char *</p>
+</p><p id="p1853281070093523"><p>Obtains the build type.</p>
+</p></td></tr><tr id="row621677990093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2102103534093523"><p>GetBuildUser (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2027486460093523"><p>char *</p>
+</p><p id="p872797589093523"><p>Obtains the build account user name.</p>
+</p></td></tr><tr id="row251286060093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p773359516093523"><p>GetBuildHost (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p568602662093523"><p>char *</p>
+</p><p id="p435137115093523"><p>Obtains the build host name.</p>
+</p></td></tr><tr id="row1781230758093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p908351599093523"><p>GetBuildTime (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p753788626093523"><p>char *</p>
+</p><p id="p1220106210093523"><p>Obtains the version build time.</p>
+</p></td></tr><tr id="row923031911093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p772494946093523"><p>GetBuildRootHash (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p48845147093523"><p>char *</p>
+</p><p id="p535740538093523"><p>Obtains the buildroot hash value of this version.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="getabilist">
+<h2>GetAbiList()<a class="headerlink" href="#getabilist" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetAbiList</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the list of application binary interfaces (ABIs) supported on
+this device.</p>
+<p>The interfaces in the ABI list are separated by commas (,). This
+function is available only for an OS with an ecosystem accommodating
+native applications.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the ABI list if a result is found; returns <strong>NULL</strong> otherwise.
+The return result is released by the caller.</p>
+</div>
+<div class="section" id="getbootloaderversion">
+<h2>GetBootloaderVersion()<a class="headerlink" href="#getbootloaderversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetBootloaderVersion</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the bootloader version of this device.</p>
+<p>The bootloader version can have a maximum length of 64 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the bootloader version if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getbrand">
+<h2>GetBrand()<a class="headerlink" href="#getbrand" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetBrand</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device brand.</p>
+<p>The device brand can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device brand if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getbuildhost">
+<h2>GetBuildHost()<a class="headerlink" href="#getbuildhost" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetBuildHost</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the build host name.</p>
+<p>The build host name can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the build host name if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getbuildroothash">
+<h2>GetBuildRootHash()<a class="headerlink" href="#getbuildroothash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetBuildRootHash</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the buildroot hash value of this version.</p>
+<p>The buildroot hash value is represented by the root hash value in the
+software version hash tree.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the buildroot hash value if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getbuildtime">
+<h2>GetBuildTime()<a class="headerlink" href="#getbuildtime" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetBuildTime</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the version build time.</p>
+<p>The version build time is represented by the number of milliseconds
+elapsed since 1970-01-01 00:00:00 GMT.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the version build time if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getbuildtype">
+<h2>GetBuildType()<a class="headerlink" href="#getbuildtype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetBuildType</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the build type.</p>
+<p>Different build types with the same baseline codes will be returned, for
+example, <strong>debug/release</strong> and <strong>log/nolog</strong>. Multiple build types can
+be separated by semicolons (;).</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the build type if a result is found; returns <strong>NULL</strong> otherwise.
+The return result is released by the caller.</p>
+</div>
+<div class="section" id="getbuilduser">
+<h2>GetBuildUser()<a class="headerlink" href="#getbuilduser" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetBuildUser</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the build account user name.</p>
+<p>The build account user name can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the build account user name if a result is found; returns
+<strong>NULL</strong> otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getdisplayversion">
+<h2>GetDisplayVersion()<a class="headerlink" href="#getdisplayversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetDisplayVersion</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the software version visible to users.</p>
+<p>The software version visible to users can have a maximum length of 64
+characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the software version visible to users if a result is found;
+returns <strong>NULL</strong> otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getfirstapilevel">
+<h2>GetFirstApiLevel()<a class="headerlink" href="#getfirstapilevel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetFirstApiLevel</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the first SDK API level of the system software.</p>
+<p>In general, the first SDK API level is an integer. This function is only
+available for an OS with an ecosystem.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the first SDK API level if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="gethardwaremodel">
+<h2>GetHardwareModel()<a class="headerlink" href="#gethardwaremodel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetHardwareModel</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device hardware model.</p>
+<p>The device hardware model can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device hardware model if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="gethardwareprofile">
+<h2>GetHardwareProfile()<a class="headerlink" href="#gethardwareprofile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetHardwareProfile</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device hardware profile.</p>
+<p>The device hardware profile is a string in JSON format and has a maximum
+length of 1000 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device hardware profile if a result is found; returns
+<strong>NULL</strong> otherwise. The return result is released by the caller. The
+JSON field in the device hardware profile is defined as follows:</p>
+<table><thead align="left"><tr id="row1291834144093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1198703222093523"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1598493399093523"><p>key</p>
+</p></th></tr></thead><tbody><tr id="row425125485093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1223746831093523"><p>Audio playback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p53020346093523"><p>aout</p>
+</p></td></tr><tr id="row1385593769093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1994108726093523"><p>Display</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1999530869093523"><p>display</p>
+</p></td></tr><tr id="row433524928093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1791147140093523"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1606987096093523"><p>camera</p>
+</p></td></tr><tr id="row1054223029093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p427566820093523"><p>2D acceleration capability</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p436284920093523"><p>DMA_2D</p>
+</p></td></tr><tr id="row1460295583093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p513072201093523"><p>Random-access memory</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p765924691093523"><p>RAM</p>
+</p></td></tr><tr id="row344349361093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p502868672093523"><p>Read-only memory</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1687315571093523"><p>ROM</p>
+</p></td></tr><tr id="row750088250093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1302119573093523"><p>Graphics processing unit</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1528288179093523"><p>GPU</p>
+</p></td></tr><tr id="row1435473161093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p248894306093523"><p>Neural-network processing unit</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1284515491093523"><p>NPU</p>
+</p></td></tr><tr id="row832412248093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2144244684093523"><p>Radio</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p964405780093523"><p>radio</p>
+</p></td></tr><tr id="row984743211093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p461261962093523"><p>Bluetooth</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1747425900093523"><p>bluetooth</p>
+</p></td></tr><tr id="row1300941378093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p260486586093523"><p>Wi-Fi</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1601297181093523"><p>WIFI</p>
+</p></td></tr><tr id="row251964019093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p929453925093523"><p>USB</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1818877276093523"><p>usbhost</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="getincrementalversion">
+<h2>GetIncrementalVersion()<a class="headerlink" href="#getincrementalversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetIncrementalVersion</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the incremental version.</p>
+<p>The incremental version can be used as the unique software version when
+the device model is the same.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the incremental version if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getmanufacture">
+<h2>GetManufacture()<a class="headerlink" href="#getmanufacture" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetManufacture</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device manufacturer.</p>
+<p>The device manufacturer can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device manufacturer if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getmarketname">
+<h2>GetMarketName()<a class="headerlink" href="#getmarketname" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetMarketName</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device marketing name.</p>
+<p>The device marketing name can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device marketing name if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getosname">
+<h2>GetOsName()<a class="headerlink" href="#getosname" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetOsName</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the operating system (OS) name.</p>
+<p>The device OS name can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device OS name if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getparameter">
+<h2>GetParameter()<a class="headerlink" href="#getparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GetParameter</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">def</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="nb">len</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains a system parameter matching the specified <strong>key</strong>.</p>
+<p>If no system parameter is found, the <strong>def</strong> parameter will be returned.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2144234814093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1189881401093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1722945605093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row336398849093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key for the system parameter to query. The value can
+contain lowercase letters, digits, underscores (_), and dots (.). Its
+length cannot exceed 32 bytes (including the end-of-text character in
+the string).</p>
+</td></tr><tr id="row578196924093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>def</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the default value to return when no query result is found.
+This parameter is specified by the caller.</p>
+</td></tr><tr id="row419733018093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the data buffer that stores the query result. This parameter
+is applied for and released by the caller and can be used as an output
+parameter.</p>
+</td></tr><tr id="row665063266093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the data in the buffer.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the number of bytes of the system parameter if the operation is
+successful; returns <strong>-9</strong> if a parameter is incorrect; returns <strong>-1</strong>
+in other scenarios.</p>
+</div>
+<div class="section" id="getproductmodel">
+<h2>GetProductModel()<a class="headerlink" href="#getproductmodel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetProductModel</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device authentication model.</p>
+<p>The device authentication model can have a maximum length of 32
+characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device authentication model if a result is found; returns
+<strong>NULL</strong> otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getproductseries">
+<h2>GetProductSeries()<a class="headerlink" href="#getproductseries" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetProductSeries</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device series name.</p>
+<p>The device series name can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device series name if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getproducttype">
+<h2>GetProductType()<a class="headerlink" href="#getproducttype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetProductType</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device type.</p>
+<p>The device type can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device type if a result is found, for example, returns
+<strong>wifiiot</strong> if the application is running on a Wi-Fi connected IoT
+device; returns <strong>NULL</strong> otherwise. The return result is released by the
+caller.</p>
+</div>
+<div class="section" id="getsdkapilevel">
+<h2>GetSdkApiLevel()<a class="headerlink" href="#getsdkapilevel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetSdkApiLevel</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the SDK API level that matches the current system software.</p>
+<p>In general, the SDK API level is an integer. This function is only
+available for an OS with an ecosystem.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the SDK API level if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getsecuritypatchtag">
+<h2>GetSecurityPatchTag()<a class="headerlink" href="#getsecuritypatchtag" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetSecurityPatchTag</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the security patch tag.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the security patch tag if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getserial">
+<h2>GetSerial()<a class="headerlink" href="#getserial" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetSerial</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device serial number (SN).</p>
+<p>The device SN can have a maximum length of 64 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device SN if a result is found; returns <strong>NULL</strong> otherwise.
+The return result is released by the caller.</p>
+</div>
+<div class="section" id="getsoftwaremodel">
+<h2>GetSoftwareModel()<a class="headerlink" href="#getsoftwaremodel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetSoftwareModel</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the device software model.</p>
+<p>The device software model can have a maximum length of 32 characters.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the device software model if a result is found; returns <strong>NULL</strong>
+otherwise. The return result is released by the caller.</p>
+</div>
+<div class="section" id="getversionid">
+<h2>GetVersionId()<a class="headerlink" href="#getversionid" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">GetVersionId</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the version ID.</p>
+<p>The version ID can have a maximum length of 127 characters. It is the
+unique identifier of a device.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the version ID if a result is found; returns <strong>NULL</strong> otherwise.
+The return result is released by the caller.</p>
+</div>
+<div class="section" id="setparameter">
+<h2>SetParameter()<a class="headerlink" href="#setparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">SetParameter</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets or updates a system parameter.</p>
+<p>You can use this function to set a system parameter that matches <strong>key</strong>
+as <strong>value</strong>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row864910666093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p664293457093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p480218148093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1532336283093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key for the parameter to set or update. The value can
+contain lowercase letters, digits, underscores (_), and dots (.). Its
+length cannot exceed 32 bytes (including the end-of-text character in
+the string).</p>
+</td></tr><tr id="row1056192134093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the system parameter value. Its length cannot exceed 128 bytes
+(including the end-of-text character in the string).</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-9</strong> if a
+parameter is incorrect; returns <strong>-1</strong> in other scenarios.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/parameter.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

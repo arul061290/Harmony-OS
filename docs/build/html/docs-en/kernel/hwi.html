@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hwi &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hwi">
+<h1>hwi<a class="headerlink" href="#hwi" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-function">
+<h2>Command Function<a class="headerlink" href="#command-function" title="Permalink to this headline">¶</a></h2>
+<p>This command is used to query information about the current interrupts.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>hwi</p>
+</div>
+<div class="section" id="parameter-description">
+<h2>Parameter Description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p>None</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enter <strong>hwi</strong> to display the current interrupt ID, count of
+interrupts, and registered interrupt name.</p></li>
+<li><p>If <strong>LOSCFG_CPUP_INCLUDE_IRQ</strong> is enabled, the processing time
+(cycles), CPU usage, and interrupt type of each interrupt are
+displayed.</p></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Enter <strong>hwi</strong>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Interrupt information (with <strong>LOSCFG_CPUP_INCLUDE_IRQ</strong> disabled)</p>
+<p><img alt="image1" src="../../_images/en-us_image_0000001053826366.png" /></p>
+</li>
+<li><p>Interrupt information (with <strong>LOSCFG_CPUP_INCLUDE_IRQ</strong> enabled)</p>
+<p><img alt="image2" src="../../_images/en-us_image_0000001052810304.png" /></p>
+<p><strong>Table 1</strong> Output description</p>
+<table><thead align="left"><tr id="row814mcpsimp"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p816mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p818mcpsimp"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row20360171311398"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p172391401402"><p>InterruptNo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p42381940174013"><p>Indicates the interrupt ID.</p>
+</p></td></tr><tr id="row262535153913"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1823824014402"><p>Count</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14237040144018"><p>Indicates the count of interrupts.</p>
+</p></td></tr><tr id="row9683953153916"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p6236124084018"><p>Name</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p18235164014401"><p>Indicates the registered interrupt name.</p>
+</p></td></tr><tr id="row85721136402"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1123434017409"><p>CYCLECOST</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p2023424094014"><p>Indicates the interrupt processing time (cycles).</p>
+</p></td></tr><tr id="row19180126151415"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p6233040164020"><p>CPUUSE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5232840104015"><p>Indicates the CPU usage.</p>
+</p></td></tr><tr id="row511517331702"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p14231040164014"><p>CPUUSE10s</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1323011409405"><p>Indicates CPU usage within the last 10 seconds.</p>
+</p></td></tr><tr id="row1868124415413"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p9681144414114"><p>CPUUSE1s</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p76814443417"><p>Indicates CPU usage within the last 1 second.</p>
+</p></td></tr><tr id="row7681164454112"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1968124412411"><p>mode</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p268134415419"><p>Indicates the interrupt mode.</p>
+</p><ul id="ul682912412419"><li><p>normal: non-shared interrupt.</p>
+</li><li><p>shared: shared interrupt.</p>
+</li></ul></td></tr></tbody></table></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/kernel/hwi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

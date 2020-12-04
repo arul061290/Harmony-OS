@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPIO Overview &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gpio-overview">
+<h1>GPIO Overview<a class="headerlink" href="#gpio-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>GPIO is short for general-purpose input/output. Generally, a GPIO
+controller manages all GPIO pins by group. Each group of GPIO pins is
+associated with one or more registers. The GPIO pins are operated by
+reading data from and writing data to the registers.</p>
+<p>The GPIO APIs define a set of standard functions for performing
+operations on GPIO pins, including:</p>
+<ul class="simple">
+<li><p>Setting the pin direction, which can be input or output (High
+impedance is not supported currently.)</p></li>
+<li><p>Reading and writing level values, which can be low or high</p></li>
+<li><p>Setting an interrupt service routine (ISR) function and interrupt
+trigger mode for a pin</p></li>
+<li><p>Enabling or disabling a pin interrupt</p></li>
+</ul>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> APIs available for the GPIO driver</p>
+<table><thead align="left"><tr id="row4419501537"><th class="cellrowborder" valign="top" width="19.74%" id="mcps1.2.4.1.1"><p id="p641050105320"><p>Capability</p>
+</p></th><th class="cellrowborder" valign="top" width="32.36%" id="mcps1.2.4.1.2"><p id="p54150165315"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="47.9%" id="mcps1.2.4.1.3"><p id="p941150145313"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row34145016535"><td class="cellrowborder" rowspan="2" valign="top" width="19.74%" headers="mcps1.2.4.1.1 "><p id="p229610227124"><p>GPIO read/write</p>
+</p></td><td class="cellrowborder" valign="top" width="32.36%" headers="mcps1.2.4.1.2 "><p id="p19389143041518"><p>GpioRead</p>
+</p></td><td class="cellrowborder" valign="top" width="47.9%" headers="mcps1.2.4.1.3 "><p id="p8738101941716"><p>Reads the level value of a GPIO pin.</p>
+</p></td></tr><tr id="row5632152611414"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p143890309153"><p>GpioWrite</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p67306152404"><p>Writes the level value of a GPIO pin.</p>
+</p></td></tr><tr id="row17493124814141"><td class="cellrowborder" rowspan="2" valign="top" width="19.74%" headers="mcps1.2.4.1.1 "><p id="p321814526178"><p>GPIO settings</p>
+</p></td><td class="cellrowborder" valign="top" width="32.36%" headers="mcps1.2.4.1.2 "><p id="p16390153015156"><p>GpioSetDir</p>
+</p></td><td class="cellrowborder" valign="top" width="47.9%" headers="mcps1.2.4.1.3 "><p id="p1873761519408"><p>Sets the direction for a GPIO pin.</p>
+</p></td></tr><tr id="row10681146181417"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p15390153014151"><p>GpioGetDir</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p974061515406"><p>Obtains the direction for a GPIO pin.</p>
+</p></td></tr><tr id="row10288191441518"><td class="cellrowborder" rowspan="4" valign="top" width="19.74%" headers="mcps1.2.4.1.1 "><p id="p13927416134716"><p>GPIO interrupt settings</p>
+</p><p id="p738165912472"></p><p id="p151691515483"></p><p id="p6742119204820"></p></td><td class="cellrowborder" valign="top" width="32.36%" headers="mcps1.2.4.1.2 "><p id="p17390113013158"><p>GpioSetIrq</p>
+</p></td><td class="cellrowborder" valign="top" width="47.9%" headers="mcps1.2.4.1.3 "><p id="p10314104354416"><p>Sets the ISR function for a GPIO pin.</p>
+</p></td></tr><tr id="row163795912473"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p523618345323"><p>GpioUnSetIrq</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1138195912478"><p>Cancels the setting of the ISR function for a GPIO pin.</p>
+</p></td></tr><tr id="row155161515124816"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p657344273218"><p>GpioEnableIrq</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p115163154488"><p>Enables a GPIO interrupt.</p>
+</p></td></tr><tr id="row1742119174820"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1865114616324"><p>GpioDisableIrq</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p97421219174820"><p>Disables a GPIO interrupt.</p>
+</p></td></tr></tbody></table><blockquote>
+<div><p><img alt="image1" src="../../_images/icon-note2.gif" /> <strong>NOTE:</strong> All functions provided in this document can be
+called only in kernel mode.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/driver/gpiooverview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

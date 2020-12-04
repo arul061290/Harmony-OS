@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driver Development &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="driver-development">
+<h1>Driver Development<a class="headerlink" href="#driver-development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The HDF is designed based on the component-based driver model. It
+provides more refined driver management to make driver development and
+deployment more standard. Device drivers of the same type are placed in
+the same host. You can develop and deploy the drivers separately. One
+driver can have multiple nodes. The following figure shows the HDF
+driver management model.</p>
+<p><strong>Figure 1</strong> HDF driver management model</p>
+<p><img alt="image1" src="../../_images/en-us_image_0000001054564784.png" /></p>
+</div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<p>Driver development based on the HDF consists of two parts: driver
+implementation and driver configuration. The details are as follows:</p>
+<ol class="arabic">
+<li><p>Implement driver.</p>
+<p>To implement a driver, compile driver service code and register a
+driver entry.</p>
+<ul>
+<li><p>Driver service code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;hdf_device_desc.h&quot;  // Header file that describes the APIs provided by the HDF to the driver.</span>
+<span class="c1">#include &quot;hdf_log.h&quot;          // Header file of the log interface provided by the HDF.</span>
+
+<span class="c1">#define HDF_LOG_TAG sample_driver   // Tag contained in logs. If the tag is not specified, HDF_TAG is used by default.</span>
+
+<span class="o">//</span> <span class="n">The</span> <span class="n">driver</span> <span class="n">service</span> <span class="n">interface</span> <span class="n">must</span> <span class="n">be</span> <span class="n">bound</span> <span class="n">to</span> <span class="n">the</span> <span class="n">HDF</span> <span class="k">for</span> <span class="n">you</span> <span class="n">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">service</span> <span class="n">capability</span><span class="o">.</span>
+<span class="n">int32_t</span> <span class="n">HdfSampleDriverBind</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">deviceObject</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HDF_LOGD</span><span class="p">(</span><span class="s2">&quot;Sample driver bind success&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">service</span><span class="o">.</span>
+<span class="n">int32_t</span> <span class="n">HdfSampleDriverInit</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">deviceObject</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HDF_LOGD</span><span class="p">(</span><span class="s2">&quot;Sample driver Init success&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Release</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">resources</span><span class="o">.</span>
+<span class="n">void</span> <span class="n">HdfSampleDriverRelease</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">deviceObject</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HDF_LOGD</span><span class="p">(</span><span class="s2">&quot;Sample driver release success&quot;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Registering the driver entry with the HDF</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Define</span> <span class="n">the</span> <span class="nb">object</span> <span class="n">of</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">entry</span><span class="o">.</span> <span class="n">The</span> <span class="nb">object</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="k">global</span> <span class="n">variable</span> <span class="n">of</span> <span class="n">the</span> <span class="n">HdfDriverEntry</span> <span class="nb">type</span> <span class="p">(</span><span class="n">defined</span> <span class="ow">in</span> <span class="n">hdf_device_desc</span><span class="o">.</span><span class="n">h</span><span class="p">)</span><span class="o">.</span>
+<span class="n">struct</span> <span class="n">HdfDriverEntry</span> <span class="n">g_sampleDriverEntry</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">moduleVersion</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">moduleName</span> <span class="o">=</span> <span class="s2">&quot;sample_driver&quot;</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">Bind</span> <span class="o">=</span> <span class="n">HdfSampleDriverBind</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">Init</span> <span class="o">=</span> <span class="n">HdfSampleDriverInit</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">Release</span> <span class="o">=</span> <span class="n">HdfSampleDriverRelease</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="o">//</span> <span class="n">Call</span> <span class="n">HDF_INIT</span> <span class="n">to</span> <span class="n">register</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">entry</span> <span class="k">with</span> <span class="n">the</span> <span class="n">HDF</span> <span class="n">framework</span><span class="o">.</span> <span class="n">When</span> <span class="n">loading</span> <span class="n">the</span> <span class="n">driver</span><span class="p">,</span> <span class="n">call</span> <span class="n">the</span> <span class="n">Bind</span> <span class="n">function</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">the</span> <span class="n">Init</span> <span class="n">function</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">Init</span> <span class="n">function</span> <span class="n">fails</span> <span class="n">to</span> <span class="n">be</span> <span class="n">called</span><span class="p">,</span> <span class="n">the</span> <span class="n">HDF</span> <span class="n">will</span> <span class="n">call</span> <span class="n">Release</span> <span class="n">to</span> <span class="n">release</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">resource</span> <span class="ow">and</span> <span class="n">exit</span><span class="o">.</span>
+<span class="n">HDF_INIT</span><span class="p">(</span><span class="n">g_sampleDriverEntry</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Compile the driver code.</p>
+<ul>
+<li><p>Use the <strong>Makefile</strong> template provided by the HDF to compile the
+driver code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>include $(LITEOSTOPDIR)/../../drivers/hdf/lite/lite.mk # (Mandatory) Import the predefined content of the HDF.
+MODULE_NAME:=    # Generated result file
+LOCAL_INCLUDE:=  # Header file directory of the driver
+LOCAL_SRCS:=     # Source code file of the driver
+LOCAL_CFLAGS: =  # Custom compilation options
+include $(HDF_DRIVER) # Import the template Makefile to complete compilation.
+</pre></div>
+</div>
+</li>
+<li><p>Link the compilation result file to the kernel image by adding the
+result file to <strong>hdf_vendor.mk</strong> in the <strong>vendor</strong> directory. The
+following is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LITEOS_BASELIB</span> <span class="o">+=</span>  <span class="o">-</span><span class="n">lxxx</span>  <span class="c1"># Static library generated through linking</span>
+<span class="n">LIB_SUBDIRS</span>    <span class="o">+=</span>         <span class="c1"># Directory of Makefile</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Configure the driver.</p>
+<p>HDF Configuration Source (HCS) is the source code that describes the
+configuration of the HDF. For details about the HCS, see <a class="reference external" href="driver-configuration-management.md">Driver
+Configuration Management</a>.</p>
+<p>The driver configuration consists of the driver device description
+defined by the HDF and private driver configuration information.</p>
+<ul>
+<li><p>(Mandatory) Driver device description</p>
+<p>The information required for the HDF to load drivers comes from
+the driver device description defined by the HDF. Therefore, the
+device description must be added to the configuration file
+<strong>device_info.hcs</strong> defined by the HDF for drivers developed based
+on the HDF. The following is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root {
+    device_info {
+        match_attr = &quot;hdf_manager&quot;;
+        template host {       // Host template. If the node (for example, sample_host) that inherits the template uses default values in the template, the values of the node fields can be omitted.
+            hostName = &quot;&quot;;
+            priority = 100;
+            template device {
+                template deviceNode {
+                    policy = 0;
+                    priority = 100;
+                    preload = 0;
+                    permission = 0664;
+                    moduleName = &quot;&quot;;
+                    serviceName = &quot;&quot;;
+                    deviceMatchAttr = &quot;&quot;;
+                }
+            }
+        }
+        sample_host :: host{
+            hostName = &quot;host0&quot;;    // Host name. The host node is used to store a certain type of drivers.
+            priority = 100;        // Host startup priority (0-200). A larger value indicates a lower priority. The default value 100 is recommended. If the priorities are the same, the host loading sequence is random.
+            device_sample :: device {        // Device node of sample
+                device0 :: deviceNode {      // DeviceNode of the sample driver
+                policy = 1;              // Driver service release policy. For details, see section Driver Service Management.
+                priority = 100;          // Driver startup priority (0–200). A larger value indicates a lower priority. The default value 100 is recommended. If the priorities are the same, the device loading sequence is random.
+                preload = 0;             // On-demand driver loading. For details, see &quot;NOTE&quot; at the end of this section.
+                permission = 0664;       // Permission for the driver to create device nodes.
+                moduleName = &quot;sample_driver&quot;;   // Driver name. The value of this field must be the same as the value of moduleName in the driver entry structure.
+                serviceName = &quot;sample_service&quot;;    // Name of the service released by the driver. The name must be unique.
+                    deviceMatchAttr = &quot;sample_config&quot;; // Keyword matching the private data of the driver. The value must be the same as that of match_attr in the private data configuration table of the driver.
+                }
+            }
+        }
+    }
+}
+</pre></div>
+</div>
+</li>
+<li><p>(Optional) Private configuration information of the driver</p>
+<p>If the driver has private configurations, you can add a driver
+configuration file to fill in the default configuration
+information of the driver. When loading the driver, the HDF
+obtains the information and saves it in the <strong>property</strong> of
+<strong>HdfDeviceObject</strong>, and transfers it to the driver using <strong>Bind</strong>
+and <strong>Init</strong> (see <a class="reference external" href="#li35182436435">1</a>). The following is an
+example of the driver configuration information:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="p">{</span>
+    <span class="n">SampleDriverConfig</span> <span class="p">{</span>
+        <span class="n">sample_version</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">sample_bus</span> <span class="o">=</span> <span class="s2">&quot;I2C_0&quot;</span><span class="p">;</span>
+        <span class="n">match_attr</span> <span class="o">=</span> <span class="s2">&quot;sample_config&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">this</span> <span class="n">field</span> <span class="n">must</span> <span class="n">be</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span> <span class="n">that</span> <span class="n">of</span> <span class="n">deviceMatchAttr</span> <span class="ow">in</span> <span class="n">device_info</span><span class="o">.</span><span class="n">hcs</span><span class="o">.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After the configuration information is defined, you need to add
+the configuration file to the board-level configuration entry file
+<strong>hdf.hcs</strong>. (You can use the DevEco to perform on-click
+configuration. For details, see the description about the driver
+development suite.) The following is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;device_info/device_info.hcs&quot;</span>
+<span class="c1">#include &quot;sample/sample_config.hcs&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<div><p><img alt="image2" src="../../_images/icon-note2.gif" /> <strong>NOTE:</strong> On-demand loading and sequential loading are
+supported. The detailed usage is as follows: - On-demand loading
+<code class="docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">enum</span> <span class="pre">{</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">DEVICE_PRELOAD_ENABLE</span> <span class="pre">=</span> <span class="pre">0,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">DEVICE_PRELOAD_DISABLE,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">DEVICE_PRELOAD_INVALID</span>&#160;&#160;&#160; <span class="pre">}</span> <span class="pre">DevicePreload;</span></code>
+In the configuration file, if the value of the <strong>preload</strong> field is
+set to <strong>0</strong> (DEVICE_PRELOAD_ENABLE), driver is loaded by default
+during system startup. If this field value is set to <strong>1</strong>
+(DEVICE_PRELOAD_DISABLE), the driver is not loaded by default during
+system startup and can be dynamically loaded later. If the driver
+service does not exist when a user-level application obtains the
+driver service (for details about how to obtain the driver service,
+see <a class="reference external" href="driver-message-mechanism-management.md">Driver Message Mechanism
+Management</a>), the HDF
+attempts to dynamically load the driver. - Sequential loading
+(drivers must be loaded by default) In the configuration file, the
+<strong>priority</strong> field (the value is an integer ranging from 0 to 200)
+indicates the priority of the host and driver. For drivers in
+different hosts, a smaller host priority value indicates a higher
+driver loading priority; for drivers in the same host, a smaller
+driver priority value indicates a higher driver loading priority.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/driver/driver-development.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

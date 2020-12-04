@@ -1,0 +1,1015 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MultiMedia_Recorder &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="multimedia-recorder">
+<h1>MultiMedia_Recorder<a class="headerlink" href="#multimedia-recorder" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Defines the <strong>Recorder</strong> class and provides functions for audio and
+video recording.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row724422408093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p962291851093523"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p887923986093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row358706440093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p509528581093523"><p>recorder.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1766380674093523"><p>Declares the Recorder class for audio and video recording.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1381956710093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p361122150093523"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p342510055093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1428479655093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p654847711093523"><p>OHOS::Media::RecorderCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p101469680093523"><p>Provides listeners for recording errors and information events.</p>
+</p></td></tr><tr id="row1690965223093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1204898035093523"><p>OHOS::Media::Recorder</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1182251503093523"><p>Provides functions for audio and video recording.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1064759830093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1221426325093523"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p364708938093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1261026490093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1068013999093523"><p>OHOS::Media::VideoSourceType : int32_t {
+OHOS::Media::VIDEO_SOURCE_SURFACE_YUV = 0,
+OHOS::Media::VIDEO_SOURCE_SURFACE_RGB,
+OHOS::Media::VIDEO_SOURCE_SURFACE_ES, OHOS::Media::VIDEO_SOURCE_BUTT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2029982052093523"><p>Enumerates video source types.</p>
+</p></td></tr><tr id="row2045210593093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p475769915093523"><p>OHOS::Media::DataSourceType : int32_t { OHOS::Media::IMAGE = 0 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2088001454093523"><p>Enumerates data source types.</p>
+</p></td></tr><tr id="row1965596020093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1985802987093523"><p>OHOS::Media::OutputFormatType : int32_t { OHOS::Media::FORMAT_DEFAULT =
+0, OHOS::Media::FORMAT_MPEG_4, OHOS::Media::FORMAT_TS }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1956812075093523"><p>Enumerates output file formats.</p>
+</p></td></tr><tr id="row1063334872093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p498897192093523"><p>OHOS::Media::FileSplitType : int32_t { OHOS::Media::FILE_SPLIT_POST = 0,
+OHOS::Media::FILE_SPLIT_PRE, OHOS::Media::FILE_SPLIT_NORMAL }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1341343376093523"><p>Enumerates file split types.</p>
+</p></td></tr><tr id="row130781735093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1225608326093523"><p>OHOS::Media::RecorderCallback::RecorderInfoType : int32_t {
+OHOS::Media::RecorderCallback::RECORDER_INFO_MAX_DURATION_APPROACHING =
+0,
+OHOS::Media::RecorderCallback::RECORDER_INFO_MAX_FILESIZE_APPROACHING,
+OHOS::Media::RecorderCallback::RECORDER_INFO_MAX_DURATION_REACHED,
+OHOS::Media::RecorderCallback::RECORDER_INFO_MAX_FILESIZE_REACHED,
+OHOS::Media::RecorderCallback::RECORDER_INFO_NEXT_OUTPUT_FILE_STARTED,
+OHOS::Media::RecorderCallback::RECORDER_INFO_FILE_SPLIT_FINISHED,
+OHOS::Media::RecorderCallback::RECORDER_INFO_FILE_START_TIME_MS }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p393522808093523"><p>Enumerates recording information types.</p>
+</p></td></tr><tr id="row672972126093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1733371720093523"><p>OHOS::Media::RecorderCallback::RecorderErrorType : int32_t {
+OHOS::Media::RecorderCallback::RECORDER_ERROR_UNKNOWN = 0 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1370492358093523"><p>Enumerates recording error types.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row298029774093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1381964017093523"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1254649978093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row680952673093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p311949488093523"><p>OHOS::Media::RecorderCallback::OnError (int32_t errorType, int32_t
+errorCode)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1313409662093523"><p>virtual void</p>
+</p><p id="p278837618093523"><p>Called when an error occurs during recording. This callback is used to
+report recording errors.</p>
+</p></td></tr><tr id="row1070068931093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p619947014093523"><p>OHOS::Media::RecorderCallback::OnInfo (int32_t type, int32_t extra)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1994195754093523"><p>virtual void</p>
+</p><p id="p1348861506093523"><p>Called when an information event occurs during recording. This callback
+is used to report recording information.</p>
+</p></td></tr><tr id="row1526380767093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p851817420093523"><p>OHOS::Media::Recorder::SetVideoSource (VideoSourceType source, int32_t
+&amp;sourceId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p861930323093523"><p>int32_t</p>
+</p><p id="p342420130093523"><p>Sets a video source for recording.</p>
+</p></td></tr><tr id="row1341511907093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p730635022093523"><p>OHOS::Media::Recorder::SetVideoEncoder (int32_t sourceId,
+VideoCodecFormat encoder)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p511933924093523"><p>int32_t</p>
+</p><p id="p1129969036093523"><p>Sets a video encoder for recording.</p>
+</p></td></tr><tr id="row984175353093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1827890926093523"><p>OHOS::Media::Recorder::SetVideoSize (int32_t sourceId, int32_t width,
+int32_t height)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1648761074093523"><p>int32_t</p>
+</p><p id="p971937993093523"><p>Sets the width and height of the video to record.</p>
+</p></td></tr><tr id="row1502358505093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1715099754093523"><p>OHOS::Media::Recorder::SetVideoFrameRate (int32_t sourceId, int32_t
+frameRate)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p434750406093523"><p>int32_t</p>
+</p><p id="p1135465591093523"><p>Sets the frame rate of the video to record.</p>
+</p></td></tr><tr id="row659993171093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p754783501093523"><p>OHOS::Media::Recorder::SetVideoEncodingBitRate (int32_t sourceId,
+int32_t rate)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1245304126093523"><p>int32_t</p>
+</p><p id="p399229193093523"><p>Sets the encoding bit rate of the video to record.</p>
+</p></td></tr><tr id="row565451701093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p883876237093523"><p>OHOS::Media::Recorder::SetCaptureRate (int32_t sourceId, double fps)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1834500411093523"><p>int32_t</p>
+</p><p id="p2120855576093523"><p>Sets the video capture rate.</p>
+</p></td></tr><tr id="row746956947093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2092630755093523"><p>OHOS::Media::Recorder::GetSurface (int32_t sourceId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p824930314093523"><p>std::shared_ptr&lt; OHOS::Surface &gt;</p>
+</p><p id="p375303447093523"><p>Obtains the surface of the video source.</p>
+</p></td></tr><tr id="row1637444827093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2106303438093523"><p>OHOS::Media::Recorder::SetAudioSource (AudioSourceType source, int32_t
+&amp;sourceId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1529812778093523"><p>int32_t</p>
+</p><p id="p1674163893093523"><p>Sets the audio source for recording.</p>
+</p></td></tr><tr id="row1599143268093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p962667576093523"><p>OHOS::Media::Recorder::SetAudioEncoder (int32_t sourceId,
+AudioCodecFormat encoder)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2145397412093523"><p>int32_t</p>
+</p><p id="p1256882371093523"><p>Sets an audio encoder for recording.</p>
+</p></td></tr><tr id="row41076208093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p44305558093523"><p>OHOS::Media::Recorder::SetAudioSampleRate (int32_t sourceId, int32_t
+rate)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1017986136093523"><p>int32_t</p>
+</p><p id="p233204830093523"><p>Sets the audio sampling rate for recording.</p>
+</p></td></tr><tr id="row340783059093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p314499125093523"><p>OHOS::Media::Recorder::SetAudioChannels (int32_t sourceId, int32_t num)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p348158986093523"><p>int32_t</p>
+</p><p id="p986547458093523"><p>Sets the number of audio channels to record.</p>
+</p></td></tr><tr id="row1620348805093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1018418847093523"><p>OHOS::Media::Recorder::SetAudioEncodingBitRate (int32_t sourceId,
+int32_t bitRate)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p67726740093523"><p>int32_t</p>
+</p><p id="p1180978883093523"><p>Sets the encoding bit rate of the audio to record.</p>
+</p></td></tr><tr id="row1010578046093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1837015058093523"><p>OHOS::Media::Recorder::SetMaxDuration (int32_t duration)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1712475210093523"><p>int32_t</p>
+</p><p id="p2006472955093523"><p>Sets the maximum duration of a recorded file, in seconds.</p>
+</p></td></tr><tr id="row822728472093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p636672898093523"><p>OHOS::Media::Recorder::SetOutputFormat (OutputFormatType format)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1205080832093523"><p>int32_t</p>
+</p><p id="p1723249559093523"><p>Sets the output file format.</p>
+</p></td></tr><tr id="row67569527093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p90666847093523"><p>OHOS::Media::Recorder::SetOutputPath (const string &amp;path)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p105944087093523"><p>int32_t</p>
+</p><p id="p1194503349093523"><p>Sets the output file path.</p>
+</p></td></tr><tr id="row1417224560093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1528642964093523"><p>OHOS::Media::Recorder::SetOutputFile (int32_t fd)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2096877714093523"><p>int32_t</p>
+</p><p id="p1736440839093523"><p>Sets the file descriptor (FD) of the output file.</p>
+</p></td></tr><tr id="row1597450936093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1012707093093523"><p>OHOS::Media::Recorder::SetNextOutputFile (int32_t fd)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p688967428093523"><p>int32_t</p>
+</p><p id="p1143389253093523"><p>Sets the FD of the next output file.</p>
+</p></td></tr><tr id="row136176043093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1887364289093523"><p>OHOS::Media::Recorder::SetMaxFileSize (int64_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p348672136093523"><p>int32_t</p>
+</p><p id="p2093166439093523"><p>Sets the maximum size of a recorded file, in bytes.</p>
+</p></td></tr><tr id="row1310396059093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p462346016093523"><p>OHOS::Media::Recorder::SetRecorderCallback (const std::shared_ptr&lt;
+RecorderCallback &gt; &amp;callback)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2020418399093523"><p>int32_t</p>
+</p><p id="p1289408181093523"><p>Registers a recording listener.</p>
+</p></td></tr><tr id="row1661232613093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p137661708093523"><p>OHOS::Media::Recorder::Prepare ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p801196611093523"><p>int32_t</p>
+</p><p id="p1600774546093523"><p>Prepares for recording.</p>
+</p></td></tr><tr id="row264294094093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p963314626093523"><p>OHOS::Media::Recorder::Start ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p744615776093523"><p>int32_t</p>
+</p><p id="p1226381872093523"><p>Starts recording.</p>
+</p></td></tr><tr id="row36417538093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1785094087093523"><p>OHOS::Media::Recorder::Pause ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1193676080093523"><p>int32_t</p>
+</p><p id="p923942917093523"><p>Pauses recording.</p>
+</p></td></tr><tr id="row436389210093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1742531283093523"><p>OHOS::Media::Recorder::Resume ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1588446860093523"><p>int32_t</p>
+</p><p id="p1369556172093523"><p>Resumes recording.</p>
+</p></td></tr><tr id="row39152720093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1494107474093523"><p>OHOS::Media::Recorder::Stop (bool block)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1822612433093523"><p>int32_t</p>
+</p><p id="p2105484633093523"><p>Stops recording.</p>
+</p></td></tr><tr id="row1327466878093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1935301857093523"><p>OHOS::Media::Recorder::Reset ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1916936186093523"><p>int32_t</p>
+</p><p id="p1782042779093523"><p>Resets the recording.</p>
+</p></td></tr><tr id="row526526578093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p662646081093523"><p>OHOS::Media::Recorder::Release ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p882489397093523"><p>int32_t</p>
+</p><p id="p1430619621093523"><p>Releases recording resources.</p>
+</p></td></tr><tr id="row1538317046093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1021960870093523"><p>OHOS::Media::Recorder::SetFileSplitDuration (FileSplitType type, int64_t
+timestamp, uint32_t duration)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p800583402093523"><p>int32_t</p>
+</p><p id="p1930024465093523"><p>Manually splits a video.</p>
+</p></td></tr><tr id="row1985417361093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p889404626093523"><p>OHOS::Media::Recorder::SetParameter (int32_t sourceId, const Format
+&amp;format)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p154156846093523"><p>int32_t</p>
+</p><p id="p422488051093523"><p>Sets an extended parameter for recording, for example,
+RCORDER_PRE_CACHE_DURATION.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="datasourcetype">
+<h2>DataSourceType<a class="headerlink" href="#datasourcetype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">DataSourceType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaccc05bb178cecd760369ea096dceae4c) : int32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates data source types.</p>
+<table><thead align="left"><tr id="row770590823093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1910554636093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1042913223093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row12441992093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2053372660093523"><p>Image data source</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="filesplittype">
+<h2>FileSplitType<a class="headerlink" href="#filesplittype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">FileSplitType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga8759c7e5a74964a584a716f4ec0b7edb) : int32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates file split types.</p>
+<table><thead align="left"><tr id="row362078692093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p300431219093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1922922311093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1511002547093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FILE_SPLIT_POST</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1831428027093523"><p>Delayed/Backward split</p>
+</p></td></tr><tr id="row1582277442093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FILE_SPLIT_PRE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1856106944093523"><p>Advanced/Forward split</p>
+</p></td></tr><tr id="row1612141546093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FILE_SPLIT_NORMAL</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p448292730093523"><p>Normal split</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="outputformattype">
+<h2>OutputFormatType<a class="headerlink" href="#outputformattype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">OutputFormatType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga3dfe2e61369bf1c081ce569e235354df) : int32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates output file formats.</p>
+<table><thead align="left"><tr id="row2068157643093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p591443768093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1207949339093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row401334839093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_DEFAULT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1474627517093523"><p>Default format</p>
+</p></td></tr><tr id="row525711402093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_MPEG_4</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p724729632093523"><p>MPEG4 format</p>
+</p></td></tr><tr id="row363534513093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_TS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1729314644093523"><p>TS format</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="recordererrortype">
+<h2>RecorderErrorType<a class="headerlink" href="#recordererrortype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">RecorderCallback</span><span class="p">::</span><span class="n">RecorderErrorType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga5132172c298fc1497d12040b6bd511cf) : int32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates recording error types.</p>
+<table><thead align="left"><tr id="row131020063093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p595048386093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1746122499093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1168494199093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_ERROR_UNKNOWN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1068364417093523"><p>Unknown error</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="recorderinfotype">
+<h2>RecorderInfoType<a class="headerlink" href="#recorderinfotype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">RecorderCallback</span><span class="p">::</span><span class="n">RecorderInfoType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga0db5cf9cc68d4b468e921a563248ffe0) : int32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates recording information types.</p>
+<table><thead align="left"><tr id="row1068887372093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p125639071093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2108672840093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2016374018093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_INFO_MAX_DURATION_APPROACHING</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1886640347093523"><p>The recording duration is reaching the threshold specified by
+SetMaxDuration. This type of information is reported when only one
+second or 10% is left to reach the allowed duration.</p>
+</p></td></tr><tr id="row453829915093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_INFO_MAX_FILESIZE_APPROACHING</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1853487662093523"><p>The recorded file size is reaching the threshold specified by
+SetMaxFileSize. This type of information is reported when only 100 KB or
+10% is left to reach the allowed size.</p>
+</p></td></tr><tr id="row1054656266093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_INFO_MAX_DURATION_REACHED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p679522627093523"><p>The threshold specified by SetMaxDuration is reached, and the recording
+ends. Before calling SetOutputFile, you must close the file.</p>
+</p></td></tr><tr id="row114794316093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_INFO_MAX_FILESIZE_REACHED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1034691151093523"><p>The threshold specified by SetMaxFileSize is reached, and the recording
+ends. Before calling SetOutputFile, you must close the file.</p>
+</p></td></tr><tr id="row1960269044093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_INFO_NEXT_OUTPUT_FILE_STARTED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1326591732093523"><p>Recording started for the next output file.</p>
+</p></td></tr><tr id="row1216758142093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_INFO_FILE_SPLIT_FINISHED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p91095480093523"><p>Manual file split completed.</p>
+</p></td></tr><tr id="row1941101101093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RECORDER_INFO_FILE_START_TIME_MS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p245760745093523"><p>The start time position of the recording file is not supported.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="videosourcetype">
+<h2>VideoSourceType<a class="headerlink" href="#videosourcetype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">VideoSourceType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad252d27f9ce4b6ae0756bfeaa5f34490) : int32_t</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates video source types.</p>
+<table><thead align="left"><tr id="row1205861817093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1469195750093523"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1963925989093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1528060699093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>VIDEO_SOURCE_SURFACE_YUV</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p444084281093523"><p>YUV video data provided through Surface</p>
+</p></td></tr><tr id="row1745386000093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>VIDEO_SOURCE_SURFACE_RGB</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1699753232093523"><p>RGB video data provided through Surface</p>
+</p></td></tr><tr id="row1876028535093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>VIDEO_SOURCE_SURFACE_ES</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p791679739093523"><p>Raw encoded data provided through Surface</p>
+</p></td></tr><tr id="row649505798093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>VIDEO_SOURCE_BUTT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p229968933093523"><p>Invalid value</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="getsurface">
+<h2>GetSurface()<a class="headerlink" href="#getsurface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surface</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">GetSurface</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the surface of the video source.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row945082100093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1393130046093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1802972058093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row124823954093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source ID, which can be obtained from
+SetVideoSource.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the pointer to the surface.</p>
+</div>
+<div class="section" id="onerror">
+<h2>OnError()<a class="headerlink" href="#onerror" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">RecorderCallback</span><span class="p">::</span><span class="n">OnError</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">errorType</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">errorCode</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when an error occurs during recording. This callback is used to
+report recording errors.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row122153233093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1553906841093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1099190524093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1796503621093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>errorType</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the error type. For details, see RecorderErrorType.</p>
+</td></tr><tr id="row213208190093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>errorCode</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the error code.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="oninfo">
+<h2>OnInfo()<a class="headerlink" href="#oninfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">RecorderCallback</span><span class="p">::</span><span class="n">OnInfo</span> <span class="p">(</span><span class="n">int32_t</span> <span class="nb">type</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">extra</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when an information event occurs during recording. This callback
+is used to report recording information.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row360780068093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p9950185093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1467462054093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1563342110093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the information type. For details, see RecorderInfoType.</p>
+</td></tr><tr id="row529220958093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>extra</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates other information, for example, the start time position of a
+recording file.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="pause">
+<h2>Pause()<a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">Pause</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Pauses recording.</p>
+<p>After
+<a class="reference external" href="multimedia_recorder.md#gac3aaa32627f0799dea65e51356b91bfb">Start</a> is
+called, you can call this function to pause recording. The audio and
+video source streams are not paused, and source data is discarded.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the recording is paused; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="prepare">
+<h2>Prepare()<a class="headerlink" href="#prepare" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">Prepare</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Prepares for recording.</p>
+<p>This function must be called before
+<a class="reference external" href="multimedia_recorder.md#gac3aaa32627f0799dea65e51356b91bfb">Start</a>.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the preparation is successful; returns an error
+code defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="release">
+<h2>Release()<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">Release</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Releases recording resources.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if recording resources are released; returns an
+error code defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="reset">
+<h2>Reset()<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">Reset</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Resets the recording.</p>
+<p>After the function is called, add a recording source by calling
+<a class="reference external" href="multimedia_recorder.md#ga9e12ef9700d06c7620f9e3d7b4d844ca">SetVideoSource</a>
+or
+<a class="reference external" href="multimedia_recorder.md#gae287f59da8b3f1b6ca9f1c0e58a6565a">SetAudioSource</a>,
+set related parameters, and call
+<a class="reference external" href="multimedia_recorder.md#gac3aaa32627f0799dea65e51356b91bfb">Start</a> to
+start recording again after
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>
+is called.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the recording is reset; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="resume">
+<h2>Resume()<a class="headerlink" href="#resume" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">Resume</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Resumes recording.</p>
+<p>You can call this function to resume recording after
+<a class="reference external" href="multimedia_recorder.md#ga71da5cc2720b336f0daadbe09d61c695">Pause</a> is
+called.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the recording is resumed; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setaudiochannels">
+<h2>SetAudioChannels()<a class="headerlink" href="#setaudiochannels" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetAudioChannels</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">num</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the number of audio channels to record.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#gae287f59da8b3f1b6ca9f1c0e58a6565a">SetAudioSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1686511852093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p664707833093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1087257130093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1635462250093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio source ID, which can be obtained from
+SetAudioSource.</p>
+</td></tr><tr id="row2132087717093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>num</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the number of audio channels to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setaudioencoder">
+<h2>SetAudioEncoder()<a class="headerlink" href="#setaudioencoder" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetAudioEncoder</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="p">[</span><span class="n">AudioCodecFormat</span><span class="p">](</span><span class="n">multimedia_mediacommon</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa4ea6f314644ed287e0704be26c768b7) encoder )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets an audio encoder for recording.</p>
+<p>If this function is not called, the output file does not contain the
+audio track. This function must be called after
+<a class="reference external" href="multimedia_recorder.md#gae287f59da8b3f1b6ca9f1c0e58a6565a">SetAudioSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row740841607093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1277783970093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p728407760093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1444556306093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio source ID, which can be obtained from
+SetAudioSource.</p>
+</td></tr><tr id="row1640399120093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>encoder</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio encoder to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setaudioencodingbitrate">
+<h2>SetAudioEncodingBitRate()<a class="headerlink" href="#setaudioencodingbitrate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetAudioEncodingBitRate</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">bitRate</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the encoding bit rate of the audio to record.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#gae287f59da8b3f1b6ca9f1c0e58a6565a">SetAudioSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1352532493093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p577931526093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1368329758093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row805703230093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio source ID, which can be obtained from
+SetAudioSource.</p>
+</td></tr><tr id="row356917711093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>bitRate</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio encoding bit rate, in bit/s.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setaudiosamplerate">
+<h2>SetAudioSampleRate()<a class="headerlink" href="#setaudiosamplerate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetAudioSampleRate</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">rate</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the audio sampling rate for recording.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#gae287f59da8b3f1b6ca9f1c0e58a6565a">SetAudioSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row436334477093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p41560066093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2117572107093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2137761213093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio source ID, which can be obtained from
+SetAudioSource.</p>
+</td></tr><tr id="row746044201093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>rate</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the sampling rate of the audio per second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setaudiosource">
+<h2>SetAudioSource()<a class="headerlink" href="#setaudiosource" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetAudioSource</span> <span class="p">([</span><span class="n">AudioSourceType</span><span class="p">](</span><span class="n">multimedia_mediacommon</span><span class="o">.</span><span class="n">md</span><span class="c1">#gadc3158e093b995ca7b9b6aa32388ccdd) source, int32_t &amp; sourceId )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the audio source for recording.</p>
+<p>If this function is not called, the output file does not contain the
+audio track.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1750629795093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p384507655093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p310601790093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row32836669093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>source</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio source type. For details, see AudioSourceType.</p>
+</td></tr><tr id="row61171699093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio source ID. The value -1 indicates an invalid ID and
+the setting fails.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setcapturerate">
+<h2>SetCaptureRate()<a class="headerlink" href="#setcapturerate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetCaptureRate</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">double</span> <span class="n">fps</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the video capture rate.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#ga9e12ef9700d06c7620f9e3d7b4d844ca">SetVideoSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.
+It is valid when the video source is YUV or RGB.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row792612051093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p771839935093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p575443576093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2005987896093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source ID, which can be obtained from
+SetVideoSource.</p>
+</td></tr><tr id="row15655614093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fps</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the rate at which frames are captured per second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setfilesplitduration">
+<h2>SetFileSplitDuration()<a class="headerlink" href="#setfilesplitduration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetFileSplitDuration</span> <span class="p">([</span><span class="n">FileSplitType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga8759c7e5a74964a584a716f4ec0b7edb) type, int64_t timestamp, uint32_t duration )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Manually splits a video.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#gac3aaa32627f0799dea65e51356b91bfb">Start</a>.
+After this function is called, the file is split based on the manual
+split type. After the manual split is complete, the initial split type
+is used. This function can be called again only after
+<strong>RECORDER_INFO_FILE_SPLIT_FINISHED</strong> is reported.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1077699032093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1036458169093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p880872691093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row505665887093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the file split type. For details, see FileSplitType.</p>
+</td></tr><tr id="row98495752093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timestamp</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the file split timestamp. This parameter is not supported
+currently and can be set to -1. The recording module splits a file based
+on the call time.</p>
+</td></tr><tr id="row19983381093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>duration</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the duration for splitting the file.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the video is manually split; returns an error
+code defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setmaxduration">
+<h2>SetMaxDuration()<a class="headerlink" href="#setmaxduration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetMaxDuration</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">duration</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the maximum duration of a recorded file, in seconds.</p>
+<p>This method must be called before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.
+If the setting is valid, <strong>RECORDER_INFO_MAX_DURATION_APPROACHING</strong> is
+reported through <strong>OnInfo</strong> in the
+<a class="reference external" href="ohos-media-recordercallback.md">RecorderCallback</a> class when only
+one second or 10% is left to reach the allowed duration. If the
+recording output file is set by calling
+<a class="reference external" href="multimedia_recorder.md#ga500d2bc895852fe292d7397d8450d091">SetOutputFile</a>,
+call
+<a class="reference external" href="multimedia_recorder.md#ga8545fe87eb4bd399525e4c5fb414d7cb">SetNextOutputFile</a>
+to set the next output file. Otherwise, the current file will be
+overwritten when the allowed duration is reached.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1854934959093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1165096509093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p140226050093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row810209637093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>duration</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the maximum recording duration to set. If the value is 0 or a
+negative number, a failure message is returned. The default duration is
+60s.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setmaxfilesize">
+<h2>SetMaxFileSize()<a class="headerlink" href="#setmaxfilesize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetMaxFileSize</span> <span class="p">(</span><span class="n">int64_t</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the maximum size of a recorded file, in bytes.</p>
+<p>This function must be called before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.
+If the setting is valid, <strong>RECORDER_INFO_MAX_DURATION_APPROACHING</strong> is
+reported through <strong>OnInfo</strong> in the
+<a class="reference external" href="ohos-media-recordercallback.md">RecorderCallback</a> class when only
+100 KB or 10% is left to reach the allowed size. If the recording output
+file is set by calling
+<a class="reference external" href="multimedia_recorder.md#ga500d2bc895852fe292d7397d8450d091">SetOutputFile</a>,
+call
+<a class="reference external" href="multimedia_recorder.md#ga8545fe87eb4bd399525e4c5fb414d7cb">SetNextOutputFile</a>
+to set the next output file. Otherwise, when the allowed size is
+reached, the current file will be overwritten. If <strong>MaxDuration</strong> is
+also set by calling
+<a class="reference external" href="multimedia_recorder.md#gaf2806f0fddd17a3e59eb7c5c740470d6">SetMaxDuration</a>,
+<strong>MaxDuration</strong> or <strong>MaxFileSize</strong> prevails depending on which of them
+is first satisfied.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1078085092093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p735037982093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p100774930093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2042170376093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the maximum file size to set. If the value is 0 or a negative
+number, a failure message is returned. By default, the maximum size of a
+single file supported by the current file system is used as the limit.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setnextoutputfile">
+<h2>SetNextOutputFile()<a class="headerlink" href="#setnextoutputfile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetNextOutputFile</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">fd</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the FD of the next output file.</p>
+<p>If
+<a class="reference external" href="multimedia_recorder.md#ga500d2bc895852fe292d7397d8450d091">SetOutputFile</a>
+is successful, call this function to set the FD of the next output file
+after <strong>RECORDER_INFO_MAX_DURATION_APPROACHING</strong> or
+<strong>RECORDER_INFO_MAX_FILESIZE_APPROACHING</strong> is received.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2045085927093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1329728947093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1419581590093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1717288422093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the FD of the next output file.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setoutputfile">
+<h2>SetOutputFile()<a class="headerlink" href="#setoutputfile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetOutputFile</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">fd</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the file descriptor (FD) of the output file.</p>
+<p>This function must be called before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row503903268093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p190854775093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p250561632093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1577726309093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the FD of the file.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setoutputformat">
+<h2>SetOutputFormat()<a class="headerlink" href="#setoutputformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetOutputFormat</span> <span class="p">([</span><span class="n">OutputFormatType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga3dfe2e61369bf1c081ce569e235354df) format)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the output file format.</p>
+<p>This function must be called before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1121026112093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2047003265093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p428555169093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1373044642093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>format</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the output file format. For details, see OutputFormatType.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setoutputpath">
+<h2>SetOutputPath()<a class="headerlink" href="#setoutputpath" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetOutputPath</span> <span class="p">(</span><span class="n">const</span> <span class="n">string</span> <span class="o">&amp;</span> <span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the output file path.</p>
+<p>This function must be called before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>
+and One of them
+<a class="reference external" href="multimedia_recorder.md#ga500d2bc895852fe292d7397d8450d091">SetOutputFile</a>
+must be set.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row135672177093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2128402025093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p155107033093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row157074724093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>path</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the output file path.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setparameter">
+<h2>SetParameter()<a class="headerlink" href="#setparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetParameter</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">Format</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">media</span><span class="o">-</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">format</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets an extended parameter for recording, for example,
+<strong>RCORDER_PRE_CACHE_DURATION</strong>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2104769426093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p644415179093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1753167234093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1964450030093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the data source ID. The value -1 indicates all sources.</p>
+</td></tr><tr id="row1669866038093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>format</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the string key and value. For details, see Format and
+RCORDER_PRE_CACHE_DURATION.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setrecordercallback">
+<h2>SetRecorderCallback()<a class="headerlink" href="#setrecordercallback" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetRecorderCallback</span> <span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="p">[</span><span class="n">RecorderCallback</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">media</span><span class="o">-</span><span class="n">recordercallback</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">callback</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Registers a recording listener.</p>
+<p>This function must be called before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row746978212093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p634360728093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p250759816093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row145509120093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>callback</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the recording listener to register. For details, see
+RecorderCallback.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the listener is registered; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setvideoencoder">
+<h2>SetVideoEncoder()<a class="headerlink" href="#setvideoencoder" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetVideoEncoder</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="p">[</span><span class="n">VideoCodecFormat</span><span class="p">](</span><span class="n">multimedia_mediacommon</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga797e6c5e38e23e730eff5bcc41427d7e) encoder )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets a video encoder for recording.</p>
+<p>If this function is not called, the output file does not contain the
+video track. This function must be called after
+<a class="reference external" href="multimedia_recorder.md#ga9e12ef9700d06c7620f9e3d7b4d844ca">SetVideoSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row967941843093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1660095126093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1561263200093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row11419313093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source ID, which can be obtained from
+SetVideoSource.</p>
+</td></tr><tr id="row755126316093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>encoder</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video encoder to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setvideoencodingbitrate">
+<h2>SetVideoEncodingBitRate()<a class="headerlink" href="#setvideoencodingbitrate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetVideoEncodingBitRate</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">rate</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the encoding bit rate of the video to record.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#ga9e12ef9700d06c7620f9e3d7b4d844ca">SetVideoSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1664726315093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1322866001093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p612793453093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2105995456093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source ID, which can be obtained from
+SetVideoSource.</p>
+</td></tr><tr id="row1693311128093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>rate</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the encoding bit rate to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setvideoframerate">
+<h2>SetVideoFrameRate()<a class="headerlink" href="#setvideoframerate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetVideoFrameRate</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">frameRate</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the frame rate of the video to record.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#ga9e12ef9700d06c7620f9e3d7b4d844ca">SetVideoSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row479381084093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1466951526093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p146326872093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2124305265093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source ID, which can be obtained from
+SetVideoSource.</p>
+</td></tr><tr id="row548510772093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>frameRate</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the frame rate to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setvideosize">
+<h2>SetVideoSize()<a class="headerlink" href="#setvideosize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetVideoSize</span> <span class="p">(</span><span class="n">int32_t</span> <span class="n">sourceId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">width</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">height</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the width and height of the video to record.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#ga9e12ef9700d06c7620f9e3d7b4d844ca">SetVideoSource</a>
+but before
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1906190270093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1310344516093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1346001596093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1462903783093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source ID, which can be obtained from
+SetVideoSource.</p>
+</td></tr><tr id="row389006095093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>width</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video width to set.</p>
+</td></tr><tr id="row1307566025093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>height</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video height to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="setvideosource">
+<h2>SetVideoSource()<a class="headerlink" href="#setvideosource" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">SetVideoSource</span> <span class="p">([</span><span class="n">VideoSourceType</span><span class="p">](</span><span class="n">multimedia_recorder</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad252d27f9ce4b6ae0756bfeaa5f34490) source, int32_t &amp; sourceId )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets a video source for recording.</p>
+<p>If this function is not called, the output file does not contain the
+video track.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1191240458093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p386918077093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p355804425093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2020819680093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>source</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source type. For details, see VideoSourceType.</p>
+</td></tr><tr id="row1340469496093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sourceId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the video source ID. The value -1 indicates an invalid ID and
+the setting fails.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the setting is successful; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="start">
+<h2>Start()<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">Start</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Starts recording.</p>
+<p>This function must be called after
+<a class="reference external" href="multimedia_recorder.md#ga15d2f3416bb735a0715e1e79be226387">Prepare</a>.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the recording is started; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="stop">
+<h2>Stop()<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">Recorder</span><span class="p">::</span><span class="n">Stop</span> <span class="p">(</span><span class="nb">bool</span> <span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Stops recording.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2130562099093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1182862657093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2087437999093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1146062334093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>block</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the stop mode. The value true indicates that the processing
+stops after all caches are processed, and false indicates that the
+processing stops immediately and all caches are discarded.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>SUCCESS</strong> if the recording is stopped; returns an error code
+defined in <a class="reference external" href="media_errors-h.md">media_errors.h</a> otherwise.</p>
+</div>
+<div class="section" id="variable-documentation">
+<h2><strong>Variable Documentation</strong><a class="headerlink" href="#variable-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="rcorder-pre-cache-duration">
+<h2>RCORDER_PRE_CACHE_DURATION<a class="headerlink" href="#rcorder-pre-cache-duration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">string</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">::</span><span class="n">RCORDER_PRE_CACHE_DURATION</span> <span class="o">=</span> <span class="s2">&quot;pre-cache-duration&quot;</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>This constant can be used as the value of
+<a class="reference external" href="ohos-media-format.md">Format</a> in
+<a class="reference external" href="parameter.md#ga2779b5e59d43308c51f7be38b9c98ddb">SetParameter</a> to
+configure the duration for storing recorded data in the cache.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/multimedia_recorder.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

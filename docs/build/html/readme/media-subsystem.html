@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multimedia Subsystem &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="multimedia-subsystem">
+<h1>Multimedia Subsystem<a class="headerlink" href="#multimedia-subsystem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This repository stores source code information of the multimedia
+subsystem. It provides unified interfaces for you to develop media
+applications. With this repository, you can easily obtain media
+resources and focus on service development. The following two figures
+show the framework and service flow of the multimedia subsystem,
+respectively.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Subsystem architecture</div>
+<div class="line"><img alt="image1" src="../_images/en-us_image_0000001055193837.png" /></div>
+</div>
+<p>As shown in Figure 1, the multimedia framework supports the camera,
+recording, and playback functions. These functions support the
+development of HarmonyOS JavaScript applications and various kit modules
+that use media capabilities. The multimedia framework consists of the
+framework and core service layers. The framework layer provides native
+APIs and corresponding service implementation for applications. It
+implements audio/video input and output, audio/video encoding and
+decoding, as well as video file packing and demultiplexing for camera,
+recording, and playback services. The core service layer leverages the
+capabilities provided by the hardware platform to use the underlying
+hardware and related drivers. In addition, the core server implements
+file management, storage management, and log management.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 2</strong> Multimedia service flow</div>
+<div class="line"><img alt="image2" src="../_images/en-us_image_0000001055193731.png" /></div>
+</div>
+<p>As shown in Figure 2, the multimedia subsystem consists of camera,
+recorder, and player modules. The camera module provides YUV or RGB,
+JPEG, and H.264 or H.265 data, which is stored in the surface (shared
+memory); the recorder module packs H.264 or H.265 and AAC data in the
+surface into MP4 files; the player module demultiplexes the MP4 files
+into audio and video data, sends the data to corresponding decoders, and
+then plays the audio and video.</p>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Directory structure of multimedia source code (native APIs)</p>
+<table><thead align="left"><tr id="row7977610131417"><th class="cellrowborder" valign="top" width="40.71%" id="mcps1.2.3.1.1"><p id="p18792459121314"><p>Directory</p>
+</p></th><th class="cellrowborder" valign="top" width="59.29%" id="mcps1.2.3.1.2"><p id="p77921459191317"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row17977171010144"><td class="cellrowborder" valign="top" width="40.71%" headers="mcps1.2.3.1.1 "><p id="p13476517134113"><p>foundation/multimedia/frameworks</p>
+</p></td><td class="cellrowborder" valign="top" width="59.29%" headers="mcps1.2.3.1.2 "><p id="p879375920132"><p>Internal framework implementation, including Audio, Camera, Player, and
+Recorder.</p>
+</p></td></tr><tr id="row6978161091412"><td class="cellrowborder" valign="top" width="40.71%" headers="mcps1.2.3.1.1 "><p id="p167373014417"><p>foundation/multimedia/interfaces/kits</p>
+</p></td><td class="cellrowborder" valign="top" width="59.29%" headers="mcps1.2.3.1.2 "><p id="p6793059171318"><p>External header files</p>
+</p></td></tr><tr id="row6978201031415"><td class="cellrowborder" valign="top" width="40.71%" headers="mcps1.2.3.1.1 "><p id="p1639221134214"><p>foundation/multimedia/services/media_lite</p>
+</p></td><td class="cellrowborder" valign="top" width="59.29%" headers="mcps1.2.3.1.2 "><p id="p182076317465"><p>Underlying service implementation</p>
+</p></td></tr><tr id="row1420633124613"><td class="cellrowborder" valign="top" width="40.71%" headers="mcps1.2.3.1.1 "><p id="p1569213233619"><p>foundation/multimedia/utils/lite</p>
+</p></td><td class="cellrowborder" valign="top" width="59.29%" headers="mcps1.2.3.1.2 "><p id="p069215273618"><p>Common module implementation</p>
+</p></td></tr><tr id="row1679114715461"><td class="cellrowborder" valign="top" width="40.71%" headers="mcps1.2.3.1.1 "><p id="p0295211184214"><p>foundation/multimedia/hals</p>
+</p></td><td class="cellrowborder" valign="top" width="59.29%" headers="mcps1.2.3.1.2 "><p id="p1279144754611"><p>Header files of multimedia adaptation APIs related to the hardware
+platform</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>C++11 or later</p></li>
+<li><p>Hi3516DV300 and Hi3518EV300 are supported, and only Hi3516DV300
+supports the playback function.</p></li>
+<li><p>By default, Hi3516DV300 supports Sony IMX335, and Hi3518EV300
+supports crystalline phase JXF23.</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Load the kernel and related drivers before installing the repository.
+For details, see readme files of kernel and driver subsystems.</p></li>
+<li><p>Configure a proper configuration file. For details, see the
+configuration file in <strong>applications/sample/camera/media</strong> directory.
+If you want to adapt to other sensors, seek help from the open source
+community. Ensure that the configuration file is stored in the
+<strong>/storage/data</strong> directory of the development board in use. You can
+use this configuration file to adapt to the sensor, resolution, and
+frame rate.</p></li>
+</ul>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>For details about how to call native APIs, see the demo in the
+<strong>applications/sample/camera/media</strong> directory.</p>
+<p>For details about how to call multimedia APIs to implement the video
+recording, preview, and playback, see <em>Multimedia Development Guide</em>.</p>
+<p>The following example overrides the event class:</p>
+<p>Create a <strong>CameraKit</strong> object and register various callbacks to respond
+to many events in the media module. Then, create a <strong>Camera</strong> object to
+operate camera resources, for example, to start preview, recording, and
+stream capturing, and set related parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
+ <span class="o">*</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2020</span> <span class="n">Huawei</span> <span class="n">Device</span> <span class="n">Co</span><span class="o">.</span><span class="p">,</span> <span class="n">Ltd</span><span class="o">.</span>
+ <span class="o">*</span> <span class="n">Licensed</span> <span class="n">under</span> <span class="n">the</span> <span class="n">Apache</span> <span class="n">License</span><span class="p">,</span> <span class="n">Version</span> <span class="mf">2.0</span> <span class="p">(</span><span class="n">the</span> <span class="s2">&quot;License&quot;</span><span class="p">);</span>
+ <span class="o">*</span> <span class="n">you</span> <span class="n">may</span> <span class="ow">not</span> <span class="n">use</span> <span class="n">this</span> <span class="n">file</span> <span class="k">except</span> <span class="ow">in</span> <span class="n">compliance</span> <span class="k">with</span> <span class="n">the</span> <span class="n">License</span><span class="o">.</span>
+ <span class="o">*</span> <span class="n">You</span> <span class="n">may</span> <span class="n">obtain</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">the</span> <span class="n">License</span> <span class="n">at</span>
+ <span class="o">*</span>
+ <span class="o">*</span>     <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">LICENSE</span><span class="o">-</span><span class="mf">2.0</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">Unless</span> <span class="n">required</span> <span class="n">by</span> <span class="n">applicable</span> <span class="n">law</span> <span class="ow">or</span> <span class="n">agreed</span> <span class="n">to</span> <span class="ow">in</span> <span class="n">writing</span><span class="p">,</span> <span class="n">software</span>
+ <span class="o">*</span> <span class="n">distributed</span> <span class="n">under</span> <span class="n">the</span> <span class="n">License</span> <span class="ow">is</span> <span class="n">distributed</span> <span class="n">on</span> <span class="n">an</span> <span class="s2">&quot;AS IS&quot;</span> <span class="n">BASIS</span><span class="p">,</span>
+ <span class="o">*</span> <span class="n">WITHOUT</span> <span class="n">WARRANTIES</span> <span class="n">OR</span> <span class="n">CONDITIONS</span> <span class="n">OF</span> <span class="n">ANY</span> <span class="n">KIND</span><span class="p">,</span> <span class="n">either</span> <span class="n">express</span> <span class="ow">or</span> <span class="n">implied</span><span class="o">.</span>
+ <span class="o">*</span> <span class="n">See</span> <span class="n">the</span> <span class="n">License</span> <span class="k">for</span> <span class="n">the</span> <span class="n">specific</span> <span class="n">language</span> <span class="n">governing</span> <span class="n">permissions</span> <span class="ow">and</span>
+ <span class="o">*</span> <span class="n">limitations</span> <span class="n">under</span> <span class="n">the</span> <span class="n">License</span><span class="o">.</span>
+ <span class="o">*/</span>
+
+<span class="c1">#include &quot;camera_kit.h&quot;</span>
+<span class="c1">#include &quot;recorder.h&quot;</span>
+
+<span class="c1">#include &lt;sys/time.h&gt;</span>
+<span class="c1">#include &lt;algorithm&gt;</span>
+<span class="c1">#include &lt;fstream&gt;</span>
+<span class="c1">#include &lt;iostream&gt;</span>
+<span class="c1">#include &lt;sstream&gt;</span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">OHOS</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Media</span><span class="p">;</span>
+
+<span class="n">static</span> <span class="n">void</span> <span class="n">SampleSaveCapture</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Start saving picture&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="n">timeval</span> <span class="n">tv</span><span class="p">;</span>
+    <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+    <span class="n">struct</span> <span class="n">tm</span> <span class="o">*</span><span class="n">ltm</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="o">.</span><span class="n">tv_sec</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ltm</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ostringstream</span> <span class="n">ss</span><span class="p">(</span><span class="s2">&quot;Capture_&quot;</span><span class="p">);</span>
+        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Capture&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;-&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_min</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;-&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_sec</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;.jpg&quot;</span><span class="p">;</span>
+
+        <span class="n">ofstream</span> <span class="n">pic</span><span class="p">(</span><span class="s2">&quot;/sdcard/&quot;</span> <span class="o">+</span> <span class="n">ss</span><span class="o">.</span><span class="n">str</span><span class="p">(),</span> <span class="n">ofstream</span><span class="p">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ofstream</span><span class="p">::</span><span class="n">trunc</span><span class="p">);</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;write &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">size</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; bytes&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Saving picture end&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Recorder</span> <span class="o">*</span><span class="n">SampleCreateRecorder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">48000</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">channelCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">AudioCodecFormat</span> <span class="n">audioFormat</span> <span class="o">=</span> <span class="n">AAC_LC</span><span class="p">;</span>
+    <span class="n">AudioSourceType</span> <span class="n">inputSource</span> <span class="o">=</span> <span class="n">AUDIO_MIC</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">audioEncodingBitRate</span> <span class="o">=</span> <span class="n">sampleRate</span><span class="p">;</span>
+    <span class="n">VideoSourceType</span> <span class="n">source</span> <span class="o">=</span> <span class="n">VIDEO_SOURCE_SURFACE_ES</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">frameRate</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="nb">float</span> <span class="n">fps</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">rate</span> <span class="o">=</span> <span class="mi">4096</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">sourceId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">audioSourceId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1080</span><span class="p">;</span>
+    <span class="n">VideoCodecFormat</span> <span class="n">encoder</span><span class="p">;</span>
+    <span class="n">encoder</span> <span class="o">=</span> <span class="n">HEVC</span><span class="p">;</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="mi">1080</span><span class="p">;</span>
+    <span class="n">Recorder</span> <span class="o">*</span><span class="n">recorder</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Recorder</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetVideoSource</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sourceId</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetVideoSource failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetVideoEncoder</span><span class="p">(</span><span class="n">sourceId</span><span class="p">,</span> <span class="n">encoder</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetVideoEncoder failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetVideoSize</span><span class="p">(</span><span class="n">sourceId</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetVideoSize failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetVideoFrameRate</span><span class="p">(</span><span class="n">sourceId</span><span class="p">,</span> <span class="n">frameRate</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetVideoFrameRate failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetVideoEncodingBitRate</span><span class="p">(</span><span class="n">sourceId</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetVideoEncodingBitRate failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetCaptureRate</span><span class="p">(</span><span class="n">sourceId</span><span class="p">,</span> <span class="n">frameRate</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetCaptureRate failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetAudioSource</span><span class="p">(</span><span class="n">inputSource</span><span class="p">,</span> <span class="n">audioSourceId</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetAudioSource failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetAudioEncoder</span><span class="p">(</span><span class="n">audioSourceId</span><span class="p">,</span> <span class="n">audioFormat</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetAudioEncoder failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetAudioSampleRate</span><span class="p">(</span><span class="n">audioSourceId</span><span class="p">,</span> <span class="n">sampleRate</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetAudioSampleRate failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetAudioChannels</span><span class="p">(</span><span class="n">audioSourceId</span><span class="p">,</span> <span class="n">channelCount</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetAudioChannels failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">=</span> <span class="n">recorder</span><span class="o">-&gt;</span><span class="n">SetAudioEncodingBitRate</span><span class="p">(</span><span class="n">audioSourceId</span><span class="p">,</span> <span class="n">audioEncodingBitRate</span><span class="p">))</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetAudioEncodingBitRate failed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">delete</span> <span class="n">recorder</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">recorder</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">SampleFrameStateCallback</span> <span class="p">:</span> <span class="n">public</span> <span class="n">FrameStateCallback</span> <span class="p">{</span>
+    <span class="n">void</span> <span class="n">OnFrameFinished</span><span class="p">(</span><span class="n">Camera</span> <span class="o">&amp;</span><span class="n">camera</span><span class="p">,</span> <span class="n">FrameConfig</span> <span class="o">&amp;</span><span class="n">fc</span><span class="p">,</span> <span class="n">FrameResult</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">)</span> <span class="n">override</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Receive frame complete inform.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">GetFrameConfigType</span><span class="p">()</span> <span class="o">==</span> <span class="n">FRAME_CONFIG_CAPTURE</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Capture frame received.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="nb">list</span><span class="o">&lt;</span><span class="n">Surface</span> <span class="o">*&gt;</span> <span class="n">surfaceList</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">GetSurfaces</span><span class="p">();</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">Surface</span> <span class="o">*</span><span class="n">surface</span> <span class="p">:</span> <span class="n">surfaceList</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">SurfaceBuffer</span> <span class="o">*</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">AcquireBuffer</span><span class="p">();</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">buffer</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">char</span> <span class="o">*</span><span class="n">virtAddr</span> <span class="o">=</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="n">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">GetVirAddr</span><span class="p">());</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">virtAddr</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">SampleSaveCapture</span><span class="p">(</span><span class="n">virtAddr</span><span class="p">,</span> <span class="n">buffer</span><span class="o">-&gt;</span><span class="n">GetSize</span><span class="p">());</span>
+                    <span class="p">}</span>
+                    <span class="n">surface</span><span class="o">-&gt;</span><span class="n">ReleaseBuffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">delete</span> <span class="n">surface</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">delete</span> <span class="o">&amp;</span><span class="n">fc</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">SampleCameraStateMng</span> <span class="p">:</span> <span class="n">public</span> <span class="n">CameraStateCallback</span> <span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+    <span class="n">SampleCameraStateMng</span><span class="p">()</span> <span class="o">=</span> <span class="n">delete</span><span class="p">;</span>
+    <span class="n">SampleCameraStateMng</span><span class="p">(</span><span class="n">EventHandler</span> <span class="o">&amp;</span><span class="n">eventHdlr</span><span class="p">)</span> <span class="p">:</span> <span class="n">eventHdlr_</span><span class="p">(</span><span class="n">eventHdlr</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="o">~</span><span class="n">SampleCameraStateMng</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">recorder_</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">recorder_</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+            <span class="n">delete</span> <span class="n">recorder_</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">OnCreated</span><span class="p">(</span><span class="n">Camera</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="n">override</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Sample recv OnCreate camera.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">auto</span> <span class="n">config</span> <span class="o">=</span> <span class="n">CameraConfig</span><span class="p">::</span><span class="n">CreateCameraConfig</span><span class="p">();</span>
+        <span class="n">config</span><span class="o">-&gt;</span><span class="n">SetFrameStateCallback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fsCb_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">eventHdlr_</span><span class="p">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">Configure</span><span class="p">(</span><span class="o">*</span><span class="n">config</span><span class="p">);</span>
+        <span class="n">cam_</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">OnCreateFailed</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">cameraId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">errorCode</span><span class="p">)</span> <span class="n">override</span> <span class="p">{}</span>
+    <span class="n">void</span> <span class="n">OnReleased</span><span class="p">(</span><span class="n">Camera</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="n">override</span> <span class="p">{}</span>
+
+    <span class="n">void</span> <span class="n">StartRecord</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isRecording_</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Camera is already recording.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">recorder_</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">recorder_</span> <span class="o">=</span> <span class="n">SampleCreateRecorder</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">recorder_</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Recorder not available&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">string</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/sdcard&quot;</span><span class="p">;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">recorder_</span><span class="o">-&gt;</span><span class="n">SetOutputPath</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;SetOutputPath fialed :&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">recorder_</span><span class="o">-&gt;</span><span class="n">Prepare</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Prepare failed.=&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">Surface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="p">(</span><span class="n">recorder_</span><span class="o">-&gt;</span><span class="n">GetSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">();</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetWidthAndHeight</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">);</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetQueueSize</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetSize</span><span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">);</span>
+        <span class="n">FrameConfig</span> <span class="o">*</span><span class="n">fc</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FrameConfig</span><span class="p">(</span><span class="n">FRAME_CONFIG_RECORD</span><span class="p">);</span>
+        <span class="n">fc</span><span class="o">-&gt;</span><span class="n">AddSurface</span><span class="p">(</span><span class="o">*</span><span class="n">surface</span><span class="p">);</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">recorder_</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">delete</span> <span class="n">fc</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;recorder start failed. ret=&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">cam_</span><span class="o">-&gt;</span><span class="n">TriggerLoopingCapture</span><span class="p">(</span><span class="o">*</span><span class="n">fc</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">delete</span> <span class="n">fc</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;camera start recording failed. ret=&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">isRecording_</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;camera start recording succeed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">StartPreview</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isPreviewing_</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Camera is already previewing.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">FrameConfig</span> <span class="o">*</span><span class="n">fc</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FrameConfig</span><span class="p">(</span><span class="n">FRAME_CONFIG_PREVIEW</span><span class="p">);</span>
+        <span class="n">Surface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Surface</span><span class="p">::</span><span class="n">CreateSurface</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">surface</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">delete</span> <span class="n">fc</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;CreateSurface failed&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetWidthAndHeight</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">);</span> <span class="o">/*</span> <span class="mi">1920</span><span class="p">:</span><span class="n">width</span><span class="p">,</span><span class="mi">1080</span><span class="p">:</span><span class="n">height</span> <span class="o">*/</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetUserData</span><span class="p">(</span><span class="s2">&quot;region_position_x&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">);</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetUserData</span><span class="p">(</span><span class="s2">&quot;region_position_y&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">);</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetUserData</span><span class="p">(</span><span class="s2">&quot;region_width&quot;</span><span class="p">,</span> <span class="s2">&quot;480&quot;</span><span class="p">);</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetUserData</span><span class="p">(</span><span class="s2">&quot;region_height&quot;</span><span class="p">,</span> <span class="s2">&quot;480&quot;</span><span class="p">);</span>
+        <span class="n">fc</span><span class="o">-&gt;</span><span class="n">AddSurface</span><span class="p">(</span><span class="o">*</span><span class="n">surface</span><span class="p">);</span>
+        <span class="n">int32_t</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">cam_</span><span class="o">-&gt;</span><span class="n">TriggerLoopingCapture</span><span class="p">(</span><span class="o">*</span><span class="n">fc</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">delete</span> <span class="n">fc</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;camera start preview failed. ret=&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">delete</span> <span class="n">surface</span><span class="p">;</span>
+        <span class="n">isPreviewing_</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;camera start preview succeed.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">Capture</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cam_</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Camera is not ready.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">FrameConfig</span> <span class="o">*</span><span class="n">fc</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FrameConfig</span><span class="p">(</span><span class="n">FRAME_CONFIG_CAPTURE</span><span class="p">);</span>
+        <span class="n">Surface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Surface</span><span class="p">::</span><span class="n">CreateSurface</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">surface</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">delete</span> <span class="n">fc</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;CreateSurface failed&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetWidthAndHeight</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">);</span> <span class="o">/*</span> <span class="mi">1920</span><span class="p">:</span><span class="n">width</span><span class="p">,</span><span class="mi">1080</span><span class="p">:</span><span class="n">height</span> <span class="o">*/</span>
+        <span class="n">fc</span><span class="o">-&gt;</span><span class="n">AddSurface</span><span class="p">(</span><span class="o">*</span><span class="n">surface</span><span class="p">);</span>
+        <span class="n">cam_</span><span class="o">-&gt;</span><span class="n">TriggerSingleCapture</span><span class="p">(</span><span class="o">*</span><span class="n">fc</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">Stop</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cam_</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Camera is not ready.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">recorder_</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">recorder_</span><span class="o">-&gt;</span><span class="n">Stop</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">cam_</span><span class="o">-&gt;</span><span class="n">StopLoopingCapture</span><span class="p">();</span>
+        <span class="n">isPreviewing_</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+        <span class="n">isRecording_</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="n">private</span><span class="p">:</span>
+    <span class="nb">bool</span> <span class="n">isPreviewing_</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">isRecording_</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">EventHandler</span> <span class="o">&amp;</span><span class="n">eventHdlr_</span><span class="p">;</span>
+    <span class="n">Camera</span> <span class="o">*</span><span class="n">cam_</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">Recorder</span> <span class="o">*</span><span class="n">recorder_</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">SampleFrameStateCallback</span> <span class="n">fsCb_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">SampleCameraDeviceCallback</span> <span class="p">:</span> <span class="n">public</span> <span class="n">CameraDeviceCallback</span> <span class="p">{};</span>
+
+<span class="n">void</span> <span class="n">SampleHelp</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;*******************************************&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Select the behavior of avrecorder.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;1: Capture&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;2: Record(Press s or S to stop)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;3: Preview(Press s or S to stop)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;q: quit the sample.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;*******************************************&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Camera sample begin.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">SampleHelp</span><span class="p">();</span>
+    <span class="n">CameraKit</span> <span class="o">*</span><span class="n">camKit</span> <span class="o">=</span> <span class="n">CameraKit</span><span class="p">::</span><span class="n">GetInstance</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">camKit</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Can not get CameraKit instance&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">list</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">camList</span> <span class="o">=</span> <span class="n">camKit</span><span class="o">-&gt;</span><span class="n">GetCameraIds</span><span class="p">();</span>
+    <span class="n">string</span> <span class="n">camId</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">cam</span> <span class="p">:</span> <span class="n">camList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;camera name:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">cam</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">const</span> <span class="n">CameraAbility</span> <span class="o">*</span><span class="n">ability</span> <span class="o">=</span> <span class="n">camKit</span><span class="o">-&gt;</span><span class="n">GetCameraAbility</span><span class="p">(</span><span class="n">cam</span><span class="p">);</span>
+        <span class="o">/*</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">camera</span> <span class="n">that</span> <span class="n">fits</span> <span class="n">your</span> <span class="n">ability</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="nb">list</span><span class="o">&lt;</span><span class="n">CameraPicSize</span><span class="o">&gt;</span> <span class="n">sizeList</span> <span class="o">=</span> <span class="n">ability</span><span class="o">-&gt;</span><span class="n">GetSupportedSizes</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">sizeList</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">sizeList</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">CAM_PIC_1080P</span><span class="p">)</span> <span class="o">!=</span> <span class="n">sizeList</span><span class="o">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">camId</span> <span class="o">=</span> <span class="n">cam</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">camId</span><span class="o">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;No available camera.(1080p wanted)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">EventHandler</span> <span class="n">eventHdlr</span><span class="p">;</span> <span class="o">//</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">thread</span> <span class="n">to</span> <span class="n">handle</span> <span class="n">callback</span> <span class="n">events</span>
+    <span class="n">SampleCameraStateMng</span> <span class="n">CamStateMng</span><span class="p">(</span><span class="n">eventHdlr</span><span class="p">);</span>
+
+    <span class="n">camKit</span><span class="o">-&gt;</span><span class="n">CreateCamera</span><span class="p">(</span><span class="n">camId</span><span class="p">,</span> <span class="n">CamStateMng</span><span class="p">,</span> <span class="n">eventHdlr</span><span class="p">);</span>
+
+    <span class="n">char</span> <span class="nb">input</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="nb">input</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">switch</span> <span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">case</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                <span class="n">CamStateMng</span><span class="o">.</span><span class="n">Capture</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">case</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+                <span class="n">CamStateMng</span><span class="o">.</span><span class="n">StartRecord</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">case</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span>
+                <span class="n">CamStateMng</span><span class="o">.</span><span class="n">StartPreview</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">case</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+                <span class="n">CamStateMng</span><span class="o">.</span><span class="n">Stop</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="n">case</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span>
+                <span class="n">CamStateMng</span><span class="o">.</span><span class="n">Stop</span><span class="p">();</span>
+                <span class="n">goto</span> <span class="n">EXIT</span><span class="p">;</span>
+            <span class="n">default</span><span class="p">:</span>
+                <span class="n">SampleHelp</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="n">EXIT</span><span class="p">:</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Camera sample end.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="repositories-involved">
+<h2>Repositories Involved<a class="headerlink" href="#repositories-involved" title="Permalink to this headline">¶</a></h2>
+<p>multimedia_frameworks_camera_lite</p>
+<p>multimedia_frameworks_audio_lite</p>
+<p>multimedia_frameworks_player_lite</p>
+<p>multimedia_frameworks_recorder_lite</p>
+<p>multimedia_hals_camera_lite</p>
+<p>multimedia_interfaces_kits_recorder_lite</p>
+<p>multimedia_interfaces_kits_audio_lite</p>
+<p>multimedia_interfaces_kits_camera_lite</p>
+<p>multimedia_interfaces_kits_player_lite</p>
+<p>multimedia_services_media_lite</p>
+<p>multimedia_utils_lite</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/readme/media-subsystem.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SDIO &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sdio">
+<h1>SDIO<a class="headerlink" href="#sdio" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Declares standard APIs of basic secure digital input and output (SDIO)
+capabilities.</p>
+<p>You can use this module to access the SDIO and enable the driver to
+operate an SDIO-compliant device. These capabilities include reading and
+writing data based on SDIO, setting the block size, applying for and
+releasing interrupts, enabling and disabling devices, and occupying and
+releasing the bus.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1530939187093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1173097328093521"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1026921565093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1141730278093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1886511688093521"><p>sdio_if.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1700515241093521"><p>Declares the standard SDIO APIs.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row917125872093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p227473209093521"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1637626164093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row712284064093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p940230443093521"><p>SdioFuncInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1199973939093521"><p>Defines the SDIO capabilities.</p>
+</p></td></tr><tr id="row1937839706093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1880344750093521"><p>SdioCommonInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p800936819093521"><p>Defines SDIO common information.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row204816141093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1057566833093521"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1004585508093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row739855849093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p996116088093521"><p>SdioIrqHandler(void *)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1673184254093521"><p>typedef void</p>
+</p><p id="p1165807439093521"><p>Defines the function type of an SDIO IRQ.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1956670252093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p781209473093521"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p199347866093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row659342449093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p250620675093521"><p>SdioCommonInfoType { SDIO_FUNC_INFO = 0, SDIO_OTHER_INFO }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p491162443093521"><p>Enumerates SDIO common information types.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1042110697093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1261466832093521"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1780200296093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row12113101093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p992391195093521"><p>SdioOpen (int16_t busNum)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1335213774093521"><p>struct DevHandle *</p>
+</p><p id="p1665156749093521"><p>Opens an SDIO controller with a specified bus number.</p>
+</p></td></tr><tr id="row2074470592093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1193210526093521"><p>SdioClose (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p115934128093521"><p>void</p>
+</p><p id="p820541544093521"><p>Closes an SDIO controller.</p>
+</p></td></tr><tr id="row246831540093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1292036525093521"><p>SdioReadBytes (struct DevHandle <em>handle, uint8_t</em>data, uint32_t addr,
+uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p394512756093521"><p>int32_t</p>
+</p><p id="p100187598093521"><p>Incrementally reads a given length of data from the specified SDIO
+address.</p>
+</p></td></tr><tr id="row178475772093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1785212812093521"><p>SdioWriteBytes (struct DevHandle <em>handle, uint8_t</em>data, uint32_t addr,
+uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2099986850093521"><p>int32_t</p>
+</p><p id="p1199546668093521"><p>Incrementally writes a given length of data into the specified SDIO
+address.</p>
+</p></td></tr><tr id="row1278083929093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1762187315093521"><p>SdioReadBytesFromFixedAddr (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2063275176093521"><p>int32_t</p>
+</p><p id="p498999545093521"><p>Reads a given length of data from the fixed SDIO address.</p>
+</p></td></tr><tr id="row1883778016093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1943796427093521"><p>SdioWriteBytesToFixedAddr (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1443139987093521"><p>int32_t</p>
+</p><p id="p731405899093521"><p>Writes a given length of data into the fixed SDIO address.</p>
+</p></td></tr><tr id="row2054189706093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p328763186093521"><p>SdioReadBytesFromFunc0 (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p846143447093521"><p>int32_t</p>
+</p><p id="p19637275093521"><p>Reads a given length of data from the address space of SDIO function 0.</p>
+</p></td></tr><tr id="row521019527093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p129199027093521"><p>SdioWriteBytesToFunc0 (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p829617544093521"><p>int32_t</p>
+</p><p id="p132557401093521"><p>Writes a given length of data into the address space of SDIO function 0.</p>
+</p></td></tr><tr id="row1572140813093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1957228703093521"><p>SdioSetBlockSize (struct DevHandle *handle, uint32_t blockSize)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p301642658093521"><p>int32_t</p>
+</p><p id="p183444459093521"><p>Sets the block size.</p>
+</p></td></tr><tr id="row805217635093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p241444661093521"><p>SdioGetCommonInfo (struct DevHandle <em>handle, SdioCommonInfo</em>info,
+SdioCommonInfoType infoType)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1936100396093521"><p>int32_t</p>
+</p><p id="p25185804093521"><p>Obtains common information.</p>
+</p></td></tr><tr id="row991461248093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p314052752093521"><p>SdioSetCommonInfo (struct DevHandle <em>handle, SdioCommonInfo</em>info,
+SdioCommonInfoType infoType)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1941162057093521"><p>int32_t</p>
+</p><p id="p2061717887093521"><p>Sets common information.</p>
+</p></td></tr><tr id="row282048750093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1466582138093521"><p>SdioFlushData (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1605730652093521"><p>int32_t</p>
+</p><p id="p2111394427093521"><p>Flushes data.</p>
+</p></td></tr><tr id="row268889763093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1578641189093521"><p>SdioClaimHost (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2133102691093521"><p>void</p>
+</p><p id="p1493737635093521"><p>Claims a host exclusively.</p>
+</p></td></tr><tr id="row1254701727093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p382167776093521"><p>SdioReleaseHost (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p172498001093521"><p>void</p>
+</p><p id="p940814814093521"><p>Releases the exclusively claimed host.</p>
+</p></td></tr><tr id="row262573471093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1037045944093521"><p>SdioEnableFunc (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1510520618093521"><p>int32_t</p>
+</p><p id="p2068308571093521"><p>Enables the SDIO device so that its register can be accessed.</p>
+</p></td></tr><tr id="row1632671093093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2031699561093521"><p>SdioDisableFunc (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p854350571093521"><p>int32_t</p>
+</p><p id="p338416749093521"><p>Disables the SDIO device.</p>
+</p></td></tr><tr id="row661708051093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1410015653093521"><p>SdioClaimIrq (struct DevHandle <em>handle, SdioIrqHandler</em>irqHandler)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1875325263093521"><p>int32_t</p>
+</p><p id="p1717109204093521"><p>Claims an SDIO IRQ.</p>
+</p></td></tr><tr id="row389683943093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p358520322093521"><p>SdioReleaseIrq (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1902748560093521"><p>int32_t</p>
+</p><p id="p1760011885093521"><p>Releases an SDIO IRQ.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="typedef-documentation">
+<h2><strong>Typedef Documentation</strong><a class="headerlink" href="#typedef-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="sdioirqhandler">
+<h2>SdioIrqHandler<a class="headerlink" href="#sdioirqhandler" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">void</span> <span class="n">SdioIrqHandler</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the function type of an SDIO IRQ.</p>
+<p>This function is registered when you call
+<a class="reference external" href="sdio.md#ga81f98e541845c15a632cf59cd9c263f8">SdioClaimIrq</a> to request
+the SDIO IRQ.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row655106360093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1615362312093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1604471786093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row623759612093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>data</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the private data passed to this IRQ (The data is specified
+when the IRQ is registered).</p>
+</td></tr></tbody></table></div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="sdiocommoninfotype">
+<h2>SdioCommonInfoType<a class="headerlink" href="#sdiocommoninfotype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">SdioCommonInfoType</span><span class="p">](</span><span class="n">sdio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga4037437ac001a9848dd242e8aa632678)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates SDIO common information types.</p>
+<p>When obtaining SDIO common information by calling
+<a class="reference external" href="sdio.md#gac5c6bf733ea9e4408fd1109b18741ce8">SdioGetCommonInfo</a> or
+setting the information by calling
+<a class="reference external" href="sdio.md#ga563b67c90fbb88075bf5a05d9b5d5706">SdioSetCommonInfo</a>, you
+need to pass the information type.</p>
+<table><thead align="left"><tr id="row105099053093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p453280380093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p472039072093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row936422258093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SDIO_FUNC_INFO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p674625696093521"><p>Functionality information</p>
+</p></td></tr><tr id="row408912188093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SDIO_OTHER_INFO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1914756430093521"><p>Other information</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="sdioclaimhost">
+<h2>SdioClaimHost()<a class="headerlink" href="#sdioclaimhost" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">SdioClaimHost</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Claims a host exclusively.</p>
+<p>You can call this function to enable the SDIO module to exclusively
+claim a host and then perform operations on the devices connected to the
+host. After performing required operations, release the host by calling
+<a class="reference external" href="sdio.md#gabd2fe2d978e7fde51eba584f30dc8e7c">SdioReleaseHost</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2147008853093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2086040061093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p900061921093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row522622123093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="sdioclaimirq">
+<h2>SdioClaimIrq()<a class="headerlink" href="#sdioclaimirq" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioClaimIrq</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">SdioIrqHandler</span><span class="p">](</span><span class="n">sdio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga858bec274683a4f50d53d1f9f43d204b) * irqHandler )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Claims an SDIO IRQ.</p>
+<p>When there is data, commands, or events, the IRQ function is executed.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row465971894093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1905903471093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1617545554093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1034886858093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row1787715877093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>irqHandler</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the SDIO IRQ function. For details, see
+SdioIrqHandler.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdioclose">
+<h2>SdioClose()<a class="headerlink" href="#sdioclose" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">SdioClose</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Closes an SDIO controller.</p>
+<p>After the SDIO interface is used, you can close the SDIO controller by
+calling <a class="reference external" href="sdio.md#ga15427d4b231423c6de812fedffbd61e3">SdioClose</a>. This
+function is used in pair with
+<a class="reference external" href="sdio.md#gadca7b0edcae3df85b3ade33704a306f8">SdioOpen</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1658150651093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p355271575093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p618707820093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1148892134093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="sdiodisablefunc">
+<h2>SdioDisableFunc()<a class="headerlink" href="#sdiodisablefunc" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioDisableFunc</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Disables the SDIO device.</p>
+<p>This function is used in pair with
+<a class="reference external" href="sdio.md#ga2f31cd318990db879e827e3b8f9f2393">SdioEnableFunc</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row12515769093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1808583773093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p742498146093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1951394195093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdioenablefunc">
+<h2>SdioEnableFunc()<a class="headerlink" href="#sdioenablefunc" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioEnableFunc</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enables the SDIO device so that its register can be accessed.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1785098719093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1605563093093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2034352675093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1672534765093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdioflushdata">
+<h2>SdioFlushData()<a class="headerlink" href="#sdioflushdata" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioFlushData</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Flushes data.</p>
+<p>You can call this function when an SDIO needs to be reinitialized or an
+unexpected error occurs.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1007800963093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1163141837093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p422772888093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1977125136093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdiogetcommoninfo">
+<h2>SdioGetCommonInfo()<a class="headerlink" href="#sdiogetcommoninfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioGetCommonInfo</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">SdioCommonInfo</span><span class="p">](</span><span class="n">sdiocommoninfo</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">info</span><span class="p">,</span> <span class="p">[</span><span class="n">SdioCommonInfoType</span><span class="p">](</span><span class="n">sdio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga4037437ac001a9848dd242e8aa632678) infoType )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains common information.</p>
+<p>You can call this function to obtain the capabilities and private data
+of the I/O function.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row854623900093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p121177042093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1168811481093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row692197638093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row869981547093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>info</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the common information to be obtained. For
+details, see SdioCommonInfo.</p>
+</td></tr><tr id="row2105866485093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>infoType</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the type of the common information to be obtained. For
+details, see SdioCommonInfoType.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdioopen">
+<h2>SdioOpen()<a class="headerlink" href="#sdioopen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">SdioOpen</span> <span class="p">(</span><span class="n">int16_t</span> <span class="n">busNum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Opens an SDIO controller with a specified bus number.</p>
+<p>Before using the SDIO interface, you can obtain the device handle of the
+SDIO controller by calling
+<a class="reference external" href="sdio.md#gadca7b0edcae3df85b3ade33704a306f8">SdioOpen</a>. This function
+is used in pair with
+<a class="reference external" href="sdio.md#ga15427d4b231423c6de812fedffbd61e3">SdioClose</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1022156567093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p195375023093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1036600373093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row909166475093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>busNum</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the bus number.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the device handle <a class="reference external" href="devhandle.md">DevHandle</a> of the SDIO
+controller if the operation is successful; returns <strong>NULL</strong> otherwise.</p>
+</div>
+<div class="section" id="sdioreadbytes">
+<h2>SdioReadBytes()<a class="headerlink" href="#sdioreadbytes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioReadBytes</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">timeOut</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Incrementally reads a given length of data from the specified SDIO
+address.</p>
+<p>If the length of the data to read is greater than the size of a block,
+the data is read by block, and the remaining data that is smaller than
+one block is read by byte. Otherwise, data is read by byte.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row539957154093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1406588321093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p546280427093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1238652636093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row2113087413093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>data</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data to read.</p>
+</td></tr><tr id="row391375230093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the start address of the data to read.</p>
+</td></tr><tr id="row1007713577093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the data to read.</p>
+</td></tr><tr id="row50851260093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOut</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timeout duration for reading data, in milliseconds. If the
+value is 0,the default value is used. The default value varies according
+to the application. Generally, the default value is 1 second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdioreadbytesfromfixedaddr">
+<h2>SdioReadBytesFromFixedAddr()<a class="headerlink" href="#sdioreadbytesfromfixedaddr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioReadBytesFromFixedAddr</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">timeOut</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reads a given length of data from the fixed SDIO address.</p>
+<p>If the length of the data to read is greater than the size of a block,
+the data is read by block, and the remaining data that is smaller than
+one block is read by byte. Otherwise, data is read by byte.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1186293101093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p506955628093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1575226023093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row236485686093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row730848319093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>data</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data to read.</p>
+</td></tr><tr id="row1667016473093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the fixed address of the data to read.</p>
+</td></tr><tr id="row876924867093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the data to read.</p>
+</td></tr><tr id="row874519102093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOut</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timeout duration for reading data, in milliseconds. If the
+value is 0, the default value is used. The default value varies
+according to the application. Generally, the default value is 1 second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdioreadbytesfromfunc0">
+<h2>SdioReadBytesFromFunc0()<a class="headerlink" href="#sdioreadbytesfromfunc0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioReadBytesFromFunc0</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">timeOut</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reads a given length of data from the address space of SDIO function 0.</p>
+<p>Currently, only one byte of data can be read.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row506852630093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p596417145093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p771038819093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1025870798093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row198642918093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>data</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data to read.</p>
+</td></tr><tr id="row533646319093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the start address of the data to read.</p>
+</td></tr><tr id="row1979725897093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the data to read.</p>
+</td></tr><tr id="row1890045957093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOut</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timeout duration for reading data, in milliseconds. If the
+value is 0, the default value is used. The default value varies
+according to the application. Generally, the default value is 1 second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdioreleasehost">
+<h2>SdioReleaseHost()<a class="headerlink" href="#sdioreleasehost" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">SdioReleaseHost</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Releases the exclusively claimed host.</p>
+<p>This function is used in pair with
+<a class="reference external" href="sdio.md#ga86e24b0480c860cfad8ff12fbc66bc9f">SdioClaimHost</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1797607361093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1720927117093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p406098729093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1978656463093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="sdioreleaseirq">
+<h2>SdioReleaseIrq()<a class="headerlink" href="#sdioreleaseirq" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioReleaseIrq</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Releases an SDIO IRQ.</p>
+<p>This function is used in pair with
+<a class="reference external" href="sdio.md#ga81f98e541845c15a632cf59cd9c263f8">SdioClaimIrq</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1648083606093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p675509644093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1307012968093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1485488927093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdiosetblocksize">
+<h2>SdioSetBlockSize()<a class="headerlink" href="#sdiosetblocksize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioSetBlockSize</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">blockSize</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the block size.</p>
+<p>If data to read or write is performed, use this function to set the
+block size.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row649779753093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1153712898093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2064222067093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row844748385093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row1492693180093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>blockSize</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the block size to be set. If the value is 0, the default value
+is used. The value ranges from 1 to 2048 bytes.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdiosetcommoninfo">
+<h2>SdioSetCommonInfo()<a class="headerlink" href="#sdiosetcommoninfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioSetCommonInfo</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">SdioCommonInfo</span><span class="p">](</span><span class="n">sdiocommoninfo</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">info</span><span class="p">,</span> <span class="p">[</span><span class="n">SdioCommonInfoType</span><span class="p">](</span><span class="n">sdio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga4037437ac001a9848dd242e8aa632678) infoType )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets common information.</p>
+<p>You can call this function to set the maximum timeout duration and
+private data.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1431464069093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p313469683093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1401177295093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2094230835093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row88000112093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>info</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the common information to be set. For details,
+see SdioCommonInfo.</p>
+</td></tr><tr id="row505721311093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>infoType</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the type of the common information to be set. For details, see
+SdioCommonInfoType.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdiowritebytes">
+<h2>SdioWriteBytes()<a class="headerlink" href="#sdiowritebytes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioWriteBytes</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">timeOut</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Incrementally writes a given length of data into the specified SDIO
+address.</p>
+<p>If the length of the data to write is greater than the size of a block,
+the data is written by block first, and the remaining data that is
+smaller than one block is written by byte. Otherwise, data is written by
+byte.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1465973726093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1572153271093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1788496130093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row998619201093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row938450147093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>data</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data to write.</p>
+</td></tr><tr id="row1871125226093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the start address of the data to write.</p>
+</td></tr><tr id="row722659316093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the data to write.</p>
+</td></tr><tr id="row1594324977093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOut</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timeout duration for writing data, in milliseconds. If the
+value is 0, the default value is used. The default value varies
+according to the application. Generally, the default value is 1 second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdiowritebytestofixedaddr">
+<h2>SdioWriteBytesToFixedAddr()<a class="headerlink" href="#sdiowritebytestofixedaddr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioWriteBytesToFixedAddr</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">timeOut</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Writes a given length of data into the fixed SDIO address.</p>
+<p>If the length of the data to write is greater than the size of a block,
+the data is written by block first, and the remaining data that is
+smaller than one block is written by byte. Otherwise, data is written by
+byte.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1550226375093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1950831094093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1130821132093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1738347185093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row38615993093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>data</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data to write.</p>
+</td></tr><tr id="row2109653110093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the fixed address of the data to write.</p>
+</td></tr><tr id="row460442548093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the data to write.</p>
+</td></tr><tr id="row1362746796093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOut</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timeout duration for writing data, in milliseconds. If the
+value is 0, the default value is used. The default value varies
+according to the application. Generally, the default value is 1 second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+<div class="section" id="sdiowritebytestofunc0">
+<h2>SdioWriteBytesToFunc0()<a class="headerlink" href="#sdiowritebytestofunc0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SdioWriteBytesToFunc0</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">timeOut</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Writes a given length of data into the address space of SDIO function 0.</p>
+<p>Currently, only one byte of data can be written.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1595079176093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p520761058093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1279188228093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row435996144093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the device handle of the SDIO controller
+obtained by SdioOpen.</p>
+</td></tr><tr id="row327099608093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>data</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data to write.</p>
+</td></tr><tr id="row2122130151093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the start address of the data to write.</p>
+</td></tr><tr id="row1956609249093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the data to write.</p>
+</td></tr><tr id="row557957107093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOut</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timeout duration for writing data, in milliseconds. If the
+value is 0, the default value is used. The default value varies
+according to the application. Generally, the default value is 1 second.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/sdio.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

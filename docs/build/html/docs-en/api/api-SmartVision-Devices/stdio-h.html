@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stdio.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="stdio-h">
+<h1>stdio.h<a class="headerlink" href="#stdio-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="io.md">IO</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares common functions used for performing input and output (I/O)
+operations.</p>
+<p>You can use the functions provided in this file to perform the I/O
+operations required during development. Distinguished by I/O targets,
+there are standard I/O, file stream I/O, and string I/O.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1529138586084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p379158778084832"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1051953816084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row865689722084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1340789351084832"><p>FILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p770639519084832"><p>typedef struct _IO_FILE</p>
+</p><p id="p1141502744084832"><p>Struct of file stream.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2126250749084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1655294344084832"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p248861961084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row384426946084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1898538295084832"><p>fopen (const char *__restrict path, const char *__restrict mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1497865213084832"><p>FILE *</p>
+</p><p id="p1388731660084832"><p>Opens the file stored in the specified path based on the given mode.</p>
+</p></td></tr><tr id="row79128963084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p246105861084832"><p>fclose (FILE *fd)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1141014990084832"><p>int</p>
+</p><p id="p501576849084832"><p>Closes a file based on the specified file descriptor.</p>
+</p></td></tr><tr id="row1709852360084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1101450494084832"><p>remove (const char *pathname)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1844629892084832"><p>int</p>
+</p><p id="p561280857084832"><p>Deletes a specified file or directory from the file system.</p>
+</p></td></tr><tr id="row796084637084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p407488915084832"><p>rename (const char <em>oldpath, const char</em>newpath)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p564210448084832"><p>int</p>
+</p><p id="p1209380175084832"><p>Renames a specified file.</p>
+</p></td></tr><tr id="row737950414084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1645676193084832"><p>feof (FILE *fp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p578876596084832"><p>int</p>
+</p><p id="p1239466669084832"><p>Tests the end-of-file indicator for a specified stream.</p>
+</p></td></tr><tr id="row1790018101084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p807062940084832"><p>ferror (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1034692170084832"><p>int</p>
+</p><p id="p2119807291084832"><p>Tests for the error identifier of a specified file stream.</p>
+</p></td></tr><tr id="row1145146101084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p837142200084832"><p>fflush (FILE *fp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p210995026084832"><p>int</p>
+</p><p id="p1234939691084832"><p>Flushes the output buffer of a specified stream.</p>
+</p></td></tr><tr id="row859867631084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p632013375084832"><p>clearerr (FILE *fp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1538615200084832"><p>void</p>
+</p><p id="p469658577084832"><p>Resets the error indicators.</p>
+</p></td></tr><tr id="row1087737428084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1691122450084832"><p>fseek (FILE *fp, long offset, int whence)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1363104050084832"><p>int</p>
+</p><p id="p55622734084832"><p>Changes the position of a specified stream to a new position.</p>
+</p></td></tr><tr id="row1500991376084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1254019955084832"><p>ftell (FILE *fp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2098062337084832"><p>long</p>
+</p><p id="p199605005084832"><p>Obtains the current value of the file position indicator for a specified
+file stream.</p>
+</p></td></tr><tr id="row1070098730084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1220337423084832"><p>rewind (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p901689715084832"><p>void</p>
+</p><p id="p1356242731084832"><p>Sets the position indicator of a specified stream to the beginning of
+the file.</p>
+</p></td></tr><tr id="row990967451084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1021563245084832"><p>fgetpos (FILE <em>stream, fpos_t</em>pos)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1663611449084832"><p>int</p>
+</p><p id="p1261588948084832"><p>Obtains the current file position of a specified stream and writes it to
+the pos parameter.</p>
+</p></td></tr><tr id="row938176080084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2073685885084832"><p>fsetpos (FILE <em>fp, const fpos_t</em>pos)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1771289651084832"><p>int</p>
+</p><p id="p1340193839084832"><p>Sets the file position indicator for a specified file stream.</p>
+</p></td></tr><tr id="row1709982970084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1807377288084832"><p>fread (void *__restrict ptr, size_t size, size_t nmemb, FILE
+*__restrict stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1342514980084832"><p>size_t</p>
+</p><p id="p1709796988084832"><p>Reads data from a specified stream.</p>
+</p></td></tr><tr id="row621318322084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1937922812084832"><p>fwrite (const void *__restrict ptr, size_t size, size_t nmemb, FILE
+*__restrict stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1859162933084832"><p>size_t</p>
+</p><p id="p1278850077084832"><p>Writes data to a specified stream.</p>
+</p></td></tr><tr id="row678591163084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1170862118084832"><p>getc (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p914025871084832"><p>int</p>
+</p><p id="p1257764039084832"><p>Reads a character from a specified file stream.</p>
+</p></td></tr><tr id="row173964797084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p856050775084832"><p>getchar (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p350133619084832"><p>int</p>
+</p><p id="p857033200084832"><p>Obtains the next character from the standard input (stdin).</p>
+</p></td></tr><tr id="row1256643156084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1453843995084832"><p>ungetc (int c, FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p951981078084832"><p>int</p>
+</p><p id="p1024784017084832"><p>Pushes a character back into a specified file stream.</p>
+</p></td></tr><tr id="row95428019084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1945123695084832"><p>fputc (int c, FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p946586144084832"><p>int</p>
+</p><p id="p1640393423084832"><p>Writes a character into the position pointed to by a specified stream.</p>
+</p></td></tr><tr id="row461832947084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p151145176084832"><p>putc (int c, FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p311650540084832"><p>int</p>
+</p><p id="p1909917924084832"><p>Writes a character to a specified file stream.</p>
+</p></td></tr><tr id="row1716505917084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1802856511084832"><p>putchar (int c)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1447582174084832"><p>int</p>
+</p><p id="p2110541045084832"><p>Writes a character into the standard output (stdout).</p>
+</p></td></tr><tr id="row290126375084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1317773879084832"><p>fgets (char <em>s, int size, FILE</em>stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p96693064084832"><p>char *</p>
+</p><p id="p1199139060084832"><p>Reads a line of characters from a specified file stream and stores it
+into the string pointed to by s.</p>
+</p></td></tr><tr id="row799930076084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1917563554084832"><p>gets (char *s)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1775166446084832"><p>char *</p>
+</p><p id="p436958380084832"><p>Reads a line of characters from the stdin and stores it in the buffer.</p>
+</p></td></tr><tr id="row201186601084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1940971645084832"><p>fputs (const char <em>s, FILE</em>stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p189049327084832"><p>int</p>
+</p><p id="p703718318084832"><p>Writes a character string (excluding the terminating null character) to
+a specified file stream.</p>
+</p></td></tr><tr id="row763920722084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p134795309084832"><p>puts (const char *s)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p972965254084832"><p>int</p>
+</p><p id="p2036898437084832"><p>Writes a character string and appends a new-line character to the
+stdout.</p>
+</p></td></tr><tr id="row1956966113084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p380874053084832"><p>printf (const char *format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p47564364084832"><p>int</p>
+</p><p id="p1476914768084832"><p>Formats arguments based on format and prints formatted data to the
+stdout.</p>
+</p></td></tr><tr id="row647259795084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1954456574084832"><p>fprintf (FILE <em>stream, const char</em>format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1330635774084832"><p>int</p>
+</p><p id="p728251860084832"><p>Formats arguments based on format and prints formatted data to a
+specified file stream.</p>
+</p></td></tr><tr id="row929250525084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p858458217084832"><p>sprintf (char <em>str, const char</em>format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1577424910084832"><p>int</p>
+</p><p id="p223658368084832"><p>Prints formatted data from a variable argument list to a specified
+string.</p>
+</p></td></tr><tr id="row986663059084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1154191461084832"><p>snprintf (char <em>str, size_t size, const char</em>format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p776033341084832"><p>int</p>
+</p><p id="p231347941084832"><p>Prints formatted data of a maximum of size bytes from a variable
+argument list to a specified string.</p>
+</p></td></tr><tr id="row360220131084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1362163932084832"><p>vprintf (const char *format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1827326593084832"><p>int</p>
+</p><p id="p1229332573084832"><p>Prints formatted data from a variable argument list to the stdout.</p>
+</p></td></tr><tr id="row12971859084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1902574901084832"><p>vfprintf (FILE <em>stream, const char</em>format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1441905565084832"><p>int</p>
+</p><p id="p203114977084832"><p>Prints formatted data from a variable argument list to a specified file
+stream.</p>
+</p></td></tr><tr id="row44739903084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1909767099084832"><p>vsprintf (char <em>str, const char</em>format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1080493223084832"><p>int</p>
+</p><p id="p1264801410084832"><p>Prints formatted data from a variable argument list to a specified
+string.</p>
+</p></td></tr><tr id="row1882168786084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p529570323084832"><p>vsnprintf (char <em>str, size_t size, const char</em>format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1819521079084832"><p>int</p>
+</p><p id="p1466017990084832"><p>Prints formatted data of a maximum of size bytes from a variable
+argument list to a specified string.</p>
+</p></td></tr><tr id="row518174159084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p661756702084832"><p>scanf (const char *format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1053855447084832"><p>int</p>
+</p><p id="p1583773751084832"><p>Reads formatted data from the stdin and stores the data to the
+additional arguments based on format.</p>
+</p></td></tr><tr id="row1068421549084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p284828302084832"><p>fscanf (FILE <em>stream, const char</em>format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1679698108084832"><p>int</p>
+</p><p id="p2035312283084832"><p>Reads formatted data from a specified file stream and stores it based on
+format into the locations pointed to by the variable arguments.</p>
+</p></td></tr><tr id="row452601739084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1052691735084832"><p>sscanf (const char <em>str, const char</em>format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p931852713084832"><p>int</p>
+</p><p id="p1596861387084832"><p>Reads data from a character string pointed to by str and stores it based
+on format into the locations pointed to by the variable arguments.</p>
+</p></td></tr><tr id="row183527071084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p766778157084832"><p>vscanf (const char *format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1886787440084832"><p>int</p>
+</p><p id="p817671958084832"><p>Reads data from the stdin and stores it based on format into the
+locations pointed to by the elements in the variable argument list
+identified by ap.</p>
+</p></td></tr><tr id="row1782879807084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p986401749084832"><p>vfscanf (FILE <em>stream, const char</em>format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1853161337084832"><p>int</p>
+</p><p id="p1583038964084832"><p>Reads data from a specified file stream and stores it based on format
+into the locations pointed to by the elements in the variable argument
+list identified by ap.</p>
+</p></td></tr><tr id="row562731176084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p840205569084832"><p>vsscanf (const char <em>str, const char</em>format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1555762322084832"><p>int</p>
+</p><p id="p967962552084832"><p>Reads data from a specified string and stores it based on format into
+the locations pointed to by the elements in the variable argument list
+identified by ap.</p>
+</p></td></tr><tr id="row1523602408084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p810518301084832"><p>perror (const char *msg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2061699577084832"><p>void</p>
+</p><p id="p610706727084832"><p>Prints the last error occurred during a call to a system or library
+function to the standard error output stream (stderr).</p>
+</p></td></tr><tr id="row1580998420084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p637694857084832"><p>setvbuf (FILE <em>stream, char</em>buf, int mode, size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1432028260084832"><p>int</p>
+</p><p id="p902372169084832"><p>Sets the mode and size of the buffer for a specified stream.</p>
+</p></td></tr><tr id="row1912930057084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p13205862084832"><p>setbuf (FILE <em>stream, char</em>buf)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p138957296084832"><p>void</p>
+</p><p id="p730172728084832"><p>Sets a buffer to be used by a specified stream.</p>
+</p></td></tr><tr id="row1846810228084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p34747281084832"><p>fmemopen (void <em>buf, size_t size, const char</em>mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p426807927084832"><p>FILE *</p>
+</p><p id="p465638360084832"><p>Opens a memory stream that allows the access mode specified by mode.</p>
+</p></td></tr><tr id="row777065919084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2069413294084832"><p>open_memstream (char **ptr, size_t *size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p251946892084832"><p>FILE *</p>
+</p><p id="p482571526084832"><p>Opens a stream for writing to a specified buffer.</p>
+</p></td></tr><tr id="row787627205084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p589808690084832"><p>pclose (FILE *f)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1285493797084832"><p>int</p>
+</p><p id="p733260398084832"><p>Closes a specified pipe.</p>
+</p></td></tr><tr id="row2107739804084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1239487976084832"><p>fileno (FILE *fp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p123850964084832"><p>int</p>
+</p><p id="p145765462084832"><p>Obtains the file descriptor of a specified file stream.</p>
+</p></td></tr><tr id="row1834111670084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p224118416084832"><p>fseeko (FILE *fp, off_t offset, int whence)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p695789608084832"><p>int</p>
+</p><p id="p978649391084832"><p>Sets the position of the next input or output operation on a specified
+file stream.</p>
+</p></td></tr><tr id="row496280481084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1451048563084832"><p>ftello (FILE *fp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1626427776084832"><p>off_t</p>
+</p><p id="p839589834084832"><p>Obtains the current value of the file position indicator for a specified
+file stream.</p>
+</p></td></tr><tr id="row1623520464084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2002610234084832"><p>dprintf (int fd, const char *format,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1408524810084832"><p>int</p>
+</p><p id="p1434988198084832"><p>Prints formatted data to a specified file.</p>
+</p></td></tr><tr id="row900637347084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p978308616084832"><p>vdprintf (int fd, const char *format, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p196190309084832"><p>int</p>
+</p><p id="p1199875567084832"><p>Prints formatted data from a variable argument list to a specified file.</p>
+</p></td></tr><tr id="row806779766084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p129824912084832"><p>ftrylockfile (FILE *filehandle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1518805345084832"><p>int</p>
+</p><p id="p500467533084832"><p>Locks a specified file.</p>
+</p></td></tr><tr id="row831534143084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1036177054084832"><p>funlockfile (FILE *filehandle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1514148839084832"><p>void</p>
+</p><p id="p1726479386084832"><p>Unlocks a specified file.</p>
+</p></td></tr><tr id="row490708202084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p226234378084832"><p>getc_unlocked (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p420506783084832"><p>int</p>
+</p><p id="p1982160072084832"><p>Obtains a character from a specified file stream without locking the
+file stream or checking whether it is locked.</p>
+</p></td></tr><tr id="row599913563084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1855787697084832"><p>getchar_unlocked (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1314188722084832"><p>int</p>
+</p><p id="p322168833084832"><p>Obtains the next character from stdin.</p>
+</p></td></tr><tr id="row1820397202084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1275858433084832"><p>putc_unlocked (int c, FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p401957240084832"><p>int</p>
+</p><p id="p310830379084832"><p>Writes a character to a specified file stream with the thread remains
+unlocked.</p>
+</p></td></tr><tr id="row1894560236084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2139075924084832"><p>putchar_unlocked (int c)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1590622694084832"><p>int</p>
+</p><p id="p534142014084832"><p>Writes a character to the stdout with the thread remains unlocked.</p>
+</p></td></tr><tr id="row292842001084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p648880650084832"><p>getdelim (char **lineptr, size_t <em>n, int delim, FILE</em>stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1842764688084832"><p>ssize_t</p>
+</p><p id="p1420397108084832"><p>Reads an entire line from a specified file stream.</p>
+</p></td></tr><tr id="row70303890084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p792492741084832"><p>getline (char **lineptr, size_t <em>n, FILE</em>stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p142222377084832"><p>ssize_t</p>
+</p><p id="p1583485702084832"><p>Reads an entire line from a specified file stream.</p>
+</p></td></tr><tr id="row2033411480084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2087377276084832"><p>tempnam (const char <em>dir, const char</em>prefix)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p877387149084832"><p>char *</p>
+</p><p id="p355920652084832"><p>Creates a temporary file with a unique file name.</p>
+</p></td></tr><tr id="row1332508508084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2107228550084832"><p>setbuffer (FILE <em>f, char</em>buf, size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1154327770084832"><p>void</p>
+</p><p id="p491738165084832"><p>Sets the buffer for a specified file stream.</p>
+</p></td></tr><tr id="row1862360130084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1254223426084832"><p>setlinebuf (FILE *f)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2144726623084832"><p>void</p>
+</p><p id="p405845501084832"><p>Sets the linear buffer for a specified file stream.</p>
+</p></td></tr><tr id="row1751880757084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1893160494084832"><p>fgetc (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2113018191084832"><p>int</p>
+</p><p id="p1578013942084832"><p>Reads a character from the file pointed to by stream.</p>
+</p></td></tr><tr id="row405481400084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1766975489084832"><p>fgetc_unlocked (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1445097312084832"><p>int</p>
+</p><p id="p1917345568084832"><p>Reads a character from the file pointed to by stream with the thread
+remains unlocked.</p>
+</p></td></tr><tr id="row923790161084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p259750598084832"><p>fputc_unlocked (int c, FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2072721757084832"><p>int</p>
+</p><p id="p1341878563084832"><p>Writes a character to the file stream pointed to by stream at the
+current position.</p>
+</p></td></tr><tr id="row1992680347084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p160201788084832"><p>ferror_unlocked (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p707697959084832"><p>int</p>
+</p><p id="p142247958084832"><p>Tests for the error identifier of a specified file stream.</p>
+</p></td></tr><tr id="row1462190195084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p291187459084832"><p>getw (FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1535142236084832"><p>int</p>
+</p><p id="p1055617115084832"><p>Reads a word (an int value) from a specified file stream.</p>
+</p></td></tr><tr id="row939652816084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1916758200084832"><p>putw (int w, FILE *stream)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p494605829084832"><p>int</p>
+</p><p id="p285489016084832"><p>Writes a word (an int value) to a specified file stream.</p>
+</p></td></tr><tr id="row1434508618084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1866476064084832"><p>fgetln (FILE <em>stream, size_t</em>len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p482817747084832"><p>char *</p>
+</p><p id="p1627031328084832"><p>Reads a line of data from the current position of a specified file
+stream.</p>
+</p></td></tr><tr id="row1555649291084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1605257874084832"><p>asprintf (char **strp, const char *fmt,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2067968604084832"><p>int</p>
+</p><p id="p1574515860084832"><p>Prints formatted data to a specified character string.</p>
+</p></td></tr><tr id="row122605514084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p447581542084832"><p>vasprintf (char **strp, const char *fmt, va_list ap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p620862330084832"><p>int</p>
+</p><p id="p732625613084832"><p>Prints formatted data from a variable argument list to a specified
+character string.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/stdio-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

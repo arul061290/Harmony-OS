@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OHOS::EasingEquation &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ohos-easingequation">
+<h1>OHOS::EasingEquation<a class="headerlink" href="#ohos-easingequation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="graphic.md">Graphic</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines functions for specifying the velocity of an animation.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="static-public-member-functions">
+<h2>Static Public Member Functions<a class="headerlink" href="#static-public-member-functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row991524357093533"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2008444026093533"><p>Static Public Member Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2011007768093533"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row204898760093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1129395481093533"><p>SetBackOvershoot (double overshoot)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p444352841093533"><p>static void</p>
+</p><p id="p620162213093533"><p>Sets the parameter s in the equation (s+1)<em>t^3 - s</em>t^2 for a back
+easing.</p>
+</p></td></tr><tr id="row1902060137093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p907441044093533"><p>BackEaseIn (int16_t startPos, int16_t endPos, uint16_t curTime, uint16_t
+durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1743250192093533"><p>static int16_t</p>
+</p><p id="p2008280688093533"><p>Eases in with an overshoot.</p>
+</p></td></tr><tr id="row504697082093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p549717496093533"><p>BackEaseOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p741740474093533"><p>static int16_t</p>
+</p><p id="p833695393093533"><p>Eases out with an overshoot.</p>
+</p></td></tr><tr id="row942741922093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p534371203093533"><p>BackEaseInOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1112901168093533"><p>static int16_t</p>
+</p><p id="p1799190930093533"><p>Eases in and then out with an overshoot.</p>
+</p></td></tr><tr id="row774523206093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p467081677093533"><p>CircEaseIn (int16_t startPos, int16_t endPos, uint16_t curTime, uint16_t
+durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p496789381093533"><p>static int16_t</p>
+</p><p id="p1874975606093533"><p>Eases in shaping like a circular curve.</p>
+</p></td></tr><tr id="row1021254518093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1982570402093533"><p>CircEaseOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2046459365093533"><p>static int16_t</p>
+</p><p id="p2048142985093533"><p>Eases out shaping like a circular curve.</p>
+</p></td></tr><tr id="row1727523982093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1755638171093533"><p>CircEaseInOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p448185095093533"><p>static int16_t</p>
+</p><p id="p171176698093533"><p>Eases in and then out shaping like a circular curve.</p>
+</p></td></tr><tr id="row1871257105093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1784747575093533"><p>CubicEaseIn (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1204757406093533"><p>static int16_t</p>
+</p><p id="p609416028093533"><p>Eases in shaping like a cubic curve.</p>
+</p></td></tr><tr id="row1386508581093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1981189917093533"><p>CubicEaseOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1646317608093533"><p>static int16_t</p>
+</p><p id="p1683034723093533"><p>Eases out shaping like a cubic curve.</p>
+</p></td></tr><tr id="row435766193093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p530102783093533"><p>CubicEaseInOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1991775330093533"><p>static int16_t</p>
+</p><p id="p2069513610093533"><p>Eases in and then out shaping like a cubic curve.</p>
+</p></td></tr><tr id="row645313754093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p829946937093533"><p>LinearEaseNone (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p582746442093533"><p>static int16_t</p>
+</p><p id="p1952031933093533"><p>Displays no linear easing effects.</p>
+</p></td></tr><tr id="row989246393093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p570709307093533"><p>QuadEaseIn (int16_t startPos, int16_t endPos, uint16_t curTime, uint16_t
+durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p298303116093533"><p>static int16_t</p>
+</p><p id="p558262387093533"><p>Eases in shaping like a quadratic curve.</p>
+</p></td></tr><tr id="row1032865340093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p412189524093533"><p>QuadEaseOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1452577025093533"><p>static int16_t</p>
+</p><p id="p1892708567093533"><p>Eases out shaping like a quadratic curve.</p>
+</p></td></tr><tr id="row847933444093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1930100882093533"><p>QuadEaseInOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p420090946093533"><p>static int16_t</p>
+</p><p id="p435408388093533"><p>Eases in and then out shaping like a quadratic curve.</p>
+</p></td></tr><tr id="row1461737789093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1494433378093533"><p>QuintEaseIn (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1152170870093533"><p>static int16_t</p>
+</p><p id="p713319109093533"><p>Eases in shaping like a quintic curve.</p>
+</p></td></tr><tr id="row1776786608093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p238399955093533"><p>QuintEaseOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1829590545093533"><p>static int16_t</p>
+</p><p id="p601659680093533"><p>Eases out shaping like a quintic curve.</p>
+</p></td></tr><tr id="row1189723147093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p980334108093533"><p>QuintEaseInOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p927303082093533"><p>static int16_t</p>
+</p><p id="p1794618440093533"><p>Eases in and then out shaping like a quintic curve.</p>
+</p></td></tr><tr id="row2034493118093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p485100019093533"><p>SineEaseIn (int16_t startPos, int16_t endPos, uint16_t curTime, uint16_t
+durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p395411423093533"><p>static int16_t</p>
+</p><p id="p1737802756093533"><p>Eases in shaping like a sinusoidal curve.</p>
+</p></td></tr><tr id="row607443015093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1030121554093533"><p>SineEaseOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p764805566093533"><p>static int16_t</p>
+</p><p id="p806772214093533"><p>Eases out shaping like a sinusoidal curve.</p>
+</p></td></tr><tr id="row849106029093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1936727108093533"><p>SineEaseInOut (int16_t startPos, int16_t endPos, uint16_t curTime,
+uint16_t durationTime)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1575999461093533"><p>static int16_t</p>
+</p><p id="p2129678497093533"><p>Eases in and then out shaping like a sinusoidal curve.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="additional-inherited-members">
+<h2>Additional Inherited Members<a class="headerlink" href="#additional-inherited-members" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1276867051093533"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1062985684093533"><p>Additional Inherited Member Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1899048598093533"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row446105983093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1563445849093533"><p>operator new (size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1052944979093533"><p>Overrides the new function.</p>
+</p></td></tr><tr id="row1749025114093533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p670367464093533"><p>operator delete (void *p)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1837644458093533"><p>Overrides the delete function.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/ohos-easingequation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

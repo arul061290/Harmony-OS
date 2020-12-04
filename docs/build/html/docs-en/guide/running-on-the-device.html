@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Running on the Device &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="running-on-the-device">
+<h1>Running on the Device<a class="headerlink" href="#running-on-the-device" title="Permalink to this headline">¶</a></h1>
+<p>For details about the development board, compilation, burning, and image
+running process, see <a class="reference external" href="../quick-start/introduction-to-the-hi3516-development-board.md">Getting Started with
+Hi3516</a>.
+After image running is executed and the system is started normally,
+perform the following steps to install or uninstall the third-party
+application:</p>
+<ol class="arabic">
+<li><p>Store the unsigned application installation package and installation
+tool compiled by the IDE in an SD card. (IP camera applications
+currently do not support signature.) The installation tool is in
+<strong>dev_tools</strong> in the directory where the image file is generated.</p></li>
+<li><p>Run the <strong>./sdcard/dev_tools/bin/bm set -s disable</strong> command to
+disable signature verification.</p></li>
+<li><p>Run the <strong>./sdcard/dev_tools/bin/bm install -p
+/sdcard/airquality.hap</strong> command to install the application.</p>
+<p>The <strong>dev_tools</strong> directory stores the installation tool, and
+<strong>airquality.hap</strong> is the application installation package.</p>
+</li>
+<li><p>After the application is installed, touch the application icon on the
+home screen to start the application.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Home screen</div>
+<div class="line"><img alt="image1" src="../../_images/home-screen.png" /></div>
+</div>
+</li>
+<li><p>(Optional) Uninstall the application.</p>
+<p>Touch and hold the application icon on the home screen, and touch the
+uninstall button in the displayed menu.</p>
+</li>
+</ol>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/guide/running-on-the-device.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="input">
+<h1>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides driver interfaces for the input service.</p>
+<p>These driver interfaces can be used to open and close input device
+files, get input events, query device information, register callback
+functions, and control the feature status.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1291015321093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p34968664093521"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1981326954093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row480012093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1628546853093521"><p>input_controller.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1675647555093521"><p>Declares the driver interfaces for controlling the business process of
+input devices.</p>
+</p></td></tr><tr id="row1959367983093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1031155770093521"><p>input_manager.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1196941925093521"><p>Declares the driver interfaces for managing input devices.</p>
+</p></td></tr><tr id="row999861989093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1875002160093521"><p>input_reporter.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p938518955093521"><p>Declares the driver interfaces for reporting data of input devices.</p>
+</p></td></tr><tr id="row1107981454093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p258775427093521"><p>input_type.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1511552637093521"><p>Declares types of input devices as well as the structure and enumeration
+types used by driver interfaces.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1928864115093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p230222347093521"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1400954065093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row686685272093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1880181295093521"><p>InputController</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1115372927093521"><p>Provides interfaces for controlling the business process of input
+devices.</p>
+</p></td></tr><tr id="row1155173298093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1843511868093521"><p>InputManager</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1107714449093521"><p>Provides interfaces for managing input devices.</p>
+</p></td></tr><tr id="row1850430516093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p328519994093521"><p>IInputInterface</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1190257110093521"><p>Defines interfaces for providing driver capabilities of input devices.</p>
+</p></td></tr><tr id="row37816377093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1997420388093521"><p>InputReporter</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1029423535093521"><p>Provides interfaces for reporting event data of input devices.</p>
+</p></td></tr><tr id="row1640058573093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2059472768093521"><p>InputExtraCmd</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2142392607093521"><p>Defines the extra commands.</p>
+</p></td></tr><tr id="row1891005807093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2146405421093521"><p>InputEventData</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p529292841093521"><p>Describes the input event data.</p>
+</p></td></tr><tr id="row745524620093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1153444177093521"><p>InputReportEventCb</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p31752164093521"><p>Describes the input event callback registered by the input service.</p>
+</p></td></tr><tr id="row1589016503093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1658759939093521"><p>DeviceInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p175077999093521"><p>Describes basic device information of the input device.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row513912053093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1438599650093521"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p675051281093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row985704535093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1755858894093521"><p>RetStatus { INPUT_SUCCESS, INPUT_EINVAL, INPUT_EFAULT, INPUT_ENOMEM,
+INPUT_ETIMEOUT, INPUT_EUNSUPPORT, INPUT_EUNKNOWN }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p574307570093521"><p>Enumerates return values.</p>
+</p></td></tr><tr id="row603616157093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p524069505093521"><p>InputDevType { INDEV_TYPE_TOUCH, INDEV_TYPE_KEY, INDEV_TYPE_KEYBOARD,
+INDEV_TYPE_MOUSE, INDEV_TYPE_BUTTON, INDEV_TYPE_CROWN,
+INDEV_TYPE_ENCODER, INDEV_TYPE_UNKNOWN }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1189509690093521"><p>Enumerates input device types.</p>
+</p></td></tr><tr id="row1311707740093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1904266837093521"><p>PowerStatus { INPUT_RESUME, INPUT_SUSPEND, INPUT_LOW_POWER,
+INPUT_POWER_STATUS_UNKNOWN }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1493329394093521"><p>Enumerates power statuses.</p>
+</p></td></tr><tr id="row123927109093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p81059806093521"><p>CapacitanceTest { BASE_TEST, FULL_TEST, MMI_TEST, RUNNING_TEST,
+TEST_TYPE_UNKNOWN }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1796058856093521"><p>Enumerates types of capacitance tests.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row770818903093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p737432863093521"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p138780162093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1718150285093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1075744901093521"><p>GetInputInterface (IInputInterface **interface)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1985019241093521"><p>int</p>
+</p><p id="p1249586838093521"><p>Gets all interfaces for performing operations on input devices.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="capacitancetest">
+<h2>CapacitanceTest<a class="headerlink" href="#capacitancetest" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">CapacitanceTest</span><span class="p">](</span><span class="nb">input</span><span class="o">.</span><span class="n">md</span><span class="c1">#gae96e484cfd64ea37b5b7782f57f38a21)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates types of capacitance tests.</p>
+<table><thead align="left"><tr id="row570201330093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1259381386093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p692107487093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1347408957093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>BASE_TEST</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1234082599093521"><p>Basic capacitance test</p>
+</p></td></tr><tr id="row531177954093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FULL_TEST</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1822899676093521"><p>Full capacitance self-test</p>
+</p></td></tr><tr id="row222539108093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MMI_TEST</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p438998241093521"><p>Man-Machine Interface (MMI) capacitance test</p>
+</p></td></tr><tr id="row499071916093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RUNNING_TEST</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1297796444093521"><p>Running capacitance test</p>
+</p></td></tr><tr id="row176779973093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TEST_TYPE_UNKNOWN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2005018539093521"><p>Unknown test type</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="inputdevtype">
+<h2>InputDevType<a class="headerlink" href="#inputdevtype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">InputDevType</span><span class="p">](</span><span class="nb">input</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa8225ba155dfa1ef2c4119c832bc4dd3)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates input device types.</p>
+<table><thead align="left"><tr id="row307711537093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p312033278093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p370907807093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row303292884093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_TOUCH</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1420334005093521"><p>Touchscreen</p>
+</p></td></tr><tr id="row1119095263093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_KEY</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1951833540093521"><p>Physical key</p>
+</p></td></tr><tr id="row1619561019093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_KEYBOARD</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1487811131093521"><p>Keyboard</p>
+</p></td></tr><tr id="row1390590525093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_MOUSE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p779444054093521"><p>Mouse</p>
+</p></td></tr><tr id="row1235728584093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_BUTTON</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p160673463093521"><p>Virtual button</p>
+</p></td></tr><tr id="row222013037093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_CROWN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p736578015093521"><p>Watch crown</p>
+</p></td></tr><tr id="row1967333411093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_ENCODER</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1137156216093521"><p>Customized type of a specific function or event</p>
+</p></td></tr><tr id="row2107773705093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INDEV_TYPE_UNKNOWN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1213954649093521"><p>Unknown input device type</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="powerstatus">
+<h2>PowerStatus<a class="headerlink" href="#powerstatus" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">PowerStatus</span><span class="p">](</span><span class="nb">input</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga65e6bb4d942c22dba9975253b0a1d73f)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates power statuses.</p>
+<table><thead align="left"><tr id="row1178534901093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p475568361093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1095716803093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1405178815093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_RESUME</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p129758942093521"><p>Resume status</p>
+</p></td></tr><tr id="row594660733093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_SUSPEND</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p501855247093521"><p>Suspend status</p>
+</p></td></tr><tr id="row1430884329093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_LOW_POWER</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2021550211093521"><p>Low-power status</p>
+</p></td></tr><tr id="row1606483390093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_POWER_STATUS_UNKNOWN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p67206200093521"><p>Unknown power status</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="retstatus">
+<h2>RetStatus<a class="headerlink" href="#retstatus" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">RetStatus</span><span class="p">](</span><span class="nb">input</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga85d58a5185669daa4995e332b63eba7a)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates return values.</p>
+<table><thead align="left"><tr id="row2065535124093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1884671552093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p841668617093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row238066575093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_SUCCESS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p888997134093521"><p>Success</p>
+</p></td></tr><tr id="row617537058093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_EINVAL</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p7677412093521"><p>Invalid value</p>
+</p></td></tr><tr id="row1227079089093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_EFAULT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p979310382093521"><p>Runtime error</p>
+</p></td></tr><tr id="row617761695093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_ENOMEM</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p682938402093521"><p>Failed to apply for memory</p>
+</p></td></tr><tr id="row1043836327093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_ETIMEOUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p660897164093521"><p>Execution timed out</p>
+</p></td></tr><tr id="row100106034093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_EUNSUPPORT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p643344970093521"><p>The feature is not supported</p>
+</p></td></tr><tr id="row87971554093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>INPUT_EUNKNOWN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p310027441093521"><p>Unknown error</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="getinputinterface">
+<h2>GetInputInterface()<a class="headerlink" href="#getinputinterface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GetInputInterface</span> <span class="p">([</span><span class="n">IInputInterface</span><span class="p">](</span><span class="n">iinputinterface</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">**</span> <span class="n">interface</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Gets all interfaces for performing operations on input devices.</p>
+<p>You can call this function after the input service is started.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1738463284093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1761280872093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2128166700093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row774489238093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>interface</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the double pointer to the interface for performing operations
+on input devices.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in <a class="reference external" href="input.md#ga85d58a5185669daa4995e332b63eba7a">RetStatus</a>
+otherwise.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/input.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

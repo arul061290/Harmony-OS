@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PMS &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pms">
+<h1>PMS<a class="headerlink" href="#pms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Manages permissions.</p>
+<p>This module provides interfaces for managing permissions of third-party
+applications.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row755082270093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1997937978093523"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p825681923093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1561195447093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1536508164093523"><p>pms_interface.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p507139866093523"><p>Declares interfaces for managing permissions.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1940599100093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1220986345093523"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1336336152093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1545359325093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p421680772093523"><p>CheckPermission (int taskID, const char *permissionName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1227839693093523"><p>int</p>
+</p><p id="p1451895412093523"><p>Checks whether the caller (generally a third-party application) has a
+specified permission of a system service API.</p>
+</p></td></tr><tr id="row1259727857093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p647761973093523"><p>QueryPermission (const char *identifier, PermissionSaved
+**permissions, int *permNum)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p944594007093523"><p>int</p>
+</p><p id="p560419437093523"><p>Queries all permissions requested by the application and checks whether
+these permissions are granted.</p>
+</p></td></tr><tr id="row1467373636093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p39860519093523"><p>GrantPermission (const char <em>identifier, const char</em>permName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1683172755093523"><p>int</p>
+</p><p id="p1544751534093523"><p>Grants a specified permission to the application.</p>
+</p></td></tr><tr id="row532398545093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p700357473093523"><p>RevokePermission (const char <em>identifier, const char</em>permName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1120952773093523"><p>int</p>
+</p><p id="p787848164093523"><p>Revokes a specified permission from the application.</p>
+</p></td></tr><tr id="row1745821041093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p881961745093523"><p>GrantRuntimePermission (int taskID, const char *permissionName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1133186295093523"><p>int</p>
+</p><p id="p755081147093523"><p>Grants a specified runtime permission to an application.</p>
+</p></td></tr><tr id="row1497043509093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p793303330093523"><p>RequestPermission (int taskID, const char *permissionName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1611908264093523"><p>int</p>
+</p><p id="p86308589093523"><p>Requests a specified permission.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="checkpermission">
+<h2>CheckPermission()<a class="headerlink" href="#checkpermission" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">CheckPermission</span> <span class="p">(</span><span class="nb">int</span> <span class="n">taskID</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">permissionName</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Checks whether the caller (generally a third-party application) has a
+specified permission of a system service API.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1546514797093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1925863475093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1122667900093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2020830790093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>taskId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the process ID of the caller. The range is [0, INT_MAX].</p>
+</td></tr><tr id="row1403323289093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>permissionName</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the permission name. For details, see the
+developer documentation.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>1</strong> if the caller has the permission; returns <strong>0</strong> otherwise.</p>
+</div>
+<div class="section" id="grantpermission">
+<h2>GrantPermission()<a class="headerlink" href="#grantpermission" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GrantPermission</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">permName</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Grants a specified permission to the application.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row521998183093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p586062767093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2049216540093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1371167583093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>identifier</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the application bundle name.</p>
+</td></tr><tr id="row1721475250093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>permName</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the permission name. For details, see the
+developer documentation.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the permission is successfully granted; returns an
+error code defined in
+<a class="reference external" href="pms_types.md#gacb79d7f5cd64c73479e0bdd9525265a8">PmsErrorCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="grantruntimepermission">
+<h2>GrantRuntimePermission()<a class="headerlink" href="#grantruntimepermission" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GrantRuntimePermission</span> <span class="p">(</span><span class="nb">int</span> <span class="n">taskID</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">permissionName</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Grants a specified runtime permission to an application.</p>
+<p>This function applies to sensitive permissions that can be granted to
+the application only when the application is running.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1083166238093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1795980010093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1630632010093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1499170885093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>taskId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the process ID of the application. The range is [0, INT_MAX].</p>
+</td></tr><tr id="row1779445220093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>permissionName</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the permission name. For details, see the
+developer documentation.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the permission is successfully granted; returns an
+error code defined in
+<a class="reference external" href="pms_types.md#gacb79d7f5cd64c73479e0bdd9525265a8">PmsErrorCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="querypermission">
+<h2>QueryPermission()<a class="headerlink" href="#querypermission" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">QueryPermission</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">identifier</span><span class="p">,</span> <span class="p">[</span><span class="n">PermissionSaved</span><span class="p">](</span><span class="n">permissionsaved</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">**</span> <span class="n">permissions</span><span class="p">,</span> <span class="nb">int</span> <span class="o">*</span> <span class="n">permNum</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Queries all permissions requested by the application and checks whether
+these permissions are granted.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2071274973093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2091900312093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p777964074093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row839572611093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>identifier</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the application bundle name.</p>
+</td></tr><tr id="row1190131854093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>permissions</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the double pointer to the array of permissions. You need to
+pass the PermissionSaved pointer and release it after finishing using
+it.</p>
+</td></tr><tr id="row931843553093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>permNum</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the number of permissions in the array, which
+is an integer.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="pms_types.md#gacb79d7f5cd64c73479e0bdd9525265a8">PmsErrorCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="requestpermission">
+<h2>RequestPermission()<a class="headerlink" href="#requestpermission" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">RequestPermission</span> <span class="p">(</span><span class="nb">int</span> <span class="n">taskID</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">permissionName</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Requests a specified permission.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row354840402093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1149172215093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p106294904093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1177550769093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>taskId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the process ID of the application. The range is [0, INT_MAX].</p>
+</td></tr><tr id="row1174117407093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>permissionName</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the permission name. For details, see the
+developer documentation.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns an error code
+defined in
+<a class="reference external" href="pms_types.md#gacb79d7f5cd64c73479e0bdd9525265a8">PmsErrorCode</a>
+otherwise.</p>
+</div>
+<div class="section" id="revokepermission">
+<h2>RevokePermission()<a class="headerlink" href="#revokepermission" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">RevokePermission</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">permName</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Revokes a specified permission from the application.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2097175932093523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p691604523093523"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1433376684093523"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1762787735093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>identifier</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the application bundle name.</p>
+</td></tr><tr id="row1186004489093523"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>permName</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the permission name. For details, see the
+developer documentation.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the permission is successfully revoked; returns an
+error code defined in
+<a class="reference external" href="pms_types.md#gacb79d7f5cd64c73479e0bdd9525265a8">PmsErrorCode</a>
+otherwise.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/pms.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

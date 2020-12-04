@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hdf_device_desc.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hdf-device-desc-h">
+<h1>hdf_device_desc.h<a class="headerlink" href="#hdf-device-desc-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="core.md">Core</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares functions related to driver loading, service obtaining, and
+power management.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row249312794093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2036701464093525"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1541178526093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2105905920093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1872112381093525"><p>HdfDeviceObject</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p247201228093525"><p>Defines the device object.</p>
+</p></td></tr><tr id="row996500043093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p496364495093525"><p>HdfDeviceIoClient</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1855460586093525"><p>Defines the client object structure of the I/O service.</p>
+</p></td></tr><tr id="row1144510175093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1009313805093525"><p>IDeviceIoService</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1291704356093525"><p>Defines the driver service.</p>
+</p></td></tr><tr id="row1808633238093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p264834011093525"><p>SubscriberCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1503322350093525"><p>Called when the driver subscribes to other driver services.</p>
+</p></td></tr><tr id="row1793067247093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p801873926093525"><p>IPowerEventListener</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p498009304093525"><p>Defines the power management functions provided by the HDF for the
+driver.</p>
+</p></td></tr><tr id="row423337702093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p562657615093525"><p>HdfDriverEntry</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1719190571093525"><p>Defines the entry structure of the driver in the HDF.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1447587700093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1047158572093525"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1527894755093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row357212175093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p77550075093525"><p>MAX_PRIORITY_NUM 200</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1331139774093525"><p>The maximum priority for loading the host and device.</p>
+</p></td></tr><tr id="row1395294998093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1193279969093525"><p>HDF_INIT(module) HDF_DRIVER_INIT(module)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2050599731093525"><p>Registers the driver with the HDF.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row911755256093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p657482174093525"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1688768041093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row727936250093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1117127727093525"><p>ServicePolicy { SERVICE_POLICY_NONE = 0, SERVICE_POLICY_PUBLIC,
+SERVICE_POLICY_CAPACITY, SERVICE_POLICY_FRIENDLY,
+SERVICE_POLICY_PRIVATE, SERVICE_POLICY_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p85142274093525"><p>Enumerates policies for releasing driver services developed based on the
+HDF.</p>
+</p></td></tr><tr id="row270775501093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p933912710093525"><p>DevicePreload { DEVICE_PRELOAD_ENABLE = 0, DEVICE_PRELOAD_DISABLE,
+DEVICE_PRELOAD_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p932878422093525"><p>Enumerates driver loading policies.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1073209224093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1111635338093525"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p289822128093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row392506183093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p682224968093525"><p>DevSvcManagerClntGetService (const char *svcName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p675847843093525"><p>const struct HdfObject *</p>
+</p><p id="p2138887200093525"><p>Obtains the driver service object based on a driver service name.</p>
+</p></td></tr><tr id="row376270575093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1599891838093525"><p>HdfDeviceGetServiceName (const struct HdfDeviceObject *deviceObject)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p257646452093525"><p>const char *</p>
+</p><p id="p1265963171093525"><p>Obtains the service name of a driver.</p>
+</p></td></tr><tr id="row1835512242093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p838331174093525"><p>HdfDeviceSubscribeService (struct HdfDeviceObject <em>deviceObject, const
+char</em>serviceName, struct SubscriberCallback callback)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p493516961093525"><p>int32_t</p>
+</p><p id="p2015365149093525"><p>Subscribes to a driver service.</p>
+</p></td></tr><tr id="row1705493351093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2073076846093525"><p>HdfDeviceSendEvent (const struct HdfDeviceObject <em>deviceObject, uint32_t
+id, const struct HdfSBuf</em>data)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2061255455093525"><p>int32_t</p>
+</p><p id="p828385689093525"><p>Sends event messages.</p>
+</p></td></tr><tr id="row1452762028093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1508250397093525"><p>HdfDeviceSendEventToClient (const struct HdfDeviceIoClient <em>client,
+uint32_t id, const struct HdfSBuf</em>data)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2081069927093525"><p>int32_t</p>
+</p><p id="p263252430093525"><p>Sends an event message to a specified client object.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/hdf_device_desc-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

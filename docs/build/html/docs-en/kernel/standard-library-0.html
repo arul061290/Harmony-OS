@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Standard Library &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="standard-library">
+<h1>Standard Library<a class="headerlink" href="#standard-library" title="Permalink to this headline">¶</a></h1>
+<p>The OpenHarmony kernel uses the <strong>musl libc</strong> library that supports the
+Portable Operating System Interface (POSIX). You can develop components
+and applications working on the kernel based on the POSIX.</p>
+<div class="section" id="framework">
+<h2>Framework<a class="headerlink" href="#framework" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> POSIX framework</div>
+<div class="line"><img alt="image1" src="../../_images/posix-framework.png" /></div>
+</div>
+<p>When a system invokes an interface, the OpenHarmony kernel is adapted to
+provide the interface’s external features.</p>
+</div>
+<div class="section" id="development-guidelines">
+<h2>Development Guidelines<a class="headerlink" href="#development-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>For details about the APIs supported by the standard library, see the
+API document of the C library, which also covers the differences between
+the standard library and the POSIX standard. You can develop components
+and applications based on the provided APIs.</p>
+</div>
+<div class="section" id="development-example">
+<h2>Development Example<a class="headerlink" href="#development-example" title="Permalink to this headline">¶</a></h2>
+<p>In this example, the main thread creates <strong>THREAD_NUM</strong> child threads.
+Once a child thread is started, it enters the standby state. After the
+main thread successfully wakes up all child threads, they continue to
+execute until the lifecycle ends. The main thread uses the
+<strong>pthread_join</strong> method to wait until all child threads are executed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &lt;pthread.h&gt;</span>
+
+<span class="c1">#ifdef __cplusplus</span>
+<span class="c1">#if __cplusplus</span>
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="p">{</span>
+<span class="c1">#endif /* __cplusplus */</span>
+<span class="c1">#endif /* __cplusplus */</span>
+
+<span class="c1">#define THREAD_NUM 3</span>
+<span class="nb">int</span> <span class="n">g_startNum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">started</span> <span class="n">threads</span> <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">g_wakenNum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">wakeup</span> <span class="n">threads</span> <span class="o">*/</span>
+
+<span class="n">struct</span> <span class="n">testdata</span> <span class="p">{</span>
+    <span class="n">pthread_mutex_t</span> <span class="n">mutex</span><span class="p">;</span>
+    <span class="n">pthread_cond_t</span> <span class="n">cond</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">g_td</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="o">*</span>
+ <span class="o">*</span> <span class="n">Entry</span> <span class="n">function</span> <span class="n">of</span> <span class="n">child</span> <span class="n">threads</span><span class="o">.</span>
+ <span class="o">*/</span>
+<span class="n">static</span> <span class="n">void</span> <span class="o">*</span><span class="n">ChildThreadFunc</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="n">pthread_t</span> <span class="bp">self</span> <span class="o">=</span> <span class="n">pthread_self</span><span class="p">();</span>
+
+    <span class="o">/*</span> <span class="n">Locks</span> <span class="n">a</span> <span class="n">mutex</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR:take mutex lock failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">g_startNum</span> <span class="ow">is</span> <span class="n">increased</span> <span class="n">by</span> <span class="mf">1.</span> <span class="n">The</span> <span class="n">value</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">child</span> <span class="n">threads</span> <span class="n">that</span> <span class="n">have</span> <span class="n">locked</span> <span class="n">a</span> <span class="n">mutex</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">g_startNum</span><span class="o">++</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Wait</span> <span class="k">for</span> <span class="n">the</span> <span class="n">condition</span> <span class="n">variable</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">cond</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: pthread condition wait failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Attempt</span> <span class="n">to</span> <span class="n">lock</span> <span class="n">a</span> <span class="n">mutex</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_mutex_trylock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Exit</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">fails</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: mutex trylock failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">g_wakenNum</span> <span class="ow">is</span> <span class="n">increased</span> <span class="n">by</span> <span class="mf">1.</span> <span class="n">The</span> <span class="n">value</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">child</span> <span class="n">threads</span> <span class="n">that</span> <span class="n">have</span> <span class="n">been</span> <span class="n">woken</span> <span class="n">up</span> <span class="n">by</span> <span class="n">the</span> <span class="n">condition</span> <span class="n">variable</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">g_wakenNum</span><span class="o">++</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Unlock</span> <span class="n">a</span> <span class="n">mutex</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: mutex release failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="n">EXIT</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">static</span> <span class="nb">int</span> <span class="n">testcase</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="n">pthread_t</span> <span class="n">thread</span><span class="p">[</span><span class="n">THREAD_NUM</span><span class="p">];</span>
+
+    <span class="o">/*</span> <span class="n">Initialize</span> <span class="n">a</span> <span class="n">mutex</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: mutex init failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">condition</span> <span class="n">variable</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_cond_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">cond</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: pthread condition init failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Create</span> <span class="n">child</span> <span class="n">threads</span> <span class="ow">in</span> <span class="n">batches</span><span class="o">.</span> <span class="n">The</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">specified</span> <span class="n">by</span> <span class="n">THREAD_NUM</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">THREAD_NUM</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">thread</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">ChildThreadFunc</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: pthread create failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+            <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Wait</span> <span class="n">until</span> <span class="nb">all</span> <span class="n">child</span> <span class="n">threads</span> <span class="n">lock</span> <span class="n">a</span> <span class="n">mutex</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">g_startNum</span> <span class="o">&lt;</span> <span class="n">THREAD_NUM</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">usleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Lock</span> <span class="n">a</span> <span class="n">mutex</span> <span class="ow">and</span> <span class="n">block</span> <span class="nb">all</span> <span class="n">threads</span> <span class="n">using</span> <span class="n">pthread_cond_wait</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: mutex lock failed, error code is </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Unlock</span> <span class="n">a</span> <span class="n">mutex</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: mutex unlock failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">THREAD_NUM</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Broadcast</span> <span class="n">signals</span> <span class="n">on</span> <span class="n">the</span> <span class="n">condition</span> <span class="n">variable</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_cond_signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">cond</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: pthread condition failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+            <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">Check</span> <span class="n">whether</span> <span class="nb">all</span> <span class="n">child</span> <span class="n">threads</span> <span class="n">are</span> <span class="n">woken</span> <span class="n">up</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_wakenNum</span> <span class="o">!=</span> <span class="n">THREAD_NUM</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: not all threads awaken, only </span><span class="si">%d</span><span class="s2"> thread(s) awaken!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">g_wakenNum</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Wait</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">threads</span> <span class="n">to</span> <span class="n">terminate</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">THREAD_NUM</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">thread</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">NULL</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: pthread join failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+            <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Destroy</span> <span class="n">the</span> <span class="n">condition</span> <span class="n">variable</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_cond_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_td</span><span class="o">.</span><span class="n">cond</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: pthread condition destroy failed, error code is </span><span class="si">%d</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">ERROROUT</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">ERROROUT</span><span class="p">:</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span>
+ <span class="o">*</span> <span class="n">Sample</span> <span class="n">code</span> <span class="n">main</span> <span class="n">function</span>
+ <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Start</span> <span class="n">the</span> <span class="n">test</span> <span class="n">function</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">testcase</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: testcase failed!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">#ifdef __cplusplus</span>
+<span class="c1">#if __cplusplus</span>
+<span class="p">}</span>
+<span class="c1">#endif /* __cplusplus */</span>
+<span class="c1">#endif /* __cplusplus */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="faqs">
+<h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h2>
+<p>None</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/kernel/standard-library-0.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

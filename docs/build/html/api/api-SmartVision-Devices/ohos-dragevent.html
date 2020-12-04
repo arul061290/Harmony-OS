@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OHOS::DragEvent &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ohos-dragevent">
+<h1>OHOS::DragEvent<a class="headerlink" href="#ohos-dragevent" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="graphic.md">Graphic</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines a drag event, which indicates a certain movement (more than 10
+pixels) after a view is pressed.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1749356511093535"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1791354777093535"><p>Public Member Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1118526305093535"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row420118413093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p979562917093535"><p>DragEvent (const Point &amp;newPos, const Point &amp;lastPos, const Point
+&amp;totalLen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p472832500093535"></p><p id="p1110172948093535"><p>A constructor used to create a DragEvent instance.</p>
+</p></td></tr><tr id="row2060032513093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p358336541093535"><p>~DragEvent ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p763444014093535"><p>virtual</p>
+</p><p id="p11648280093535"><p>A destructor used to delete the DragEvent instance.</p>
+</p></td></tr><tr id="row703305271093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p97536297093535"><p>GetLastPoint () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p103989620093535"><p>const Point &amp;</p>
+</p><p id="p920257711093535"><p>Obtains the coordinates of the last position in the drag event.</p>
+</p></td></tr><tr id="row1599633837093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1900763694093535"><p>GetStartPoint () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1630901005093535"><p>const Point &amp;</p>
+</p><p id="p507052005093535"><p>Obtains the start coordinates in the drag event.</p>
+</p></td></tr><tr id="row728213705093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p993314566093535"><p>SetPreLastPoint (const Point &amp;preLastPos)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p319866975093535"><p>void</p>
+</p><p id="p1159771053093535"><p>Sets the coordinates of the stay position before the last position in
+the drag event.</p>
+</p></td></tr><tr id="row1559667377093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2102779832093535"><p>GetPreLastPoint () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p590482368093535"><p>const Point &amp;</p>
+</p><p id="p1448883756093535"><p>Obtains the coordinates of the stay position before the last position in
+the drag event.</p>
+</p></td></tr><tr id="row599354748093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p240305858093535"><p>GetDragDirection () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p525103650093535"><p>uint8_t</p>
+</p><p id="p1457964967093535"><p>Obtains the direction in the drag event.</p>
+</p></td></tr><tr id="row1845488858093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1755301367093535"><p>GetDeltaX () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1430399560093535"><p>int16_t</p>
+</p><p id="p172114056093535"><p>Obtains the difference between the current position and the last
+position of the view in the x-axis.</p>
+</p></td></tr><tr id="row191109740093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p420430065093535"><p>GetDeltaY () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p889648627093535"><p>int16_t</p>
+</p><p id="p1797700697093535"><p>Obtains the difference between the current position and the last
+position of the view in the y-axis.</p>
+</p></td></tr><tr id="row1724128163093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p428300760093535"><p>Event ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p908651811093535"></p><p id="p1882226633093535"><p>A default constructor used to create an Event instance.</p>
+</p></td></tr><tr id="row122274591093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p463944550093535"><p>Event (const Point &amp;curPos)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1410213984093535"></p><p id="p1609553664093535"><p>A constructor used to create an Event instance.</p>
+</p></td></tr><tr id="row1351168419093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1174105924093535"><p>~Event ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1883693774093535"><p>virtual</p>
+</p><p id="p1812392750093535"><p>A destructor used to delete the Event instance.</p>
+</p></td></tr><tr id="row475153781093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1630548778093535"><p>GetCurrentPos () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1032244522093535"><p>const Point &amp;</p>
+</p><p id="p242100536093535"><p>Obtains the position where an event occurs.</p>
+</p></td></tr><tr id="row9636156093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p70110628093535"><p>GetTimeStamp () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1364767409093535"><p>const TimeType &amp;</p>
+</p><p id="p2015892218093535"><p>Obtains the timestamp when an event occurs.</p>
+</p></td></tr><tr id="row1543475498093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p11359895093535"><p>SetTimeStamp (const TimeType &amp;timeStamp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1839883773093535"><p>void</p>
+</p><p id="p366250085093535"><p>Sets the timestamp when an event occurs.</p>
+</p></td></tr><tr id="row19153108093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1628612281093535"><p>operator new (size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p909969992093535"><p>void *</p>
+</p><p id="p531446792093535"><p>Overrides the new function.</p>
+</p></td></tr><tr id="row66974360093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p214435319093535"><p>operator delete (void *p)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1143726140093535"><p>void</p>
+</p><p id="p235781896093535"><p>Overrides the delete function.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/ohos-dragevent.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

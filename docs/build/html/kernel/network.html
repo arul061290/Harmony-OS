@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Network &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="network">
+<h1>Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-concepts">
+<h2>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">¶</a></h2>
+<p>The network module implements basic functions of the TCP/IP protocol
+stack and provides the standard POSIX socket interfaces.</p>
+<blockquote>
+<div><p><img alt="image1" src="../_images/icon-note4.gif" /> <strong>NOTE:</strong> Currently, the OS uses <strong>lwIP</strong> to provide network
+capabilities.</p>
+</div></blockquote>
+</div>
+<div class="section" id="when-to-use">
+<h2>When to Use<a class="headerlink" href="#when-to-use" title="Permalink to this headline">¶</a></h2>
+<p>For user-space development, the OpenHarmony kernel provides a set of
+APIs for you to implement network functionalities, including creating
+and disabling sockets, transmitting and receiving data, and setting
+network attributes, in addition to standard POSIX socket functions
+provided by the C library.</p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Standard APIs in the C library</p>
+<table><thead align="left"><tr id="row1494810045717"><th class="cellrowborder" valign="top" width="15.17%" id="mcps1.2.4.1.1"><p id="p294915015578"><p>Header File</p>
+</p></th><th class="cellrowborder" valign="top" width="50.9%" id="mcps1.2.4.1.2"><p id="p17949190205711"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="33.93%" id="mcps1.2.4.1.3"><p id="p894950175712"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row19501105571"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p109504011576"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p99508013571"><p>int accept(int socket, struct sockaddr <em>address,
+socklen_t</em>address_len)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p2095015035719"><p>Accepts incoming connection requests.</p>
+</p></td></tr><tr id="row209508065717"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p136322417199"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p89509014573"><p>int bind(int s, const struct sockaddr *name, socklen_t namelen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p6950903575"><p>Binds an IP address to a socket.</p>
+</p></td></tr><tr id="row99511100571"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p23757247194"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p59529055717"><p>int shutdown(int socket, int how)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p129527012573"><p>Shuts down a socket.</p>
+</p></td></tr><tr id="row49527011574"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p0392172441910"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p29531909577"><p>int getpeername(int s, struct sockaddr <em>name, socklen_t</em>namelen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p119534011576"><p>Retrieves the peer address of the specified socket.</p>
+</p></td></tr><tr id="row139532014576"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p34091724181911"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p616711716015"><p>int getsockname(int s, struct sockaddr <em>name, socklen_t</em>namelen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p181651471103"><p>Retrieves the local address of the specified socket.</p>
+</p></td></tr><tr id="row695520019572"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p1842812441920"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p2016357007"><p>int getsockopt(int s, struct sockaddr <em>name, socklen_t</em>namelen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p1716037404"><p>Retrieves the socket options.</p>
+</p></td></tr><tr id="row79551708579"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p2442224121911"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p6158671601"><p>int setsockopt(int sockfd, int level, int optname, void <em>optval,
+socklen_t</em>optlen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p415510716015"><p>Sets the socket options.</p>
+</p></td></tr><tr id="row595550165713"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p1345422415197"><p>unistd.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p19153371020"><p>int close(int s)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p815119715017"><p>Closes a socket.</p>
+</p></td></tr><tr id="row139566085714"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p114692024121917"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p181481371010"><p>int connect(int s, const struct sockaddr *name, socklen_t namelen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p41455713010"><p>Initiates a connection to a socket.</p>
+</p></td></tr><tr id="row89575035714"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p184811924191919"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p21421376013"><p>int listen(int sockfd, int backlog)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p9139271308"><p>Listens for network connections.</p>
+</p></td></tr><tr id="row69581108574"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p349182412196"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p1813627005"><p>ssize_t recv(int socket, void *buffer, size_t length, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p1113318713018"><p>Receives data from another socket.</p>
+</p></td></tr><tr id="row89591609574"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p55011249191"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p10131976020"><p>ssize_t recvmsg(int s, struct msghdr *message, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p2010837004"><p>Receives data from a specified socket based on the input parameters.</p>
+</p></td></tr><tr id="row8960903574"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p1351310242192"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p310519717015"><p>ssize_t recvfrom(int socket, void <em>buffer, size_t length, int flags,
+struct sockaddr</em>address, socklen_t *address_len)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p11102471608"><p>Receives data from a specified socket and obtains the IP address of the
+data source.</p>
+</p></td></tr><tr id="row16961120195719"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p3525112420198"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p101001872009"><p>ssize_t send(int s, const void *dataptr, size_t size, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p197171402"><p>Sends data to another socket.</p>
+</p></td></tr><tr id="row59620075717"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p165381324121910"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p6941671602"><p>ssize_t sendmsg(int s, const struct msghdr *message, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p13912710013"><p>Sends data to another socket based on the input parameters.</p>
+</p></td></tr><tr id="row296213055716"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p1055242414196"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p588573013"><p>ssize_t sendto(int s, const void <em>dataptr, size_t size, int flags, const
+struct sockaddr</em>to, socklen_t tolen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p108612713014"><p>Sends data to another socket at the specified destination IP address.</p>
+</p></td></tr><tr id="row1896320155718"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p165642024191919"><p>sys/socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p168413711019"><p>int socket(int domain, int type, int protocol)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p1278772017"><p>Creates a socket.</p>
+</p></td></tr><tr id="row49644012571"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p3574152491918"><p>sys/select.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p575471204"><p>int select(int nfds, fd_set <em>readfds, fd_set</em>writefds, fd_set
+<em>exceptfds, struct timeval</em>timeout)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p6721171012"><p>Monitors the I/O events of multiple file descriptors.</p>
+</p></td></tr><tr id="row1965904571"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p1958512413195"><p>sys/ioctl.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p27013715013"><p>int ioctl(int s, int request, …)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p867471405"><p>Obtains and sets socket options.</p>
+</p></td></tr><tr id="row179471552191312"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p4595192471910"><p>arpa/inet.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p189481522130"><p>const char <em>inet_ntop(int af, const void</em>src, char *dst, socklen_t
+size)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p494814527138"><p>Converts an IP address in binary format to a string.</p>
+</p></td></tr><tr id="row189663017574"><td class="cellrowborder" valign="top" width="15.17%" headers="mcps1.2.4.1.1 "><p id="p335556182016"><p>arpa/inet.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50.9%" headers="mcps1.2.4.1.2 "><p id="p46417716014"><p>int inet_pton(int af, const char <em>src, void</em>dst)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.93%" headers="mcps1.2.4.1.3 "><p id="p176112713010"><p>Converts a string to an IP address in binary format.</p>
+</p></td></tr></tbody></table><p>Details on API differences:</p>
+<ul>
+<li><p><strong>sendmsg</strong></p>
+<p><strong>Function prototype:</strong></p>
+<p>ssize_t sendmsg(int s, const struct msghdr *message, int flags)</p>
+<p><strong>Function description:</strong> sends a message on a socket.</p>
+<p><strong>Parameter description:</strong></p>
+<table><thead align="left"><tr id="row13311125313516"><th class="cellrowborder" valign="top" width="19.439999999999998%" id="mcps1.1.3.1.1"><p id="p19311195312510"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="80.56%" id="mcps1.1.3.1.2"><p id="p19311205313512"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1731175316511"><td class="cellrowborder" valign="top" width="19.439999999999998%" headers="mcps1.1.3.1.1 "><p id="p153111753125118"><p>s</p>
+</p></td><td class="cellrowborder" valign="top" width="80.56%" headers="mcps1.1.3.1.2 "><p id="p031165311519"><p>Indicates the socket.</p>
+</p></td></tr><tr id="row15311185317518"><td class="cellrowborder" valign="top" width="19.439999999999998%" headers="mcps1.1.3.1.1 "><p id="p7311115319516"><p>message</p>
+</p></td><td class="cellrowborder" valign="top" width="80.56%" headers="mcps1.1.3.1.2 "><p id="p331125385118"><p>Indicates the pointer to the message to be sent. The ancillary
+message is not supported.</p>
+</p></td></tr><tr id="row63111753195116"><td class="cellrowborder" valign="top" width="19.439999999999998%" headers="mcps1.1.3.1.1 "><p id="p131175318519"><p>flags</p>
+</p></td><td class="cellrowborder" valign="top" width="80.56%" headers="mcps1.1.3.1.2 "><p id="p11799112211525"><p>Indicates the socket flags for sending the message. The options are
+as follows:</p>
+</p><ul id="ul1179912222521"><li><p>MSG_MORE: allows messages that have been sent for multiple times to
+be packaged and sent at a time.</p>
+</li><li><p>MSG_DONTWAIT: enables a non-blocking operation.</p>
+</li></ul></td></tr></tbody></table><p><strong>Return values:</strong></p>
+<ul class="simple">
+<li><p>Returns the number of bytes that have been sent if the operation
+is successful.</p></li>
+<li><p>Returns <strong>-1</strong> and sets <strong>errno</strong> if the operation fails.</p></li>
+</ul>
+</li>
+<li><p><strong>recvmsg</strong></p>
+<p><strong>Function prototype:</strong></p>
+<p>ssize_t recvmsg(int s, struct msghdr *message, int flags)</p>
+<p><strong>Function description:</strong> receives a message from a socket.</p>
+<p><strong>Parameter description:</strong></p>
+<table><thead align="left"><tr id="row15477840185218"><th class="cellrowborder" valign="top" width="21.42%" id="mcps1.1.3.1.1"><p id="p8477104015217"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="78.58000000000001%" id="mcps1.1.3.1.2"><p id="p1447717402527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row3477340125210"><td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.1.3.1.1 "><p id="p154771740155218"><p>s</p>
+</p></td><td class="cellrowborder" valign="top" width="78.58000000000001%" headers="mcps1.1.3.1.2 "><p id="p1347718402522"><p>Indicates the socket.</p>
+</p></td></tr><tr id="row174771405527"><td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.1.3.1.1 "><p id="p54771440185218"><p>message</p>
+</p></td><td class="cellrowborder" valign="top" width="78.58000000000001%" headers="mcps1.1.3.1.2 "><p id="p5477164075215"><p>Indicates the pointer to the address to receive the message. The
+ancillary message is not supported.</p>
+</p></td></tr><tr id="row9477174020529"><td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.1.3.1.1 "><p id="p747715404521"><p>flags</p>
+</p></td><td class="cellrowborder" valign="top" width="78.58000000000001%" headers="mcps1.1.3.1.2 "><p id="p99911829531"><p>Indicates the socket flags for receiving the message. The options are
+as follows:</p>
+</p><ul id="ul1099113216538"><li><p>MSG_PEEK: allows the message to be read without being removed.</p>
+</li><li><p>MSG_DONTWAIT: enables a non-blocking operation.</p>
+</li></ul></td></tr></tbody></table><p><strong>Return values:</strong></p>
+<ul class="simple">
+<li><p>Returns the number of bytes that have been received if the
+operation is successful.</p></li>
+<li><p>Returns <strong>-1</strong> and sets <strong>errno</strong> if the operation fails.</p></li>
+</ul>
+</li>
+<li><p><strong>ioctl</strong></p>
+<p><strong>Function prototype:</strong></p>
+<p>int ioctl(int s, int request, …)</p>
+<p><strong>Function description:</strong> obtains or sets socket options.</p>
+<p><strong>Parameter description:</strong></p>
+<table><thead align="left"><tr id="row16113161795318"><th class="cellrowborder" valign="top" width="15.25%" id="mcps1.1.3.1.1"><p id="p1811381712530"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="84.75%" id="mcps1.1.3.1.2"><p id="p20113161712534"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row18113191735318"><td class="cellrowborder" valign="top" width="15.25%" headers="mcps1.1.3.1.1 "><p id="p9113617165312"><p>s</p>
+</p></td><td class="cellrowborder" valign="top" width="84.75%" headers="mcps1.1.3.1.2 "><p id="p16114317145314"><p>Indicates the socket.</p>
+</p></td></tr><tr id="row5114121719536"><td class="cellrowborder" valign="top" width="15.25%" headers="mcps1.1.3.1.1 "><p id="p17114117185312"><p>request</p>
+</p></td><td class="cellrowborder" valign="top" width="84.75%" headers="mcps1.1.3.1.2 "><p id="p137162040165319"><p>Indicates the operation to perform on the socket options. The options
+are as follows:</p>
+</p><ul id="ul1671694075316"><li><p>FIONREAD: obtains the number of bytes of the data that can be read
+from the socket.</p>
+</li><li><p>FIONBIO: sets whether the socket is non-blocked.</p>
+</li></ul></td></tr></tbody></table><p><strong>Return values:</strong></p>
+<ul class="simple">
+<li><p>Returns <strong>0</strong> if the operation is successful.</p></li>
+<li><p>Returns <strong>-1</strong> and sets <strong>errno</strong> if the operation fails.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/network.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>utils_file.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="utils-file-h">
+<h1>utils_file.h<a class="headerlink" href="#utils-file-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="utils_file.md">Utils_file</a></p>
+<p><strong>Description:</strong></p>
+<p>Performs operations on a file, including to open, close, write, read,
+and delete a file.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1219257688191853"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2040579362191853"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p93821762191853"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row950716010191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1970483557191853"><p>SEEK_SET_FS 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1268847910191853"><p>Defines the offset position used by UtilsFileSeek in a file to start
+offsetting from the file header.</p>
+</p></td></tr><tr id="row1269806913191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1376004564191853"><p>SEEK_CUR_FS 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1838482659191853"><p>Defines the offset position used by UtilsFileSeek in a file to start
+offsetting from the current read and write position.</p>
+</p></td></tr><tr id="row498725706191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1245858313191853"><p>SEEK_END_FS 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1779188189191853"><p>Defines the offset position used by UtilsFileSeek in a file to start
+offsetting from the end of the file.</p>
+</p></td></tr><tr id="row337090717191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p173573375191853"><p>O_RDONLY_FS 00</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1975786500191853"><p>Defines a flag used byUtilsFileOpen to open a file in read-only mode.</p>
+</p></td></tr><tr id="row1297930447191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1245730258191853"><p>O_WRONLY_FS 01</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p964620683191853"><p>Defines a flag used by UtilsFileOpen to open a file in write-only mode.</p>
+</p></td></tr><tr id="row1470904523191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p260387735191853"><p>O_RDWR_FS 02</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1914233536191853"><p>Defines a flag used by UtilsFileOpen to open a file in read-and-write
+mode.</p>
+</p></td></tr><tr id="row62296545191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p623619978191853"><p>O_CREAT_FS 0100</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p132335497191853"><p>Defines a flag used by UtilsFileOpen to create a file when the file to
+open does not exist.</p>
+</p></td></tr><tr id="row568606362191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1270559050191853"><p>O_EXCL_FS 0200</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p783799926191853"><p>Defines a flag used by UtilsFileOpen to check whether the file to open
+exists when O_CREAT_FS is already set.</p>
+</p></td></tr><tr id="row63413120191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1367027965191853"><p>O_TRUNC_FS 01000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p689451984191853"><p>Defines a flag used by UtilsFileOpen to clear the file content if the
+file exists and can be opened in write mode.</p>
+</p></td></tr><tr id="row1053581917191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p317116367191853"><p>O_APPEND_FS 02000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p685908369191853"><p>Defines a flag used by UtilsFileOpen to start reading or writing from
+the end of a file.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1995284782191853"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p35167023191853"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1103513716191853"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1695862099191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p440080723191853"><p>UtilsFileOpen (const char *path, int oflag, int mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2134905171191853"><p>int</p>
+</p><p id="p1789942616191853"><p>Opens or creates a file.</p>
+</p></td></tr><tr id="row123058195191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1616490831191853"><p>UtilsFileClose (int fd)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1415586684191853"><p>int</p>
+</p><p id="p735865114191853"><p>Closes a file with the specified file descriptor.</p>
+</p></td></tr><tr id="row356810246191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p393682040191853"><p>UtilsFileRead (int fd, char *buf, unsigned int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1749644592191853"><p>int</p>
+</p><p id="p199646501191853"><p>Reads a specified length of data from a file with the specified file
+descriptor and writes the data into the buffer.</p>
+</p></td></tr><tr id="row1764903851191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p883783865191853"><p>UtilsFileWrite (int fd, const char *buf, unsigned int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1520861461191853"><p>int</p>
+</p><p id="p756970916191853"><p>Writes a specified length of data into a file with the specified file
+descriptor.</p>
+</p></td></tr><tr id="row1384368021191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p758919604191853"><p>UtilsFileDelete (const char *path)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2037079721191853"><p>int</p>
+</p><p id="p760577581191853"><p>Deletes a specified file.</p>
+</p></td></tr><tr id="row578316618191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p841073960191853"><p>UtilsFileStat (const char <em>path, unsigned int</em>fileSize)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1458992713191853"><p>int</p>
+</p><p id="p2050010395191853"><p>Obtains the file size.</p>
+</p></td></tr><tr id="row1792841426191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2010244016191853"><p>UtilsFileSeek (int fd, int offset, unsigned int whence)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2063236589191853"><p>int</p>
+</p><p id="p1919223718191853"><p>Adjusts the read and write position offset in a file.</p>
+</p></td></tr><tr id="row108302978191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1811289540191853"><p>UtilsFileCopy (const char <em>src, const char</em>dest)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p546726741191853"><p>int</p>
+</p><p id="p462436083191853"><p>Copies the source file to a target file.</p>
+</p></td></tr><tr id="row164448117191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p963757289191853"><p>UtilsFileMove (const char <em>src, const char</em>dest)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p832538994191853"><p>int</p>
+</p><p id="p1842078692191853"><p>Moves the source file into a target file.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-LinkIoT/utils_file-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HiLog &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hilog">
+<h1>HiLog<a class="headerlink" href="#hilog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides logging functions.</p>
+<p>For example, you can use these functions to output logs of the specified
+log type, service domain, log tag, and log level.</p>
+<p><strong>Since:</strong></p>
+<p>1.1</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1597104279084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p360427726084827"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p781327426084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row494168097084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2087081212084827"><p>LOG_DOMAIN 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p432230658084827"><p>Defines the service domain for a log file.</p>
+</p></td></tr><tr id="row1457448999084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p346078490084827"><p>LOG_TAG NULL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p35795194084827"><p>Defines a string constant used to identify the class, file, or service
+behavior.</p>
+</p></td></tr><tr id="row2089815523084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1984128748084827"><p>HILOG_DEBUG(type, …) ((void)HiLogPrint(LOG_CORE, LOG_DEBUG, LOG_DOMAIN,
+LOG_TAG, <strong>VA_ARGS</strong>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p476398349084827"><p>Outputs debug logs. This is a function-like macro.</p>
+</p></td></tr><tr id="row1192149447084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1525739635084827"><p>HILOG_INFO(type, …) ((void)HiLogPrint(LOG_CORE, LOG_INFO, LOG_DOMAIN,
+LOG_TAG, <strong>VA_ARGS</strong>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1124421452084827"><p>Outputs informational logs. This is a function-like macro.</p>
+</p></td></tr><tr id="row1216563751084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1933426784084827"><p>HILOG_WARN(type, …) ((void)HiLogPrint(LOG_CORE, LOG_WARN, LOG_DOMAIN,
+LOG_TAG, <strong>VA_ARGS</strong>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1325637840084827"><p>Outputs warning logs. This is a function-like macro.</p>
+</p></td></tr><tr id="row245554825084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p157471024084827"><p>HILOG_ERROR(type, …) ((void)HiLogPrint(LOG_CORE, LOG_ERROR, LOG_DOMAIN,
+LOG_TAG, <strong>VA_ARGS</strong>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p577267807084827"><p>Outputs error logs. This is a function-like macro.</p>
+</p></td></tr><tr id="row251719571084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1489444690084827"><p>HILOG_FATAL(type, …) ((void)HiLogPrint(LOG_CORE, LOG_FATAL, LOG_DOMAIN,
+LOG_TAG, <strong>VA_ARGS</strong>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p313270110084827"><p>Outputs fatal logs. This is a function-like macro.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row291960135084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p671438605084827"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p205870319084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2019900190084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p112840239084827"><p>HiLogModuleType { HILOG_MODULE_HIVIEW = 0, HILOG_MODULE_SAMGR,
+HILOG_MODULE_ACE, HILOG_MODULE_APP, HILOG_MODULE_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2056166851084827"><p>Enumerates logging module types.</p>
+</p></td></tr><tr id="row42520667084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p212367100084827"><p>LogType</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2053177400084827"><p>Enumerates log types.</p>
+</p></td></tr><tr id="row907974405084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2130828095084827"><p>LogLevel { LOG_DEBUG = 3, LOG_INFO = 4, LOG_WARN = 5, LOG_ERROR = 6,
+LOG_FATAL = 7 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p889425769084827"><p>Enumerates log levels.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1004807576084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p600572699084827"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1685310778084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row746524058084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1468624123084827"><p>HiLogPrint (LogType type, LogLevel level, unsigned int domain, const
+char <em>tag, const char</em>fmt,…) <strong>attribute</strong>((format(os_log</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1715696236084827"><p>int</p>
+</p><p id="p1106796328084827"><p>Outputs logs.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macro-definition-documentation">
+<h2><strong>Macro Definition Documentation</strong><a class="headerlink" href="#macro-definition-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="hilog-debug">
+<h2>HILOG_DEBUG<a class="headerlink" href="#hilog-debug" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HILOG_DEBUG( type,  ... )   ((void)[HiLogPrint](hilog.md#ga4c59c13fccc59c5821b23865fbc6380f)(LOG_CORE, [LOG_DEBUG](hilog.md#ggaca1fd1d8935433e6ba2e3918214e07f9ab9f002c6ffbfd511da8090213227454e), [LOG_DOMAIN](hilog.md#ga95a1d08c807e0aada863b5298a61d08d), [LOG_TAG](hilog.md#ga7ce0df38eb467e59f209470c8f5ac4e6), __VA_ARGS__))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Outputs debug logs. This is a function-like macro.</p>
+<p>Before calling this function, define the log service domain and log tag.
+Generally, you need to define them at the beginning of the source file.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1678536392084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2008776417084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1493622621084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row417851097084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log type. The type for third-party applications is defined
+by LOG_APP.</p>
+</td></tr><tr id="row1266446706084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fmt</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the format string, which is an enhancement of a printf format
+string and supports the privacy identifier. Specifically, {public} or
+{private} is added between the % character and the format specifier in
+each parameter.</p>
+</td></tr><tr id="row875858090084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>…</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates a list of parameters. The number and type of parameters must
+map onto the format specifiers in the format string.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> or a larger value if the operation is successful; returns
+a value smaller than <strong>0</strong> otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="hilog.md#ga4c59c13fccc59c5821b23865fbc6380f">HiLogPrint</a></p>
+</div>
+<div class="section" id="hilog-error">
+<h2>HILOG_ERROR<a class="headerlink" href="#hilog-error" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HILOG_ERROR( type,  ... )   ((void)[HiLogPrint](hilog.md#ga4c59c13fccc59c5821b23865fbc6380f)(LOG_CORE, [LOG_ERROR](hilog.md#ggaca1fd1d8935433e6ba2e3918214e07f9a230506cce5c68c3bac5a821c42ed3473), [LOG_DOMAIN](hilog.md#ga95a1d08c807e0aada863b5298a61d08d), [LOG_TAG](hilog.md#ga7ce0df38eb467e59f209470c8f5ac4e6), __VA_ARGS__))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Outputs error logs. This is a function-like macro.</p>
+<p>Before calling this function, define the log service domain and log tag.
+Generally, you need to define them at the beginning of the source file.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row63496823084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p133184696084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p497802116084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row597599697084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log type. The type for third-party applications is defined
+by LOG_APP.</p>
+</td></tr><tr id="row369424745084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fmt</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the format string, which is an enhancement of a printf format
+string and supports the privacy identifier. Specifically, {public} or
+{private} is added between the % character and the format specifier in
+each parameter.</p>
+</td></tr><tr id="row1729814713084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>…</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates a list of parameters. The number and type of parameters must
+map onto the format specifiers in the format string.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> or a larger value if the operation is successful; returns
+a value smaller than <strong>0</strong> otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="hilog.md#ga4c59c13fccc59c5821b23865fbc6380f">HiLogPrint</a></p>
+</div>
+<div class="section" id="hilog-fatal">
+<h2>HILOG_FATAL<a class="headerlink" href="#hilog-fatal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HILOG_FATAL( type,  ... )   ((void)[HiLogPrint](hilog.md#ga4c59c13fccc59c5821b23865fbc6380f)(LOG_CORE, [LOG_FATAL](hilog.md#ggaca1fd1d8935433e6ba2e3918214e07f9ac630750884d91cb9767ef2200bbb048b), [LOG_DOMAIN](hilog.md#ga95a1d08c807e0aada863b5298a61d08d), [LOG_TAG](hilog.md#ga7ce0df38eb467e59f209470c8f5ac4e6), __VA_ARGS__))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Outputs fatal logs. This is a function-like macro.</p>
+<p>Before calling this function, define the log service domain and log tag.
+Generally, you need to define them at the beginning of the source file.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1501940866084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2132286342084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p431657838084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1613055158084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log type. The type for third-party applications is defined
+by LOG_APP.</p>
+</td></tr><tr id="row926439810084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fmt</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the format string, which is an enhancement of a printf format
+string and supports the privacy identifier. Specifically, {public} or
+{private} is added between the % character and the format specifier in
+each parameter.</p>
+</td></tr><tr id="row858238183084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>…</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates a list of parameters. The number and type of parameters must
+map onto the format specifiers in the format string.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> or a larger value if the operation is successful; returns
+a value smaller than <strong>0</strong> otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="hilog.md#ga4c59c13fccc59c5821b23865fbc6380f">HiLogPrint</a></p>
+</div>
+<div class="section" id="hilog-info">
+<h2>HILOG_INFO<a class="headerlink" href="#hilog-info" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HILOG_INFO( type,  ... )   ((void)[HiLogPrint](hilog.md#ga4c59c13fccc59c5821b23865fbc6380f)(LOG_CORE, [LOG_INFO](hilog.md#ggaca1fd1d8935433e6ba2e3918214e07f9a6e98ff471e3ce6c4ef2d75c37ee51837), [LOG_DOMAIN](hilog.md#ga95a1d08c807e0aada863b5298a61d08d), [LOG_TAG](hilog.md#ga7ce0df38eb467e59f209470c8f5ac4e6), __VA_ARGS__))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Outputs informational logs. This is a function-like macro.</p>
+<p>Before calling this function, define the log service domain and log tag.
+Generally, you need to define them at the beginning of the source file.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row517106689084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p21771485084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1802927426084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2019006136084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log type. The type for third-party applications is defined
+by LOG_APP.</p>
+</td></tr><tr id="row730545452084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fmt</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the format string, which is an enhancement of a printf format
+string and supports the privacy identifier. Specifically, {public} or
+{private} is added between the % character and the format specifier in
+each parameter.</p>
+</td></tr><tr id="row1224188890084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>…</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates a list of parameters. The number and type of parameters must
+map onto the format specifiers in the format string.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> or a larger value if the operation is successful; returns
+a value smaller than <strong>0</strong> otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="hilog.md#ga4c59c13fccc59c5821b23865fbc6380f">HiLogPrint</a></p>
+</div>
+<div class="section" id="hilog-warn">
+<h2>HILOG_WARN<a class="headerlink" href="#hilog-warn" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define HILOG_WARN( type,  ... )   ((void)[HiLogPrint](hilog.md#ga4c59c13fccc59c5821b23865fbc6380f)(LOG_CORE, [LOG_WARN](hilog.md#ggaca1fd1d8935433e6ba2e3918214e07f9ac8041ffa22bc823d4726701cdb13fc13), [LOG_DOMAIN](hilog.md#ga95a1d08c807e0aada863b5298a61d08d), [LOG_TAG](hilog.md#ga7ce0df38eb467e59f209470c8f5ac4e6), __VA_ARGS__))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Outputs warning logs. This is a function-like macro.</p>
+<p>Before calling this function, define the log service domain and log tag.
+Generally, you need to define them at the beginning of the source file.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1820236389084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p417644358084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2031018500084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1949269778084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log type. The type for third-party applications is defined
+by LOG_APP.</p>
+</td></tr><tr id="row406823050084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fmt</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the format string, which is an enhancement of a printf format
+string and supports the privacy identifier. Specifically, {public} or
+{private} is added between the % character and the format specifier in
+each parameter.</p>
+</td></tr><tr id="row71363213084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>…</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates a list of parameters. The number and type of parameters must
+map onto the format specifiers in the format string.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> or a larger value if the operation is successful; returns
+a value smaller than <strong>0</strong> otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="hilog.md#ga4c59c13fccc59c5821b23865fbc6380f">HiLogPrint</a></p>
+</div>
+<div class="section" id="log-domain">
+<h2>LOG_DOMAIN<a class="headerlink" href="#log-domain" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define LOG_DOMAIN   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the service domain for a log file.</p>
+<p>The service domain is used to identify the subsystem and module of a
+service. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFFF.
+If the value is beyond the range, its significant bits are automatically
+truncated. The recommended format is 0xAAABB, where AAA indicates the
+subsystem and BB indicates the module.</p>
+</div>
+<div class="section" id="log-tag">
+<h2>LOG_TAG<a class="headerlink" href="#log-tag" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define LOG_TAG   [NULL](utils.md#ga070d2ce7b6bb7e5c05602aa8c308d0c4)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines a string constant used to identify the class, file, or service
+behavior.</p>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="hilogmoduletype">
+<h2>HiLogModuleType<a class="headerlink" href="#hilogmoduletype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">HiLogModuleType</span><span class="p">](</span><span class="n">hilog</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga125ab0014dcc2b2152e0be2e39e31b9e)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates logging module types.</p>
+<p>The module type must be globally unique. A maximum of 64 module types
+can be defined.</p>
+<table><thead align="left"><tr id="row1219911279084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p442036558084827"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p122844742084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1535133220084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>HILOG_MODULE_HIVIEW</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p280027297084827"><p>DFX</p>
+</p></td></tr><tr id="row2060924800084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>HILOG_MODULE_SAMGR</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p602131848084827"><p>System Ability Manager</p>
+</p></td></tr><tr id="row1065924164084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>HILOG_MODULE_ACE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1568512999084827"><p>Update</p>
+</p></td></tr><tr id="row2091650652084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>HILOG_MODULE_APP</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1121223202084827"><p>Third-party applications</p>
+</p></td></tr><tr id="row1602445119084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>HILOG_MODULE_MAX</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1372799855084827"><p>Maximum number of modules</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="loglevel">
+<h2>LogLevel<a class="headerlink" href="#loglevel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">LogLevel</span><span class="p">](</span><span class="n">hilog</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaca1fd1d8935433e6ba2e3918214e07f9)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates log levels.</p>
+<p>You are advised to select log levels based on their respective usage
+scenarios:</p>
+<table><thead align="left"><tr id="row1139806334084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1832212840084827"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1787015858084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1783454580084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>LOG_DEBUG</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p405042248084827"><p>Debug level to be used by HILOG_DEBUG</p>
+</p></td></tr><tr id="row527818007084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>LOG_INFO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2121325691084827"><p>Informational level to be used by HILOG_INFO</p>
+</p></td></tr><tr id="row1761459427084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>LOG_WARN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p465774437084827"><p>Warning level to be used by HILOG_WARN</p>
+</p></td></tr><tr id="row1700369515084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>LOG_ERROR</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1327730145084827"><p>Error level to be used by HILOG_ERROR</p>
+</p></td></tr><tr id="row440800791084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>LOG_FATAL</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1927959394084827"><p>Fatal level to be used by HILOG_FATAL</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="logtype">
+<h2>LogType<a class="headerlink" href="#logtype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">LogType</span><span class="p">](</span><span class="n">hilog</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaf67907baa897e9fb84df0cb89795b87c)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates log types.</p>
+<p>Currently, <strong>LOG_APP</strong> is available.</p>
+</div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="hilogprint">
+<h2>HiLogPrint()<a class="headerlink" href="#hilogprint" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">HiLogPrint</span> <span class="p">([</span><span class="n">LogType</span><span class="p">](</span><span class="n">hilog</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaf67907baa897e9fb84df0cb89795b87c) type, [LogLevel](hilog.md#gaca1fd1d8935433e6ba2e3918214e07f9) level, unsigned int domain, const char * tag, const char * fmt,  ... )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Outputs logs.</p>
+<p>You can use this function to output logs based on the specified log
+type, log level, service domain, log tag, and variable parameters
+determined by the format specifier and privacy identifier in the printf
+format.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row753631955084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1401461885084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p926523287084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1063972814084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log type. The type for third-party applications is defined
+by LOG_APP.</p>
+</td></tr><tr id="row417439105084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>level</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log level, which can be LOG_DEBUG, LOG_INFO, LOG_WARN,
+LOG_ERROR, and LOG_FATAL.</p>
+</td></tr><tr id="row1294437284084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>domain</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the service domain of logs. Its value is a hexadecimal integer
+ranging from 0x0 to 0xFFFFF. The recommended format is 0xAAABB, where
+AAA indicates the subsystem and BB indicates the module.</p>
+</td></tr><tr id="row394419364084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>tag</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the log tag, which is a string used to identify the class,
+file, or service behavior.</p>
+</td></tr><tr id="row1915564046084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fmt</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the format string, which is an enhancement of a printf format
+string and supports the privacy identifier. Specifically, {public} or
+{private} is added between the % character and the format specifier in
+each parameter.</p>
+</td></tr><tr id="row1555026651084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>…</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates a list of parameters. The number and type of parameters must
+map onto the format specifiers in the format string.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> or a larger value if the operation is successful; returns
+a value smaller than <strong>0</strong> otherwise.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/hilog.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

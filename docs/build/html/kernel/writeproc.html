@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>writeproc &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="writeproc">
+<h1>writeproc<a class="headerlink" href="#writeproc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-function">
+<h2>Command Function<a class="headerlink" href="#command-function" title="Permalink to this headline">¶</a></h2>
+<p>This command is used to write data to a specified proc file system. The
+proc file system supports the input of string parameters. Each file
+needs to implement its own method.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>writeproc &lt;<em>data</em>&gt; &gt;&gt; /proc/&lt;<em>filename</em>&gt;</p>
+</div>
+<div class="section" id="parameter-description">
+<h2>Parameter Description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Parameters</p>
+<table><thead align="left"><tr id="row444mcpsimp"><th class="cellrowborder" valign="top" width="21.000000000000004%" id="mcps1.2.4.1.1"><p id="p446mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="52.970000000000006%" id="mcps1.2.4.1.2"><p id="p448mcpsimp"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="26.030000000000005%" id="mcps1.2.4.1.3"><p id="p450mcpsimp"><p>Value Range</p>
+</p></th></tr></thead><tbody><tr id="row451mcpsimp"><td class="cellrowborder" valign="top" width="21.000000000000004%" headers="mcps1.2.4.1.1 "><p id="p2500105121818"><p>data</p>
+</p></td><td class="cellrowborder" valign="top" width="52.970000000000006%" headers="mcps1.2.4.1.2 "><p id="p1149945111817"><p>Indicates the string to be entered, which ends with a space. If you need
+to enter a space, use &quot;&quot; to enclose the space.</p>
+</p></td><td class="cellrowborder" valign="top" width="26.030000000000005%" headers="mcps1.2.4.1.3 "><p id="p749810571812"><p>N/A</p>
+</p></td></tr><tr id="row155978258237"><td class="cellrowborder" valign="top" width="21.000000000000004%" headers="mcps1.2.4.1.1 "><p id="p195983258238"><p>filename</p>
+</p></td><td class="cellrowborder" valign="top" width="52.970000000000006%" headers="mcps1.2.4.1.2 "><p id="p25985252238"><p>Indicates the proc file to which data is to be passed.</p>
+</p></td><td class="cellrowborder" valign="top" width="26.030000000000005%" headers="mcps1.2.4.1.3 "><p id="p10598425112312"><p>N/A</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The proc file implements its own <strong>write</strong> command. After the
+<strong>writeproc</strong> command is called, the input parameter will be passed to
+the <strong>write</strong> command.</p>
+<blockquote>
+<div><p><img alt="image1" src="../_images/icon-note4.gif" /> <strong>NOTE:</strong> The proc file system does not support multi-thread
+access.</p>
+</div></blockquote>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Enter <strong>writeproc test &gt;&gt; /proc/uptime</strong>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>OHOS # writeproc test &gt;&gt; /proc/uptime</p>
+<p>[INFO]write buf is: test</p>
+<p>test &gt;&gt; /proc/uptime</p>
+<blockquote>
+<div><p><img alt="image2" src="../_images/icon-note4.gif" /> <strong>NOTE:</strong> The uptime proc file temporarily implements the
+<strong>write</strong> command. The <strong>INFO</strong> log is generated by the implemented
+<strong>test</strong> command.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/writeproc.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

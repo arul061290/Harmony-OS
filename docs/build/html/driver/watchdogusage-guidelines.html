@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watchdog Usage Guidelines &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="watchdog-usage-guidelines">
+<h1>Watchdog Usage Guidelines<a class="headerlink" href="#watchdog-usage-guidelines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-use">
+<h2>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="#fig19134125410189">Figure 1</a> illustrates the process of using a
+watchdog.</p>
+<p><strong>Figure 1</strong> Process of using a watchdog</p>
+<p><img alt="image1" src="../_images/en-us_image_0000001054058088.png" /></p>
+</div>
+<div class="section" id="opening-a-watchdog">
+<h2>Opening a Watchdog<a class="headerlink" href="#opening-a-watchdog" title="Permalink to this headline">¶</a></h2>
+<p>Use <strong>WatchdogOpen</strong> to open a watchdog. A system may have multiple
+watchdogs. You can open a specified watchdog by using the ID.</p>
+<p>int32_t WatchdogOpen(int16_t wdtId);</p>
+<p><strong>Table 1</strong> Description of WatchdogOpen</p>
+<table><thead align="left"><tr id="row131371325142819"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p191372254283"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p113819255284"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row813812259282"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p101381625162813"><p>wdtId</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p191381425142813"><p>Watchdog ID.</p>
+</p></td></tr><tr id="row2138202515281"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p141387252287"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p12138192512281"><p>Description</p>
+</p></td></tr><tr id="row9138182519287"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p5138102532814"><p>NULL</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p3138192512815"><p>Failed to open the watchdog.</p>
+</p></td></tr><tr id="row15138192518283"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p1850115512916"><p>struct DevHandle pointer</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p16138122512817"><p>Pointer to the watchdog handle.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">DevHandle</span> <span class="o">*</span><span class="n">handle</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">WatchdogOpen</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="o">/*</span> <span class="n">Open</span> <span class="n">watchdog</span> <span class="mf">0.</span><span class="o">*/</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;WatchdogOpen: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obtaining-the-watchdog-status">
+<h2>Obtaining the Watchdog Status<a class="headerlink" href="#obtaining-the-watchdog-status" title="Permalink to this headline">¶</a></h2>
+<p>int32_t WatchdogGetStatus(struct DevHandle *handle, int32_t *status);</p>
+<p><strong>Table 2</strong> Description of WatchdogGetStatus</p>
+<table><thead align="left"><tr id="row31848013417"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p1415816132411"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p11158111316410"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row3264122711222"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p15264727182211"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p2026452772210"><p>Watchdog handle.</p>
+</p></td></tr><tr id="row928111518418"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p4282955412"><p>status</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p7282752412"><p>Pointer to the watchdog status.</p>
+</p></td></tr><tr id="row17393154515328"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p8158313248"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p161591413741"><p>Description</p>
+</p></td></tr><tr id="row339324593215"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p103191916578"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p1231981611712"><p>The watchdog status is obtained.</p>
+</p></td></tr><tr id="row15393184519323"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p531916166716"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p93191161174"><p>Failed to obtain the watchdog status.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">int32_t</span> <span class="n">status</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Obtain</span> <span class="n">the</span> <span class="n">watchdog</span> <span class="n">status</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">WatchdogGetStatus</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;WatchdogGetStatus: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-timeout-duration">
+<h2>Setting the Timeout Duration<a class="headerlink" href="#setting-the-timeout-duration" title="Permalink to this headline">¶</a></h2>
+<p>int32_t WatchdogSetTimeout(PalHandle *handle, uint32_t seconds);</p>
+<p><strong>Table 3</strong> Description of WatchdogSetTimeout</p>
+<table><thead align="left"><tr id="row1216012212212"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p1416017262215"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p16160182192213"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row199536232314"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p17685481236"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p196852811232"><p>Watchdog handle.</p>
+</p></td></tr><tr id="row141601729228"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p191601126226"><p>seconds</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p5160172182214"><p>Timeout duration, in seconds.</p>
+</p></td></tr><tr id="row18160192172212"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p101601123222"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p17160192182212"><p>Description</p>
+</p></td></tr><tr id="row171600202220"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p121601226224"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p151607218222"><p>The setting is successful.</p>
+</p></td></tr><tr id="row916012252211"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p19160026224"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p816092142210"><p>Setting failed.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint32_t</span> <span class="n">timeOut</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">timeout</span> <span class="n">duration</span><span class="p">,</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">WatchdogSetTimeout</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">timeOut</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;WatchdogSetTimeout: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obtaining-the-timeout-duration">
+<h2>Obtaining the Timeout Duration<a class="headerlink" href="#obtaining-the-timeout-duration" title="Permalink to this headline">¶</a></h2>
+<p>int32_t WatchdogGetTimeout(PalHandle *handle, uint32_t *seconds);</p>
+<p><strong>Table 4</strong> Description of WatchdogGetTimeout</p>
+<table><thead align="left"><tr id="row14147848142313"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p4147124892316"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p12147144817232"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row8147124819230"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p21471248142313"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p12147134815233"><p>Watchdog handle.</p>
+</p></td></tr><tr id="row514754818232"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p1614713484235"><p>seconds</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p71478484238"><p>Pointer to the timeout duration, in seconds.</p>
+</p></td></tr><tr id="row214784814239"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p5147848152314"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p914724811236"><p>Description</p>
+</p></td></tr><tr id="row714744892312"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p1014764832315"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p1314824872310"><p>The timeout duration is obtained.</p>
+</p></td></tr><tr id="row1514884815230"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p10148114822319"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p1314864822311"><p>Failed to obtain the watchdog status.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint32_t</span> <span class="n">timeOut</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Obtain</span> <span class="n">the</span> <span class="n">timeout</span> <span class="n">duration</span><span class="p">,</span> <span class="ow">in</span> <span class="n">seconds</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">WatchdogGetTimeout</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">timeOut</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;WatchdogGetTimeout: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting-a-watchdog">
+<h2>Starting a Watchdog<a class="headerlink" href="#starting-a-watchdog" title="Permalink to this headline">¶</a></h2>
+<p>int32_t WatchdogStart(struct DevHandle *handle);</p>
+<p><strong>Table 5</strong> Description of WatchdogStart</p>
+<table><thead align="left"><tr id="row92915122513"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p5292582517"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p929554258"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row629852250"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p22975122515"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p7290515256"><p>Watchdog handle.</p>
+</p></td></tr><tr id="row183035162514"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p8302511255"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p16307522515"><p>Description</p>
+</p></td></tr><tr id="row12305552510"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p1730175132513"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p630754259"><p>The watchdog is started.</p>
+</p></td></tr><tr id="row4306516252"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p15304502515"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p0301559254"><p>Failed to start the watchdog.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Start</span> <span class="n">the</span> <span class="n">watchdog</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">WatchdogStart</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;WatchdogStart: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="feeding-a-watchdog">
+<h2>Feeding a Watchdog<a class="headerlink" href="#feeding-a-watchdog" title="Permalink to this headline">¶</a></h2>
+<p>int32_t WatchdogFeed(struct DevHandle *handle);</p>
+<p><strong>Table 6</strong> Description of WatchdogFeed</p>
+<table><thead align="left"><tr id="row891133515393"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p1911143513918"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p1191173553917"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row189111635143918"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p189111435173917"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p11911143511397"><p>Watchdog handle.</p>
+</p></td></tr><tr id="row15911835173916"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p7911123516396"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p169118356399"><p>Description</p>
+</p></td></tr><tr id="row189119352393"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p1391113513917"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p149111435143911"><p>The watchdog is fed.</p>
+</p></td></tr><tr id="row5911123520392"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p49111335143920"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p1891216356391"><p>Failed to feed the watchdog.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Feed</span> <span class="n">the</span> <span class="n">watchdog</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">WatchdogFeed</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;WatchdogFeed: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stopping-a-watchdog">
+<h2>Stopping a Watchdog<a class="headerlink" href="#stopping-a-watchdog" title="Permalink to this headline">¶</a></h2>
+<p>int32_t WatchdogStop(struct DevHandle *handle);</p>
+<p><strong>Table 7</strong> Description of WatchdogStop</p>
+<table><thead align="left"><tr id="row28687517259"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p6868185120254"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p15868185114252"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1868165114256"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p6869105115256"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p19869951202513"><p>Watchdog handle.</p>
+</p></td></tr><tr id="row68696510259"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p2869165114256"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p158691551142517"><p>Description</p>
+</p></td></tr><tr id="row9869851192516"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p686916516252"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p7869115192510"><p>The watchdog is stopped.</p>
+</p></td></tr><tr id="row15869951122519"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p486925112518"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p086945172518"><p>Stopping the watchdog failed.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Stop</span> <span class="n">the</span> <span class="n">watchdog</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">WatchdogStop</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;WatchdogStop: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="closing-a-watchdog">
+<h2>Closing a Watchdog<a class="headerlink" href="#closing-a-watchdog" title="Permalink to this headline">¶</a></h2>
+<p>If the watchdog is no longer required, call <strong>WatchdogClose</strong> to close
+the watchdog handle.</p>
+<p>void WatchdogClose(struct DevHandle *handle);</p>
+<p><strong>Table 8</strong> Description of WatchdogClose</p>
+<table><thead align="left"><tr id="row417314182327"><th class="cellrowborder" valign="top" width="44.99%" id="mcps1.2.3.1.1"><p id="p117310184320"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="55.010000000000005%" id="mcps1.2.3.1.2"><p id="p7173191812324"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1617331823211"><td class="cellrowborder" valign="top" width="44.99%" headers="mcps1.2.3.1.1 "><p id="p17173191811326"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="55.010000000000005%" headers="mcps1.2.3.1.2 "><p id="p538814308323"><p>Watchdog handle.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Close</span> <span class="n">the</span> <span class="n">watchdog</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">WatchdogClose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/watchdogusage-guidelines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

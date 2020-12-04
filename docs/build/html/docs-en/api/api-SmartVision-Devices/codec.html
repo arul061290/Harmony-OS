@@ -1,0 +1,1215 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codec &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="codec">
+<h1>Codec<a class="headerlink" href="#codec" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Defines codec-related APIs.</p>
+<p>including custom data types and functions for initializing audio and
+video codecs, setting parameters, and controlling and transferring data.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row931013690084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2131853560084825"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1963581622084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row232372906084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1411745893084825"><p>codec_interface.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1901258628084825"><p>Declares codec-related APIs, including functions for initializing audio
+and video codecs, setting parameters, and controlling and transferring
+data.</p>
+</p></td></tr><tr id="row1451916915084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1478882620084825"><p>codec_type.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1673213240084825"><p>Declares custom data types used in API declarations for the Codec
+module, including the codec types, audio and video parameters, input and
+output data, and callbacks.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row385707180084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1955176103084825"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1493964099084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row806576042084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p784385128084825"><p>Param</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p956872203084825"><p>Describes the dynamic parameter structure, which is mainly used by
+CodecCreate and CodecSetParameter.</p>
+</p></td></tr><tr id="row2102154003084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1460290732084825"><p>BufferHandle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2061371849084825"><p>Defines the buffer handle type. The virtual address of a handle maps to
+its physical address.</p>
+</p></td></tr><tr id="row1039653278084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1747713956084825"><p>CodecBufferInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p368434160084825"><p>Describes buffer information.</p>
+</p></td></tr><tr id="row1456567052084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1768304372084825"><p>InputInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1195054178084825"><p>Describes input information.</p>
+</p></td></tr><tr id="row950671813084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p739482010084825"><p>OutputInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p859755170084825"><p>Describes output information.</p>
+</p></td></tr><tr id="row972012178084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1979264842084825"><p>ResizableArray</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p25554524084825"><p>Defines a variable-length queue.</p>
+</p></td></tr><tr id="row1035501438084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2115529256084825"><p>Alginment</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1882880057084825"><p>Defines the alignment.</p>
+</p></td></tr><tr id="row1621077115084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2116073694084825"><p>Rect</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1880957287084825"><p>Defines a rectangle.</p>
+</p></td></tr><tr id="row1629567070084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2010498248084825"><p>Capbility</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p903621114084825"><p>Defines the codec capability.</p>
+</p></td></tr><tr id="row75922913084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p242282655084825"><p>CodecCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1822155979084825"><p>Defines callbacks and their parameters.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row633771618084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1003431115084825"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1524117745084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row785377014084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p806213532084825"><p>ELEMENT_MAX_LEN 50</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p233185775084825"><p>Indicates the maximum number of reserved parameters in the array.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row406278849084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2038463467084825"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1987396123084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row822233507084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1617339760084825"><p>CODEC_HANDLETYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p433120678084825"><p>typedef void *</p>
+</p><p id="p1387539468084825"><p>Defines the pointer to the codec handle, which is the context
+information for function calls.</p>
+</p></td></tr><tr id="row1155169467084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1435218965084825"><p>ValueType</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2046635579084825"><p>typedef void *</p>
+</p><p id="p731443521084825"><p>Defines the pointer to the type of the dynamic parameter value.</p>
+</p></td></tr><tr id="row1705062934084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1494895603084825"><p>BufferHandle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p824616914084825"><p>typedef struct BufferHandle</p>
+</p><p id="p1335816592084825"><p>Defines the buffer handle type. The virtual address of a handle maps to
+its physical address.</p>
+</p></td></tr><tr id="row710137908084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1402879350084825"><p>BufferType</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p929462260084825"><p>typedef enum BufferType</p>
+</p><p id="p1279167201084825"><p>Enumerates buffer types.</p>
+</p></td></tr><tr id="row542325243084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1207701376084825"><p>OutputInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2125795072084825"><p>typedef struct OutputInfo</p>
+</p><p id="p164144484084825"><p>Describes output information.</p>
+</p></td></tr><tr id="row23770413084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1418747284084825"><p>AllocateBufferMode</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1885165320084825"><p>typedef enum AllocateBufferMode</p>
+</p><p id="p1195042159084825"><p>Enumerates allocation modes of input and output buffers.</p>
+</p></td></tr><tr id="row582231134084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p789236950084825"><p>CapsMask</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p50635516084825"><p>typedef enum CapsMask</p>
+</p><p id="p1918071660084825"><p>Enumerates playback capabilities.</p>
+</p></td></tr><tr id="row2126156125084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1593503427084825"><p>CodecCapbility</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1592299814084825"><p>typedef struct Capbility</p>
+</p><p id="p1582860246084825"><p>Defines the codec capability.</p>
+</p></td></tr><tr id="row452828196084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p668618539084825"><p>UINTPTR</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p71133958084825"><p>typedef uintptr_t</p>
+</p><p id="p146145397084825"><p>Redefines the unsigned pointer type, which is used for pointer
+conversion.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row727300270084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1105118593084825"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1992455849084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1973247310084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1800047081084825"><p>CodecType { VIDEO_DECODER, VIDEO_ENCODER, AUDIO_DECODER, AUDIO_ENCODER,
+INVALID_TYPE }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p205466047084825"><p>Enumerates codec types.</p>
+</p></td></tr><tr id="row282856854084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1244174509084825"><p>ParamKey { KEY_MIMETYPE = 0x01, KEY_BUFFERSIZE, KEY_LEFT_STREAM_FRAMES,
+KEY_CODEC_TYPE, KEY_DIRECTION_TYPE, KEY_BITRATE = 0x500, KEY_WIDTH =
+0x1000, KEY_HEIGHT, KEY_STRIDE, KEY_VIDEO_FIELD, KEY_PIXEL_FORMAT,
+KEY_VIDEO_RC_MODE, KEY_VIDEO_GOP_MODE, KEY_VIDEO_PIC_SIZE,
+KEY_VIDEO_PROFILE, KEY_VIDEO_FRAME_RATE, KEY_SAMPLE_RATE = 0x1500,
+KEY_AUDIO_PROFILE, KEY_CHANNEL_COUNT, KEY_BITWITH, KEY_SOUND_MODE,
+KEY_POINT_NUM_PER_FRAME, KEY_DEVICE_ID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p632406918084825"><p>Enumerates indexes of parameter types.</p>
+</p></td></tr><tr id="row2086535437084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1187132007084825"><p>VenCodeRcMode { VENCOD_RC_CBR = 0, VENCOD_RC_VBR, VENCOD_RC_AVBR,
+VENCOD_RC_QVBR, VENCOD_RC_CVBR, VENCOD_RC_QPMAP, VENCOD_RC_FIXQP }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p642240445084825"><p>Enumerates control modes of the channel encoding rate.</p>
+</p></td></tr><tr id="row1714292970084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1772677282084825"><p>PicSize { Resolution_CIF, Resolution_360P, Resolution_D1_PAL,
+Resolution_D1_NTSC, Resolution_720P, Resolution_1080P,
+Resolution_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1223443556084825"><p>Enumerates resolutions.</p>
+</p></td></tr><tr id="row985778408084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1975664228084825"><p>VenCodeGopMode { VENCOD_GOPMODE_NORMALP = 0, VENCOD_GOPMODE_DUALP = 1,
+VENCOD_GOPMODE_SMARTP = 2, VENCOD_GOPMODE_ADVSMARTP = 3,
+VENCOD_GOPMODE_BIPREDB = 4, VENCOD_GOPMODE_LOWDELAYB = 5,
+VENCOD_GOPMODE_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p927709032084825"><p>Enumerates types of group of pictures (GOP).</p>
+</p></td></tr><tr id="row812972854084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p65869194084825"><p>VideoField { VID_FIELD_TOP = 0x1, VID_FIELD_BOTTOM = 0x2,
+VID_FIELD_INTERLACED = 0x3, VID_FIELD_FRAME = 0x4, VID_FIELD_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p880423289084825"><p>Enumerates video frame fields.</p>
+</p></td></tr><tr id="row1772001772084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p652055962084825"><p>PixelFormat { YVU_SEMIPLANAR_420 = 0, YVU_SEMIPLANAR_420_TILE,
+PIX_FORMAT_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p907609685084825"><p>Enumerates pixel formats.</p>
+</p></td></tr><tr id="row591813974084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1533082319084825"><p>AudioSoundMode { AUD_SOUND_MODE_MONO = 0, AUD_SOUND_MODE_STEREO = 1,
+AUD_SOUND_MODE_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p721190361084825"><p>Enumerates audio channel modes.</p>
+</p></td></tr><tr id="row1101377102084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1863122086084825"><p>AudioSampleRate { AUD_SAMPLE_RATE_8000 = 8000, AUD_SAMPLE_RATE_12000 =
+12000, AUD_SAMPLE_RATE_11025 = 11025, AUD_SAMPLE_RATE_16000 = 16000,
+AUD_SAMPLE_RATE_22050 = 22050, AUD_SAMPLE_RATE_24000 = 24000,
+AUD_SAMPLE_RATE_32000 = 32000, AUD_SAMPLE_RATE_44100 = 44100,
+AUD_SAMPLE_RATE_48000 = 48000, AUD_SAMPLE_RATE_64000 = 64000,
+AUD_SAMPLE_RATE_96000 = 96000, AUD_SAMPLE_RATE_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1410767136084825"><p>Enumerates audio sampling rates.</p>
+</p></td></tr><tr id="row754869616084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1450246180084825"><p>AudioBitRate { AUD_AAC_BPS_8K = 8000, AUD_AAC_BPS_16K = 16000,
+AUD_AAC_BPS_22K = 22000, AUD_AAC_BPS_24K = 24000, AUD_AAC_BPS_32K =
+32000, AUD_AAC_BPS_48K = 48000, AUD_AAC_BPS_64K = 64000, AUD_AAC_BPS_96K
+= 96000, AUD_AAC_BPS_128K = 128000, AUD_AAC_BPS_256K = 256000,
+AUD_AAC_BPS_320K = 320000 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1417246485084825"><p>Enumerates audio bit rates.</p>
+</p></td></tr><tr id="row872409214084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2114769925084825"><p>StreamFlagType { STREAM_FLAG_KEYFRAME = 1,
+STREAM_FLAG_CODEC_SPECIFIC_INF = 2, STREAM_FLAG_EOS = 4,
+STREAM_FLAG_PART_OF_FRAME = 8, STREAM_FLAG_END_OF_FRAME = 16 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1052639450084825"><p>Enumerates stream flags.</p>
+</p></td></tr><tr id="row1922850897084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p793073483084825"><p>BufferType { BUFFER_TYPE_VIRTUAL = 0, BUFFER_TYPE_FD, BUFFER_TYPE_HANDLE
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1475771307084825"><p>Enumerates buffer types.</p>
+</p></td></tr><tr id="row791373551084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2037329082084825"><p>AvCodecMime { MEDIA_MIMETYPE_IMAGE_JPEG = 0, MEDIA_MIMETYPE_VIDEO_AVC,
+MEDIA_MIMETYPE_VIDEO_HEVC, MEDIA_MIMETYPE_AUDIO_AAC,
+MEDIA_MIMETYPE_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p135616550084825"><p>Enumerates MIME types.</p>
+</p></td></tr><tr id="row152160414084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2030807974084825"><p>Profile { INVALID_PROFILE = 0, AAC_LC_PROFILE = 0x1000,
+AAC_MAIN_PROFILE, AAC_HE_V1_PROFILE, AAC_HE_V2_PROFILE, AAC_LD_PROFILE,
+AAC_ELD_PROFILE, AVC_BASELINE_PROFILE = 0x2000, AVC_MAIN_PROFILE,
+AVC_HIGH_PROFILE, HEVC_MAIN_PROFILE = 0x3000, HEVC_MAIN_10_PROFILE }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p673073625084825"><p>Enumerates codec profiles.</p>
+</p></td></tr><tr id="row242015648084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p424980982084825"><p>Level { INVALID_LEVEL = 0, AVC_LEVEL_1 = 0x1000, HEVC_LEVEL_MAIN_1 =
+0x2000, HEVC_LEVEL_MAIN_2 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1324514104084825"><p>Enumerates codec levels.</p>
+</p></td></tr><tr id="row1335129901084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1617710549084825"><p>AllocateBufferMode { ALLOCATE_INPUT_BUFFER_CODEC = 0x1,
+ALLOCATE_INPUT_BUFFER_USER = 0x2, ALLOCATE_OUTPUT_BUFFER_CODEC = 0x4,
+ALLOCATE_OUTPUT_BUFFER_USER = 0x8 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p257026739084825"><p>Enumerates allocation modes of input and output buffers.</p>
+</p></td></tr><tr id="row1588778024084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1195273270084825"><p>CapsMask { ADAPTIVE_PLAYBACK = 0x1, SECURE_PLAYBACK = 0x2 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1395353889084825"><p>Enumerates playback capabilities.</p>
+</p></td></tr><tr id="row1214105481084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p8419219084825"><p>EventType { EventError, EventFlushCompelte, EventStopCompelte,
+EventOutFormatChanged, EventMax = 0x1FFFFFFF }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1671423658084825"><p>Enumerates event types.</p>
+</p></td></tr><tr id="row2036786231084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p543230122084825"><p>DirectionType { INPUT_TYPE, OUTPUT_TYPE, ALL_TYPE }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p173869113084825"><p>Enumerates input and output types.</p>
+</p></td></tr><tr id="row1677779007084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1411241237084825"><p>BufferMode { INTERNAL, EXTERNAL }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p991783187084825"><p>Enumerates allocation types.</p>
+</p></td></tr><tr id="row735889262084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1356864074084825"><p>{ CODEC_ERR_STREAM_BUF_FULL = 100, CODEC_ERR_FRAME_BUF_EMPTY,
+CODEC_RECEIVE_EOS, CODEC_ERR_INVALID_OP }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p112850911084825"><p>Enumerates codec error types.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row735381581084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p675116051084825"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1471115424084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row808720248084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p8536025084825"><p>CodecInit ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p881610208084825"><p>int32_t</p>
+</p><p id="p879240661084825"><p>Initializes the internal audio and video submodules of the codec.</p>
+</p></td></tr><tr id="row2134246526084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1894269238084825"><p>CodecDeinit ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p549072631084825"><p>int32_t</p>
+</p><p id="p1483140872084825"><p>Deinitializes the internal audio and video submodules of the codec.</p>
+</p></td></tr><tr id="row593920580084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p250701233084825"><p>CodecEnumerateCapbility (uint32_t index, CodecCapbility *cap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1538626264084825"><p>int32_t</p>
+</p><p id="p431378113084825"><p>Obtains the capabilities of a specified media type based on an index.</p>
+</p></td></tr><tr id="row50243688084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p335863823084825"><p>CodecGetCapbility (AvCodecMime mime, CodecType type, uint32_t flags,
+CodecCapbility *cap)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1678024178084825"><p>int32_t</p>
+</p><p id="p686644790084825"><p>Obtains the capabilities of a specified media type.</p>
+</p></td></tr><tr id="row1550062079084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1949185423084825"><p>CodecCreate (const char <em>name, const Param</em>attr, int len,
+CODEC_HANDLETYPE *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2086818545084825"><p>int32_t</p>
+</p><p id="p157882726084825"><p>Creates a specific codec component and returns the component context
+through a handle.</p>
+</p></td></tr><tr id="row1240223260084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p402985881084825"><p>CodecDestroy (CODEC_HANDLETYPE handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p444415920084825"><p>int32_t</p>
+</p><p id="p235999774084825"><p>Destroys a codec component.</p>
+</p></td></tr><tr id="row98085139084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p285289782084825"><p>CodecSetPortMode (CODEC_HANDLETYPE handle, DirectionType type,
+BufferMode mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2134406707084825"><p>int32_t</p>
+</p><p id="p1045563105084825"><p>Sets the input or output buffer mode.</p>
+</p></td></tr><tr id="row308345671084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1796874869084825"><p>CodecSetParameter (CODEC_HANDLETYPE handle, const Param *params, int
+paramCnt)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p234480367084825"><p>int32_t</p>
+</p><p id="p655663887084825"><p>Sets parameters required by a codec component.</p>
+</p></td></tr><tr id="row1673580638084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1505906453084825"><p>CodecGetParameter (CODEC_HANDLETYPE handle, Param *params, int
+paramCnt)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1946506095084825"><p>int32_t</p>
+</p><p id="p345258983084825"><p>Obtains parameters from a codec component.</p>
+</p></td></tr><tr id="row1835052957084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p796230034084825"><p>CodecStart (CODEC_HANDLETYPE handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p699466772084825"><p>int32_t</p>
+</p><p id="p2060212103084825"><p>Starts a codec component.</p>
+</p></td></tr><tr id="row1387072533084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1431348343084825"><p>CodecStop (CODEC_HANDLETYPE handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1728487306084825"><p>int32_t</p>
+</p><p id="p815804141084825"><p>Stops a codec component.</p>
+</p></td></tr><tr id="row992939075084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1844650421084825"><p>CodecFlush (CODEC_HANDLETYPE handle, DirectionType directType)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2024973804084825"><p>int32_t</p>
+</p><p id="p1870204130084825"><p>Clears the cache when the codec component is the running state.</p>
+</p></td></tr><tr id="row350278506084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p750669691084825"><p>CodecQueueInput (CODEC_HANDLETYPE handle, const InputInfo *inputData,
+uint32_t timeoutMs)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1876284945084825"><p>int32_t</p>
+</p><p id="p1670575027084825"><p>Queues input data.</p>
+</p></td></tr><tr id="row936542099084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p345775572084825"><p>CodecDequeInput (CODEC_HANDLETYPE handle, uint32_t timeoutMs, InputInfo
+*inputData)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1558651954084825"><p>int32_t</p>
+</p><p id="p302088596084825"><p>Dequeues input data that has been used.</p>
+</p></td></tr><tr id="row1275990819084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p536001415084825"><p>CodecQueueOutput (CODEC_HANDLETYPE handle, OutputInfo *outInfo,
+uint32_t timeoutMs, int releaseFenceFd)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1599284982084825"><p>int32_t</p>
+</p><p id="p927826917084825"><p>Queues output data.</p>
+</p></td></tr><tr id="row200259352084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1029505027084825"><p>CodecDequeueOutput (CODEC_HANDLETYPE handle, uint32_t timeoutMs, int
+<em>acquireFd, OutputInfo</em>outInfo)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p271461663084825"><p>int32_t</p>
+</p><p id="p804939849084825"><p>Dequeues output data.</p>
+</p></td></tr><tr id="row616284644084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1751143957084825"><p>CodecSetCallback (CODEC_HANDLETYPE handle, const CodecCallback *cb,
+UINTPTR instance)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p546794689084825"><p>int32_t</p>
+</p><p id="p1749795797084825"><p>Sets the callback function.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="anonymous-enum">
+<h2>anonymous enum<a class="headerlink" href="#anonymous-enum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anonymous</span> <span class="n">enum</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates codec error types.</p>
+<table><thead align="left"><tr id="row327443372084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p179775494084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p255849094084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1082572682084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry819846878084825p0"><p>CODEC_ERR_STREAM_BUF_FULL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p245342642084825"><p>Elementary stream buffer queue is full.</p>
+</p><p id="p135902149155"></p></td></tr><tr id="row1590505081084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry757892643084825p0"><p>CODEC_ERR_FRAME_BUF_EMPTY</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2007217813084825"><p>Frame buffer queue is empty.</p>
+</p><p id="p13590161417156"></p></td></tr><tr id="row688211139084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1131956328084825p0"><p>CODEC_RECEIVE_EOS</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1218037147084825"><p>End of streams</p>
+</p><p id="p059091418155"></p></td></tr><tr id="row823846759084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry933841346084825p0"><p>CODEC_ERR_INVALID_OP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p343155531084825"><p>Invalid operation</p>
+</p><p id="p1659041421520"></p></td></tr></tbody></table></div>
+<div class="section" id="allocatebuffermode">
+<h2>AllocateBufferMode<a class="headerlink" href="#allocatebuffermode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AllocateBufferMode</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaeae808d52153b2e33c6815162bbd11e0)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates allocation modes of input and output buffers.</p>
+<table><thead align="left"><tr id="row1871440056084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p946272779084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1555113777084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row344281322084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1104700900084825p0"><p>ALLOCATE_INPUT_BUFFER_CODEC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1619610869084825"><p>Input buffer allocated within the Codec module</p>
+</p><p id="p859641431512"></p></td></tr><tr id="row2114911947084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1414200091084825p0"><p>ALLOCATE_INPUT_BUFFER_USER</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p5438702084825"><p>Input buffer allocated by an external user</p>
+</p><p id="p13596314171518"></p></td></tr><tr id="row836504789084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry645800844084825p0"><p>ALLOCATE_OUTPUT_BUFFER_CODEC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1521606275084825"><p>Output buffer allocated within the Codec module</p>
+</p><p id="p1159661415151"></p></td></tr><tr id="row1330558922084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry459222374084825p0"><p>ALLOCATE_OUTPUT_BUFFER_USER</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1190376983084825"><p>Output buffer allocated by an external user</p>
+</p><p id="p25961014121517"></p></td></tr></tbody></table></div>
+<div class="section" id="audiobitrate">
+<h2>AudioBitRate<a class="headerlink" href="#audiobitrate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioBitRate</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#gac8cc627a9912e6a338396a6f19bbba5d)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates audio bit rates.</p>
+<table><thead align="left"><tr id="row1361795940084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1007629460084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p551523172084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row853757827084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1861987848084825p0"><p>AUD_AAC_BPS_8K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1868302489084825"><p>8 kbit/s</p>
+</p><p id="p66001214111514"></p></td></tr><tr id="row1940620436084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2084328120084825p0"><p>AUD_AAC_BPS_16K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1486350351084825"><p>16 kbit/s</p>
+</p><p id="p1160031416156"></p></td></tr><tr id="row479815560084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2074686340084825p0"><p>AUD_AAC_BPS_22K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2088321943084825"><p>22 kbit/s</p>
+</p><p id="p1260021431510"></p></td></tr><tr id="row1744364639084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1361802956084825p0"><p>AUD_AAC_BPS_24K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1104801004084825"><p>24 kbit/s</p>
+</p><p id="p96003145158"></p></td></tr><tr id="row2117078763084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1879061325084825p0"><p>AUD_AAC_BPS_32K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p983437982084825"><p>32 kbit/s</p>
+</p><p id="p56007147154"></p></td></tr><tr id="row973181921084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1883335901084825p0"><p>AUD_AAC_BPS_48K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1835589899084825"><p>48 kbit/s</p>
+</p><p id="p360081414155"></p></td></tr><tr id="row1835658936084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1201879719084825p0"><p>AUD_AAC_BPS_64K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1885489845084825"><p>64 kbit/s</p>
+</p><p id="p76009144153"></p></td></tr><tr id="row135933632084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1792010900084825p0"><p>AUD_AAC_BPS_96K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2147384432084825"><p>96 kbit/s</p>
+</p><p id="p060061461514"></p></td></tr><tr id="row1823953190084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1613151548084825p0"><p>AUD_AAC_BPS_128K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p711818533084825"><p>128 kbit/s</p>
+</p><p id="p860001411518"></p></td></tr><tr id="row354062632084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1423921915084825p0"><p>AUD_AAC_BPS_256K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p64179345084825"><p>256 kbit/s</p>
+</p><p id="p18600141451515"></p></td></tr><tr id="row691113962084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry815786393084825p0"><p>AUD_AAC_BPS_320K</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p740759212084825"><p>320 kbit/s</p>
+</p><p id="p2060001411153"></p></td></tr></tbody></table></div>
+<div class="section" id="audiosamplerate">
+<h2>AudioSampleRate<a class="headerlink" href="#audiosamplerate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioSampleRate</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa0280074adafe6d2581d31f71512b842)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates audio sampling rates.</p>
+<table><thead align="left"><tr id="row108801228084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p62049588084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p8639499084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row402974449084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry112806518084825p0"><p>AUD_SAMPLE_RATE_8000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1860230265084825"><p>8 KHz</p>
+</p><p id="p960931417157"></p></td></tr><tr id="row148832421084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1622415059084825p0"><p>AUD_SAMPLE_RATE_12000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p550267174084825"><p>12 KHz</p>
+</p><p id="p11609171413151"></p></td></tr><tr id="row1832215132084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry779334533084825p0"><p>AUD_SAMPLE_RATE_11025</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p887354951084825"><p>11.025 KHz</p>
+</p><p id="p560931414155"></p></td></tr><tr id="row1979805813084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1568403772084825p0"><p>AUD_SAMPLE_RATE_16000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p878085285084825"><p>16 KHz</p>
+</p><p id="p9609114161510"></p></td></tr><tr id="row407653513084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry406818953084825p0"><p>AUD_SAMPLE_RATE_22050</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2036507236084825"><p>22.050 KHz</p>
+</p><p id="p260911431519"></p></td></tr><tr id="row1050666201084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1384251628084825p0"><p>AUD_SAMPLE_RATE_24000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1229207187084825"><p>24 KHz</p>
+</p><p id="p1260991419153"></p></td></tr><tr id="row373596996084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2120019889084825p0"><p>AUD_SAMPLE_RATE_32000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p790954681084825"><p>32 KHz</p>
+</p><p id="p1960931411155"></p></td></tr><tr id="row1981976942084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1897231833084825p0"><p>AUD_SAMPLE_RATE_44100</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p833393859084825"><p>44.1 KHz</p>
+</p><p id="p1260941414153"></p></td></tr><tr id="row1260445510084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry520044653084825p0"><p>AUD_SAMPLE_RATE_48000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1597774182084825"><p>48 KHz</p>
+</p><p id="p16091714101510"></p></td></tr><tr id="row1434182360084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1781741112084825p0"><p>AUD_SAMPLE_RATE_64000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1719542457084825"><p>64 KHz</p>
+</p><p id="p86091814161516"></p></td></tr><tr id="row1698890021084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1925156062084825p0"><p>AUD_SAMPLE_RATE_96000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1398526396084825"><p>96 KHz</p>
+</p><p id="p560981431510"></p></td></tr><tr id="row357724845084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry411670410084825p0"><p>AUD_SAMPLE_RATE_INVALID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p67299404084825"><p>Invalid sampling rate</p>
+</p><p id="p9609141415156"></p></td></tr></tbody></table></div>
+<div class="section" id="audiosoundmode">
+<h2>AudioSoundMode<a class="headerlink" href="#audiosoundmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioSoundMode</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#gacecb40e35c431a27385f7b439fc7a76c)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates audio channel modes.</p>
+<table><thead align="left"><tr id="row321759144084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p871320715084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1983005398084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row916939266084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1382527730084825p0"><p>AUD_SOUND_MODE_MONO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p897943873084825"><p>Mono channel</p>
+</p><p id="p1161917144151"></p></td></tr><tr id="row380521822084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry267915595084825p0"><p>AUD_SOUND_MODE_STEREO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p941014567084825"><p>Stereo mode</p>
+</p><p id="p13619141419150"></p></td></tr><tr id="row2124052993084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1945113715084825p0"><p>AUD_SOUND_MODE_INVALID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1254170621084825"><p>Invalid mode</p>
+</p><p id="p156191814161515"></p></td></tr></tbody></table></div>
+<div class="section" id="avcodecmime">
+<h2>AvCodecMime<a class="headerlink" href="#avcodecmime" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AvCodecMime</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga1bee586eafa91dfb60f94ba40fc95faa)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates MIME types.</p>
+<table><thead align="left"><tr id="row1307259854084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p350541657084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p357649224084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row983394740084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry621379236084825p0"><p>MEDIA_MIMETYPE_IMAGE_JPEG</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1392981897084825"><p>JPEG image</p>
+</p><p id="p3623161420159"></p></td></tr><tr id="row285865484084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2069373147084825p0"><p>MEDIA_MIMETYPE_VIDEO_AVC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1036417206084825"><p>H.264 video</p>
+</p><p id="p562361416154"></p></td></tr><tr id="row107225279084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry141159181084825p0"><p>MEDIA_MIMETYPE_VIDEO_HEVC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p831373645084825"><p>H.265 video</p>
+</p><p id="p16623131431515"></p></td></tr><tr id="row1623509828084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1058863544084825p0"><p>MEDIA_MIMETYPE_AUDIO_AAC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p494699263084825"><p>AAC audio</p>
+</p><p id="p156232140158"></p></td></tr><tr id="row1550791408084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry637348088084825p0"><p>MEDIA_MIMETYPE_INVALID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1442720542084825"><p>Invalid MIME type</p>
+</p><p id="p17623111401519"></p></td></tr></tbody></table></div>
+<div class="section" id="buffermode">
+<h2>BufferMode<a class="headerlink" href="#buffermode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">BufferMode</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#gacc0fd55192fd9f663121b037b06f41e8)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates allocation types.</p>
+<table><thead align="left"><tr id="row160543977084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1796567435084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1258870989084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row423333749084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry343470639084825p0"><p>INTERNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1322642101084825"><p>Internal</p>
+</p><p id="p16628514201511"></p></td></tr><tr id="row1034237233084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1556406386084825p0"><p>EXTERNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p765662723084825"><p>External</p>
+</p><p id="p262931461516"></p></td></tr></tbody></table></div>
+<div class="section" id="buffertype">
+<h2>BufferType<a class="headerlink" href="#buffertype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">BufferType</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#gadf8e136713c0691010d2bec6ba63e9cf)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates buffer types.</p>
+<table><thead align="left"><tr id="row196051890084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p401735413084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p845521738084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1892229509084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1865003813084825p0"><p>BUFFER_TYPE_VIRTUAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1325889023084825"><p>Virtual memory</p>
+</p><p id="p106321614171519"></p></td></tr><tr id="row1534603158084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry790892939084825p0"><p>BUFFER_TYPE_FD</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1354113490084825"><p>File descriptor, which can be used cross processes</p>
+</p><p id="p5632181461519"></p></td></tr><tr id="row1775247341084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry134810548084825p0"><p>BUFFER_TYPE_HANDLE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p212667123084825"><p>Handle, which can be used cross processes</p>
+</p><p id="p963241471515"></p></td></tr></tbody></table></div>
+<div class="section" id="capsmask">
+<h2>CapsMask<a class="headerlink" href="#capsmask" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">CapsMask</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#gae5751aa8514dcaf2217df12db5ef57a1)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates playback capabilities.</p>
+<table><thead align="left"><tr id="row1341222212084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1830187420084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p625393792084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1102820964084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1391082515084825p0"><p>ADAPTIVE_PLAYBACK</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2127759984084825"><p>Adaptive playback</p>
+</p><p id="p196351114141512"></p></td></tr><tr id="row471543167084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2055021574084825p0"><p>SECURE_PLAYBACK</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p615313754084825"><p>Secure playback</p>
+</p><p id="p19635131431518"></p></td></tr></tbody></table></div>
+<div class="section" id="codectype">
+<h2>CodecType<a class="headerlink" href="#codectype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">CodecType</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga03b4b6ae5fb82af68d46aaea3d3e4d79)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates codec types.</p>
+<table><thead align="left"><tr id="row2029202752084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1306955038084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p990298539084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1725941759084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1809406230084825p0"><p>VIDEO_DECODER</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p559301971084825"><p>Video decoding</p>
+</p><p id="p12639314171519"></p></td></tr><tr id="row744900828084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1057615070084825p0"><p>VIDEO_ENCODER</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1230828192084825"><p>Video encoding</p>
+</p><p id="p1763914145152"></p></td></tr><tr id="row2121829927084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1352641210084825p0"><p>AUDIO_DECODER</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p756803990084825"><p>Audio decoding</p>
+</p><p id="p19639101461511"></p></td></tr><tr id="row1376965400084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry540526485084825p0"><p>AUDIO_ENCODER</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p238598249084825"><p>Audio encoding</p>
+</p><p id="p9639914151512"></p></td></tr><tr id="row1217702030084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry61123077084825p0"><p>INVALID_TYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p677646055084825"><p>Invalid type</p>
+</p><p id="p106395148155"></p></td></tr></tbody></table></div>
+<div class="section" id="directiontype">
+<h2>DirectionType<a class="headerlink" href="#directiontype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">DirectionType</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga8ef30fa9c08e08c8706653571f9f5b81)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates input and output types.</p>
+<table><thead align="left"><tr id="row305724406084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p77554346084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p560150861084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row507643508084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry643038624084825p0"><p>INPUT_TYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1377153475084825"><p>Input</p>
+</p><p id="p2064441418151"></p></td></tr><tr id="row1793535718084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry360911312084825p0"><p>OUTPUT_TYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1745966376084825"><p>Output</p>
+</p><p id="p186447141151"></p></td></tr><tr id="row56973028084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1631583157084825p0"><p>ALL_TYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p994509106084825"><p>Input and output</p>
+</p><p id="p17644121441519"></p></td></tr></tbody></table></div>
+<div class="section" id="eventtype">
+<h2>EventType<a class="headerlink" href="#eventtype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">EventType</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga2628ea8d12e8b2563c32f05dc7fff6fa)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates event types.</p>
+<table><thead align="left"><tr id="row1248151793084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p182062505084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1397830817084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2126629401084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry619650396084825p0"><p>EventError</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1578105777084825"><p>Event error</p>
+</p><p id="p176481514181516"></p></td></tr><tr id="row8874555084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry561306601084825p0"><p>EventFlushCompelte</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p474771922084825"><p>Buffer flush completed</p>
+</p><p id="p4648101410151"></p></td></tr><tr id="row661178453084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1490415499084825p0"><p>EventStopCompelte</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p938478273084825"><p>Codec stopped</p>
+</p><p id="p1264841417159"></p></td></tr><tr id="row1203753734084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1882095410084825p0"><p>EventOutFormatChanged</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p149324602084825"><p>Output format changed</p>
+</p><p id="p06484141154"></p></td></tr><tr id="row2133321335084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1139037690084825p0"><p>EventMax</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1397345572084825"><p>Maximum event value</p>
+</p><p id="p8648201414155"></p></td></tr></tbody></table></div>
+<div class="section" id="level">
+<h2>Level<a class="headerlink" href="#level" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">Level</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga221b779e6bb7b8d40677d7642bfefac5)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates codec levels.</p>
+<table><thead align="left"><tr id="row587311648084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1155074175084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1814215367084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row963651770084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1090345425084825p0"><p>INVALID_LEVEL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1477452862084825"><p>Invalid level</p>
+</p><p id="p665310142153"></p></td></tr><tr id="row28328394084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1482208278084825p0"><p>AVC_LEVEL_1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1086602524084825"><p>H.264 level 1</p>
+</p><p id="p065371471514"></p></td></tr><tr id="row1148325668084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry633333355084825p0"><p>HEVC_LEVEL_MAIN_1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p921390325084825"><p>H.265 Main level 1</p>
+</p><p id="p8653514101514"></p></td></tr><tr id="row1004248135084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1471931181084825p0"><p>HEVC_LEVEL_MAIN_2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2070423968084825"><p>H.265 Main level 2</p>
+</p><p id="p66531148152"></p></td></tr></tbody></table></div>
+<div class="section" id="paramkey">
+<h2>ParamKey<a class="headerlink" href="#paramkey" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">ParamKey</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga575c56a2d6b42c48881cf47b0008d5a6)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates indexes of parameter types.</p>
+<table><thead align="left"><tr id="row702837612084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p908075634084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p313903828084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row77534017084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry952146540084825p0"><p>KEY_MIMETYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p929470092084825"><p>MIME type. For the value type, see AvCodecMime.</p>
+</p><p id="p136571214191511"></p></td></tr><tr id="row1416693388084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2096793018084825p0"><p>KEY_BUFFERSIZE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2094183091084825"><p>Buffer size. The value type is uint32_t.</p>
+</p><p id="p15657614131517"></p></td></tr><tr id="row1912557773084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry416359275084825p0"><p>KEY_LEFT_STREAM_FRAMES</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1143954037084825"><p>Number of frames in the remaining data streams. The value type is
+uint32_t.</p>
+</p><p id="p16657314131510"></p></td></tr><tr id="row1997795411084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1230102582084825p0"><p>KEY_CODEC_TYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p403232358084825"><p>Codec type. For the value type, see CodecType.</p>
+</p><p id="p76571714111519"></p></td></tr><tr id="row730750455084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry339163655084825p0"><p>KEY_DIRECTION_TYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1241452043084825"><p>Input/Output type. For the value type, see DirectionType.</p>
+</p><p id="p165741481514"></p></td></tr><tr id="row776103087084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry364663858084825p0"><p>KEY_BITRATE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1906475392084825"><p>Bit rate. The value type is uint32_t.</p>
+</p><p id="p36572148150"></p></td></tr><tr id="row332410525084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1989874662084825p0"><p>KEY_WIDTH</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1060714560084825"><p>Width. The value type is uint32_t.</p>
+</p><p id="p46571414141511"></p></td></tr><tr id="row1207276542084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry838359160084825p0"><p>KEY_HEIGHT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p246706388084825"><p>Hight. The value type is uint32_t.</p>
+</p><p id="p1365810145159"></p></td></tr><tr id="row1346325681084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2107679922084825p0"><p>KEY_STRIDE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p224463649084825"><p>Stride. The value type is uint32_t.</p>
+</p><p id="p12658141411517"></p></td></tr><tr id="row1269600197084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1318170002084825p0"><p>KEY_VIDEO_FIELD</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1839736691084825"><p>Video field. For the value type, see VideoField.</p>
+</p><p id="p1165813145156"></p></td></tr><tr id="row1723100650084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1301578964084825p0"><p>KEY_PIXEL_FORMAT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p556282266084825"><p>Pixel format. For the value type, see PixelFormat.</p>
+</p><p id="p3658201416152"></p></td></tr><tr id="row1555374851084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1441824276084825p0"><p>KEY_VIDEO_RC_MODE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p967027927084825"><p>Rate control mode. For the value type, see VenCodeRcMode.</p>
+</p><p id="p1465861481515"></p></td></tr><tr id="row985649317084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1007816148084825p0"><p>KEY_VIDEO_GOP_MODE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p730341524084825"><p>GOP mode. For the value type, see VenCodeGopMode.</p>
+</p><p id="p10658131441510"></p></td></tr><tr id="row1755791142084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry212145098084825p0"><p>KEY_VIDEO_PIC_SIZE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p945758899084825"><p>Image resolution. For the value type, see PicSize.</p>
+</p><p id="p665881471518"></p></td></tr><tr id="row2079755077084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2063050832084825p0"><p>KEY_VIDEO_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1986167883084825"><p>Codec profile. The value type is uint32_t.</p>
+</p><p id="p116581914161518"></p></td></tr><tr id="row1879750511084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry313013753084825p0"><p>KEY_VIDEO_FRAME_RATE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1682444034084825"><p>Frame rate. The value type is uint32_t.</p>
+</p><p id="p1965831491519"></p></td></tr><tr id="row1067419154084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry453754620084825p0"><p>KEY_SAMPLE_RATE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2052799074084825"><p>Sampling rate. The value type is uint32_t.</p>
+</p><p id="p1665801416152"></p></td></tr><tr id="row1046750259084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry491749815084825p0"><p>KEY_AUDIO_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1079059590084825"><p>Audio encoding profile. The value type is uint32_t.</p>
+</p><p id="p3658131441520"></p></td></tr><tr id="row690886644084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1611817795084825p0"><p>KEY_CHANNEL_COUNT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1932839278084825"><p>Number of channels. The value type is uint32_t.</p>
+</p><p id="p1665831411518"></p></td></tr><tr id="row1798772045084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1042145020084825p0"><p>KEY_BITWITH</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p45389622084825"><p>Bit width. For the value type, see AudioBitWidth.</p>
+</p><p id="p7658914151515"></p></td></tr><tr id="row445647522084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry606660199084825p0"><p>KEY_SOUND_MODE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p846204776084825"><p>Audio channel mode. For the value type, see AudioSoundMode.</p>
+</p><p id="p11658161481515"></p></td></tr><tr id="row1249527516084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry351174094084825p0"><p>KEY_POINT_NUM_PER_FRAME</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1106710096084825"><p>Number of sampling points per frame. The value type is uint32_t.</p>
+</p><p id="p7658151418151"></p></td></tr><tr id="row436668101084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1677397595084825p0"><p>KEY_DEVICE_ID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p884445655084825"><p>Device ID. The value type is uint32_t.</p>
+</p><p id="p156581414111517"></p></td></tr></tbody></table></div>
+<div class="section" id="picsize">
+<h2>PicSize<a class="headerlink" href="#picsize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">PicSize</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga94981b885085085ed5f9dea406519b48)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates resolutions.</p>
+<table><thead align="left"><tr id="row789393717084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p180068791084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1348850702084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1363185441084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry796648611084825p0"><p>Resolution_CIF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1207762699084825"><p>352x288</p>
+</p><p id="p96761142156"></p></td></tr><tr id="row1335254019084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1873999453084825p0"><p>Resolution_360P</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1886331385084825"><p>640x360</p>
+</p><p id="p1267691491516"></p></td></tr><tr id="row928000829084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1043965127084825p0"><p>Resolution_D1_PAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p826875470084825"><p>720x576</p>
+</p><p id="p9676914191513"></p></td></tr><tr id="row1322892814084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry924545781084825p0"><p>Resolution_D1_NTSC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1400716199084825"><p>720x480</p>
+</p><p id="p7676151411151"></p></td></tr><tr id="row971840648084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry58173457084825p0"><p>Resolution_720P</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1555800201084825"><p>1280x720</p>
+</p><p id="p17676171491515"></p></td></tr><tr id="row694366365084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry677212880084825p0"><p>Resolution_1080P</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1480007997084825"><p>1920x1080</p>
+</p><p id="p1867611431515"></p></td></tr><tr id="row748705646084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1308603662084825p0"><p>Resolution_INVALID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2075639905084825"><p>Invalid resolution</p>
+</p><p id="p867691416151"></p></td></tr></tbody></table></div>
+<div class="section" id="pixelformat">
+<h2>PixelFormat<a class="headerlink" href="#pixelformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">PixelFormat</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga60883d4958a60b91661e97027a85072a)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates pixel formats.</p>
+<table><thead align="left"><tr id="row1630301875084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1565976665084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1018632345084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row153720661084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry232666425084825p0"><p>YVU_SEMIPLANAR_420</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p330047745084825"><p>YUV 420 SP</p>
+</p><p id="p7682201481519"></p></td></tr><tr id="row1827953718084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry513985664084825p0"><p>YVU_SEMIPLANAR_420_TILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p654985612084825"><p>YUV SP 420 TILE</p>
+</p><p id="p8682714111519"></p></td></tr><tr id="row104060850084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1929427153084825p0"><p>PIX_FORMAT_INVALID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1745773964084825"><p>Invalid format</p>
+</p><p id="p868221415158"></p></td></tr></tbody></table></div>
+<div class="section" id="profile">
+<h2>Profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">Profile</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga85b10143618f300ff4f5bc6d45c72c01)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates codec profiles.</p>
+<table><thead align="left"><tr id="row841115264084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1562719941084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p475885741084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1912633448084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry87013021084825p0"><p>INVALID_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1785621774084825"><p>Invalid profile</p>
+</p><p id="p187135143156"></p></td></tr><tr id="row1566695844084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1149165851084825p0"><p>AAC_LC_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1712060208084825"><p>AAC-Low Complex</p>
+</p><p id="p15714714141518"></p></td></tr><tr id="row558249121084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry416150990084825p0"><p>AAC_MAIN_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p216050423084825"><p>AAC-Main</p>
+</p><p id="p127143146159"></p></td></tr><tr id="row1766072742084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1627036011084825p0"><p>AAC_HE_V1_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p73555380084825"><p>HEAAC, AAC+, or AACPlusV1</p>
+</p><p id="p17141414181517"></p></td></tr><tr id="row1408758612084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1173265251084825p0"><p>AAC_HE_V2_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p841003294084825"><p>AAC++ or AACPlusV2</p>
+</p><p id="p77145145156"></p></td></tr><tr id="row1328120831084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2025222981084825p0"><p>AAC_LD_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1973385090084825"><p>AAC-Low Delay</p>
+</p><p id="p107141014131513"></p></td></tr><tr id="row1602633189084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1361797872084825p0"><p>AAC_ELD_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1847349408084825"><p>AAC-Enhanced Low Delay</p>
+</p><p id="p2714101481510"></p></td></tr><tr id="row1751454031084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1693500851084825p0"><p>AVC_BASELINE_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p106832309084825"><p>H.264 Baseline</p>
+</p><p id="p167143148152"></p></td></tr><tr id="row25128528084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1985717315084825p0"><p>AVC_MAIN_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1948555260084825"><p>H.264 Main</p>
+</p><p id="p6714171418151"></p></td></tr><tr id="row261437265084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1608436264084825p0"><p>AVC_HIGH_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p238892645084825"><p>H.264 High</p>
+</p><p id="p27142014151517"></p></td></tr><tr id="row961606021084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1589208788084825p0"><p>HEVC_MAIN_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p790728914084825"><p>H.265 Main</p>
+</p><p id="p20714214111520"></p></td></tr><tr id="row910695449084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry365735170084825p0"><p>HEVC_MAIN_10_PROFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p332887398084825"><p>H.265 Main 10</p>
+</p><p id="p177147143157"></p></td></tr></tbody></table></div>
+<div class="section" id="streamflagtype">
+<h2>StreamFlagType<a class="headerlink" href="#streamflagtype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">StreamFlagType</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga8a15793172118d64d8adeba0c8544e84)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates stream flags.</p>
+<table><thead align="left"><tr id="row611205959084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p298469450084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1307682009084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1214075341084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry139125619084825p0"><p>STREAM_FLAG_KEYFRAME</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p91099709084825"><p>Keyframe</p>
+</p><p id="p187242014151510"></p></td></tr><tr id="row1310425943084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry999399251084825p0"><p>STREAM_FLAG_CODEC_SPECIFIC_INF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1893290493084825"><p>Codec specifications</p>
+</p><p id="p177241914101514"></p></td></tr><tr id="row441880001084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry540697039084825p0"><p>STREAM_FLAG_EOS</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1686175974084825"><p>End of streams</p>
+</p><p id="p167241314131511"></p></td></tr><tr id="row535789080084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1938148147084825p0"><p>STREAM_FLAG_PART_OF_FRAME</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1967430782084825"><p>Partial frame</p>
+</p><p id="p14724714191514"></p></td></tr><tr id="row1826372198084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1026223343084825p0"><p>STREAM_FLAG_END_OF_FRAME</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1441422808084825"><p>End of frames, used in pair with STREAM_FLAG_PART_OF_FRAME</p>
+</p><p id="p172461419151"></p></td></tr></tbody></table></div>
+<div class="section" id="vencodegopmode">
+<h2>VenCodeGopMode<a class="headerlink" href="#vencodegopmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">VenCodeGopMode</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9532f651a003219a262c440f5621d129)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates types of group of pictures (GOP).</p>
+<table><thead align="left"><tr id="row249389098084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1144217571084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1045573042084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1247791979084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1708085295084825p0"><p>VENCOD_GOPMODE_NORMALP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p19014177084825"><p>P-frames using only one reference frame during encoding</p>
+</p><p id="p18729614171510"></p></td></tr><tr id="row325674044084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry55213914084825p0"><p>VENCOD_GOPMODE_DUALP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1358809981084825"><p>P-frames using two reference frames during encoding</p>
+</p><p id="p117293146157"></p></td></tr><tr id="row310318597084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry753369364084825p0"><p>VENCOD_GOPMODE_SMARTP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1182334422084825"><p>Smart P-frames for encoding</p>
+</p><p id="p16729111418159"></p></td></tr><tr id="row981384044084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1005156280084825p0"><p>VENCOD_GOPMODE_ADVSMARTP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p229387188084825"><p>Advanced smart P-frames for encoding</p>
+</p><p id="p11729314141510"></p></td></tr><tr id="row727207872084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1195712660084825p0"><p>VENCOD_GOPMODE_BIPREDB</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p906503645084825"><p>B-frames for encoding</p>
+</p><p id="p107291314121514"></p></td></tr><tr id="row742617908084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1536335276084825p0"><p>VENCOD_GOPMODE_LOWDELAYB</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p577954824084825"><p>B-frames using only previous frames as references during encoding.</p>
+</p><p id="p1272951420158"></p></td></tr><tr id="row96883341084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry815903897084825p0"><p>VENCOD_GOPMODE_INVALID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1061579100084825"><p>Invalid type</p>
+</p><p id="p172914146152"></p></td></tr></tbody></table></div>
+<div class="section" id="vencodercmode">
+<h2>VenCodeRcMode<a class="headerlink" href="#vencodercmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">VenCodeRcMode</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga94267d7ba495136561e1c65686b240f7)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates control modes of the channel encoding rate.</p>
+<table><thead align="left"><tr id="row748703884084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p549683445084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p959268609084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2064326349084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry676158434084825p0"><p>VENCOD_RC_CBR</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p801463902084825"><p>Fixed bit rate</p>
+</p><p id="p073418141153"></p></td></tr><tr id="row1148693195084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1103444917084825p0"><p>VENCOD_RC_VBR</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p658855062084825"><p>Variable bit rate</p>
+</p><p id="p273431431513"></p></td></tr><tr id="row2142455358084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1927236794084825p0"><p>VENCOD_RC_AVBR</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p844115422084825"><p>Adaptive variable bit rate</p>
+</p><p id="p3734101418154"></p></td></tr><tr id="row207295159084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1062662207084825p0"><p>VENCOD_RC_QVBR</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2146570069084825"><p>Quality-defined variable bit rate</p>
+</p><p id="p6735514101520"></p></td></tr><tr id="row76076640084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1810884867084825p0"><p>VENCOD_RC_CVBR</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1466399446084825"><p>Constrained variable bit rate</p>
+</p><p id="p373591415159"></p></td></tr><tr id="row1444154350084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry977889840084825p0"><p>VENCOD_RC_QPMAP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p819221524084825"><p>Configuration-mapped quantization parameters</p>
+</p><p id="p17351142157"></p></td></tr><tr id="row1589626685084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1280920586084825p0"><p>VENCOD_RC_FIXQP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1620786949084825"><p>Fixed quantization parameters</p>
+</p><p id="p5735181441513"></p></td></tr></tbody></table></div>
+<div class="section" id="videofield">
+<h2>VideoField<a class="headerlink" href="#videofield" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">VideoField</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga1420ddfb066b941fb55a153b869d9ccf)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates video frame fields.</p>
+<table><thead align="left"><tr id="row1265981939084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1118104555084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p776502608084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1906729342084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry485044455084825p0"><p>VID_FIELD_TOP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p672959982084825"><p>Top fields on even-number lines</p>
+</p><p id="p17411814171514"></p></td></tr><tr id="row1878259593084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry600597604084825p0"><p>VID_FIELD_BOTTOM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p223153136084825"><p>Bottom fields on odd-number lines</p>
+</p><p id="p474171431511"></p></td></tr><tr id="row1873076830084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry181626577084825p0"><p>VID_FIELD_INTERLACED</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1805241498084825"><p>Interlaced fields</p>
+</p><p id="p07414140157"></p></td></tr><tr id="row325366270084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry918307348084825p0"><p>VID_FIELD_FRAME</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p292212715084825"><p>Non-interlaced frames</p>
+</p><p id="p147411414171520"></p></td></tr><tr id="row71618782084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1133920810084825p0"><p>VID_FIELD_INVALID</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1753320791084825"><p>Invalid fields</p>
+</p><p id="p167411714131510"></p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="codeccreate">
+<h2>CodecCreate()<a class="headerlink" href="#codeccreate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecCreate</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">Param</span><span class="p">](</span><span class="n">en</span><span class="o">-</span><span class="n">us_topic_0000001054718161</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">attr</span><span class="p">,</span> <span class="nb">int</span> <span class="nb">len</span><span class="p">,</span> <span class="p">[</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) * handle )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Creates a specific codec component and returns the component context
+through a handle.</p>
+<p>You can adjust the parameters required for creating a component based on
+service requirements.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row163964466084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1207721189084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2060014952084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1835588698084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1564128906084825p0"><p>name</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1421773323084825p0"><p>Indicates the pointer to the unique name of the component, for example,
+codec.avc.hardware.decoder.</p>
+</p></td></tr><tr id="row1499675072084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1699510368084825p0"><p>attr</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry885741856084825p0"><p>Indicates the pointer to the parameters in the array required for
+creating the component.</p>
+</p></td></tr><tr id="row1915695836084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry48975255084825p0"><p>len</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry775498920084825p0"><p>Indicates the number of elements in the parameter array.</p>
+</p></td></tr><tr id="row2111059122084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry699569957084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry829352253084825p0"><p>Indicates the pointer to the codec handle returned.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the codec component is created and the handle is
+available; returns a non-zero value otherwise.</p>
+</div>
+<div class="section" id="codecdeinit">
+<h2>CodecDeinit()<a class="headerlink" href="#codecdeinit" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecDeinit</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Deinitializes the internal audio and video submodules of the codec.</p>
+<p>This function needs to be called only once in a process.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the deinitialization is successful; returns a non-zero
+value otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="codec.md#gadb2714f1e7a69419cefd38a2ad1f9829">CodecInit</a></p>
+</div>
+<div class="section" id="codecdequeinput">
+<h2>CodecDequeInput()<a class="headerlink" href="#codecdequeinput" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecDequeInput</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, uint32_t timeoutMs, [InputInfo](en-us_topic_0000001054879536.md) * inputData )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Dequeues input data that has been used.</p>
+<p>This function works with
+<a class="reference external" href="codec.md#ga0daece8dbf22da84f926761c994819bc">CodecQueueInput</a> to
+implement input data transmission.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2115264907084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2104952643084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p12520873084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row826448690084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1239943926084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry359621515084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row963113545084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2010496439084825p0"><p>timeoutMs</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry648947922084825p0"><p>Indicates the timeout duration. Generally, the value is less than or
+equal to 3 seconds.</p>
+</p></td></tr><tr id="row952113758084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry942490297084825p0"><p>inputData</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry353909876084825p0"><p>Indicates the pointer to the input data that is used.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecdequeueoutput">
+<h2>CodecDequeueOutput()<a class="headerlink" href="#codecdequeueoutput" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecDequeueOutput</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, uint32_t timeoutMs, int * acquireFd, [OutputInfo](en-us_topic_0000001054918167.md) * outInfo )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Dequeues output data.</p>
+<p>This function works with
+<a class="reference external" href="codec.md#gac98f3505082c3cb2413d9e95eef9c804">CodecQueueOutput</a> to
+implement output data transmission.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row232082526084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1873829043084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1968915439084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1071188033084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry280129646084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry430722261084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row1836251159084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1245917050084825p0"><p>timeoutMs</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1509898048084825p0"><p>Indicates the timeout duration.</p>
+</p></td></tr><tr id="row1893469643084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1372561875084825p0"><p>acquireFd</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1827737374084825p0"><p>Indicates that this parameter is derived from the codec mode. The output
+data can be used only after waiting for acquireFd is successful. The
+value -1 indicates that acquireFd is invalid.</p>
+</p></td></tr><tr id="row863445468084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1104451796084825p0"><p>outInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1554571688084825p0"><p>Indicates the pointer to the output data.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecdestroy">
+<h2>CodecDestroy()<a class="headerlink" href="#codecdestroy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecDestroy</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Destroys a codec component.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row691193737084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1105964499084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p830880735084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row517997588084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry507026644084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1941507553084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the codec component is destroyed; returns a non-zero
+value otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="codec.md#ga74aa0395a51f004390f7a92fb68faddd">CodecCreate</a></p>
+</div>
+<div class="section" id="codecenumeratecapbility">
+<h2>CodecEnumerateCapbility()<a class="headerlink" href="#codecenumeratecapbility" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecEnumerateCapbility</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">index</span><span class="p">,</span> <span class="p">[</span><span class="n">CodecCapbility</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga1876710b1f2fe1d80e8b9de9ff28e0e3) * cap )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the capabilities of a specified media type based on an index.</p>
+<p>You can call this function repeatedly to obtain the codec capabilities
+until <strong>CODEC_END</strong> is returned. The corresponding capabilities are
+described in the <strong>Capability</strong> structure, including the maximum and
+minimum resolutions, maximum and minimum bit rates, and supported
+profiles and levels. After obtaining the capabilities, determine whether
+they can meet your requirements, for example, whether specific media
+files can be played and whether audio and video frames can be
+compressed.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1971046470084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1254476732084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1251046721084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row327404230084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1383698058084825p0"><p>index</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry358449600084825p0"><p>Indicates the index of the capabilities.</p>
+</p></td></tr><tr id="row110525459084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1405000693084825p0"><p>cap</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry533112258084825p0"><p>Indicates the pointer to the capabilities.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>CODEC_SUCCESS</strong> if the capabilities corresponding to the index
+are available; returns <strong>CODEC_END</strong> otherwise.</p>
+</div>
+<div class="section" id="codecflush">
+<h2>CodecFlush()<a class="headerlink" href="#codecflush" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecFlush</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, [DirectionType](codec.md#ga8ef30fa9c08e08c8706653571f9f5b81) directType )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Clears the cache when the codec component is the running state.</p>
+<p>Generally, this function is called when the seek operation is performed
+during playback.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1227382675084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p965214064084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1211217877084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1029654830084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2014699087084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry774842741084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecgetcapbility">
+<h2>CodecGetCapbility()<a class="headerlink" href="#codecgetcapbility" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecGetCapbility</span> <span class="p">([</span><span class="n">AvCodecMime</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga1bee586eafa91dfb60f94ba40fc95faa) mime, [CodecType](codec.md#ga03b4b6ae5fb82af68d46aaea3d3e4d79) type, uint32_t flags, [CodecCapbility](codec.md#ga1876710b1f2fe1d80e8b9de9ff28e0e3) * cap )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the capabilities of a specified media type.</p>
+<p>You can call this function to obtain the codec capabilities. The
+corresponding capabilities are described in the <strong>Capability</strong>
+structure, including the maximum and minimum resolutions, maximum and
+minimum bit rates, and supported profiles and levels. After obtaining
+the capabilities, determine whether they can meet your requirements, for
+example, whether specific media files can be played and whether audio
+and video frames can be compressed.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row938928818084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1144624079084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p92743395084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row321490532084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry799343324084825p0"><p>mime</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1572955627084825p0"><p>Indicates the media type. For details, see AvCodecMime.</p>
+</p></td></tr><tr id="row301888208084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry307395619084825p0"><p>type</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry33929247084825p0"><p>Indicates the audio and video codec types. For details, see CodecType.</p>
+</p></td></tr><tr id="row1085536876084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1321805664084825p0"><p>flags</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry889497770084825p0"><p>Indicates the audio and video codec flags. 0 indicates hardware codec,
+and 1 indicates software codec.</p>
+</p></td></tr><tr id="row455086322084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1277656221084825p0"><p>cap</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry59266180084825p0"><p>Indicates the pointer to the capabilities.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the codec is supported and capabilities are available;
+returns a non-zero value if the codec is not supported or the
+capabilities are unavailable.</p>
+</div>
+<div class="section" id="codecgetparameter">
+<h2>CodecGetParameter()<a class="headerlink" href="#codecgetparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecGetParameter</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, [Param](en-us_topic_0000001054718161.md) * params, int paramCnt )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains parameters from a codec component.</p>
+<p>This function must be called after
+<a class="reference external" href="codec.md#ga74aa0395a51f004390f7a92fb68faddd">CodecCreate</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1288182335084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2107397988084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1512543297084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1719426667084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry10439545084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry554311197084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row1598013451084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2118470564084825p0"><p>params</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry645679412084825p0"><p>Indicates the pointer to the parameters in the array used when the
+component is created.</p>
+</p></td></tr><tr id="row1395562827084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry786037209084825p0"><p>paramCnt</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry2055808600084825p0"><p>Indicates the number of elements in the parameter array.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if all parameters to obtain are supported; returns a
+non-zero value otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="codec.md#gaa080cf23aa5f77b30f3b90a026d97cc0">CodecSetParameter</a></p>
+</div>
+<div class="section" id="codecinit">
+<h2>CodecInit()<a class="headerlink" href="#codecinit" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecInit</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Initializes the internal audio and video submodules of the codec.</p>
+<p>This function needs to be called only once in a process.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the initialization is successful; returns a non-zero
+value otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="codec.md#ga2d6eb231ca7766990cfa8c1841637245">CodecDeinit</a></p>
+</div>
+<div class="section" id="codecqueueinput">
+<h2>CodecQueueInput()<a class="headerlink" href="#codecqueueinput" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecQueueInput</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, const [InputInfo](en-us_topic_0000001054879536.md) * inputData, uint32_t timeoutMs )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Queues input data.</p>
+<p>This function works with
+<a class="reference external" href="codec.md#ga91d7e1566c90d7cb9ac846eecad0024f">CodecDequeInput</a> to
+implement input data transmission.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row960265471084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1151492979084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p206668769084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row194856533084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry198410828084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1696470468084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row319187960084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1309520926084825p0"><p>inputData</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1563987247084825p0"><p>Indicates the pointer to the input data.</p>
+</p></td></tr><tr id="row1590657593084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1153185942084825p0"><p>timeoutMs</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry736445442084825p0"><p>Indicates the timeout duration.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecqueueoutput">
+<h2>CodecQueueOutput()<a class="headerlink" href="#codecqueueoutput" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecQueueOutput</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, [OutputInfo](en-us_topic_0000001054918167.md) * outInfo, uint32_t timeoutMs, int releaseFenceFd )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Queues output data.</p>
+<p>This function works with
+<a class="reference external" href="codec.md#gab575752467517eb8e6766773c1e3fb23">CodecDequeueOutput</a> to
+implement output data transmission.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1429791989084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p565653683084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p741196862084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1279013842084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry250741343084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1354439491084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row1665799478084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1397718631084825p0"><p>outInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry105807911084825p0"><p>Indicates the pointer to the output data.</p>
+</p></td></tr><tr id="row487209711084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1995823974084825p0"><p>timeoutMs</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1193681389084825p0"><p>Indicates the timeout duration.</p>
+</p></td></tr><tr id="row1396793935084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry383625994084825p0"><p>releaseFenceFd</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1446433111084825p0"><p>Indicates that the descriptor comes from a buffer consumer. The output
+data can be used only after waiting for releaseFenceFd is successful.
+The value -1 indicates that releaseFenceFd is invalid.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecsetcallback">
+<h2>CodecSetCallback()<a class="headerlink" href="#codecsetcallback" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecSetCallback</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, const [CodecCallback](en-us_topic_0000001055358102.md) * cb, [UINTPTR](codec.md#ga58d2f4a8d12daa1dcf4eb297f3ebaabc) instance )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the callback function.</p>
+<p>The codec uses the callback function to notify the upper layer of events
+and asynchronously report available input/output information.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row147161429084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p764119065084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2035913532084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1934120489084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1186851599084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1798092188084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row1940398606084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry63140447084825p0"><p>cb</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1974408102084825p0"><p>Indicates the pointer to the callback function. For details, see
+CodecCallback.</p>
+</p></td></tr><tr id="row1521883720084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1682377396084825p0"><p>instance</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry289331572084825p0"><p>Indicates the upper-layer instance to be notified.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecsetparameter">
+<h2>CodecSetParameter()<a class="headerlink" href="#codecsetparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecSetParameter</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, const [Param](en-us_topic_0000001054718161.md) * params, int paramCnt )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets parameters required by a codec component.</p>
+<p>You should call this function to set parameters after
+<a class="reference external" href="codec.md#ga74aa0395a51f004390f7a92fb68faddd">CodecCreate</a> is called
+but before <a class="reference external" href="codec.md#ga38c1744b0b4be5817ef49556ae665d18">CodecStart</a>
+is called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row767299604084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2125122051084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p452846676084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1938429500084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry102798173084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1791285824084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row1264894687084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1796420034084825p0"><p>params</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry241857675084825p0"><p>Indicates the pointer to the parameters to set in the array.</p>
+</p></td></tr><tr id="row295345470084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry2033907479084825p0"><p>paramCnt</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1861952388084825p0"><p>Indicates the number of elements in the parameter array.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns a non-zero value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="codec.md#ga1d812eac032e3e05cf5bf71b03e93f65">CodecGetParameter</a></p>
+</div>
+<div class="section" id="codecsetportmode">
+<h2>CodecSetPortMode()<a class="headerlink" href="#codecsetportmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecSetPortMode</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle, [DirectionType](codec.md#ga8ef30fa9c08e08c8706653571f9f5b81) type, [BufferMode](codec.md#gacc0fd55192fd9f663121b037b06f41e8) mode )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the input or output buffer mode.</p>
+<p>You can learn about the support of the codec input/output buffer for
+internal and external buffer modes by calling
+<a class="reference external" href="codec.md#ga1a6fbf6e84e01fdc1af59caa4203ce8e">CodecGetCapbility</a>. In
+this way, you can determine whether to use an internal or external
+buffer mode. If the current codec can use only the specific buffer mode,
+you do not need to set it.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1311828138084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1461374707084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p611373700084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row184307410084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry674908667084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1752409776084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr><tr id="row2057182154084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1568064343084825p0"><p>type</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry656850602084825p0"><p>Specifies whether the buffer type is an input type or an output type.</p>
+</p></td></tr><tr id="row1181463390084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1130949932084825p0"><p>mode</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry419658038084825p0"><p>Specifies whether to use an internal or external buffer mode.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecstart">
+<h2>CodecStart()<a class="headerlink" href="#codecstart" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecStart</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Starts a codec component.</p>
+<p>You can restart a component after it is stopped.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row421699376084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1549590785084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p893493606084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row891132680084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry233784924084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1920939340084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="codecstop">
+<h2>CodecStop()<a class="headerlink" href="#codecstop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">CodecStop</span> <span class="p">([</span><span class="n">CODEC_HANDLETYPE</span><span class="p">](</span><span class="n">codec</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga9381a619f36ac8d5d7f467d2f0404183) handle)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Stops a codec component.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row401260075084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1667110244084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1528450723084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1172545609084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="entry1275429120084825p0"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="entry1895706928084825p0"><p>Indicates the handle of the codec component.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/codec.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

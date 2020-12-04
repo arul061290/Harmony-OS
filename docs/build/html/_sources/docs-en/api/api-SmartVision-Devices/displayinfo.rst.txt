@@ -1,0 +1,258 @@
+DisplayInfo
+===========
+
+**Overview**\ 
+--------------
+
+**Related Modules:**
+
+`Display <display.md>`__
+
+**Description:**
+
+Defines display information.
+
+**Summary**\ 
+-------------
+
+Data Fields
+-----------
+
+.. raw:: html
+
+   <table>
+
+.. raw:: html
+
+   <thead align="left">
+
+.. raw:: html
+
+   <tr id="row787285499093529">
+
+.. raw:: html
+
+   <th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1">
+
+.. raw:: html
+
+   <p id="p1435552987093529">
+
+Variable Name
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </th>
+
+.. raw:: html
+
+   <th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2">
+
+.. raw:: html
+
+   <p id="p172023497093529">
+
+Description
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </th>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </thead>
+
+.. raw:: html
+
+   <tbody>
+
+.. raw:: html
+
+   <tr id="row1066747239093529">
+
+.. raw:: html
+
+   <td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 ">
+
+.. raw:: html
+
+   <p id="p1129359020093529">
+
+width
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 ">
+
+.. raw:: html
+
+   <p id="p65554201093529">
+
+uint32_t
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr id="row1208516151093529">
+
+.. raw:: html
+
+   <td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 ">
+
+.. raw:: html
+
+   <p id="p330216209093529">
+
+height
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 ">
+
+.. raw:: html
+
+   <p id="p12998806093529">
+
+uint32_t
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr id="row445735576093529">
+
+.. raw:: html
+
+   <td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 ">
+
+.. raw:: html
+
+   <p id="p2091411104093529">
+
+rotAngle
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 ">
+
+.. raw:: html
+
+   <p id="p462732098093529">
+
+int32_t
+
+.. raw:: html
+
+   </p>
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </tbody>
+
+.. raw:: html
+
+   </table>
+
+**Details**\ 
+-------------
+
+**Field Documentation**\ 
+-------------------------
+
+height
+------
+
+::
+
+   uint32_t DisplayInfo::height
+
+**Description:**
+
+Display height
+
+rotAngle
+--------
+
+::
+
+   int32_t DisplayInfo::rotAngle
+
+**Description:**
+
+Rotation angle of the display
+
+width
+-----
+
+::
+
+   uint32_t DisplayInfo::width
+
+**Description:**
+
+Display width

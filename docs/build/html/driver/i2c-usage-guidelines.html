@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I2C Usage Guidelines &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="i2c-usage-guidelines">
+<h1>I2C Usage Guidelines<a class="headerlink" href="#i2c-usage-guidelines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-use">
+<h2>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="#fig166181128151112">Figure 1</a> illustrates the process of an I2C
+device.</p>
+<p><strong>Figure 1</strong> Process of using an I2C device</p>
+<p><img alt="image1" src="../_images/en-us_image_0000001054056393.png" /></p>
+</div>
+<div class="section" id="opening-an-i2c-controller">
+<h2>Opening an I2C Controller<a class="headerlink" href="#opening-an-i2c-controller" title="Permalink to this headline">¶</a></h2>
+<p>Call the following function to open an I2C controller:</p>
+<p>struct DevHandle *I2cOpen(int16_t number);</p>
+<p><strong>Table 1</strong> Description of I2cOpen</p>
+<table><thead align="left"><tr id="row1060351914386"><th class="cellrowborder" valign="top" width="20.66%" id="mcps1.2.3.1.1"><p id="p14603181917382"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="79.34%" id="mcps1.2.3.1.2"><p id="p36031519183819"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1960431983813"><td class="cellrowborder" valign="top" width="20.66%" headers="mcps1.2.3.1.1 "><p id="p3604719123817"><p>number</p>
+</p></td><td class="cellrowborder" valign="top" width="79.34%" headers="mcps1.2.3.1.2 "><p id="p221392414442"><p>I2C controller ID.</p>
+</p></td></tr><tr id="row11410612183019"><td class="cellrowborder" valign="top" width="20.66%" headers="mcps1.2.3.1.1 "><p id="p460381915385"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="79.34%" headers="mcps1.2.3.1.2 "><p id="p96031619153812"><p>Description</p>
+</p></td></tr><tr id="row15410111273017"><td class="cellrowborder" valign="top" width="20.66%" headers="mcps1.2.3.1.1 "><p id="p1060418195389"><p>NULL</p>
+</p></td><td class="cellrowborder" valign="top" width="79.34%" headers="mcps1.2.3.1.2 "><p id="p760471912388"><p>Failed to open the I2C controller.</p>
+</p></td></tr><tr id="row1241081213303"><td class="cellrowborder" valign="top" width="20.66%" headers="mcps1.2.3.1.1 "><p id="p5604719133811"><p>Device handle</p>
+</p></td><td class="cellrowborder" valign="top" width="79.34%" headers="mcps1.2.3.1.2 "><p id="p3604181933818"><p>Handle of the I2C controller.</p>
+</p></td></tr></tbody></table><p>This example assumes that the system has eight I2C controllers (numbered
+from 0 to 7) and I2C controller 3 is to open.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">DevHandle</span> <span class="o">*</span><span class="n">i2cHandle</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span> <span class="o">/*</span> <span class="n">I2C</span> <span class="n">controller</span> <span class="n">handle</span> <span class="o">*/</span>
+
+<span class="o">/*</span> <span class="n">Open</span> <span class="n">an</span> <span class="n">I2C</span> <span class="n">controller</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">i2cHandle</span> <span class="o">=</span> <span class="n">I2cOpen</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">i2cHandle</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;I2cOpen: failed</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="performing-i2c-communication">
+<h2>Performing I2C Communication<a class="headerlink" href="#performing-i2c-communication" title="Permalink to this headline">¶</a></h2>
+<p>Use the following function for message transfer:</p>
+<p>int32_t I2cTransfer(struct DevHandle *handle, struct I2cMsg *msgs,
+int16_t count);</p>
+<p><strong>Table 2</strong> Description of I2cTransfer</p>
+<table><thead align="left"><tr id="row1134415176216"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p13295152320217"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p1295112352115"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row5344101702113"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p19295132382111"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1051172572919"><p>Handle of an I2C controller.</p>
+</p></td></tr><tr id="row17344171722117"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p9295122332113"><p>msgs</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p202951238218"><p>Message array of the data to transfer.</p>
+</p></td></tr><tr id="row45812466213"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1659246112117"><p>count</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p259124622119"><p>Length of the message array.</p>
+</p></td></tr><tr id="row04701426105110"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p17295142322113"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p142959232211"><p>Description</p>
+</p></td></tr><tr id="row74701226125110"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p929532313211"><p>Positive integer</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p829512237217"><p>Number of message structures that are successfully transmitted.</p>
+</p></td></tr><tr id="row204701126195115"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p12958234217"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1295192312112"><p>Failed to perform the message transfer.</p>
+</p></td></tr></tbody></table><p>The type of an I2C message transfer is defined by <strong>I2cMsg</strong>. Each
+message structure indicates a read or write operation. Multiple read or
+write operations can be performed by using a message array.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint8_t</span> <span class="n">wbuff</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x12</span><span class="p">,</span> <span class="mh">0x13</span> <span class="p">};</span>
+<span class="n">uint8_t</span> <span class="n">rbuff</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+<span class="n">struct</span> <span class="n">I2cMsg</span> <span class="n">msgs</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="o">/*</span> <span class="n">Custom</span> <span class="n">message</span> <span class="n">array</span> <span class="k">for</span> <span class="n">transfer</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">buf</span> <span class="o">=</span> <span class="n">wbuff</span><span class="p">;</span>    <span class="o">/*</span> <span class="n">Data</span> <span class="n">to</span> <span class="n">write</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>        <span class="o">/*</span> <span class="n">The</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">data</span> <span class="n">to</span> <span class="n">write</span> <span class="ow">is</span> <span class="mf">2.</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="mh">0x5A</span><span class="p">;</span>    <span class="o">/*</span> <span class="n">The</span> <span class="n">address</span> <span class="n">of</span> <span class="n">the</span> <span class="n">device</span> <span class="n">to</span> <span class="n">write</span> <span class="n">the</span> <span class="n">data</span> <span class="ow">is</span> <span class="mh">0x5A</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="o">/*</span> <span class="n">The</span> <span class="n">flag</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">,</span> <span class="n">indicating</span> <span class="n">the</span> <span class="n">write</span> <span class="n">operation</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">buf</span> <span class="o">=</span> <span class="n">rbuff</span><span class="p">;</span>    <span class="o">/*</span> <span class="n">Data</span> <span class="n">to</span> <span class="n">read</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>        <span class="o">/*</span> <span class="n">The</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">data</span> <span class="n">to</span> <span class="n">read</span> <span class="ow">is</span> <span class="mf">2.</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="mh">0x5A</span><span class="p">;</span>    <span class="o">/*</span> <span class="n">The</span> <span class="n">address</span> <span class="n">of</span> <span class="n">the</span> <span class="n">device</span> <span class="n">to</span> <span class="n">read</span> <span class="n">the</span> <span class="n">data</span> <span class="ow">is</span> <span class="mh">0x5A</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">msgs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">I2C_FLAG_READ</span> <span class="o">/*</span> <span class="n">I2C_FLAG_READ</span> <span class="ow">is</span> <span class="n">configured</span><span class="p">,</span> <span class="n">indicating</span> <span class="n">the</span> <span class="n">read</span> <span class="n">operation</span><span class="o">.</span> <span class="o">*/</span>
+<span class="o">/*</span> <span class="n">Perform</span> <span class="n">a</span> <span class="n">custom</span> <span class="n">transfer</span> <span class="n">to</span> <span class="n">transfer</span> <span class="n">two</span> <span class="n">messages</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">I2cTransfer</span><span class="p">(</span><span class="n">i2cHandle</span><span class="p">,</span> <span class="n">msgs</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;I2cTransfer: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><img alt="image2" src="../_images/icon-caution1.gif" /> <strong>CAUTION:</strong> - The device address in the <strong>I2cMsg</strong>
+structure does not contain the read/write flag bit. The read/write
+information is transferred by the read/write control bit in the
+member variable <strong>flags</strong>. - The <strong>I2cTransfer</strong> function does not
+limit the number of message structures, which is determined by the
+I2C controller. - The <strong>I2cTransfer</strong> function does not limit the
+data length of each message structure, which is determined by the I2C
+controller. - The <strong>I2cTransfer</strong> function may cause the system to
+sleep and therefore cannot be invoked in the interrupt context.</p>
+</div></blockquote>
+</div>
+<div class="section" id="closing-an-i2c-controller">
+<h2>Closing an I2C Controller<a class="headerlink" href="#closing-an-i2c-controller" title="Permalink to this headline">¶</a></h2>
+<p>Call the following function to close the I2C controller after the
+communication is complete:</p>
+<p>void I2cClose(DevHandle *handle);</p>
+<p><strong>Table 3</strong> Description of I2cClose</p>
+<table><thead align="left"><tr id="row1525793312"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p115402031153111"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p65406313319"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1926109193116"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p105419317318"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1213245577"><p>Handle of an I2C controller.</p>
+</p></td></tr></tbody></table><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I2cClose</span><span class="p">(</span><span class="n">i2cHandle</span><span class="p">);</span> <span class="o">/*</span> <span class="n">Close</span> <span class="n">the</span> <span class="n">I2C</span> <span class="n">controller</span><span class="o">.</span> <span class="o">*/</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/i2c-usage-guidelines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

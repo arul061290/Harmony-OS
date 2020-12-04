@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arp &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="arp">
+<h1>arp<a class="headerlink" href="#arp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-function">
+<h2>Command Function<a class="headerlink" href="#command-function" title="Permalink to this headline">¶</a></h2>
+<p>On an Ethernet, hosts communicate with each other using MAC addresses
+(non-IP addresses). Therefore, IP addresses must be converted into MAC
+addresses so that hosts can communicate with each other on a LAN
+(Ethernet). To resolve this issue, the host stores a table containing
+the mapping between IP addresses and MAC addresses, that is, the ARP
+cache table. When the host needs to send an IP packet to the destination
+IP address on a LAN, the host can query the destination MAC address from
+the ARP cache table. The ARP cache table is maintained by the TCP/IP
+protocol stack. You can run the <strong>arp</strong> command to view and modify the
+ARP cache table.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>arp</p>
+<p>arp [<em>-i IF</em>] -s <em>IPADDR HWADDR</em></p>
+<p>arp [<em>-i IF</em>] -d <em>IPADDR</em></p>
+</div>
+<div class="section" id="parameter-description">
+<h2>Parameter Description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Parameters</p>
+<table><thead align="left"><tr id="row1851mcpsimp"><th class="cellrowborder" valign="top" width="21%" id="mcps1.2.4.1.1"><p id="p1853mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="52%" id="mcps1.2.4.1.2"><p id="p1855mcpsimp"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="27%" id="mcps1.2.4.1.3"><p id="p1857mcpsimp"><p>Value Range</p>
+</p></th></tr></thead><tbody><tr id="row1858mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p1860mcpsimp"><p>No parameter</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p1862mcpsimp"><p>Prints the content of the entire ARP cache table.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p1864mcpsimp"><p>N/A</p>
+</p></td></tr><tr id="row1865mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p1867mcpsimp"><p>-i IF</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p1869mcpsimp"><p>Indicates the network interface. This parameter is optional.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p1871mcpsimp"><p>N/A</p>
+</p></td></tr><tr id="row1872mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p1874mcpsimp"><p>-s IPADDR</p>
+</p><p id="p1875mcpsimp"><p>HWADDR</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p1877mcpsimp"><p>Adds an ARP entry. The second parameter is the IP address and MAC
+address of the other host on the LAN.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p1879mcpsimp"><p>N/A</p>
+</p></td></tr><tr id="row1880mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p1882mcpsimp"><p>-d IPADDR</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p1884mcpsimp"><p>Deletes an ARP entry.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p1886mcpsimp"><p>N/A</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <strong>arp</strong> command is used to query and modify the ARP cache table
+of the TCP/IP protocol stack. If ARP entries for IP addresses on
+different subnets are added, the protocol stack returns a failure
+message.</p></li>
+<li><p>This command can be used only after the TCP/IP protocol stack is
+enabled.</p></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<ol class="arabic">
+<li><p>Enter <strong>arp</strong>.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Printing the entire ARP cache table</div>
+<div class="line"><img alt="image1" src="../_images/printing-the-entire-arp-cache-table.png" /></div>
+</div>
+<p><strong>Table 2</strong> Output description</p>
+<table><thead align="left"><tr id="row1906mcpsimp"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p1908mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p1910mcpsimp"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1911mcpsimp"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1913mcpsimp"><p>Address</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1915mcpsimp"><p>Indicates the IPv4 address of a network device.</p>
+</p></td></tr><tr id="row1916mcpsimp"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1918mcpsimp"><p>HWaddress</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1920mcpsimp"><p>Indicates the MAC address of a network device.</p>
+</p></td></tr><tr id="row1921mcpsimp"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1923mcpsimp"><p>Iface</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1925mcpsimp"><p>Indicates the name of the interface used by the ARP entry.</p>
+</p></td></tr><tr id="row1926mcpsimp"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1928mcpsimp"><p>Type</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1930mcpsimp"><p>Indicates whether the ARP entry is dynamic or static. A dynamic ARP
+entry is automatically created by the protocol stack, and a static
+ARP entry is added by the user.</p>
+</p></td></tr></tbody></table></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/arp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

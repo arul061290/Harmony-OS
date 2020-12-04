@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JFFS2 &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="jffs2">
+<h1>JFFS2<a class="headerlink" href="#jffs2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>JFFS2 is a journal-type file system implemented on MTDs. JFFS2 is mainly
+used in NOR flash memory. It is readable and writable, supports data
+compression and write leveling, and provides crash/power failure
+protection.</p>
+<p>There are many differences between flash memory and disk media.
+Therefore, running a disk file system directly on flash memory causes
+poor performance and security. JFFS2 is introduced as a file system
+specially designed for flash memory.</p>
+<p>JFFS2 in the OpenHarmony kernel is mainly used to manage files of the
+NOR flash memory and supports multiple partitions.</p>
+</div>
+<div class="section" id="important-notes">
+<h2>Important Notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The JFFS2 file system is used for NOR flash memory, and NOR flash
+driver APIs are called. Therefore, before using the JFFS2 file
+system, ensure that the NOR flash memory is available on the hardware
+and the driver is initialized (the return value of <strong>spinor_init()</strong>
+is <strong>0</strong>).</p></li>
+<li><p>The system automatically aligns the start address and partition size
+based on the block size. The valid partition number ranges from 0 to
+19.</p></li>
+<li><p><strong>mkfs.jffs2</strong> is supported. You can change parameter values based on
+service requirements.</p></li>
+<li><p>When you use <strong>open</strong> with the parameter <strong>O_TRUNC</strong> to open a file,
+the file content will be cleared.</p></li>
+<li><p>You can perform the following operation on JFFS2 files: <strong>open</strong>,
+<strong>close</strong>, <strong>read</strong>, <strong>write</strong>, <strong>seek</strong>, <strong>opendir</strong>, <strong>closedir</strong>,
+<strong>readdir</strong>, <strong>readdir_r</strong>, <strong>rewinddir</strong>, <strong>statfs</strong>, <strong>sync</strong>,
+<strong>remove</strong>, <strong>unlink</strong>, <strong>mkdir</strong>, <strong>rmdir</strong>, <strong>rename</strong>, <strong>stat</strong>,
+<strong>stat64</strong>, <strong>seek64</strong>, <strong>mmap</strong>, <strong>mount</strong>, <strong>umount</strong>, <strong>chmod</strong>,
+and <strong>chown</strong>.</p></li>
+<li><p>JFFS2 files can be mounted in the read-only attribute. When
+<strong>MS_RDONLY</strong> is carried in the <strong>mount</strong> function, the read-only
+attribute is enabled. All APIs with the write attribute, such as
+<strong>write</strong>, <strong>mkdir</strong>, and <strong>unlink</strong>, and files that are opened not
+by using <strong>O_RDONLY</strong>, are rejected and the error code <strong>EACCESS</strong> is
+returned.</p></li>
+</ul>
+</div>
+<div class="section" id="development-guidelines">
+<h2>Development Guidelines<a class="headerlink" href="#development-guidelines" title="Permalink to this headline">¶</a></h2>
+<p><strong>Adding a JFFS2 Partition</strong></p>
+<p>Call <strong>add_mtd_partition</strong> to add a JFFS2 partition. This function
+automatically names the device node in the format of <strong>/dev/spinorblk</strong>
+plus the partition number.</p>
+<p>The <strong>add_mtd_partition</strong> function has four parameters. The first
+parameter indicates the medium, which can be <strong>nand</strong> or <strong>spinor</strong>. A
+JFFS2 partition is used on <strong>spinor</strong>, whereas <strong>nand</strong> is provided for
+a YAFFS2 partition.</p>
+<p>The second parameter indicates the start address, and the third
+parameter indicates the partition size. Both parameters are transferred
+in hexadecimal format.</p>
+<p>The last parameter indicates the partition number, which ranges from 0
+to 19.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">uwRet</span> <span class="o">=</span> <span class="n">add_mtd_partition</span><span class="p">(</span><span class="s2">&quot;spinor&quot;</span><span class="p">,</span> <span class="mh">0x100000</span><span class="p">,</span> <span class="mh">0x800000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">dprintf</span><span class="p">(</span><span class="s2">&quot;add jffs2 partition failed, return </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">uwRet</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">dprintf</span><span class="p">(</span><span class="s2">&quot;Mount jffs2 on spinor.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="n">uwRet</span> <span class="o">=</span> <span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/dev/spinorblk0&quot;</span><span class="p">,</span> <span class="s2">&quot;/jffs0&quot;</span><span class="p">,</span> <span class="s2">&quot;jffs2&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">uwRet</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dprintf</span><span class="p">(</span><span class="s2">&quot;mount jffs2 err </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">uwRet</span><span class="p">);</span>
+        <span class="n">dprintf</span><span class="p">(</span><span class="s2">&quot;Mount jffs2 on nor finished.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">uwRet</span> <span class="o">=</span> <span class="n">add_mtd_partition</span><span class="p">(</span><span class="s2">&quot;spinor&quot;</span><span class="p">,</span> <span class="mh">0x900000</span><span class="p">,</span> <span class="mh">0x200000</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">dprintf</span><span class="p">(</span><span class="s2">&quot;add jffs2 partition failed, return </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">uwRet</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After the partition is added, you can run <strong>partition spinor</strong> in
+<strong>shell</strong> to view the information about the spinor flash partition.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># partition spinor</span>
+<span class="n">spinor</span> <span class="n">partition</span> <span class="n">num</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">dev</span> <span class="n">name</span><span class="p">:</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">spinorblk0</span><span class="p">,</span> <span class="n">mountpt</span><span class="p">:</span><span class="o">/</span><span class="n">jffs0</span><span class="p">,</span> <span class="n">startaddr</span><span class="p">:</span><span class="mh">0x0100000</span><span class="p">,</span><span class="n">length</span><span class="p">:</span><span class="mh">0x0800000</span>
+<span class="n">spinor</span> <span class="n">partition</span> <span class="n">num</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">dev</span> <span class="n">name</span><span class="p">:</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">spinorblk1</span><span class="p">,</span> <span class="n">mountpt</span><span class="p">:(</span><span class="n">null</span><span class="p">),</span> <span class="n">startaddr</span><span class="p">:</span><span class="mh">0x0900000</span><span class="p">,</span><span class="n">length</span><span class="p">:</span><span class="mh">0x0200000</span>
+</pre></div>
+</div>
+<p><strong>Mounting JFFS2</strong></p>
+<p>Call <strong>mount()</strong> to mount a device node and mount point.</p>
+<p>This function has five parameters. The first parameter indicates the
+device node, which must match the <strong>add_mtd_partition()</strong> function. The
+second parameter indicates the mount point. The third parameter
+indicates the file system type.</p>
+<p>The last two parameters indicate the mounting flag and data. The default
+values are <strong>0</strong> and <strong>NULL</strong>, respectively. This operation can also be
+implemented by running the <strong>mount</strong> command in <strong>shell</strong>. You do not
+need to specify the last two parameters.</p>
+<p>Mount a JFFS2 file system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># mount /dev/spinorblk1 /jffs1 jffs2</span>
+</pre></div>
+</div>
+<p>If the following information is displayed, the JFFS2 file system is
+mounted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># mount /dev/spinorblk1 /jffs1 jffs2</span>
+<span class="n">mount</span> <span class="n">OK</span>
+</pre></div>
+</div>
+<p>Now, you can read and write the NOR flash memory.</p>
+<p><strong>Unmounting JFFS2</strong></p>
+<p>Call <strong>umount()</strong> to unmount the partition. You only need to provide the
+correct mount point.</p>
+<p>Unmount JFFS2.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># umount /jffs1</span>
+</pre></div>
+</div>
+<p>If the following information is displayed, the JFFS2 file system is
+unmounted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># umount /jffs1</span>
+<span class="n">umount</span> <span class="n">ok</span>
+</pre></div>
+</div>
+<p><strong>Deleting a JFFS2 Partition</strong></p>
+<p>Call <strong>delete_mtd_partition</strong> to delete an unmounted partition.</p>
+<p>This function has two parameters. The first parameter is the partition
+number, and the second parameter is the medium type. This function
+corresponds to the <strong>add_mtd_partition()</strong> function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uwRet</span> <span class="o">=</span> <span class="n">delete_mtd_partition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;spinor&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="n">uwRet</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;delete jffs2 error</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;delete jffs2 ok</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">OHOS</span> <span class="c1"># partition spinor</span>
+<span class="n">spinor</span> <span class="n">partition</span> <span class="n">num</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">dev</span> <span class="n">name</span><span class="p">:</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">spinorblk0</span><span class="p">,</span> <span class="n">mountpt</span><span class="p">:</span><span class="o">/</span><span class="n">jffs0</span><span class="p">,</span> <span class="n">startaddr</span><span class="p">:</span><span class="mh">0x0100000</span><span class="p">,</span><span class="n">length</span><span class="p">:</span><span class="mh">0x0800000</span>
+</pre></div>
+</div>
+<p><strong>Creating a JFFS2 File System Image</strong></p>
+<p>Use the <strong>mkfs.jffs2</strong> tool to create an image. The default page size is
+4 KiB, and the default eraseblock size is 64 KiB. The image size adapts
+to the source directory and is filled with 0xFF, which is an integer
+multiple of the eraseblock size. The default command is as follows. If
+the actual parameters are different from the following parameters, use
+the actual parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mkfs</span><span class="o">.</span><span class="n">jffs2</span> <span class="o">-</span><span class="n">d</span> <span class="n">rootfs</span><span class="o">/</span> <span class="o">-</span><span class="n">o</span> <span class="n">rootfs</span><span class="o">.</span><span class="n">jffs2</span>
+</pre></div>
+</div>
+<p><strong>Table 1</strong> Commands</p>
+<table><thead align="left"><tr id="row325613545615"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p153851336772"><p>Command</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p43852366714"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row125715410619"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p20385103615715"><p>-s</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1338510362717"><p>Page size. If this parameter is not specified, the default value 4KiB is
+used.</p>
+</p></td></tr><tr id="row787741814720"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p538673616710"><p>-e</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p6386123612719"><p>eraseblock size. If this parameter is not specified, the default value
+64KiB is used.</p>
+</p></td></tr><tr id="row1160020211719"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p83861361079"><p>-p</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p538612361575"><p>Image size. If this parameter is not specified, the source directory is
+used by default, and 0xFF is filled as an integer multiple of the
+eraseblock size.</p>
+</p></td></tr><tr id="row151563245714"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p183864361579"><p>-d</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p238618361573"><p>Source directory of the file system image.</p>
+</p></td></tr><tr id="row1323210319714"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p103867369710"><p>-o</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1938603617710"><p>Image name.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/jffs2.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

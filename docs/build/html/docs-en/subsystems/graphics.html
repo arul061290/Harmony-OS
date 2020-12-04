@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphics &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="graphics">
+<h1>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h1>
+<p>The OpenHarmony graphics subsystem provides you with basic UI and
+container components, including buttons, images, labels, lists,
+animators, scroll views, swipe views, fonts, clock, charts, canvas,
+sliders, and layouts. In addition, this subsystem provides the Design
+for X (DFX) capability to capture screenshots and export the component
+tree. It also implements features such as component rendering,
+animation, and input event distribution.</p>
+<div class="section" id="ui-components">
+<h2>UI Components<a class="headerlink" href="#ui-components" title="Permalink to this headline">¶</a></h2>
+<p>Contain a variety of basic components (such as buttons, text, and
+progress bars) and complex components (such as page switching and image
+sequence frames).</p>
+</div>
+<div class="section" id="layouts">
+<h2>Layouts<a class="headerlink" href="#layouts" title="Permalink to this headline">¶</a></h2>
+<p>Implement grid layout and flexible layout (such as centered,
+left-aligned, and right-aligned).</p>
+<p>As each layout is a one-off, the positions of components in a specific
+layout are calculated each time related functions are called on the
+layout. However, if the position of a component changes with an
+operation (dragging for example), the positions of other associated
+components do not automatically change. To change them, you need to call
+the layout functions again.</p>
+</div>
+<div class="section" id="animators">
+<h2>Animators<a class="headerlink" href="#animators" title="Permalink to this headline">¶</a></h2>
+<p>Each time the Tick event is received, the Task Manager module
+periodically invokes callbacks upon attribute changes and then triggers
+redrawing to produce the desired animation effect.</p>
+<p>You can call related functions to start, stop, pause, resume, create,
+and destroy an animator.</p>
+</div>
+<div class="section" id="input-events">
+<h2>Input Events<a class="headerlink" href="#input-events" title="Permalink to this headline">¶</a></h2>
+<p>Include touchscreen and physical key input events. Each time the GUI
+engine runs, the Input Manager module reads the input of all registered
+hardware devices and converts the input into various events for UI
+components to use.</p>
+</div>
+<div class="section" id="rendering">
+<h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>2D graphics rendering</p>
+<p>Draws lines, rectangles, triangles, and arcs.</p>
+</li>
+<li><p>Image rendering</p>
+<p>Draws images of various types, such as RGB565, RGB888, ARGB8888, PNG,
+and JPG.</p>
+</li>
+<li><p>Font rendering</p>
+<p>Draws vector fonts in real time.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/subsystems/graphics.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

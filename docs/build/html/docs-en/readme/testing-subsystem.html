@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing Subsystem &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="testing-subsystem">
+<h1>Testing Subsystem<a class="headerlink" href="#testing-subsystem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The test-driven development mode is used during the development process.
+You can develop new cases or modify existing cases to test new or
+enhanced system features. The test helps you develop high-quality code
+in the development phase.</p>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Directory structure of the source code for test tools</p>
+<table><thead align="left"><tr id="row7977610131417"><th class="cellrowborder" valign="top" width="33.879999999999995%" id="mcps1.2.3.1.1"><p id="p18792459121314"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="66.12%" id="mcps1.2.3.1.2"><p id="p77921459191317"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row17977171010144"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p2793159171311"><p>developertest</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p879375920132"><p>Development test framework</p>
+</p></td></tr><tr id="row259142201312"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p640585013134"><p>developertest/src</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p10406450131319"><p>Test framework source code</p>
+</p></td></tr><tr id="row1188919458130"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p115448132141"><p>developertest/src/core</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p1254413131146"><p>Test executor</p>
+</p></td></tr><tr id="row6978161091412"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p37931659101311"><p>developertest/src/core/build</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p6793059171318"><p>Test case compilation</p>
+</p></td></tr><tr id="row6978201031415"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p1738210441049"><p>developertest/src/core/command</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p1629020401941"><p>Processing of command lines entered by users</p>
+</p></td></tr><tr id="row1596814581415"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p158313363613"><p>developertest/src/core/config</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p12969358749"><p>Test framework configuration management</p>
+</p></td></tr><tr id="row175618551244"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p73791172718"><p>developertest/src/core/driver</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p107568558416"><p>Test framework driver executor</p>
+</p></td></tr><tr id="row114431614115"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p1644216201111"><p>developertest/src/core/resource</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p15441116171113"><p>Test framework configuration file</p>
+</p></td></tr><tr id="row16289143217239"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p82908327236"><p>developertest/src/core/testcase</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p129013219235"><p>Test case management</p>
+</p></td></tr><tr id="row1403172313113"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p5403202371115"><p>developertest/src/core/common.py</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p84031423201110"><p>Common operations on the test framework</p>
+</p></td></tr><tr id="row1688681821114"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p4886718121111"><p>developertest/src/core/constants.py</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p10886151811115"><p>Global constants of the test framework</p>
+</p></td></tr><tr id="row13247163492"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p710851611910"><p>developertest/src/core/exception.py</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p112471431895"><p>Test framework exceptions</p>
+</p></td></tr><tr id="row1392104161718"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p292154131715"><p>developertest/src/core/utils.py</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p139224117173"><p>Test framework tools and methods</p>
+</p></td></tr><tr id="row43471438181714"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p1134883851719"><p>developertest/src/main</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p7348123861711"><p>Test framework platform</p>
+</p></td></tr><tr id="row144751036111712"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p16475163681716"><p>developertest/src/main/<strong>main</strong>.py</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p11475103641712"><p>Internal entrance of the test framework</p>
+</p></td></tr><tr id="row11435113411716"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p4435153416170"><p>developertest/example</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p643523491711"><p>Test framework demo cases</p>
+</p></td></tr><tr id="row988116194289"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p7881161913283"><p>developertest/third_party</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p58815196285"><p>Third-party components</p>
+</p></td></tr><tr id="row11235133231718"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p19235153291712"><p>developertest/BUILD.gn</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p19235143291715"><p>Compilation configuration of the test subsystem</p>
+</p></td></tr><tr id="row153133019174"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p163153019174"><p>developertest/start.bat</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p194133051713"><p>Developer test entry (Windows)</p>
+</p></td></tr><tr id="row6640152712173"><td class="cellrowborder" valign="top" width="33.879999999999995%" headers="mcps1.2.3.1.1 "><p id="p2641202751712"><p>developertest/start.sh</p>
+</p></td><td class="cellrowborder" valign="top" width="66.12%" headers="mcps1.2.3.1.2 "><p id="p86419276175"><p>Developer test entry (Linux)</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
+<p>Test tool environment dependency</p>
+<ol class="arabic simple">
+<li><p>Python version: 3.7.5 or later</p></li>
+<li><p>NFS version: V4 or later</p></li>
+<li><p>Windows: Windows 10 or later; Linux: Ubuntu 18.04</p></li>
+</ol>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Depend on the Python environment.</p>
+<p>Install the serial port plugins <strong>pyserial</strong> and <strong>readline</strong> on the
+local Python, and run the <strong>pip install pyserial</strong> and <strong>sudo apt-get
+install libreadline-dev</strong> commands on the shell. The following figure is
+displayed when the installation is complete.</p>
+<p><img alt="image1" src="../../_images/en-us_image_0000001052278423.png" /></p>
+</div>
+<div class="section" id="compiling-test-cases">
+<h2>Compiling Test Cases<a class="headerlink" href="#compiling-test-cases" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Test case specifications</p>
+<ul>
+<li><p>Naming rules</p>
+<p>The source file name of the test case must be consistent with the
+test suite content. The relationship between the test suite and
+the test case is 1:N and the test suite and the test source file
+is 1:1. Each source file is globally unique and named in the
+format of [Feature]_[Function]_[Subfunction 1]_[Subfunction 1.1].
+Subfunctions can be further divided.</p>
+<p>The file name consists of lowercase letters and underscores (_)
+and ends with test, for example,
+<strong>developertest/example/cxx_demo</strong>.</p>
+</li>
+<li><p>Test case coding specifications</p>
+<p>The test cases must comply with the feature code coding
+specifications. In addition, necessary case description
+information must be added. For details, see
+<a class="reference external" href="#li2069415903917">#li2069415903917</a>.</p>
+</li>
+<li><p>Test case compilation and configuration specifications</p>
+<p>The test cases are compiled in GN mode. The configuration must
+comply with the compilation guide of the open source project. For
+details, see
+<a class="reference external" href="en-us_topic_0000001051580775.md">en-us_topic_0000001051580775.md</a>.</p>
+</li>
+</ul>
+</li>
+<li><p>Test case template</p>
+<p>For details, see the test case <strong>demo</strong>
+developertest/example/cxx_demo/test/unittest/common/calc_subtraction_test.cpp.</p>
+<blockquote>
+<div><p><img alt="image2" src="../../_images/icon-note6.gif" /> <strong>NOTE:</strong> Feature: Description of the tested feature
+Function: Function of the tested feature SubFunction: Subfunction
+of the tested feature FunctionPoints: Function points to test
+EnvConditions: Environment and conditions of the feature to test
+CaseDescription: Test case description step: Procedure for
+executing the test case when the complex logic is tested</p>
+</div></blockquote>
+</li>
+<li><p>Directory plan for test cases</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>subsystem (subsystem, system component)
+├── module (module)
+│     └── test (module test directory)
+│             └── unittest (unit test)
+│                    ├── common (common test cases)
+│                    ├── liteos (only for LiteOS core test cases)
+│                    └── linux (only for Linux core test cases)
+│             └── moduletest (module test)
+│                    ├── common
+│                    ├── liteos
+│                    └── linux
+└── test (subsystem test directory)
+       └── unittest (unit test)
+             ├── common
+             ├── liteos
+             ├── linux
+       └── moduletest (module test)
+             ├── common
+             ├── liteos
+             ├── linux
+</pre></div>
+</div>
+<blockquote>
+<div><p><img alt="image3" src="../../_images/icon-note6.gif" /> <strong>NOTE:</strong> The LiteOS and Linux are used as examples only
+for different device models. For the same feature on different
+development boards, if the test cases are the same, they are
+stored in the <strong>common</strong> directory. For the same feature, if the
+test cases are used to distinguish different device models and may
+include kernel differences and chip platform differences, the test
+cases are distinguished by directory.</p>
+</div></blockquote>
+</li>
+<li><p>Procedure for compiling test cases</p>
+<ol class="arabic">
+<li><p>Add comments to the test case header file.</p></li>
+<li><p>Reference the <strong>gtest</strong> header file and <strong>ext</strong> namespace.</p></li>
+<li><p>Add the header file to test.</p></li>
+<li><p>Define test suites (test classes).</p></li>
+<li><p>Implement specific test cases of the test suite, including test
+case comments and logic implementation.</p></li>
+<li><p>Compile the test case compilation configuration.</p>
+<blockquote>
+<div><p><img alt="image4" src="../../_images/icon-note6.gif" /> <strong>NOTE:</strong> * Example:
+developertest/example/cxx_demo/test/unittest/common/calc_subtraction_test.cpp
+Notes:</p>
+<ul class="simple">
+<li><p><strong>SetUp</strong> and <strong>TearDown</strong> are the processing logic before
+and after each test case in the test suite is executed.</p></li>
+<li><p><strong>SetUpTestCase</strong> and <strong>TearDownTestCase</strong> are the
+processing logic before and after all cases in the test
+suite are executed.</p></li>
+<li><p>HWTEST usage: This method is applicable only to simple tests
+(not depending on <strong>Setup</strong> and <strong>Teardown</strong>). This method
+is not applicable to the scenario where multiple test
+scenarios require the same data configuration. The test
+cases may affect each other and are not independent.</p></li>
+<li><p>Use the <strong>printf</strong> function to print logs.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</li>
+<li><p>Compile a test case compilation file.</p>
+<ul>
+<li><p>Define test case compilation and building objectives.</p>
+<ol class="arabic simple">
+<li><p>Add comments to the test case compilation header file.</p></li>
+<li><p>Import the test case compilation template file.</p></li>
+<li><p>Specify the output path of the test case file.</p></li>
+<li><p>Configure the directory contained in the test case compilation
+dependency.</p></li>
+<li><p>Specify the file name generated by the test case compilation
+target.</p></li>
+<li><p>Compile a specific test case compilation script and add the
+source files, configurations, and dependencies involved in the
+compilation.</p></li>
+<li><p>Group the target test case files by condition. The group name
+is fixed to <strong>unittest/moduletest</strong>.</p></li>
+</ol>
+</li>
+<li><p>If there are multiple test suites, define the common compilation
+configuration.</p></li>
+<li><p>Add test cases to the build system.</p>
+<blockquote>
+<div><p><img alt="image5" src="../../_images/icon-note6.gif" /> <strong>NOTE:</strong> * Example:
+developertest/example/cxx_demo/test/unittest/common/BUILD.gn</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>Test case level definition</p>
+<ul class="simple">
+<li><p>Basic (Level 1)</p></li>
+<li><p>Major (Level 2)</p></li>
+<li><p>Minor (Level 3)</p></li>
+<li><p>Uncommon (Level 4)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="using-test-framework">
+<h2>Using Test Framework<a class="headerlink" href="#using-test-framework" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Install the basic framework <strong>xdevice</strong>.</p>
+<ol class="arabic">
+<li><p>Open the <strong>xdevice</strong> installation directory, for example,
+<strong>test/xdevice</strong> in Windows.</p></li>
+<li><p>Open the console window and run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</li>
+<li><p>The following figure is displayed when the installation is
+complete.</p>
+<p><img alt="image6" src="../../_images/en-us_image_0000001054501634.png" /></p>
+</li>
+</ol>
+</li>
+<li><p>Modify the configuration of the basic framework <strong>xdevice</strong>.</p>
+<p>File: xdevice/config/user_config.xml</p>
+<ol class="arabic">
+<li><p>[device] # Configure the serial port information with the label IP
+camera, COM port, and baud rate. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">device</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;com&quot;</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ipcamera&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">serial</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">com</span><span class="o">&gt;</span><span class="n">COM1</span><span class="o">&lt;/</span><span class="n">com</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="n">cmd</span><span class="o">&lt;/</span><span class="nb">type</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">baund_rate</span><span class="o">&gt;</span><span class="mi">115200</span><span class="o">&lt;/</span><span class="n">baund_rate</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">data_bits</span><span class="o">&gt;</span><span class="mi">8</span><span class="o">&lt;/</span><span class="n">data_bits</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">stop_bits</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">stop_bits</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">timeout</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">timeout</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">serial</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">device</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>Modify the configuration of the <strong>developertest</strong> component.</p>
+<p>File: resource/config/user_config.xml</p>
+<ol class="arabic">
+<li><p>[test_cases] # Specify the output path of the test case and the
+compilation output directory. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">test_cases</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">dir</span><span class="o">&gt;</span><span class="n">S</span><span class="p">:</span>\<span class="n">out</span>\<span class="n">ipcamera_hi3518ev300_liteos_a</span>\<span class="n">test</span><span class="o">&lt;/</span><span class="nb">dir</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">test_cases</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>[NFS] # Specify the NFS mapping path. <strong>host_dir</strong> is the NFS
+directory on the PC, and <strong>board_dir</strong> is the directory created on
+the board. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">NFS</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">host_dir</span><span class="o">&gt;</span><span class="n">D</span><span class="p">:</span>\<span class="n">nfs</span><span class="o">&lt;/</span><span class="n">host_dir</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">board_dir</span><span class="o">&gt;</span><span class="n">user</span><span class="o">&lt;/</span><span class="n">board_dir</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">NFS</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>Check the environment before executing the test cases.</p>
+<ul class="simple">
+<li><p>The system image and file system have been burnt to a development
+board and are running properly on the development board. In system
+mode, for example, the device prompt <strong>OHOS#</strong> is displayed during
+shell login.</p></li>
+<li><p>The development host is properly connected to the serial port of
+the development board, and the development host is properly
+connected to the serial port of the development board.</p></li>
+<li><p>The IP addresses of the development host and development board are
+in the same network segment and can ping each other.</p></li>
+<li><p>An empty directory is created on the development host for mounting
+test cases through NFS, and the NFS service is started properly.</p></li>
+</ul>
+</li>
+<li><p>Run test suites.</p>
+<ul>
+<li><p>Start the test framework and go to the <strong>test/developertest</strong>
+directory.</p>
+<ol class="arabic">
+<li><p>Start the test framework on Windows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">start</span><span class="o">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+</li>
+<li><p>Start the test framework on Linux.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">strat</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>Select a device mode.</p>
+<p>Configure device models based on the actual development board, for
+example,
+<strong>developertest/src/core/resource/config/framework_config.xml</strong>.</p>
+</li>
+<li><p>Run the test command.</p>
+<ol class="arabic">
+<li><p>To query the subsystems, modules, product forms, and test types
+supported by test cases, run the <strong>show</strong> command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span>
+    <span class="n">show</span> <span class="n">productlist</span>      <span class="n">Querying</span> <span class="n">Supported</span> <span class="n">Product</span> <span class="n">Forms</span>
+    <span class="n">show</span> <span class="n">typelist</span>         <span class="n">Querying</span> <span class="n">the</span> <span class="n">Supported</span> <span class="n">Test</span> <span class="n">Type</span>
+    <span class="n">show</span> <span class="n">subsystemlist</span>    <span class="n">Querying</span> <span class="n">Supported</span> <span class="n">Subsystems</span>
+    <span class="n">show</span> <span class="n">modulelist</span>       <span class="n">Querying</span> <span class="n">Supported</span> <span class="n">Modules</span>
+</pre></div>
+</div>
+</li>
+<li><p>The following example shows how to run the test command. <strong>-t</strong>
+is mandatory, and <strong>-ss</strong> and <strong>-tm</strong> are optional.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="o">-</span><span class="n">t</span> <span class="n">ut</span> <span class="o">-</span><span class="n">ss</span> <span class="n">test</span> <span class="o">-</span><span class="n">tm</span> <span class="n">example</span>
+</pre></div>
+</div>
+</li>
+<li><p>Specify the parameters that can be used to execute the test
+suite corresponding to a specific feature or module.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">run</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">PRODUCTFORM</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="p">[</span><span class="n">TESTTYPE</span> <span class="p">[</span><span class="n">TESTTYPE</span> <span class="o">...</span><span class="p">]]]</span>
+    <span class="p">[</span><span class="o">-</span><span class="n">ss</span> <span class="n">SUBSYSTEM</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">tm</span> <span class="n">TESTMODULE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">ts</span> <span class="n">TESTSUIT</span><span class="p">]</span>
+    <span class="p">[</span><span class="o">-</span><span class="n">tc</span> <span class="n">TESTCASE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">tl</span> <span class="n">TESTLEVEL</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+    <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+    <span class="o">-</span><span class="n">p</span> <span class="n">PRODUCTFORM</span><span class="p">,</span> <span class="o">--</span><span class="n">productform</span> <span class="n">PRODUCTFORM</span>    <span class="n">Specified</span> <span class="n">product</span> <span class="n">form</span>
+    <span class="o">-</span><span class="n">t</span> <span class="p">[</span><span class="n">TESTTYPE</span> <span class="p">[</span><span class="n">TESTTYPE</span> <span class="o">...</span><span class="p">]],</span> <span class="o">--</span><span class="n">testtype</span> <span class="p">[</span><span class="n">TESTTYPE</span> <span class="p">[</span><span class="n">TESTTYPE</span> <span class="o">...</span><span class="p">]]</span>
+        <span class="n">Specify</span> <span class="n">test</span> <span class="nb">type</span><span class="p">(</span><span class="n">UT</span><span class="p">,</span><span class="n">MST</span><span class="p">,</span><span class="n">ST</span><span class="p">,</span><span class="n">PERF</span><span class="p">,</span><span class="n">ALL</span><span class="p">)</span>
+    <span class="o">-</span><span class="n">ss</span> <span class="n">SUBSYSTEM</span><span class="p">,</span> <span class="o">--</span><span class="n">subsystem</span> <span class="n">SUBSYSTEM</span>    <span class="n">Specify</span> <span class="n">test</span> <span class="n">subsystem</span>
+    <span class="o">-</span><span class="n">tm</span> <span class="n">TESTMODULE</span><span class="p">,</span> <span class="o">--</span><span class="n">testmodule</span> <span class="n">TESTMODULE</span>    <span class="n">Specified</span> <span class="n">test</span> <span class="n">module</span>
+    <span class="o">-</span><span class="n">ts</span> <span class="n">TESTSUIT</span><span class="p">,</span> <span class="o">--</span><span class="n">testsuit</span> <span class="n">TESTSUIT</span>    <span class="n">Specify</span> <span class="n">test</span> <span class="n">suit</span>
+    <span class="o">-</span><span class="n">tc</span> <span class="n">TESTCASE</span><span class="p">,</span> <span class="o">--</span><span class="n">testcase</span> <span class="n">TESTCASE</span>    <span class="n">Specify</span> <span class="n">test</span> <span class="n">case</span>
+    <span class="o">-</span><span class="n">tl</span> <span class="n">TESTLEVEL</span><span class="p">,</span> <span class="o">--</span><span class="n">testlevel</span> <span class="n">TESTLEVEL</span>    <span class="n">Specify</span> <span class="n">test</span> <span class="n">level</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>See the test framework help if needed.</p>
+<ul>
+<li><p>The help command is used to query test commands that are supported
+by the test platform.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Exit the self-test platform.</p>
+<ul>
+<li><p>Run the following command to exit the test platform:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quit</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="test-result-and-log">
+<h2>Test Result and Log<a class="headerlink" href="#test-result-and-log" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Test logs and test reports are generated after you execute test
+instructions in the test framework.</p></li>
+<li><p>Test result</p>
+<ul>
+<li><p>The test result is displayed on the console. The root path of the
+test result is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reports</span><span class="o">/</span><span class="n">xxxx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span>
+</pre></div>
+</div>
+</li>
+<li><p>Test case formatting result</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Test case log</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="o">/</span><span class="n">plan_log_xxxx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</li>
+<li><p>Test report summary</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">summary_report</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</li>
+<li><p>Test report details</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">details_report</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Test framework log</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reports</span><span class="o">/</span><span class="n">platform_log_xxxx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">-</span><span class="n">xx</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</li>
+<li><p>Latest test report</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reports</span><span class="o">/</span><span class="n">latest</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="repositories-involved">
+<h2>Repositories Involved<a class="headerlink" href="#repositories-involved" title="Permalink to this headline">¶</a></h2>
+<p>test_developertest</p>
+<p>test_xdevice</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/readme/testing-subsystem.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

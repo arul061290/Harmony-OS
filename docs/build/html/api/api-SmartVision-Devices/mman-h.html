@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mman.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mman-h">
+<h1>mman.h<a class="headerlink" href="#mman-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="mem.md">MEM</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares structures and functions for performing memory operations,
+including memory mapping, remapping, unmapping, and attribute setting.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1057385235084831"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p843684496084831"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1940673983084831"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row351194118084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1981813674084831"><p>MAP_FAILED ((void *) -1)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p711965961084831"><p>Indicates the return value of functions such as mmap() when the
+operation fails.</p>
+</p></td></tr><tr id="row146309956084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1887461880084831"><p>MAP_SHARED 0x01</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1087540116084831"><p>Indicates the mapping attribute that the updates to the mapping are
+visible to other processes mapping the same file and are carried through
+to the underlying file. This macro is used as an input parameter passed
+to functions such as mmap().</p>
+</p></td></tr><tr id="row1155130352084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1001466012084831"><p>MAP_PRIVATE 0x02</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p537501991084831"><p>Indicates the mapping attribute that the updates to the mapping are not
+visible to other mapping processes and are not carried through to the
+underlying file. This macro is used as an input parameter passed to
+functions such as mmap().</p>
+</p></td></tr><tr id="row979877198084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p482536534084831"><p>MAP_FIXED 0x10</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1202745259084831"><p>Indicates the mapping attribute that specifies the mapping as fixed
+mapping. This macro is used as an input parameter passed to functions
+such as mmap().</p>
+</p></td></tr><tr id="row1974673398084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1473597098084831"><p>MAP_ANON 0x20</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p165857434084831"><p>Indicates the mapping attribute that specifies the mapping as anonymous
+mapping without a specified file or device. This macro is used as an
+input parameter passed to functions such as mmap().</p>
+</p></td></tr><tr id="row677944115084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p765497444084831"><p>MAP_ANONYMOUS MAP_ANON</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1453426300084831"><p>Indicates the mapping attribute that specifies the mapping as anonymous
+mapping without a specified file or device. This macro is the synonym
+for MAP_ANON and is used as an input parameter passed to functions such
+as mmap().</p>
+</p></td></tr><tr id="row1934884922084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1023035326084831"><p>PROT_NONE 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p905990833084831"><p>Indicates that no permission is granted to the current process for
+accessing the mapping area. This macro is used as an input parameter
+passed to functions such as mmap().</p>
+</p></td></tr><tr id="row698308211084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1583874803084831"><p>PROT_READ 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1731015531084831"><p>Indicates that the current process is granted the read permission on the
+mapping area. This macro is used as an input parameter passed to
+functions such as mmap().</p>
+</p></td></tr><tr id="row739762694084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p99689371084831"><p>PROT_WRITE 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p864433717084831"><p>Indicates that the current process is granted the write permission on
+the mapping area. This macro is used as an input parameter passed to
+functions such as mmap().</p>
+</p></td></tr><tr id="row1184260034084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1765170354084831"><p>PROT_EXEC 4</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1971594199084831"><p>Indicates that the current process is granted the execute permission on
+the mapping area. This macro is used as an input parameter passed to
+functions such as mmap().</p>
+</p></td></tr><tr id="row1308436275084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p331545502084831"><p>MREMAP_MAYMOVE 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2131154285084831"><p>Indicates the remapping attribute that allows the mapping to be
+relocated to a new address. This macro is used as an input parameter
+passed to functions such as mremap().</p>
+</p></td></tr><tr id="row772877562084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1750936125084831"><p>MREMAP_FIXED 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1211328047084831"><p>Indicates the remapping attribute that specifies the mapping as fixed
+mapping. This macro is used as an input parameter passed to functions
+such as mremap().</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1862934436084831"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2061280045084831"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p415592375084831"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2130157778084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p831385248084831"><p>mmap (void *addr, size_t length, int prot, int flags, int fd, off_t
+offset)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p68347051084831"><p>void *</p>
+</p><p id="p157269985084831"><p>Creates a mapping between the virtual address space of the calling
+process and a file or device.</p>
+</p></td></tr><tr id="row924339813084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p891999503084831"><p>munmap (void *addr, size_t length)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2030261723084831"><p>int</p>
+</p><p id="p407278383084831"><p>Removes all mappings for the specified virtual address space.</p>
+</p></td></tr><tr id="row1513608497084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1894161973084831"><p>mprotect (void *addr, size_t len, int prot)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p265578593084831"><p>int</p>
+</p><p id="p133115223084831"><p>Sets protection attributes for the memory pages contained in the memory
+region starting from addr with the specified length.</p>
+</p></td></tr><tr id="row467832469084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p542689219084831"><p>mremap (void *old_address, size_t old_size, size_t new_size, int
+flags,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p733010049084831"><p>void *</p>
+</p><p id="p850944901084831"><p>Remaps a virtual memory region.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/mman-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

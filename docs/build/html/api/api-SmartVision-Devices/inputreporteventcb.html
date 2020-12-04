@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InputReportEventCb &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="inputreporteventcb">
+<h1>InputReportEventCb<a class="headerlink" href="#inputreporteventcb" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="input.md">Input</a></p>
+<p><strong>Description:</strong></p>
+<p>Describes the input event callback registered by the input service.</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1967068550093530"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p891805004093530"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p861625448093530"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1078231235093530"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2014235093093530"><p>ReportEventCallback )(const InputEventData *eventData, uint32_t count,
+uint32_t devIndex)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p286590896093530"><p>void(*</p>
+</p><p id="p2057518916093530"><p>Reports input event data by the registered callback.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="reporteventcallback">
+<h2>ReportEventCallback<a class="headerlink" href="#reporteventcallback" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="p">(</span><span class="o">*</span> <span class="n">InputReportEventCb</span><span class="p">::</span><span class="n">ReportEventCallback</span><span class="p">)</span> <span class="p">(</span><span class="n">const</span> <span class="p">[</span><span class="n">InputEventData</span><span class="p">](</span><span class="n">inputeventdata</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">eventData</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">count</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">devIndex</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reports input event data by the registered callback.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row648975372093530"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1114379095093530"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1554617536093530"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1273904259093530"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>eventData</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the input event data reported by the input
+driver.</p>
+</td></tr><tr id="row1445131425093530"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>count</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the number of input event data packets.</p>
+</td></tr><tr id="row2003016940093530"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>devIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the index of an input device. A maximum of 32 input devices
+are supported. The value ranges from 0 to 31, and value 0 represents the
+first input device.</p>
+</td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/inputreporteventcb.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

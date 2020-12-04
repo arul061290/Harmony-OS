@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IClientProxy &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="iclientproxy">
+<h1>IClientProxy<a class="headerlink" href="#iclientproxy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="registry.md">Registry</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines the client proxy object.</p>
+<p>This object is used for the IPC with the server. If you want to use the
+same invocation mode as that on the server, create an object inherited
+from</p>
+<p>and implement serialization.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1639217921093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1508665079093531"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1888042182093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2016938570093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1244823187093531"><p>INHERIT_IUNKNOWN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row1756667270093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1209062151093531"><p>Invoke )(IClientProxy <em>proxy, int funcId, IpcIo</em>request, IOwner owner,
+INotify notify)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1546499307093531"><p>int(*</p>
+</p><p id="p812857562093531"><p>Sends an IPC message from the client to the IServerProxy.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="inherit-iunknown">
+<h2>INHERIT_IUNKNOWN<a class="headerlink" href="#inherit-iunknown" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IClientProxy</span><span class="p">::</span><span class="n">INHERIT_IUNKNOWN</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Inherites the <a class="reference external" href="iunknown.md">IUnknown</a> base class.</p>
+</div>
+<div class="section" id="invoke">
+<h2>Invoke<a class="headerlink" href="#invoke" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="o">*</span> <span class="n">IClientProxy</span><span class="p">::</span><span class="n">Invoke</span><span class="p">)</span> <span class="p">([</span><span class="n">IClientProxy</span><span class="p">](</span><span class="n">iclientproxy</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">proxy</span><span class="p">,</span> <span class="nb">int</span> <span class="n">funcId</span><span class="p">,</span> <span class="n">IpcIo</span> <span class="o">*</span><span class="n">request</span><span class="p">,</span> <span class="n">IOwner</span> <span class="n">owner</span><span class="p">,</span> <span class="p">[</span><span class="n">INotify</span><span class="p">](</span><span class="n">registry</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga362a17c1bda1aace88d42dcbc88bdfac) notify)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sends an IPC message from the client to the
+<a class="reference external" href="iserverproxy.md">IServerProxy</a>.</p>
+<p>This function is used for IPC. The passed <strong>proxy</strong> is used to obtain
+the server information. Then, <strong>request</strong> carries the request message to
+be sent to the server and processed by the function specified by
+<strong>funcId</strong>. <strong>notify</strong> is a callback function used to process the
+response message.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row805987054093531"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p80575934093531"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p149863623093531"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1946282698093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>proxy</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer of the client proxy object.</p>
+</td></tr><tr id="row1171509472093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>funcId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the ID of the function implemented on the server.</p>
+</td></tr><tr id="row79378237093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>request</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the serialized request message.</p>
+</td></tr><tr id="row1069120584093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>owner</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the receiver (generics type) of the response message.</p>
+</td></tr><tr id="row795229031093531"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>notify</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the callback function that notifies the client of the response
+message.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>EC_SUCCESS</strong> if the IPC message is sent successfully; returns
+other error codes if the message fails to be sent.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/iclientproxy.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

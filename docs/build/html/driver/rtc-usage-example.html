@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTC Usage Example &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rtc-usage-example">
+<h1>RTC Usage Example<a class="headerlink" href="#rtc-usage-example" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the process of using RTC APIs:</p>
+<ol class="arabic simple">
+<li><p>During the OS startup, the HDF identifies the RTC component in the
+system.</p></li>
+<li><p>The HDF initializes and creates the RTC device.</p></li>
+<li><p>You can perform operations on the RTC device by calling different
+APIs.</p></li>
+<li><p>Call the <strong>RtcClose</strong> function to release the device handle and
+device resources.</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;rtc_if.h&quot;</span>
+<span class="n">int32_t</span> <span class="n">RtcAlarmACallback</span><span class="p">(</span><span class="n">enum</span> <span class="n">RtcAlarmIndex</span> <span class="n">alarmIndex</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">alarmIndex</span> <span class="o">==</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">alarm</span> <span class="n">A</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;RTC Alarm A callback function</span><span class="se">\n\r</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">alarmIndex</span> <span class="o">==</span> <span class="n">RTC_ALARM_INDEX_B</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">alarm</span> <span class="n">B</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;RTC Alarm B callback function</span><span class="se">\n\r</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">RtcTestSample</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="n">RtcTime</span> <span class="n">tm</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="n">RtcTime</span> <span class="n">alarmTime</span><span class="p">;</span>
+    <span class="n">uint32_t</span> <span class="n">freq</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="n">DevHandle</span> <span class="o">*</span><span class="n">handle</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Obtain</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">device</span> <span class="n">handle</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">handle</span> <span class="o">=</span> <span class="n">RtcOpen</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Register</span> <span class="n">RtcAlarmCallback</span> <span class="k">for</span> <span class="n">alarm</span> <span class="n">A</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">RtcRegisterAlarmCallback</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">,</span> <span class="n">RtcAlarmACallback</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">external</span> <span class="n">crystal</span> <span class="n">frequency</span><span class="o">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">the</span> <span class="n">frequency</span> <span class="n">must</span> <span class="n">be</span> <span class="n">configured</span> <span class="ow">in</span> <span class="n">accordance</span> <span class="k">with</span> <span class="n">the</span> <span class="n">requirements</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">product</span> <span class="n">manual</span> <span class="n">of</span> <span class="n">the</span> <span class="ow">in</span><span class="o">-</span><span class="n">use</span> <span class="n">component</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="mi">32768</span><span class="p">;</span> <span class="o">/*</span> <span class="mi">32768</span> <span class="n">Hz</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">RtcSetFreq</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">freq</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Enable</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">alarm</span> <span class="n">interrupts</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">RtcAlarmInterruptEnable</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">time</span> <span class="n">to</span> <span class="mi">2020</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">10</span> <span class="o">.</span><span class="mf">990.</span> <span class="o">*/</span>
+    <span class="n">tm</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+    <span class="n">tm</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+    <span class="n">tm</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+    <span class="n">tm</span><span class="o">.</span><span class="n">hour</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">tm</span><span class="o">.</span><span class="n">minute</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">tm</span><span class="o">.</span><span class="n">second</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">tm</span><span class="o">.</span><span class="n">millisecond</span> <span class="o">=</span> <span class="mi">990</span><span class="p">;</span>
+    <span class="o">/*</span> <span class="n">Write</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">time</span> <span class="n">information</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">RtcWriteTime</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tm</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">alarm</span> <span class="n">time</span> <span class="n">to</span> <span class="mi">2020</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">30</span> <span class="o">.</span><span class="mf">100.</span> <span class="o">*/</span>
+    <span class="n">alarmTime</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+    <span class="n">alarmTime</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+    <span class="n">alarmTime</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="mi">01</span><span class="p">;</span>
+    <span class="n">alarmTime</span><span class="o">.</span><span class="n">hour</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">alarmTime</span><span class="o">.</span><span class="n">minute</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">alarmTime</span><span class="o">.</span><span class="n">second</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="n">alarmTime</span><span class="o">.</span><span class="n">millisecond</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">alarm</span> <span class="n">time</span> <span class="n">information</span> <span class="k">for</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="o">.</span> <span class="n">When</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">time</span> <span class="ow">is</span> <span class="n">reached</span><span class="p">,</span> <span class="s2">&quot;RTC Alarm A callback function&quot;</span> <span class="ow">is</span> <span class="n">printed</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">RtcWriteAlarm</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">RTC_ALARM_INDEX_A</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">alarmTime</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Read</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">real</span> <span class="n">time</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">RtcReadTime</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tm</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Process</span> <span class="n">the</span> <span class="n">error</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">}</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;RTC read time:</span><span class="se">\n\r</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;year-month-date-weekday hour:minute:second .millisecond </span><span class="si">%04u</span><span class="s2">-</span><span class="si">%02u</span><span class="s2">-</span><span class="si">%02u</span><span class="s2">-</span><span class="si">%u</span><span class="s2"> </span><span class="si">%02u</span><span class="s2">:</span><span class="si">%02u</span><span class="s2">:</span><span class="si">%02u</span><span class="s2"> .</span><span class="si">%03u</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">tm</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">weekday</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">millisecond</span><span class="p">);</span>
+    <span class="o">/*</span> <span class="n">Release</span> <span class="n">the</span> <span class="n">RTC</span> <span class="n">device</span> <span class="n">handle</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">RtcClose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/rtc-usage-example.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

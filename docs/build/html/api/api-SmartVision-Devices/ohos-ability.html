@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OHOS::Ability &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ohos-ability">
+<h1>OHOS::Ability<a class="headerlink" href="#ohos-ability" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="abilitykit.md">AbilityKit</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares ability-related functions, including ability lifecycle
+callbacks and functions for connecting to or disconnecting from Particle
+Abilities.</p>
+<p>As the fundamental unit of OpenHarmony applications, abilities are
+classified into <a class="reference external" href="feature.md">Feature</a> Abilities and Particle
+Abilities. <a class="reference external" href="feature.md">Feature</a> Abilities support the Page template,
+and Particle Abilities support the <a class="reference external" href="service.md">Service</a> template. An
+ability using the Page template is called Page ability for short and
+that using the <a class="reference external" href="service.md">Service</a> template is called
+<a class="reference external" href="service.md">Service</a> ability.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row747119158084837"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1495269378084837"><p>Public Member Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p767278114084837"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row971666805084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p690889432084837"><p>OnStart (const Want &amp;want)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1788330887084837"><p>virtual void</p>
+</p><p id="p145900818084837"><p>Called when this ability is started. You must override this function if
+you want to perform some initialization operations during ability
+startup.</p>
+</p></td></tr><tr id="row1338585118084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p112623444084837"><p>OnInactive ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p386250391084837"><p>virtual void</p>
+</p><p id="p599241652084837"><p>Called when this ability enters the STATE_INACTIVE state.</p>
+</p></td></tr><tr id="row671970770084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2031938534084837"><p>OnActive (const Want &amp;want)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p174036397084837"><p>virtual void</p>
+</p><p id="p752864652084837"><p>Called when this ability enters the STATE_ACTIVE state.</p>
+</p></td></tr><tr id="row1070790822084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p469568606084837"><p>OnBackground ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p663751035084837"><p>virtual void</p>
+</p><p id="p1310143183084837"><p>Called when this ability enters the STATE_BACKGROUND state.</p>
+</p></td></tr><tr id="row2094378171084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2144839750084837"><p>OnStop ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p875820415084837"><p>virtual void</p>
+</p><p id="p1581105768084837"><p>Called when this ability enters the STATE_STOP state.</p>
+</p></td></tr><tr id="row405658473084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1188587476084837"><p>OnConnect (const Want &amp;want)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1748393321084837"><p>virtual const SvcIdentity *</p>
+</p><p id="p1835864863084837"><p>Called when this Service ability is connected for the first time.</p>
+</p></td></tr><tr id="row1313397070084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1377842411084837"><p>OnDisconnect (const Want &amp;want)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1005398939084837"><p>virtual void</p>
+</p><p id="p512605013084837"><p>Called when all abilities connected to this Service ability are
+disconnected.</p>
+</p></td></tr><tr id="row1920744543084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p221374941084837"><p>SetMainRoute (const std::string &amp;entry)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1108282235084837"><p>void</p>
+</p><p id="p122714624084837"><p>Sets the main route for this ability.</p>
+</p></td></tr><tr id="row2121053054084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p266775000084837"><p>SetUIContent (RootView *rootView)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p818064272084837"><p>void</p>
+</p><p id="p1617442157084837"><p>Sets the UI layout for this ability. You can call GetWindowRootView() to
+create a layout and add controls.</p>
+</p></td></tr><tr id="row1066046894084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1499633864084837"><p>MsgHandle (uint32_t funcId, IpcIo <em>request, IpcIo</em>reply)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1694861028084837"><p>virtual void</p>
+</p><p id="p457647083084837"><p>Handles a message sent by the client to this Service ability.</p>
+</p></td></tr><tr id="row886288679084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1620451875084837"><p>Dump (const std::string &amp;extra)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p555050195084837"><p>virtual void</p>
+</p><p id="p1486207241084837"><p>Prints ability information to the console.</p>
+</p></td></tr><tr id="row816190004084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p274908703084837"><p>StartAbility (const Want &amp;want)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p980821791084837"><p>int</p>
+</p><p id="p1612307854084837"><p>Starts an Ability based on the specified Want information.</p>
+</p></td></tr><tr id="row1580946774084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p740363199084837"><p>StopAbility (const Want &amp;want)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2113552500084837"><p>int</p>
+</p><p id="p384412316084837"><p>Stops an Ability based on the specified Want information.</p>
+</p></td></tr><tr id="row1579162740084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p572465098084837"><p>TerminateAbility ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1794873218084837"><p>int</p>
+</p><p id="p1333508519084837"><p>Destroys this Ability.</p>
+</p></td></tr><tr id="row1231299292084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1811799733084837"><p>ConnectAbility (const Want &amp;want, const IAbilityConnection &amp;conn, void
+*data)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p832510986084837"><p>int</p>
+</p><p id="p1452465091084837"><p>Connects to a Service ability based on the specified Want information.</p>
+</p></td></tr><tr id="row276336280084837"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p647846189084837"><p>DisconnectAbility (const IAbilityConnection &amp;conn)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1575274384084837"><p>int</p>
+</p><p id="p1808052809084837"><p>Disconnects from a Service ability.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/ohos-ability.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

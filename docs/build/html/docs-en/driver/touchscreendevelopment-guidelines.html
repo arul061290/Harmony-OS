@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touchscreen Development Guidelines &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="touchscreen-development-guidelines">
+<h1>Touchscreen Development Guidelines<a class="headerlink" href="#touchscreen-development-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>Regardless of the OS and system on a chip (SoC), the Touchscreen driver
+is developed based on the HDF, Platform, and OSAL APIs to provide a
+unified driver model for touchscreens.</p>
+<ol class="arabic simple">
+<li><p>The HDF provides a unified driver management model. The HDF
+identifies and loads drivers through the module configuration
+information. The HDF starts drivers in sequence using the <strong>Init</strong>
+function.</p></li>
+<li><p>Implement the following operations in <strong>Init</strong>:</p>
+<ul class="simple">
+<li><p>Use an OSAL interface to create device node
+<strong>/dev/input/event</strong>_x_ and implement operation functions such
+as <strong>open</strong>, <strong>close</strong>, <strong>read</strong>, <strong>write</strong>, and <strong>ioctl</strong> for the
+node, enabling the node to transmit touch reporting data and
+instructions.</p></li>
+<li><p>Based on the hardware connection to the touchscreen, use the GPIO
+interfaces provided by the Platform to configure and perform
+operations for the reset pins and interrupt pins.</p></li>
+<li><p>Use the I2C or SPI interfaces provided by the Platform to
+implement data communication depending on the communication
+interfaces selected by the touchscreen.</p></li>
+</ul>
+</li>
+</ol>
+<div class="section" id="limitations-and-constraints">
+<h2>Limitations and Constraints<a class="headerlink" href="#limitations-and-constraints" title="Permalink to this headline">¶</a></h2>
+<p>None.</p>
+</div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Start the driver using the <strong>Init</strong> function.</p>
+<p>Currently, the driver is developed based on the HDF driver model and
+is loaded and started by the HDF. Register the driver information in
+the configuration file. Then, the HDF starts the registered driver
+modules one by one. For details about the driver configuration, see
+<a class="reference external" href="driver-development.md#section1969312275533">How to Develop</a>.</p>
+</li>
+<li><p>Initialize the I/O status and input configurations.</p>
+<p>Configure the required I/O pins. For example, configure a register
+for the I2C pin reserved for the touchscreen to use I2C for
+transmitting data.</p>
+</li>
+<li><p>Perform power sequence.</p>
+<p>Use the Platform interfaces to perform operations for the reset pins,
+interrupt pins and power based on the communications interfaces
+designed for boards. For details about the GPIO-related operations,
+see <a class="reference external" href="gpiousage-guidelines.md">GPIO Usage Guidelines</a>.</p>
+</li>
+<li><p>Implement the ISR function.</p></li>
+<li><p>Obtain the power status and take proper actions.</p></li>
+<li><p>Download the required touchscreen firmware.</p></li>
+<li><p>Create a device node and implement the operation function for the
+node.</p>
+<p>Create an input device node based on service requirements. For
+example, create the device file <strong>dev/input/event0</strong>. Then, implement
+functions such as <strong>open</strong>, <strong>close</strong>, <strong>read</strong>, <strong>write</strong>, <strong>ioctl</strong>
+and <strong>poll</strong> for the file. You can add or delete them as required.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="faqs">
+<h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h2>
+<p>None.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/driver/touchscreendevelopment-guidelines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

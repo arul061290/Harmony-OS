@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WifiIotSdioExtendFunc &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wifiiotsdioextendfunc">
+<h1>WifiIotSdioExtendFunc<a class="headerlink" href="#wifiiotsdioextendfunc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wifiiot.md">Wifiiot</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides extended SDIO attributes.</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1309439041191904"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2016725119191904"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1362917817191904"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1019394268191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p672457201191904"><p>intStat</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1405069029191904"><p>unsigned int</p>
+</p></td></tr><tr id="row281084683191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1009864397191904"><p>msgStat</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2111790479191904"><p>unsigned int</p>
+</p></td></tr><tr id="row1776545860191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1424742933191904"><p>xferCount</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2000177362191904"><p>unsigned int</p>
+</p></td></tr><tr id="row1020176043191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1019826466191904"><p>creditInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p792637510191904"><p>unsigned int</p>
+</p></td></tr><tr id="row1995541786191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p810807386191904"><p>creditIsvalid</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p469123766191904"><p>unsigned char</p>
+</p></td></tr><tr id="row2136600909191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p666931619191904"><p>commReg [WIFI_IOT_SDIO_EXTENDREG_COUNT]</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1343963673191904"><p>unsigned char</p>
+</p></td></tr><tr id="row546981005191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1647120189191904"><p>commregIsvalid</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1474794973191904"><p>unsigned char</p>
+</p></td></tr><tr id="row1099642237191904"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1047128792191904"><p>validCommregCnt</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1984706990191904"><p>unsigned int</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="commreg">
+<h2>commReg<a class="headerlink" href="#commreg" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="n">char</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">commReg</span><span class="p">[[</span><span class="n">WIFI_IOT_SDIO_EXTENDREG_COUNT</span><span class="p">](</span><span class="n">wifiiot</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga107279ca1341146ae076f8e08c10d1dc)]</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Common register</p>
+</div>
+<div class="section" id="commregisvalid">
+<h2>commregIsvalid<a class="headerlink" href="#commregisvalid" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="n">char</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">commregIsvalid</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Whether a common register is valid</p>
+</div>
+<div class="section" id="creditinfo">
+<h2>creditInfo<a class="headerlink" href="#creditinfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">creditInfo</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Flow control information</p>
+</div>
+<div class="section" id="creditisvalid">
+<h2>creditIsvalid<a class="headerlink" href="#creditisvalid" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="n">char</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">creditIsvalid</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Whether flow control information is valid</p>
+</div>
+<div class="section" id="intstat">
+<h2>intStat<a class="headerlink" href="#intstat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">intStat</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Interrupt status</p>
+</div>
+<div class="section" id="msgstat">
+<h2>msgStat<a class="headerlink" href="#msgstat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">msgStat</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Message status</p>
+</div>
+<div class="section" id="validcommregcnt">
+<h2>validCommregCnt<a class="headerlink" href="#validcommregcnt" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">validCommregCnt</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of valid common registers</p>
+</div>
+<div class="section" id="xfercount">
+<h2>xferCount<a class="headerlink" href="#xfercount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">WifiIotSdioExtendFunc</span><span class="p">::</span><span class="n">xferCount</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of sent bytes</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-LinkIoT/wifiiotsdioextendfunc.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

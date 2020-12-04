@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="audio">
+<h1>Audio<a class="headerlink" href="#audio" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Defines audio-related APIs, including custom data types and functions
+for loading drivers, accessing a driver adapter, and rendering and
+capturing audios.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1702118338084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1236444550084825"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p80070986084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1981079241084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p977704517084825"><p>audio_adapter.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1851977110084825"><p>Declares APIs for operations related to the audio adapter.</p>
+</p></td></tr><tr id="row768865526084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1900194596084825"><p>audio_attribute.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1673696133084825"><p>Declares APIs for audio attributes.</p>
+</p></td></tr><tr id="row1611711583084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2020963390084825"><p>audio_capture.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1989186762084825"><p>Declares APIs for audio capturing.</p>
+</p></td></tr><tr id="row819588749084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1503088240084825"><p>audio_control.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1746788172084825"><p>Declares APIs for audio control.</p>
+</p></td></tr><tr id="row104530195084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1547173905084825"><p>audio_manager.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p382397809084825"><p>Declares APIs for audio adapter management and loading.</p>
+</p></td></tr><tr id="row621030756084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p471308719084825"><p>audio_render.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p74297960084825"><p>Declares APIs for audio rendering.</p>
+</p></td></tr><tr id="row1536025529084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p720939814084825"><p>audio_scene.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1681745115084825"><p>Declares APIs for audio scenes.</p>
+</p></td></tr><tr id="row1976948422084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1801156357084825"><p>audio_types.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p806677399084825"><p>Defines custom data types used in API declarations for the audio module,
+including audio ports, adapter descriptors, device descriptors, scene
+descriptors, sampling attributes, and timestamp.</p>
+</p></td></tr><tr id="row794524562084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p46653876084825"><p>audio_volume.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1130285271084825"><p>Declares APIs for audio volume.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1126119952084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p4928580084825"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p480526313084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1414086373084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p173121875084825"><p>AudioAdapter</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p94037513084825"><p>Provides audio adapter capabilities, including initializing ports,
+creating rendering and capturing tasks, and obtaining the port
+capability set.</p>
+</p></td></tr><tr id="row99661825084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1633223067084825"><p>AudioAttribute</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p691533041084825"><p>Provides attribute-related APIs for audio rendering or capturing,
+including functions to obtain frame information and set audio sampling
+attributes.</p>
+</p></td></tr><tr id="row759009595084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1626231006084825"><p>AudioCapture</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p323060169084825"><p>Provides capabilities for audio capturing, including controlling the
+capturing, setting audio attributes, scenes, and volume, and capturing
+audio frames.</p>
+</p></td></tr><tr id="row2109866197084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p968795113084825"><p>AudioControl</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2146757997084825"><p>Provides control-related APIs for audio rendering or capturing,
+including functions to start, stop, pause, and resume audio rendering or
+capturing, and flush data in the audio buffer.</p>
+</p></td></tr><tr id="row1494297266084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2142895946084825"><p>AudioManager</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1130824115084825"><p>Manages audio adapters through a specific adapter driver program loaded
+based on the given audio adapter descriptor.</p>
+</p></td></tr><tr id="row872909915084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p458205965084825"><p>AudioRender</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1984944532084825"><p>Provides capabilities for audio rendering, including controlling the
+rendering, setting audio attributes, scenes, and volume, obtaining
+hardware latency, and rendering audio frames.</p>
+</p></td></tr><tr id="row398547216084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2137955395084825"><p>AudioScene</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1324169316084825"><p>Provides scene-related APIs for audio rendering or capturing, including
+functions to select an audio scene and check whether the configuration
+of an audio scene is supported.</p>
+</p></td></tr><tr id="row1975530372084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1182262569084825"><p>AudioPort</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p25261728084825"><p>Defines the audio port.</p>
+</p></td></tr><tr id="row939051669084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1912470654084825"><p>AudioAdapterDescriptor</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1956912013084825"><p>Defines the audio adapter descriptor.</p>
+</p></td></tr><tr id="row1810692342084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1963665318084825"><p>AudioDeviceDescriptor</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p622884411084825"><p>Defines the audio device descriptor.</p>
+</p></td></tr><tr id="row305177583084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1876113027084825"><p>AudioSceneDescriptor</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1506285208084825"><p>Defines the audio scene descriptor.</p>
+</p></td></tr><tr id="row164654852084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1969224723084825"><p>AudioSceneDescriptor::SceneDesc</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p334406139084825"><p>Describes the audio scene.</p>
+</p></td></tr><tr id="row239470668084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p706076530084825"><p>AudioSampleAttributes</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p238829528084825"><p>Defines audio sampling attributes.</p>
+</p></td></tr><tr id="row1667269048084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p853075861084825"><p>AudioTimeStamp</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p717090233084825"><p>Defines the audio timestamp, which is a substitute for POSIX timespec.</p>
+</p></td></tr><tr id="row1466140993084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p121460597084825"><p>AudioSubPortCapability</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1405271059084825"><p>Defines the sub-port capability.</p>
+</p></td></tr><tr id="row225564775084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1004423607084825"><p>AudioPortCapability</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p652324062084825"><p>Defines the audio port capability.</p>
+</p></td></tr><tr id="row789456503084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p900952211084825"><p>AudioVolume</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1454372280084825"><p>Provides volume-related APIs for audio rendering or capturing, including
+functions to set the mute operation, volume, and gain.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row845929926084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1095018819084825"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1515211930084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row436129416084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p671149657084825"><p>AudioHandle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p282487847084825"><p>typedef void *</p>
+</p><p id="p835098438084825"><p>Defines the audio handle.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1509401570084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1282339081084825"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2123378263084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1135327410084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p312752499084825"><p>AudioPortDirection { PORT_OUT = 0x1u, PORT_IN = 0x2u, PORT_OUT_IN = 0x3u
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1349529263084825"><p>Enumerates the audio port type.</p>
+</p></td></tr><tr id="row1752168084084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1590641023084825"><p>AudioPortPin { PIN_NONE = 0x0u, PIN_OUT_SPEAKER = 0x1u, PIN_OUT_HEADSET
+= 0x2u, PIN_OUT_LINEOUT = 0x4u, PIN_OUT_HDMI = 0x8u, PIN_IN_MIC =
+0x8000001u, PIN_IN_HS_MIC = 0x8000002u, PIN_IN_LINEIN = 0x8000004u }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p644273612084825"><p>Enumerates the pin of an audio adapter.</p>
+</p></td></tr><tr id="row1634883298084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p987134234084825"><p>AudioCategory { AUDIO_IN_MEDIA = 0, AUDIO_IN_COMMUNICATION }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1473238556084825"><p>Enumerates the audio category.</p>
+</p></td></tr><tr id="row1152775690084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p50297353084825"><p>AudioFormat { AUDIO_FORMAT_PCM_8_BIT = 0x1u, AUDIO_FORMAT_PCM_16_BIT =
+0x2u, AUDIO_FORMAT_PCM_24_BIT = 0x3u, AUDIO_FORMAT_PCM_32_BIT = 0x4u,
+AUDIO_FORMAT_AAC_MAIN = 0x1000001u, AUDIO_FORMAT_AAC_LC = 0x1000002u,
+AUDIO_FORMAT_AAC_LD = 0x1000003u, AUDIO_FORMAT_AAC_ELD = 0x1000004u,
+AUDIO_FORMAT_AAC_HE_V1 = 0x1000005u, AUDIO_FORMAT_AAC_HE_V2 = 0x1000006u
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1781521422084825"><p>Enumerates the audio format.</p>
+</p></td></tr><tr id="row537718345084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p648338938084825"><p>AudioChannelMask { AUDIO_CHANNEL_FRONT_LEFT = 0x1,
+AUDIO_CHANNEL_FRONT_RIGHT = 0x2, AUDIO_CHANNEL_MONO = 0x1u,
+AUDIO_CHANNEL_STEREO = 0x3u }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p872930634084825"><p>Enumerates the audio channel mask.</p>
+</p></td></tr><tr id="row2068933381084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1421568318084825"><p>AudioSampleRatesMask { AUDIO_SAMPLE_RATE_MASK_8000 = 0x1u,
+AUDIO_SAMPLE_RATE_MASK_12000 = 0x2u, AUDIO_SAMPLE_RATE_MASK_11025 =
+0x4u, AUDIO_SAMPLE_RATE_MASK_16000 = 0x8u, AUDIO_SAMPLE_RATE_MASK_22050
+= 0x10u, AUDIO_SAMPLE_RATE_MASK_24000 = 0x20u,
+AUDIO_SAMPLE_RATE_MASK_32000 = 0x40u, AUDIO_SAMPLE_RATE_MASK_44100 =
+0x80u, AUDIO_SAMPLE_RATE_MASK_48000 = 0x100u,
+AUDIO_SAMPLE_RATE_MASK_64000 = 0x200u, AUDIO_SAMPLE_RATE_MASK_96000 =
+0x400u, AUDIO_SAMPLE_RATE_MASK_INVALID = 0xFFFFFFFFu }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2095280095084825"><p>Enumerates masks of audio sampling rates.</p>
+</p></td></tr><tr id="row1969862044084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p161445374084825"><p>AudioPortPassthroughMode { PORT_PASSTHROUGH_LPCM = 0x1,
+PORT_PASSTHROUGH_RAW = 0x2, PORT_PASSTHROUGH_HBR2LBR = 0x4,
+PORT_PASSTHROUGH_AUTO = 0x8 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p801396168084825"><p>Enumerates the passthrough data transmission mode of an audio port.</p>
+</p></td></tr><tr id="row1727473090084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p834116760084825"><p>AudioChannelMode { AUDIO_CHANNEL_NORMAL = 0, AUDIO_CHANNEL_BOTH_LEFT,
+AUDIO_CHANNEL_BOTH_RIGHT, AUDIO_CHANNEL_EXCHANGE, AUDIO_CHANNEL_MIX,
+AUDIO_CHANNEL_LEFT_MUTE, AUDIO_CHANNEL_RIGHT_MUTE,
+AUDIO_CHANNEL_BOTH_MUTE }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p343927374084825"><p>Enumerates channel modes for audio rendering.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1513885812084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1065665411084825"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p316989166084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row427384364084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p182694093084825"><p>GetAudioManagerFuncs (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p878475947084825"><p>struct AudioManager *</p>
+</p><p id="p1721756526084825"><p>Obtains the operation function list of the AudioManager class.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="audiocategory">
+<h2>AudioCategory<a class="headerlink" href="#audiocategory" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioCategory</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaf210d41d152890f3aaf2aaac99bd28d5)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates the audio category.</p>
+<table><thead align="left"><tr id="row581686794084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p820377135084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1874833772084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row808697268084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_IN_MEDIA</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p614245258084825"><p>Media</p>
+</p></td></tr><tr id="row2145762799084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_IN_COMMUNICATION</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2040548361084825"><p>Communications</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="audiochannelmask">
+<h2>AudioChannelMask<a class="headerlink" href="#audiochannelmask" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioChannelMask</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga137eb03027d5947ea294b32f5095b83c)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates the audio channel mask.</p>
+<p>A mask describes an audio channel position.</p>
+<table><thead align="left"><tr id="row1416192255084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1408233891084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1288306073084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1891229079084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_FRONT_LEFT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1470294772084825"><p>Front left channel</p>
+</p></td></tr><tr id="row1424557453084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_FRONT_RIGHT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p281292006084825"><p>Front right channel</p>
+</p></td></tr><tr id="row2100237610084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_MONO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p668863541084825"><p>Mono channel</p>
+</p></td></tr><tr id="row1566706616084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_STEREO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p878100649084825"><p>Stereo channel, consisting of front left and front right channels</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="audiochannelmode">
+<h2>AudioChannelMode<a class="headerlink" href="#audiochannelmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioChannelMode</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga78aab1fafb9657451804e42b42897123)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates channel modes for audio rendering.</p>
+<p><strong>Attention:</strong></p>
+<p>The following modes are set for rendering dual-channel audios. Others
+are not supported.</p>
+<table><thead align="left"><tr id="row1628424522084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1766202813084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1100728961084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1361724916084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_NORMAL</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p639556496084825"><p>Normal mode. No processing is required.</p>
+</p></td></tr><tr id="row216323173084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_BOTH_LEFT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p62530952084825"><p>Two left channels</p>
+</p></td></tr><tr id="row1941864037084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_BOTH_RIGHT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p909413250084825"><p>Two right channels</p>
+</p></td></tr><tr id="row916646821084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_EXCHANGE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1906728956084825"><p>Data exchange between the left and right channels. The left channel
+takes the audio stream of the right channel, and the right channel takes
+that of the left channel.</p>
+</p></td></tr><tr id="row103699270084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_MIX</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p24012098084825"><p>Mix of streams of the left and right channels</p>
+</p></td></tr><tr id="row1211339119084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_LEFT_MUTE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p544279483084825"><p>Left channel muted. The stream of the right channel is output.</p>
+</p></td></tr><tr id="row590037081084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_RIGHT_MUTE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p629372302084825"><p>Right channel muted. The stream of the left channel is output.</p>
+</p></td></tr><tr id="row1147705386084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_CHANNEL_BOTH_MUTE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1996009843084825"><p>Both left and right channels muted</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="audioformat">
+<h2>AudioFormat<a class="headerlink" href="#audioformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioFormat</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga98d5d077cca088ddf77314871474fe59)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates the audio format.</p>
+<table><thead align="left"><tr id="row1367366576084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1473045037084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p310853743084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row94137642084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_PCM_8_BIT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1004829643084825"><p>8-bit PCM</p>
+</p></td></tr><tr id="row1048123720084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_PCM_16_BIT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2136987508084825"><p>16-bit PCM</p>
+</p></td></tr><tr id="row520517925084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_PCM_24_BIT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1478296829084825"><p>24-bit PCM</p>
+</p></td></tr><tr id="row975788057084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_PCM_32_BIT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1267586262084825"><p>32-bit PCM</p>
+</p></td></tr><tr id="row1359279695084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_AAC_MAIN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1398476373084825"><p>AAC main</p>
+</p></td></tr><tr id="row1701647710084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_AAC_LC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1072449831084825"><p>AAC LC</p>
+</p></td></tr><tr id="row751048020084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_AAC_LD</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1078747112084825"><p>AAC LD</p>
+</p></td></tr><tr id="row993717308084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_AAC_ELD</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p882002829084825"><p>AAC ELD</p>
+</p></td></tr><tr id="row424357356084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_AAC_HE_V1</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1051875436084825"><p>AAC HE_V1</p>
+</p></td></tr><tr id="row1043502153084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_FORMAT_AAC_HE_V2</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1063950852084825"><p>AAC HE_V2</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="audioportdirection">
+<h2>AudioPortDirection<a class="headerlink" href="#audioportdirection" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioPortDirection</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga68ff7140b15790debbac4bbc62f8e9f8)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates the audio port type.</p>
+<table><thead align="left"><tr id="row447062623084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1776795150084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1000986765084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1595536258084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PORT_OUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1441385809084825"><p>Output port</p>
+</p></td></tr><tr id="row1378134559084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PORT_IN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1054916310084825"><p>Input port</p>
+</p></td></tr><tr id="row154933946084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PORT_OUT_IN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1945830406084825"><p>Input/output port, supporting both audio input and output</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="audioportpassthroughmode">
+<h2>AudioPortPassthroughMode<a class="headerlink" href="#audioportpassthroughmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioPortPassthroughMode</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga186d2d4f9a2ecacb80cd2cce2bd26f0e)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates the passthrough data transmission mode of an audio port.</p>
+<table><thead align="left"><tr id="row251391267084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p766640412084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1828589509084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row457403517084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PORT_PASSTHROUGH_LPCM</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1434689346084825"><p>Stereo PCM</p>
+</p></td></tr><tr id="row1286591345084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PORT_PASSTHROUGH_RAW</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2076321762084825"><p>HDMI passthrough</p>
+</p></td></tr><tr id="row1332885984084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PORT_PASSTHROUGH_HBR2LBR</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1852624369084825"><p>Blu-ray next-generation audio output with reduced specifications</p>
+</p></td></tr><tr id="row1711505356084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PORT_PASSTHROUGH_AUTO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p9516249084825"><p>Mode automatically matched based on the HDMI EDID</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="audioportpin">
+<h2>AudioPortPin<a class="headerlink" href="#audioportpin" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioPortPin</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa7114aeeccf3ac4f5f7e1d880bcfa835)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates the pin of an audio adapter.</p>
+<table><thead align="left"><tr id="row1212074284084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p427155524084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1445437373084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row285210791084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_NONE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p794998958084825"><p>Invalid pin</p>
+</p></td></tr><tr id="row1069780679084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_OUT_SPEAKER</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1209466960084825"><p>Speaker output pin</p>
+</p></td></tr><tr id="row218523980084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_OUT_HEADSET</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1287992188084825"><p>Wired headset pin for output</p>
+</p></td></tr><tr id="row1765660765084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_OUT_LINEOUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1877308982084825"><p>Line-out pin</p>
+</p></td></tr><tr id="row608055281084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_OUT_HDMI</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1205749455084825"><p>HDMI output pin</p>
+</p></td></tr><tr id="row1937137355084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_IN_MIC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p985406930084825"><p>Microphone input pin</p>
+</p></td></tr><tr id="row162389720084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_IN_HS_MIC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1002177990084825"><p>Wired headset microphone pin for input</p>
+</p></td></tr><tr id="row1051058651084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>PIN_IN_LINEIN</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p83050979084825"><p>Line-in pin</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="audiosampleratesmask">
+<h2>AudioSampleRatesMask<a class="headerlink" href="#audiosampleratesmask" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioSampleRatesMask</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga7053fcaa56d1dc47d2fcd83ee131fe4c)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates masks of audio sampling rates.</p>
+<table><thead align="left"><tr id="row452360623084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1854736535084825"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p478483982084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row571403668084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_8000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p870225967084825"><p>8 kHz</p>
+</p></td></tr><tr id="row1225962693084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_12000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p736067065084825"><p>12 kHz</p>
+</p></td></tr><tr id="row283903714084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_11025</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p109566608084825"><p>11.025 kHz</p>
+</p></td></tr><tr id="row542145181084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_16000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p753510104084825"><p>16 kHz</p>
+</p></td></tr><tr id="row147358764084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_22050</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1737270331084825"><p>22.050 kHz</p>
+</p></td></tr><tr id="row621426022084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_24000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1611767635084825"><p>24 kHz</p>
+</p></td></tr><tr id="row601645977084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_32000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p149128271084825"><p>32 kHz</p>
+</p></td></tr><tr id="row812691655084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_44100</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p937209395084825"><p>44.1 kHz</p>
+</p></td></tr><tr id="row1482212368084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_48000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2080794754084825"><p>48 kHz</p>
+</p></td></tr><tr id="row1394575402084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_64000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p805165357084825"><p>64 kHz</p>
+</p></td></tr><tr id="row1874007078084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_96000</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1139157567084825"><p>96 kHz</p>
+</p></td></tr><tr id="row88990974084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_RATE_MASK_INVALID</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p521893504084825"><p>Invalid sampling rate</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="getaudiomanagerfuncs">
+<h2>GetAudioManagerFuncs()<a class="headerlink" href="#getaudiomanagerfuncs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioManager</span><span class="p">](</span><span class="n">audiomanager</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">GetAudioManagerFuncs</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the operation function list of the
+<a class="reference external" href="audiomanager.md">AudioManager</a> class.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the pointer to the <a class="reference external" href="audiomanager.md">AudioManager</a> object if
+the list is obtained; returns <strong>NULL</strong> otherwise.</p>
+</div>
+<div class="section" id="variable-documentation">
+<h2><strong>Variable Documentation</strong><a class="headerlink" href="#variable-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="adaptername">
+<h2>adapterName<a class="headerlink" href="#adaptername" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">AudioAdapterDescriptor</span><span class="p">::</span><span class="n">adapterName</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Name of the audio adapter</p>
+</div>
+<div class="section" id="channelcount-1-2">
+<h2>channelCount [1/2]<a class="headerlink" href="#channelcount-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioSampleAttributes</span><span class="p">::</span><span class="n">channelCount</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of audio channels. For example, for the mono channel, the value
+is 1, and for the stereo channel, the value is 2.</p>
+</div>
+<div class="section" id="channelcount-2-2">
+<h2>channelCount [2/2]<a class="headerlink" href="#channelcount-2-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">channelCount</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Supported maximum number of audio channels</p>
+</div>
+<div class="section" id="channelmasks">
+<h2>channelMasks<a class="headerlink" href="#channelmasks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioChannelMask</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga137eb03027d5947ea294b32f5095b83c) AudioPortCapability::channelMasks</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio channel layout mask of the device. For details, see
+<a class="reference external" href="audio.md#ga137eb03027d5947ea294b32f5095b83c">AudioChannelMask</a>.</p>
+</div>
+<div class="section" id="desc-1-4">
+<h2>desc [1/4]<a class="headerlink" href="#desc-1-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">AudioDeviceDescriptor</span><span class="p">::</span><span class="n">desc</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio device name</p>
+</div>
+<div class="section" id="desc-2-4">
+<h2>desc [2/4]<a class="headerlink" href="#desc-2-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioDeviceDescriptor</span><span class="p">](</span><span class="n">audiodevicedescriptor</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="n">AudioSceneDescriptor</span><span class="p">::</span><span class="n">desc</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio device descriptor</p>
+</div>
+<div class="section" id="desc-3-4">
+<h2>desc [3/4]<a class="headerlink" href="#desc-3-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">AudioSceneDescriptor</span><span class="p">::</span><span class="n">SceneDesc</span><span class="p">::</span><span class="n">desc</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Name of the audio scene</p>
+</div>
+<div class="section" id="desc-4-4">
+<h2>desc [4/4]<a class="headerlink" href="#desc-4-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">AudioSubPortCapability</span><span class="p">::</span><span class="n">desc</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sub-port name</p>
+</div>
+<div class="section" id="deviceid">
+<h2>deviceId<a class="headerlink" href="#deviceid" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">deviceId</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Device ID used for device binding</p>
+</div>
+<div class="section" id="devicetype">
+<h2>deviceType<a class="headerlink" href="#devicetype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">deviceType</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Device type (output or input)</p>
+</div>
+<div class="section" id="dir">
+<h2>dir<a class="headerlink" href="#dir" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioPortDirection</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga68ff7140b15790debbac4bbc62f8e9f8) AudioPort::dir</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio port type. For details, see
+<a class="reference external" href="audio.md#ga68ff7140b15790debbac4bbc62f8e9f8">AudioPortDirection</a></p>
+</div>
+<div class="section" id="format">
+<h2>format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioFormat</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga98d5d077cca088ddf77314871474fe59) AudioSampleAttributes::format</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio data format. For details, see
+<a class="reference external" href="audio.md#ga98d5d077cca088ddf77314871474fe59">AudioFormat</a>.</p>
+</div>
+<div class="section" id="formatnum">
+<h2>formatNum<a class="headerlink" href="#formatnum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">formatNum</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of the supported audio formats</p>
+</div>
+<div class="section" id="formats">
+<h2>formats<a class="headerlink" href="#formats" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioFormat</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga98d5d077cca088ddf77314871474fe59)* AudioPortCapability::formats</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Supported audio formats. For details, see
+<a class="reference external" href="audio.md#ga98d5d077cca088ddf77314871474fe59">AudioFormat</a>.</p>
+</div>
+<div class="section" id="hardwaremode">
+<h2>hardwareMode<a class="headerlink" href="#hardwaremode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">hardwareMode</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Whether to support device binding</p>
+</div>
+<div class="section" id="id">
+<h2>id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioSceneDescriptor</span><span class="p">::</span><span class="n">SceneDesc</span><span class="p">::</span><span class="nb">id</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio scene ID</p>
+</div>
+<div class="section" id="interleaved">
+<h2>interleaved<a class="headerlink" href="#interleaved" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">AudioSampleAttributes</span><span class="p">::</span><span class="n">interleaved</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Interleaving flag of audio data</p>
+</div>
+<div class="section" id="mask">
+<h2>mask<a class="headerlink" href="#mask" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioPortPassthroughMode</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga186d2d4f9a2ecacb80cd2cce2bd26f0e) AudioSubPortCapability::mask</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Passthrough mode of data transmission. For details, see
+<a class="reference external" href="audio.md#ga186d2d4f9a2ecacb80cd2cce2bd26f0e">AudioPortPassthroughMode</a>.</p>
+</div>
+<div class="section" id="pins">
+<h2>pins<a class="headerlink" href="#pins" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioPortPin</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa7114aeeccf3ac4f5f7e1d880bcfa835) AudioDeviceDescriptor::pins</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Pins of audio ports (input and output). For details, see
+<a class="reference external" href="audio.md#gaa7114aeeccf3ac4f5f7e1d880bcfa835">AudioPortPin</a>.</p>
+</div>
+<div class="section" id="portid-1-3">
+<h2>portId [1/3]<a class="headerlink" href="#portid-1-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioPort</span><span class="p">::</span><span class="n">portId</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio port ID</p>
+</div>
+<div class="section" id="portid-2-3">
+<h2>portId [2/3]<a class="headerlink" href="#portid-2-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioDeviceDescriptor</span><span class="p">::</span><span class="n">portId</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio port ID</p>
+</div>
+<div class="section" id="portid-3-3">
+<h2>portId [3/3]<a class="headerlink" href="#portid-3-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioSubPortCapability</span><span class="p">::</span><span class="n">portId</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sub-port ID</p>
+</div>
+<div class="section" id="portname">
+<h2>portName<a class="headerlink" href="#portname" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">AudioPort</span><span class="p">::</span><span class="n">portName</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio port name</p>
+</div>
+<div class="section" id="portnum">
+<h2>portNum<a class="headerlink" href="#portnum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioAdapterDescriptor</span><span class="p">::</span><span class="n">portNum</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of ports supported by an audio adapter</p>
+</div>
+<div class="section" id="ports">
+<h2>ports<a class="headerlink" href="#ports" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioPort</span><span class="p">](</span><span class="n">audioport</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">AudioAdapterDescriptor</span><span class="p">::</span><span class="n">ports</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>List of ports supported by an audio adapter</p>
+</div>
+<div class="section" id="samplerate">
+<h2>sampleRate<a class="headerlink" href="#samplerate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioSampleAttributes</span><span class="p">::</span><span class="n">sampleRate</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio sampling rate</p>
+</div>
+<div class="section" id="sampleratemasks">
+<h2>sampleRateMasks<a class="headerlink" href="#sampleratemasks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">sampleRateMasks</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Supported audio sampling rates (8 kHz, 16 kHz, 32 kHz, and 48 kHz)</p>
+</div>
+<div class="section" id="scene">
+<h2>scene<a class="headerlink" href="#scene" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">union</span> <span class="p">[</span><span class="n">AudioSceneDescriptor</span><span class="p">::</span><span class="n">SceneDesc</span><span class="p">](</span><span class="n">audioscenedescriptor</span><span class="o">-</span><span class="n">scenedesc</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="n">AudioSceneDescriptor</span><span class="p">::</span><span class="n">scene</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>The <strong>scene</strong> object</p>
+</div>
+<div class="section" id="subports">
+<h2>subPorts<a class="headerlink" href="#subports" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioSubPortCapability</span><span class="p">](</span><span class="n">audiosubportcapability</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">subPorts</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>List of supported sub-ports</p>
+</div>
+<div class="section" id="subportsnum">
+<h2>subPortsNum<a class="headerlink" href="#subportsnum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">AudioPortCapability</span><span class="p">::</span><span class="n">subPortsNum</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Number of supported sub-ports (for output devices only)</p>
+</div>
+<div class="section" id="tvnsec">
+<h2>tvNSec<a class="headerlink" href="#tvnsec" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int64_t</span> <span class="n">AudioTimeStamp</span><span class="p">::</span><span class="n">tvNSec</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Nanoseconds</p>
+</div>
+<div class="section" id="tvsec">
+<h2>tvSec<a class="headerlink" href="#tvsec" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int64_t</span> <span class="n">AudioTimeStamp</span><span class="p">::</span><span class="n">tvSec</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Seconds</p>
+</div>
+<div class="section" id="type">
+<h2>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioCategory</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaf210d41d152890f3aaf2aaac99bd28d5) AudioSampleAttributes::type</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Audio type. For details, see
+<a class="reference external" href="audio.md#gaf210d41d152890f3aaf2aaac99bd28d5">AudioCategory</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/audio.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

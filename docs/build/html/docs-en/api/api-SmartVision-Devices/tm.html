@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tm &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="tm">
+<h1>tm<a class="headerlink" href="#tm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="time.md">TIME</a></p>
+<p><strong>Description:</strong></p>
+<p>Describes date and time information.</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row38325888084843"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1148809473084843"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1207532853084843"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1274468718084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p813107906084843"><p>tm_sec</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1170138611084843"><p>int</p>
+</p></td></tr><tr id="row1007029505084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2105363298084843"><p>tm_min</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p910616960084843"><p>int</p>
+</p></td></tr><tr id="row695471644084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p898737655084843"><p>tm_hour</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p531765287084843"><p>int</p>
+</p></td></tr><tr id="row2043065628084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1953881118084843"><p>tm_mday</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p444394293084843"><p>int</p>
+</p></td></tr><tr id="row1206058761084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1610855419084843"><p>tm_mon</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1755166084843"><p>int</p>
+</p></td></tr><tr id="row97934438084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2005199058084843"><p>tm_year</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1785271455084843"><p>int</p>
+</p></td></tr><tr id="row1332665792084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p173418842084843"><p>tm_wday</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1385395449084843"><p>int</p>
+</p></td></tr><tr id="row553747855084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p635846649084843"><p>tm_isdst</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1855547903084843"><p>int</p>
+</p></td></tr><tr id="row1171762175084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1051440867084843"><p>__tm_gmtoff</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1067694553084843"><p>long</p>
+</p></td></tr><tr id="row1099460784084843"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1604837219084843"><p>__tm_zone</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p683515849084843"><p>const char *</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tm-gmtoff">
+<h2>__tm_gmtoff<a class="headerlink" href="#tm-gmtoff" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">long</span> <span class="n">tm</span><span class="p">::</span><span class="n">__tm_gmtoff</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Seconds east of UTC</p>
+</div>
+<div class="section" id="tm-zone">
+<h2>__tm_zone<a class="headerlink" href="#tm-zone" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">tm</span><span class="p">::</span><span class="n">__tm_zone</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Time zone</p>
+</div>
+<div class="section" id="tm-hour">
+<h2>tm_hour<a class="headerlink" href="#tm-hour" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_hour</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Hour. The value ranges from 0 to 23.</p>
+</div>
+<div class="section" id="tm-isdst">
+<h2>tm_isdst<a class="headerlink" href="#tm-isdst" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_isdst</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Daylight saving time (DST)</p>
+</div>
+<div class="section" id="tm-mday">
+<h2>tm_mday<a class="headerlink" href="#tm-mday" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_mday</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Day. The value ranges from 1 to 31.</p>
+</div>
+<div class="section" id="tm-min">
+<h2>tm_min<a class="headerlink" href="#tm-min" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_min</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Minute. The value ranges from 0 to 59.</p>
+</div>
+<div class="section" id="tm-mon">
+<h2>tm_mon<a class="headerlink" href="#tm-mon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_mon</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Month. The value ranges from 0 to 11.</p>
+</div>
+<div class="section" id="tm-sec">
+<h2>tm_sec<a class="headerlink" href="#tm-sec" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_sec</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Second. The value ranges from 0 to 60.</p>
+</div>
+<div class="section" id="tm-wday">
+<h2>tm_wday<a class="headerlink" href="#tm-wday" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_wday</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Week. The value ranges from 0 to 6. The value <strong>0</strong> indicates Sunday,
+the value <strong>1</strong> indicates Monday, and so on.</p>
+</div>
+<div class="section" id="tm-year">
+<h2>tm_year<a class="headerlink" href="#tm-year" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">tm</span><span class="p">::</span><span class="n">tm_year</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Year. The value is the actual year minus 1900.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/tm.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

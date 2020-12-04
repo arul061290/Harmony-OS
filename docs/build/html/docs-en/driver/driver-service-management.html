@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driver Service Management &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="driver-service-management">
+<h1>Driver Service Management<a class="headerlink" href="#driver-service-management" title="Permalink to this headline">¶</a></h1>
+<p>Driver services are objects of open capabilities provided by the HDF and
+are managed by the HDF in a unified manner. Using driver service
+management, you can release and obtain driver services.</p>
+<p>The HDF uses the <strong>policy</strong> field in the configuration file to define
+policies for drivers to release services externally. The values and
+meanings of this field are as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">driver</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">provide</span> <span class="n">services</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">SERVICE_POLICY_NONE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">driver</span> <span class="n">provides</span> <span class="n">services</span> <span class="k">for</span> <span class="n">kernel</span><span class="o">-</span><span class="n">level</span> <span class="n">applications</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">SERVICE_POLICY_PUBLIC</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">driver</span> <span class="n">provides</span> <span class="n">services</span> <span class="k">for</span> <span class="n">both</span> <span class="n">kernel</span><span class="o">-</span> <span class="ow">and</span> <span class="n">user</span><span class="o">-</span><span class="n">level</span> <span class="n">applications</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">SERVICE_POLICY_CAPACITY</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">driver</span> <span class="n">services</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">released</span> <span class="n">externally</span> <span class="n">but</span> <span class="n">can</span> <span class="n">be</span> <span class="n">subscribed</span> <span class="n">to</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">SERVICE_POLICY_FRIENDLY</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">driver</span> <span class="n">services</span> <span class="n">are</span> <span class="n">private</span><span class="o">.</span> <span class="n">They</span> <span class="n">are</span> <span class="n">neither</span> <span class="n">released</span> <span class="n">nor</span> <span class="n">subscribed</span> <span class="n">to</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">SERVICE_POLICY_PRIVATE</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="o">/*</span> <span class="n">The</span> <span class="n">service</span> <span class="n">policy</span> <span class="ow">is</span> <span class="n">incorrect</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">SERVICE_POLICY_INVALID</span>
+<span class="p">}</span> <span class="n">ServicePolicy</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="when-to-use">
+<h2>When to Use<a class="headerlink" href="#when-to-use" title="Permalink to this headline">¶</a></h2>
+<p>The driver service management capability can be used if the driver
+provides capabilities using APIs.</p>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p>The table below describes the APIs used for driver service management.</p>
+<p><strong>Table 1</strong> APIs for driver service management</p>
+<table><thead align="left"><tr id="row132193618114"><th class="cellrowborder" valign="top" width="53.269999999999996%" id="mcps1.2.3.1.1"><p id="p18219061815"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="46.73%" id="mcps1.2.3.1.2"><p id="p22191466118"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row72198616119"><td class="cellrowborder" valign="top" width="53.269999999999996%" headers="mcps1.2.3.1.1 "><p id="p1894101717213"><p>int32_t (<em>Bind)(struct HdfDeviceObject</em>deviceObject);</p>
+</p></td><td class="cellrowborder" valign="top" width="46.73%" headers="mcps1.2.3.1.2 "><p id="p15219864113"><p>Binds a service interface to the HDF. You need to implement the Bind
+function.</p>
+</p></td></tr><tr id="row1821946716"><td class="cellrowborder" valign="top" width="53.269999999999996%" headers="mcps1.2.3.1.1 "><p id="p122191462017"><p>const struct HdfObject <em>DevSvcManagerClntGetService(const
+char</em>svcName);</p>
+</p></td><td class="cellrowborder" valign="top" width="46.73%" headers="mcps1.2.3.1.2 "><p id="p92191766118"><p>Obtains a specified driver service.</p>
+</p></td></tr><tr id="row630114414319"><td class="cellrowborder" valign="top" width="53.269999999999996%" headers="mcps1.2.3.1.1 "><p id="p340513438313"><p>int HdfDeviceSubscribeService(</p>
+</p><p id="p1940512431634"><p>struct HdfDeviceObject <em>deviceObject, const char</em>serviceName, struct
+SubscriberCallback callback);</p>
+</p></td><td class="cellrowborder" valign="top" width="46.73%" headers="mcps1.2.3.1.2 "><p id="p230154120317"><p>Subscribes to a specified driver service.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<p>The development of driver service management includes compiling,
+binding, obtaining, and subscribing to driver services. The details are
+as follows:</p>
+<ol class="arabic">
+<li><p>Release a driver service.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Define</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">service</span> <span class="n">structure</span><span class="o">.</span>
+<span class="n">struct</span> <span class="n">ISampleDriverService</span> <span class="p">{</span>
+    <span class="n">struct</span> <span class="n">IDeviceIoService</span> <span class="n">ioService</span><span class="p">;</span>   <span class="o">//</span> <span class="n">The</span> <span class="n">first</span> <span class="n">member</span> <span class="n">of</span> <span class="n">the</span> <span class="n">service</span> <span class="n">structure</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="n">member</span> <span class="n">of</span> <span class="n">the</span> <span class="n">IDeviceIoService</span> <span class="nb">type</span><span class="o">.</span>
+    <span class="n">int32_t</span> <span class="p">(</span><span class="o">*</span><span class="n">ServiceA</span><span class="p">)(</span><span class="n">void</span><span class="p">);</span>               <span class="o">//</span> <span class="n">The</span> <span class="n">first</span> <span class="n">service</span> <span class="n">interface</span> <span class="n">of</span> <span class="n">the</span> <span class="n">driver</span><span class="o">.</span>
+    <span class="n">int32_t</span> <span class="p">(</span><span class="o">*</span><span class="n">ServiceB</span><span class="p">)(</span><span class="n">uint32_t</span> <span class="n">inputCode</span><span class="p">);</span> <span class="o">//</span> <span class="n">The</span> <span class="n">second</span> <span class="n">service</span> <span class="n">interface</span> <span class="n">of</span> <span class="n">the</span> <span class="n">driver</span><span class="o">.</span> <span class="n">The</span> <span class="n">rest</span> <span class="n">can</span> <span class="n">be</span> <span class="n">deduced</span> <span class="n">by</span> <span class="n">analogy</span><span class="o">.</span>
+<span class="p">};</span>
+
+<span class="n">Implementation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">service</span> <span class="n">interface</span>
+<span class="n">int32_t</span> <span class="n">SampleDriverServiceA</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">You</span> <span class="n">need</span> <span class="n">to</span> <span class="n">implement</span> <span class="n">the</span> <span class="n">service</span> <span class="n">logic</span><span class="o">.</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">int32_t</span> <span class="n">SampleDriverServiceB</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">inputCode</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">You</span> <span class="n">need</span> <span class="n">to</span> <span class="n">implement</span> <span class="n">the</span> <span class="n">service</span> <span class="n">logic</span><span class="o">.</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Bind the driver service to the HDF and implement the <strong>Bind</strong>
+function in the <strong>HdfDriverEntry</strong> structure.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">SampleDriverBind</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">deviceObject</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">deviceObject</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">device</span> <span class="nb">object</span> <span class="n">created</span> <span class="n">by</span> <span class="n">the</span> <span class="n">HDF</span> <span class="k">for</span> <span class="n">each</span> <span class="n">driver</span><span class="o">.</span> <span class="n">It</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">store</span> <span class="n">device</span><span class="o">-</span><span class="n">related</span> <span class="n">private</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">service</span> <span class="n">interfaces</span><span class="o">.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">deviceObject</span><span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;Sample device object is null!&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">static</span> <span class="n">struct</span> <span class="n">ISampleDriverService</span> <span class="n">sampleDriverA</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">.</span><span class="n">ServiceA</span> <span class="o">=</span> <span class="n">SampleDriverServiceA</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">ServiceB</span> <span class="o">=</span> <span class="n">SampleDriverServiceB</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="n">deviceObject</span><span class="o">-&gt;</span><span class="n">service</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">sampleDriverA</span><span class="o">.</span><span class="n">ioService</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Obtain the driver service.</p>
+<p>You can either use the API or subscription mechanism provided by the
+HDF to obtain the driver service.</p>
+<ul>
+<li><p>Using the API</p>
+<p>After the driver is loaded, you can obtain the driver service
+using the API provided by the HDF, as shown in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">struct</span> <span class="n">ISampleDriverService</span> <span class="o">*</span><span class="n">sampleService</span> <span class="o">=</span>
+        <span class="p">(</span><span class="n">const</span> <span class="n">struct</span> <span class="n">ISampleDriverService</span> <span class="o">*</span><span class="p">)</span><span class="n">DevSvcManagerClntGetService</span><span class="p">(</span><span class="s2">&quot;sample_driver&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">sampleService</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">sampleService</span><span class="o">-&gt;</span><span class="n">ServiceA</span><span class="p">();</span>
+<span class="n">sampleService</span><span class="o">-&gt;</span><span class="n">ServiceB</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Using the subscription mechanism</p>
+<p>If you are unaware of the time for loading drivers (on the same
+host), use the subscription mechanism provided by the HDF to
+subscribe to the drivers. After the drivers are loaded, the HDF
+releases the driver services to you. The implementation is as
+follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Subscription</span> <span class="n">callback</span> <span class="n">function</span><span class="o">.</span> <span class="n">After</span> <span class="n">the</span> <span class="n">subscribed</span> <span class="n">drivers</span> <span class="n">are</span> <span class="n">loaded</span><span class="p">,</span> <span class="n">the</span> <span class="n">HDF</span> <span class="n">releases</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">services</span> <span class="n">to</span> <span class="n">you</span> <span class="n">using</span> <span class="n">this</span> <span class="n">function</span><span class="o">.</span>
+<span class="o">//</span> <span class="nb">object</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">private</span> <span class="n">data</span> <span class="n">of</span> <span class="n">the</span> <span class="n">subscriber</span><span class="p">,</span> <span class="ow">and</span> <span class="n">service</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">subscribed</span> <span class="n">service</span><span class="o">.</span>
+<span class="n">int32_t</span> <span class="n">TestDriverSubCallBack</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">deviceObject</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">HdfObject</span> <span class="o">*</span><span class="n">service</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">const</span> <span class="n">struct</span> <span class="n">ISampleDriverService</span> <span class="o">*</span><span class="n">sampleService</span> <span class="o">=</span>
+        <span class="p">(</span><span class="n">const</span> <span class="n">struct</span> <span class="n">ISampleDriverService</span> <span class="o">*</span><span class="p">)</span><span class="n">service</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sampleService</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">sampleService</span><span class="o">-&gt;</span><span class="n">ServiceA</span><span class="p">();</span>
+    <span class="n">sampleService</span><span class="o">-&gt;</span><span class="n">ServiceB</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Implements</span> <span class="n">the</span> <span class="n">subscription</span> <span class="n">process</span><span class="o">.</span>
+<span class="n">int32_t</span> <span class="n">TestDriverInit</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">deviceObject</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">deviceObject</span><span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;Test driver init failed, deviceObject is null!&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">struct</span> <span class="n">SubscriberCallback</span> <span class="n">callBack</span><span class="p">;</span>
+    <span class="n">callBack</span><span class="o">.</span><span class="n">deviceObject</span> <span class="o">=</span> <span class="n">deviceObject</span><span class="p">;</span>
+    <span class="n">callBack</span><span class="o">.</span><span class="n">OnServiceConnected</span> <span class="o">=</span> <span class="n">TestDriverSubCallBack</span><span class="p">;</span>
+    <span class="n">int32_t</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">HdfDeviceSubscribeService</span><span class="p">(</span><span class="n">deviceObject</span><span class="p">,</span> <span class="s2">&quot;sample_driver&quot;</span><span class="p">,</span> <span class="n">callBack</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;Test driver subscribe sample driver failed!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/driver/driver-service-management.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

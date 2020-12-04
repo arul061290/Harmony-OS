@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touchscreen Development Example &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="touchscreen-development-example">
+<h1>Touchscreen Development Example<a class="headerlink" href="#touchscreen-development-example" title="Permalink to this headline">¶</a></h1>
+<p>This example describes how to develop the Touchscreen driver.</p>
+<div class="section" id="loading-the-driver">
+<h2>Loading the Driver<a class="headerlink" href="#loading-the-driver" title="Permalink to this headline">¶</a></h2>
+<p>Load and start the Touchscreen driver based on the HDF driver model. For
+details, see <a class="reference external" href="driver-development.md">Driver Development</a>. The example
+code is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Implement</span> <span class="n">TouchDispatch</span> <span class="k">as</span> <span class="n">required</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">int32_t</span> <span class="n">TouchDispatch</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="n">device</span><span class="p">,</span> <span class="nb">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">struct</span> <span class="n">HdfSBuf</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">struct</span> <span class="n">HdfSBuf</span> <span class="o">*</span><span class="n">reply</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">device</span><span class="p">;</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">cmd</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">data</span> <span class="o">==</span> <span class="n">NULL</span> <span class="o">||</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: param is null&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Implement</span> <span class="n">TouchEntryOpen</span> <span class="n">based</span> <span class="n">on</span> <span class="n">actual</span> <span class="n">service</span> <span class="n">requirements</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">int32_t</span> <span class="n">Gt911TouchDriverOpen</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="nb">object</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">object</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: param is null&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_ERR_INVALID_PARAM</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">static</span> <span class="n">struct</span> <span class="n">IRemoteService</span> <span class="n">service</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">.</span><span class="n">object</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">},</span>
+        <span class="o">.</span><span class="n">Dispatch</span> <span class="o">=</span> <span class="n">TouchDispatch</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="nb">object</span><span class="o">-&gt;</span><span class="n">service</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">service</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Implement</span> <span class="n">the</span> <span class="n">Init</span> <span class="n">function</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Touchscreen</span> <span class="n">driver</span><span class="o">.</span> <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">Gt911TouchDriverInit</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="nb">object</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">/*</span> <span class="n">For</span> <span class="n">details</span> <span class="n">about</span> <span class="n">the</span> <span class="n">function</span> <span class="n">implementation</span><span class="p">,</span> <span class="n">see</span> <span class="n">the</span> <span class="n">sample</span> <span class="n">code</span> <span class="n">below</span> <span class="n">of</span> <span class="s2">&quot;Executing the Initialization&quot;</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">/*</span> <span class="n">Define</span> <span class="n">the</span> <span class="n">entry</span> <span class="n">to</span> <span class="n">the</span> <span class="n">HDF</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">struct</span> <span class="n">HdfDriverEntry</span> <span class="n">g_gt5p5TouchDevEntry</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">moduleVersion</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">moduleName</span> <span class="o">=</span> <span class="s2">&quot;HDF_TOUCHSCREEN&quot;</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">Bind</span> <span class="o">=</span> <span class="n">Gt911TouchDriverOpen</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">Init</span> <span class="o">=</span> <span class="n">Gt911TouchDriverInit</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="n">HDF_INIT</span><span class="p">(</span><span class="n">g_gt5p5TouchDevEntry</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initializing-the-driver">
+<h2>Initializing the Driver<a class="headerlink" href="#initializing-the-driver" title="Permalink to this headline">¶</a></h2>
+<p>The following describes the common initialization steps. You can change
+them based on the service requirements.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">TouchEntryInit</span><span class="p">(</span><span class="n">struct</span> <span class="n">HdfDeviceObject</span> <span class="o">*</span><span class="nb">object</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nb">object</span><span class="p">;</span>
+    <span class="o">/*</span> <span class="n">Create</span> <span class="n">a</span> <span class="k">global</span> <span class="n">data</span> <span class="n">structure</span> <span class="k">for</span> <span class="n">storing</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">touchscreen</span> <span class="n">driver</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">g_coreData</span> <span class="o">=</span> <span class="p">(</span><span class="n">TouchCoreData</span> <span class="o">*</span><span class="p">)</span><span class="n">OsalMemAlloc</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">TouchCoreData</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_coreData</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: malloc failed&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_ERR_MALLOC_FAIL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">memset_s</span><span class="p">(</span><span class="n">g_coreData</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">TouchCoreData</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">TouchCoreData</span><span class="p">))</span> <span class="o">!=</span> <span class="n">EOK</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: memset_s fail&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="k">global</span> <span class="n">data</span> <span class="n">structure</span><span class="p">,</span> <span class="ow">and</span> <span class="n">parse</span> <span class="ow">and</span> <span class="n">assign</span> <span class="n">values</span> <span class="n">to</span> <span class="n">the</span> <span class="n">touchscreen</span> <span class="n">driver</span> <span class="n">configuration</span> <span class="n">items</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">TouchConfigInit</span><span class="p">(</span><span class="n">g_coreData</span><span class="p">);</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="n">attributes</span> <span class="ow">and</span> <span class="n">status</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">TouchSetupGpio</span><span class="p">(</span><span class="n">g_coreData</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">goto</span> <span class="n">ERR_EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="ow">and</span> <span class="n">obtain</span> <span class="n">the</span> <span class="n">I2C</span> <span class="n">bus</span> <span class="n">handle</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">TouchSetupI2c</span><span class="p">(</span><span class="n">g_coreData</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">goto</span> <span class="n">ERR_EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">task</span> <span class="n">to</span> <span class="n">detect</span> <span class="ow">and</span> <span class="n">process</span> <span class="n">interrupts</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">TouchIrqTaskInit</span><span class="p">(</span><span class="n">g_coreData</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">goto</span> <span class="n">ERR_EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">power</span> <span class="n">supply</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">TouchPowerInit</span><span class="p">(</span><span class="n">g_coreData</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">goto</span> <span class="n">ERR_EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Create</span> <span class="n">an</span> <span class="nb">input</span> <span class="n">device</span> <span class="n">file</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;/dev/input&quot;</span><span class="p">,</span> <span class="n">DEFAULT_DIR_MODE</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">register_driver</span><span class="p">(</span><span class="n">TOUCH_DEVICE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">g_touchDevOps</span><span class="p">,</span> <span class="n">TOUCH_DEVICE_MODE</span><span class="p">,</span> <span class="n">NULL</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: register touch dev failed&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+        <span class="n">goto</span> <span class="n">ERR_EXIT</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: exit succ&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+
+<span class="n">ERR_EXIT</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_coreData</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cHandle</span> <span class="o">!=</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">DeviceHandleDestroy</span><span class="p">(</span><span class="n">g_coreData</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cHandle</span><span class="p">);</span>
+        <span class="n">g_coreData</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cHandle</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">OsalMemFree</span><span class="p">(</span><span class="n">g_coreData</span><span class="p">);</span>
+    <span class="n">g_coreData</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-basic-parameters">
+<h2>Configuring Basic Parameters<a class="headerlink" href="#configuring-basic-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Configure the address of the I2C device, bus number, touch reporting
+range on the touchscreen, input device type, and GPIO pin. The
+configuration depends on the board and touchscreen in use. The following
+provides a configuration example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">TouchConfigInit</span><span class="p">(</span><span class="n">TouchCoreData</span> <span class="o">*</span><span class="n">cd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">/*</span> <span class="n">init</span> <span class="n">waitqueue</span> <span class="k">for</span> <span class="n">poll</span> <span class="o">*/</span>
+    <span class="n">__init_waitqueue_head</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">pollWait</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">address</span> <span class="n">of</span> <span class="n">the</span> <span class="n">I2C</span> <span class="n">device</span><span class="p">,</span> <span class="n">bus</span> <span class="n">number</span><span class="p">,</span> <span class="ow">and</span> <span class="n">touch</span> <span class="n">reporting</span> <span class="nb">range</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cCfg</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">DRIVER_CHIP_I2C_ADDR</span><span class="p">;</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cCfg</span><span class="o">.</span><span class="n">busNum</span> <span class="o">=</span> <span class="n">I2C_BUS_NUM</span><span class="p">;</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">inputCfg</span><span class="o">.</span><span class="n">solutionX</span> <span class="o">=</span> <span class="n">TOUCH_SOLUTION_X</span><span class="p">;</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">inputCfg</span><span class="o">.</span><span class="n">solutionY</span> <span class="o">=</span> <span class="n">TOUCH_SOLUTION_Y</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">device</span> <span class="nb">type</span><span class="o">.</span> <span class="n">In</span> <span class="n">this</span> <span class="n">example</span><span class="p">,</span> <span class="n">the</span> <span class="n">Touch</span> <span class="n">driver</span> <span class="ow">is</span> <span class="n">used</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">inputDevType</span> <span class="o">=</span> <span class="n">INDEV_TYPE_TOUCH</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="n">numbers</span> <span class="n">of</span> <span class="n">the</span> <span class="n">reset</span> <span class="ow">and</span> <span class="n">interrupt</span> <span class="n">pins</span><span class="p">,</span> <span class="ow">and</span> <span class="n">IRQ</span> <span class="n">trigger</span> <span class="n">mode</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">rstGpioNum</span> <span class="o">=</span> <span class="n">RST_GPIO_OFFSET</span><span class="p">;</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">intGpioNum</span> <span class="o">=</span> <span class="n">INT_GPIO_OFFSET</span><span class="p">;</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">irqFlag</span> <span class="o">=</span> <span class="n">OSAL_IRQF_TRIGGER_FALLING</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-and-using-i-o-pins">
+<h2>Configuring and Using I/O Pins<a class="headerlink" href="#configuring-and-using-i-o-pins" title="Permalink to this headline">¶</a></h2>
+<p>The following describes the initialization configuration of the reset
+and IRQ pins. The PAL interface is used for GPIO-related operations. For
+details, see <a class="reference external" href="gpiousage-guidelines.md">GPIO Usage Guidelines</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">TouchSetupGpio</span><span class="p">(</span><span class="n">TouchCoreData</span> <span class="o">*</span><span class="n">cd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">direction</span> <span class="n">of</span> <span class="n">the</span> <span class="n">interrupt</span> <span class="n">pin</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">input</span> <span class="ow">and</span> <span class="n">pull</span><span class="o">-</span><span class="n">up</span> <span class="n">direction</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">writel</span><span class="p">(</span><span class="n">INT_REG_CFG</span><span class="p">,</span> <span class="n">IO_DEVICE_ADDR</span><span class="p">(</span><span class="n">INR_REG_ADDR</span><span class="p">));</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">direction</span> <span class="n">of</span> <span class="n">the</span> <span class="n">interrupt</span> <span class="n">pin</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">direction</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioSetDir</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">intGpioNum</span><span class="p">,</span> <span class="n">GPIO_DIR_IN</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;set int to input dir failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">direction</span> <span class="n">of</span> <span class="n">the</span> <span class="n">reset</span> <span class="n">pin</span> <span class="n">to</span> <span class="n">the</span> <span class="n">output</span> <span class="n">direction</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioSetDir</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">rstGpioNum</span><span class="p">,</span> <span class="n">GPIO_DIR_OUT</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;set reset to output dir failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Pull</span> <span class="n">up</span> <span class="n">the</span> <span class="n">reset</span> <span class="n">pin</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioWrite</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">rstGpioNum</span><span class="p">,</span> <span class="n">GPIO_VAL_HIGH</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;pull up reset gpio failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">OsalMSleep</span><span class="p">(</span><span class="n">RESET_HIGH_DELAY</span><span class="p">);</span>
+    <span class="o">/*</span> <span class="n">Pull</span> <span class="n">down</span> <span class="n">the</span> <span class="n">reset</span> <span class="n">pin</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioWrite</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">rstGpioNum</span><span class="p">,</span> <span class="n">GPIO_VAL_LOW</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;pull down reset gpio failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">OsalMSleep</span><span class="p">(</span><span class="n">RESET_LOW_DELAY</span><span class="p">);</span>
+    <span class="o">/*</span> <span class="n">Pull</span> <span class="n">up</span> <span class="n">the</span> <span class="n">reset</span> <span class="n">pin</span> <span class="n">again</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioWrite</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">rstGpioNum</span><span class="p">,</span> <span class="n">GPIO_VAL_HIGH</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;pull up reset gpio again failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">OsalMSleep</span><span class="p">(</span><span class="n">RESET_HIGH_DELAY</span><span class="p">);</span>
+    <span class="n">HDF_LOGI</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: succ</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Reuse the I2C I/O pins and obtain the operation handle. For details, see
+<a class="reference external" href="i2c-usage-guidelines.md">I2C Usage Guidelines</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">TouchSetupI2c</span><span class="p">(</span><span class="n">TouchCoreData</span> <span class="o">*</span><span class="n">cd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">/*</span> <span class="n">config</span> <span class="n">I2C</span> <span class="n">reuse</span> <span class="n">I2C7</span> <span class="o">*/</span>
+    <span class="n">writel</span><span class="p">(</span><span class="n">I2C_REG_CFG</span><span class="p">,</span> <span class="n">IO_DEVICE_ADDR</span><span class="p">(</span><span class="n">I2C7_DATA_REG_ADDR</span><span class="p">));</span>
+    <span class="n">writel</span><span class="p">(</span><span class="n">I2C_REG_CFG</span><span class="p">,</span> <span class="n">IO_DEVICE_ADDR</span><span class="p">(</span><span class="n">I2C7_CLK_REG_ADDR</span><span class="p">));</span>
+    <span class="o">/*</span> <span class="n">get</span> <span class="n">i2c</span> <span class="n">handle</span> <span class="o">*/</span>
+    <span class="n">cd</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cHandle</span> <span class="o">=</span> <span class="n">I2cOpen</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cCfg</span><span class="o">.</span><span class="n">busNum</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">i2cClient</span><span class="o">.</span><span class="n">i2cHandle</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;open i2c failed&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">HDF_LOGI</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: exit succ&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-task-for-irq">
+<h2>Creating a Task for IRQ<a class="headerlink" href="#creating-a-task-for-irq" title="Permalink to this headline">¶</a></h2>
+<p>Create a task for obtaining and processing touch reporting data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">TouchIrqTaskInit</span><span class="p">(</span><span class="n">TouchCoreData</span> <span class="o">*</span><span class="n">cd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">message</span> <span class="n">event</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">LOS_EventInit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_touchEventIrq</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;LOS_EventInit failed, ret = </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="n">Register</span> <span class="n">an</span> <span class="n">interrupt</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioSetIrq</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">intGpioNum</span><span class="p">,</span> <span class="n">cd</span><span class="o">-&gt;</span><span class="n">irqFlag</span><span class="p">,</span> <span class="n">IrqHandle</span><span class="p">,</span> <span class="n">cd</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;register irq failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Enable</span> <span class="n">the</span> <span class="n">IRQ</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioEnableIrq</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">intGpioNum</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;enable irq failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">/*</span> <span class="n">Create</span> <span class="n">an</span> <span class="n">IRQ</span> <span class="n">task</span> <span class="k">for</span> <span class="n">reading</span> <span class="ow">and</span> <span class="n">parsing</span> <span class="n">the</span> <span class="n">data</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">event</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="n">TSK_INIT_PARAM_S</span> <span class="n">handleEventTask</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">UINT32</span> <span class="n">handleEventTaskID</span><span class="p">;</span>
+    <span class="n">handleEventTask</span><span class="o">.</span><span class="n">pfnTaskEntry</span> <span class="o">=</span> <span class="p">(</span><span class="n">TSK_ENTRY_FUNC</span><span class="p">)</span><span class="n">TouchHandleEvent</span><span class="p">;</span>
+    <span class="n">handleEventTask</span><span class="o">.</span><span class="n">uwStackSize</span>  <span class="o">=</span> <span class="n">TASK_SIZE</span><span class="p">;</span>
+    <span class="n">handleEventTask</span><span class="o">.</span><span class="n">pcName</span>       <span class="o">=</span> <span class="s2">&quot;HdfTouchEventHandler&quot;</span><span class="p">;</span>
+    <span class="n">handleEventTask</span><span class="o">.</span><span class="n">usTaskPrio</span>   <span class="o">=</span> <span class="n">TASK_PRIO_LEVEL_TWO</span><span class="p">;</span>
+    <span class="n">handleEventTask</span><span class="o">.</span><span class="n">uwResved</span>     <span class="o">=</span> <span class="n">LOS_TASK_STATUS_DETACHED</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">LOS_TaskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">handleEventTaskID</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">handleEventTask</span><span class="p">)</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: LOS_TaskCreate fail, HdfTouchEventHandler&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">HDF_LOGI</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: exit succ&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>IRQ function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">IrqHandle</span><span class="p">(</span><span class="n">uint16_t</span> <span class="n">irqGpio</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HDF_LOGD</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: irq is triggered, irqGpio = </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">,</span> <span class="n">irqGpio</span><span class="p">);</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">data</span><span class="p">;</span>
+    <span class="o">/*</span> <span class="n">Disable</span> <span class="n">the</span> <span class="n">IRQ</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioDisableIrq</span><span class="p">(</span><span class="n">irqGpio</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;disable irq failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">LOS_EventWrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_touchEventIrq</span><span class="p">,</span> <span class="n">EVENT_SYNC</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">HDF_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Task processing functions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">TouchHandleEvent</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">InputEventData</span> <span class="n">event</span><span class="p">;</span>
+    <span class="n">TouchCoreData</span> <span class="o">*</span><span class="n">cd</span> <span class="o">=</span> <span class="n">GetCoreData</span><span class="p">();</span>
+    <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">memset_s</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">InputEventData</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">InputEventData</span><span class="p">));</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Read</span> <span class="n">the</span> <span class="n">synchronization</span> <span class="n">event</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">LOS_EventRead</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_touchEventIrq</span><span class="p">,</span> <span class="n">EVENT_SYNC</span><span class="p">,</span> <span class="n">LOS_WAITMODE_AND</span> <span class="o">|</span> <span class="n">LOS_WAITMODE_CLR</span><span class="p">,</span> <span class="n">LOS_WAIT_FOREVER</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">EVENT_SYNC</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">OsalMSleep</span><span class="p">(</span><span class="n">TASK_SLEEP_MS</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="o">/*</span> <span class="n">Read</span> <span class="ow">and</span> <span class="n">parse</span> <span class="n">the</span> <span class="n">touch</span> <span class="n">reporting</span> <span class="n">event</span><span class="o">.</span> <span class="o">*/</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">EventHandler</span><span class="p">(</span><span class="n">cd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">event</span><span class="p">)</span> <span class="o">==</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">TouchWakeupPoll</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="o">/*</span> <span class="n">Enable</span> <span class="n">the</span> <span class="n">IRQ</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">GpioEnableIrq</span><span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">intGpioNum</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="n">HDF_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;enable irq failed, ret </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">cd</span><span class="o">-&gt;</span><span class="n">shouldStop</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: the event task should be stoped&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-device-file-and-performing-operations-on-it">
+<h2>Creating a Device File and Performing Operations on It<a class="headerlink" href="#creating-a-device-file-and-performing-operations-on-it" title="Permalink to this headline">¶</a></h2>
+<p>The following describes the functions for creating and operating a
+device file. <strong>Iocatl</strong> is used as an example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">device</span> <span class="n">file</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">register_driver</span><span class="p">(</span><span class="n">TOUCH_DEVICE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">g_touchDevOps</span><span class="p">,</span> <span class="n">TOUCH_DEVICE_MODE</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">File</span> <span class="n">operations</span> <span class="o">*/</span>
+<span class="n">static</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">file_operations_vfs</span> <span class="n">g_touchDevOps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">open</span> <span class="o">=</span> <span class="n">TouchOpen</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">close</span> <span class="o">=</span> <span class="n">TouchClose</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">read</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">seek</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">ioctl</span> <span class="o">=</span> <span class="n">TouchIoctl</span><span class="p">,</span>
+    <span class="o">.</span><span class="n">mmap</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span>
+<span class="c1">#ifndef CONFIG_DISABLE_POLL</span>
+    <span class="o">.</span><span class="n">poll</span> <span class="o">=</span> <span class="n">TouchPoll</span><span class="p">,</span>
+<span class="c1">#endif</span>
+    <span class="o">.</span><span class="n">unlink</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="o">/*</span> <span class="n">Ioctl</span> <span class="n">operation</span> <span class="n">mode</span> <span class="o">*/</span>
+<span class="n">static</span> <span class="nb">int</span> <span class="n">TouchIoctl</span><span class="p">(</span><span class="n">FAR</span> <span class="n">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">filep</span><span class="p">,</span> <span class="nb">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">long</span> <span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">filep</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: param is null&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">HDF_ERR_INVALID_PARAM</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">switch</span> <span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">case</span> <span class="n">INPUT_IOCTL_GET_EVENT_DATA</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">IoctlReadInputEvent</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="n">case</span> <span class="n">INPUT_IOCTL_GET_DEVICE_TYPE</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">IoctlGetDeviceType</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="n">case</span> <span class="n">INPUT_IOCTL_GET_CHIP_INFO</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">IoctlGetChipInfo</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="n">default</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: cmd unknown, cmd = 0x</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">,</span> <span class="n">cmd</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="main-data-structures">
+<h2>Main Data Structures<a class="headerlink" href="#main-data-structures" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Touch</span> <span class="n">event</span> <span class="o">*/</span>
+<span class="n">typedef</span> <span class="n">enum</span> <span class="p">{</span>
+    <span class="n">EVENT_DOWN</span><span class="p">,</span>
+    <span class="n">EVENT_UP</span><span class="p">,</span>
+    <span class="n">EVENT_CONTACT</span><span class="p">,</span>
+<span class="p">}</span> <span class="n">EventType</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">I2C</span> <span class="n">configuration</span> <span class="n">information</span> <span class="o">*/</span>
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+    <span class="n">unsigned</span> <span class="n">short</span> <span class="n">busNum</span><span class="p">;</span>
+    <span class="n">unsigned</span> <span class="n">short</span> <span class="n">addr</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">I2cConfig</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">I2C</span> <span class="n">client</span> <span class="n">information</span> <span class="o">*/</span>
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+    <span class="n">struct</span> <span class="n">DevHandle</span> <span class="o">*</span><span class="n">i2cHandle</span><span class="p">;</span>
+    <span class="n">I2cConfig</span> <span class="n">i2cCfg</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">InputI2cClient</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Data</span> <span class="n">structure</span> <span class="n">of</span> <span class="n">an</span> <span class="nb">input</span> <span class="n">event</span> <span class="o">*/</span>
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">y</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">z</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">definedEvent</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">fingerID</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">pointNum</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="n">timeval</span> <span class="n">timeStamp</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">moreDataFlag</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">InputEventData</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Core</span> <span class="n">data</span> <span class="n">structure</span> <span class="n">of</span> <span class="n">the</span> <span class="n">touchscreen</span> <span class="n">driver</span> <span class="o">*/</span>
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+    <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">inputDevType</span><span class="p">;</span>
+    <span class="n">wait_queue_head_t</span> <span class="n">pollWait</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">readFinishFlag</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">shouldStop</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="n">InputConfig</span> <span class="n">inputCfg</span><span class="p">;</span>
+    <span class="n">InputI2cClient</span> <span class="n">i2cClient</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">intGpioNum</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">rstGpioNum</span><span class="p">;</span>
+    <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">irqFlag</span><span class="p">;</span>
+    <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">powerStatus</span><span class="p">;</span>
+    <span class="n">char</span> <span class="n">chipInfo</span><span class="p">[</span><span class="n">CHIP_INFO_LEN</span><span class="p">];</span>
+    <span class="n">char</span> <span class="n">vendorName</span><span class="p">[</span><span class="n">VENDOR_NAME_LEN</span><span class="p">];</span>
+    <span class="n">char</span> <span class="n">chipName</span><span class="p">[</span><span class="n">CHIP_NAME_LEN</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">TouchCoreData</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/touchscreendevelopment-example.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

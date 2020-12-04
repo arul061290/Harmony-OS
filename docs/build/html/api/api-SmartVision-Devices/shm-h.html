@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shm.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="shm-h">
+<h1>shm.h<a class="headerlink" href="#shm-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="mem.md">MEM</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares APIs for creating, mapping, deleting, and controlling shared
+memory.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1267441843084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1258483518084832"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p557043108084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row779673316084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1228420679084832"><p>shmid_ds</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p223265279084832"><p>Stores information about a shared memory segment.</p>
+</p></td></tr><tr id="row1589976044084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1115469544084832"><p>shminfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1274697288084832"><p>Describes limitations and attributes of system-level shared memory.</p>
+</p></td></tr><tr id="row1578768779084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p414464552084832"><p>shm_info</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1636325528084832"><p>Describes system resource information about the shared memory.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1995633795084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p796358761084832"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p172962958084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1108816288084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1385116358084832"><p>SHMLBA 4096</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p278858651084832"><p>Aligns the shared memory address.</p>
+</p></td></tr><tr id="row1176784592084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p442504268084832"><p>SHM_R 0400</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2097707009084832"><p>Indicates that the shared memory segment is readable. This macro is used
+for setting the shmflg parameter passed to functions such as shmget().</p>
+</p></td></tr><tr id="row1246560925084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p970924561084832"><p>SHM_W 0200</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1917425793084832"><p>Indicates that the shared memory segment is writable. This macro is used
+for setting the shmflg parameter passed to functions such as shmget().</p>
+</p></td></tr><tr id="row1616760950084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1763238458084832"><p>SHM_RDONLY 010000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p491427094084832"><p>Indicates that the attached shared memory segment is read-only. This
+macro is used for setting the shmflg parameter passed to functions such
+as shmat().</p>
+</p></td></tr><tr id="row1992712759084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1552854681084832"><p>SHM_RND 020000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p884450539084832"><p>Indicates that the shared memory address can be rounded to a value
+meeting the requirement (SHMLBA). This macro is used for setting the
+shmflg parameter passed to functions such as shmat().</p>
+</p></td></tr><tr id="row275913340084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1493969288084832"><p>SHM_REMAP 040000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1069866315084832"><p>Indicates that the memory segment can be remapped. This macro is used
+for setting the shmflg parameter passed to functions such as shmat().</p>
+</p></td></tr><tr id="row1237477864084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p973026108084832"><p>SHM_EXEC 0100000</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1370406263084832"><p>Indicates that the attached shared memory segment is executable. This
+macro is used for setting the shmflg parameter passed to functions such
+as shmat().</p>
+</p></td></tr><tr id="row1904211215084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p861871057084832"><p>SHM_LOCK 11</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1496329915084832"><p>Locks the shared memory segment in memory so that it cannot be swapped
+to the swap partition. This macro is used for setting the shmflg
+parameter passed to functions such as shmget().</p>
+</p></td></tr><tr id="row1372793530084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2015564741084832"><p>SHM_UNLOCK 12</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1186478408084832"><p>Unlocks the shared memory segment. This macro is used for setting the
+shmflg parameter passed to functions such as shmget().</p>
+</p></td></tr><tr id="row1730026449084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1031076079084832"><p>SHM_STAT (13 | (IPC_STAT &amp; 0x100))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p85065422084832"><p>Obtains a shmid_ds data structure. This macro is used for setting the
+cmd parameter passed to shmctl().</p>
+</p></td></tr><tr id="row186365136084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p834497493084832"><p>SHM_INFO 14</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1467305354084832"><p>Obtains a shm_info data structure that includes system resource
+information about this shared memory segment. This macro is used for
+setting the cmd parameter passed to shmctl().</p>
+</p></td></tr><tr id="row1886820258084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1087959858084832"><p>SHM_STAT_ANY (15 | (IPC_STAT &amp; 0x100))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1275422699084832"><p>Obtains a shmid_ds data structure without permission check. This macro
+is used for setting the cmd parameter passed to shmctl().</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1362097683084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p456901061084832"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p844744087084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1447042137084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p362824269084832"><p>shmat (int shmid, const void *shmaddr, int shmflg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1298688135084832"><p>void *</p>
+</p><p id="p1748909736084832"><p>Attaches the shared memory segment identified by shmid to the address
+space of the current process.</p>
+</p></td></tr><tr id="row1375050018084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p40065161084832"><p>shmctl (int shmid, int cmd, struct shmid_ds *buf)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p216866370084832"><p>int</p>
+</p><p id="p1346156822084832"><p>Performs a control operation specified by the cmd parameter on the
+shared memory segment identified by shmid.</p>
+</p></td></tr><tr id="row547291497084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1171798131084832"><p>shmdt (const void *shmaddr)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1425913667084832"><p>int</p>
+</p><p id="p578214113084832"><p>Detaches the shared memory segment attached to the address pointed to by
+shmaddr from the address space of the calling process.</p>
+</p></td></tr><tr id="row1398014813084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1268148070084832"><p>shmget (key_t key, size_t size, int shmflg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p608366770084832"><p>int</p>
+</p><p id="p852657415084832"><p>Obtains or creates a shared memory segment with the specified size based
+on the ID specified by key.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/shm-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

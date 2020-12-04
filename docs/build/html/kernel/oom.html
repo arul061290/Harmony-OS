@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>oom &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="oom">
+<h1>oom<a class="headerlink" href="#oom" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-function">
+<h2>Command Function<a class="headerlink" href="#command-function" title="Permalink to this headline">¶</a></h2>
+<p>This command is used to query and set the low memory threshold and the
+page cache reclaim threshold.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>oom</p>
+<p>oom -i [<em>interval</em>]</p>
+<p>oom -m [<em>mem byte</em>]</p>
+<p>oom -r [<em>mem byte</em>]</p>
+<p>oom -h | –help</p>
+</div>
+<div class="section" id="parameter-description">
+<h2>Parameter Description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Parameters</p>
+<table><thead align="left"><tr id="row444mcpsimp"><th class="cellrowborder" valign="top" width="21%" id="mcps1.2.4.1.1"><p id="p446mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="52%" id="mcps1.2.4.1.2"><p id="p448mcpsimp"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="27%" id="mcps1.2.4.1.3"><p id="p450mcpsimp"><p>Value Range</p>
+</p></th></tr></thead><tbody><tr id="row451mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p5196112612119"><p>-i [interval]</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p1149945111817"><p>Sets the interval for checking the Out Of Memory (OOM) thread task.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p749810571812"><p>100 ms – 10000 ms</p>
+</p></td></tr><tr id="row18583553793"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p95841853292"><p>-m [mem byte]</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p2058485315912"><p>Sets the low memory threshold.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p1584105318917"><p>0 MB (does not check for low memory) – 1 MB</p>
+</p></td></tr><tr id="row17926124131218"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p49266245128"><p>-r [mem byte]</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p159263241121"><p>Sets the page cache reclaim threshold.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p692642412121"><p>Ranging from the low memory threshold to the maximum available system
+memory</p>
+</p></td></tr><tr id="row1176110379557"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p4762113745519"><p>-h | –help</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p9762113775517"><p>Uses the help.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p7762133765511"><p>N/A</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If no parameter is specified, the current configurations of the OOM
+function are displayed.</p></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>When the system memory is insufficient, the system displays a message
+indicating the insufficiency.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image1" src="../_images/en-us_image_0000001053710680.png" /></p>
+<p><strong>Table 2</strong> Output description</p>
+<table><thead align="left"><tr id="row492mcpsimp"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p494mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p496mcpsimp"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row502mcpsimp"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p583513382179"><p>[oom] OS is in low memory state</p>
+</p><p id="p636114453553"><p>total physical memory: 0x1bcf000(byte), used: 0x1b50000(byte), free:
+0x7f000(byte), low memory threshold: 0x80000(byte)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p19833143819174"><p>The memory usage of the OS is low.</p>
+</p><p id="p83883291587"><p>The available physical memory in the entire OS is 0x1bcf000 bytes,
+0x1b50000 bytes have been used, and 0x7f000 bytes are available. The
+current low memory threshold is 0x80000 bytes.</p>
+</p></td></tr><tr id="row1990234224612"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p3902144294612"><p>[oom] candidate victim process init pid: 1, actual phy mem byte: 82602</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p13903144284610"><p>The memory usage of each process is printed. The init process actually
+uses 82602 bytes, and the shared memory is calculated based on the
+proportion.</p>
+</p></td></tr><tr id="row520212272335"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p172038278339"><p>[oom] candidate victim process UserProcess12 pid: 12, actual phy mem
+byte: 25951558</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p112034276331"><p>The actual memory used by the UserProcess12 process is 25951558 bytes.</p>
+</p></td></tr><tr id="row3273195033416"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p184989213512"><p>[oom] max phy mem used process UserProcess12 pid: 12, actual phy mem:
+25951558</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p112741750143417"><p>The process that uses the most memory currently is UserProcess12.</p>
+</p></td></tr><tr id="row16442089365"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p045148153618"><p>excFrom: User!</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p6452818367"><p>When the system memory is low, the UserProcess12 process fails to apply
+for memory and exits as a result.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/oom.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

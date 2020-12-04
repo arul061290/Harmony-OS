@@ -1,0 +1,1574 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Format &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="format">
+<h1>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Defines format-related APIs.</p>
+<p>For example, you use this module to define custom data types and to
+initialize, create, destroy the muxer and demuxer, and set their
+parameters. Also, you can read demuxer data frames, select demuxer
+tracks, add muxer tracks, and write data frames into a container.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row638214969093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p247122714093521"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1667622116093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2077994214093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1959078295093521"><p>format_interface.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1603799306093521"><p>Declares format-related APIs.</p>
+</p></td></tr><tr id="row676100656093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1437007947093521"><p>format_type.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p235441970093521"><p>Declares format-related structures and enumerations, including custom
+data types for file information, programs, information about audio and
+video subtitle tracks, source data types, output data types, split
+types, and data frames.</p>
+</p></td></tr><tr id="row1983780095093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1549267639093521"><p>parameter_item.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p90548250093521"><p>Defines format-related structures and enumerations used to configure and
+obtain dynamic parameters.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row937732531093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p853967639093521"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1496503714093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row287841140093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1365283850093521"><p>FormatBufferSetting</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p91525837093521"><p>Defines the buffer configuration.</p>
+</p></td></tr><tr id="row1187937624093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1003490207093521"><p>FormatFrame</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2040661257093521"><p>Defines the data frame, which is used for data transferring.</p>
+</p></td></tr><tr id="row1085316598093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1086196194093521"><p>AudioTrackInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p520928596093521"><p>Defines audio track information.</p>
+</p></td></tr><tr id="row3290813093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1067739875093521"><p>VideoTrackInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p200921807093521"><p>Defines video track information.</p>
+</p></td></tr><tr id="row671099031093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1217712984093521"><p>SubImageInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p227222736093521"><p>Defines image information.</p>
+</p></td></tr><tr id="row1245074283093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p615586867093521"><p>ImageTrackInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p813720634093521"><p>Defines image stream information.</p>
+</p></td></tr><tr id="row1709699868093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p795360768093521"><p>SubtitleTrackInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p987303772093521"><p>Defines subtitle stream information.</p>
+</p></td></tr><tr id="row1269758060093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p275159568093521"><p>TrackInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p780657234093521"><p>Defines track information.</p>
+</p></td></tr><tr id="row488653628093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p753517072093521"><p>ProgramInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1511229383093521"><p>Defines program information.</p>
+</p></td></tr><tr id="row1908008872093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1316959594093521"><p>FileInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1841659599093521"><p>Defines movie file information.</p>
+</p></td></tr><tr id="row46222188093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p685413704093521"><p>BufferStream</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1319880722093521"><p>Defines the function for reading stream data.</p>
+</p></td></tr><tr id="row1401394108093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1242360624093521"><p>FormatSource</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p731030773093521"><p>Defines the demuxer data source.</p>
+</p></td></tr><tr id="row1877214793093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p50597532093521"><p>FormatOutputConfig</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1774332318093521"><p>Defines the muxer output configuration.</p>
+</p></td></tr><tr id="row1784534222093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1434988957093521"><p>VideoTrackSourceInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1658927860093521"><p>Defines information about the muxer video source.</p>
+</p></td></tr><tr id="row473380924093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p237611149093521"><p>AudioTrackSourceInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1081000509093521"><p>Defines information about the muxer audio source.</p>
+</p></td></tr><tr id="row2081778612093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1256466691093521"><p>DataTrackSourceInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1973985708093521"><p>Defines information about the muxer data source.</p>
+</p></td></tr><tr id="row1582909074093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p155065589093521"><p>TrackSource</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p742931391093521"><p>Defines information about the muxer source.</p>
+</p></td></tr><tr id="row1964049761093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p259301225093521"><p>FormatCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1798342768093521"><p>Defines listener callbacks for the format.</p>
+</p></td></tr><tr id="row791804825093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p647591619093521"><p>ParameterItem</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p823382949093521"><p>Defines a structure for configuring and obtaining dynamic parameters.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1032651165093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1356402461093521"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p835093719093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1598104646093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p221039464093521"><p>FORMAT_MAX_LANGUAGE_NUM 4</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row1237423426093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p800664238093521"><p>FORMAT_LANGUAGE_LEN 4</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row1727782591093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1557502555093521"><p>FORMAT_TITLE_LEN 64</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row449231297093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1822443341093521"><p>FORMAT_INVALID_TRACK_ID -1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row113730725093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1261768047093521"><p>FORMAT_INVALID_PROGRAM_ID -1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row1283658340093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1067253908093521"><p>URL_LEN 4096</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row275828192093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1904519834093521"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p758921936093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row556079247093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1344956635093521"><p>CALLBACK_HANDLE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1421453848093521"><p>typedef void *</p>
+</p><p id="p423246327093521"><p>Indicates the pointer to the callback handle for listening the muxer.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1456716602093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p217864040093521"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1788230645093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1146092110093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1621857316093521"><p>FrameType { FRAME_TYPE_NONE, FRAME_TYPE_AUDIO, FRAME_TYPE_VIDEO,
+FRAME_TYPE_IMAGE, FRAME_TYPE_SUB, FRAME_TYPE_DATA, FRAME_TYPE_BUT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1281712905093521"><p>Enumerates data frame types.</p>
+</p></td></tr><tr id="row709108317093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1050630264093521"><p>FormatSeekMode { FORMAT_SEEK_MODE_FORWARD_KEY,
+FORMAT_SEEK_MODE_BACKWARD_KEY, FORMAT_SEEK_MODE_CLOSEST_KEY,
+SEEK_MODE_BUT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1105675189093521"><p>Enumerates seek modes.</p>
+</p></td></tr><tr id="row368991771093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p474729880093521"><p>CodecFormat { CODEC_H264 = 0, CODEC_H265, CODEC_JPEG, CODEC_AAC,
+CODEC_G711A, CODEC_G711U, CODEC_PCM, CODEC_MP3, CODEC_BUT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p745669234093521"><p>Enumerates audio, video, and image encoding formats.</p>
+</p></td></tr><tr id="row1362146568093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p724930020093521"><p>AudioSampleFmt { AUDIO_SAMPLE_FMT_S8 = 0, AUDIO_SAMPLE_FMT_S16,
+AUDIO_SAMPLE_FMT_S24, AUDIO_SAMPLE_FMT_S32, AUDIO_SAMPLE_FMT_FLOAT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1601216951093521"><p>Enumerates audio sampling formats.</p>
+</p></td></tr><tr id="row337470855093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p53988292093521"><p>SubtitleFrameType { HI_SVR_SUBTITLE_BITMAP = 0x0, HI_SVR_SUBTITLE_TEXT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1195175135093521"><p>Enumerates subtitle frame types.</p>
+</p></td></tr><tr id="row1114182104093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p16034525093521"><p>SubtitleFormat { FORMAT_SUB_ASS = 0x0, FORMAT_SUB_LRC, FORMAT_SUB_SRT,
+FORMAT_SUB_SMI, FORMAT_SUB_SUB, FORMAT_SUB_TXT, FORMAT_SUB_HDMV_PGS,
+FORMAT_SUB_DVB_SUB, FORMAT_SUB_DVD_SUB, FORMAT_SUB_TTML,
+FORMAT_SUB_WEBVTT, FORMAT_SUB_BUTT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1167567041093521"><p>Enumerates subtitle file formats.</p>
+</p></td></tr><tr id="row267589919093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p59408838093521"><p>TrackType { TRACK_TYPE_VIDEO, TRACK_TYPE_AUDIO, TRACK_TYPE_IMAGE,
+TRACK_TYPE_SUB, TRACK_TYPE_DATA, TRACK_TYPE_BUT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p849035113093521"><p>Enumerates track types.</p>
+</p></td></tr><tr id="row435375912093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p333813026093521"><p>DataFlags { DATA_FLAG_NONE = 0, DATA_FLAG_SYNCFRAME = 1,
+DATA_FLAG_CODECCONFIG = 2, DATA_FLAG_EOS = 4, DATA_FLAG_PARTIAL_FRAME =
+8, DATA_FLAG_ENDOFFRAME = 16, DATA_FLAG_MUXER_DATA = 32 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p808038792093521"><p>Enumerates flags of raw stream data.</p>
+</p></td></tr><tr id="row1775607264093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p493529403093521"><p>SourceType { SOURCE_TYPE_FD = 0, SOURCE_TYPE_URI, SOURCE_TYPE_STREAM,
+SOURCE_TYPE_BUT }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1381354528093521"><p>Enumerates types of the demuxer data source.</p>
+</p></td></tr><tr id="row1958608708093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p749118387093521"><p>OutputFormat { OUTPUT_FORMAT_MPEG_4 = 0, OUTPUT_FORMAT_TS = 1,
+OUTPUT_FORMAT_THREE_GPP = 2, OUTPUT_FORMAT_HEIF = 3, OUTPUT_FORMAT_OGG =
+4, OUTPUT_FORMAT_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1162833644093521"><p>Enumerates output file formats.</p>
+</p></td></tr><tr id="row116504192093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p408854802093521"><p>FormatInfoType { MUXER_INFO_MAX_DURATION_APPROACHING = 0,
+MUXER_INFO_MAX_FILESIZE_APPROACHING, MUXER_INFO_MAX_DURATION_REACHED,
+MUXER_INFO_MAX_FILESIZE_REACHED, MUXER_INFO_NEXT_OUTPUT_FILE_STARTED,
+MUXER_INFO_FILE_SPLIT_FINISHED, MUXER_INFO_FILE_START_TIME_MS,
+DEMUXER_INFO_PREPARED = 10000, DEMUXER_INFO_SEEK_COMPLETE,
+DEMUXER_INFO_NETWORK_DISCONNECTED, DEMUXER_INFO_NETWORK_RECONNECTED }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p782228268093521"><p>Enumerates types of callback information.</p>
+</p></td></tr><tr id="row1232127687093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1763299312093521"><p>FormatErrorType</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1180091108093521"><p>Enumerates callback error types.</p>
+</p></td></tr><tr id="row725958705093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p572939498093521"><p>OutputType { OUTPUT_TYPE_FD = 0, OUTPUT_TYPE_URI, OUTPUT_TYPE_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1161668273093521"><p>Enumerates muxer output types.</p>
+</p></td></tr><tr id="row1319827254093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1148224368093521"><p>ManualSplitType { MANUAL_SPLIT_POST = 0, MANUAL_SPLIT_PRE,
+MANUAL_SPLIT_NORMAL }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1734167380093521"><p>Enumerates manual split types for the muxer.</p>
+</p></td></tr><tr id="row811883861093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1525627023093521"><p>TrackSourceType { TRACK_SOURCE_TYPE_VIDEO = 0, TRACK_SOURCE_TYPE_AUDIO,
+TRACK_SOURCE_TYPE_DATA, TRACK_SOURCE_TYPE_INVALID }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2071590730093521"><p>Enumerates types of the muxer source track.</p>
+</p></td></tr><tr id="row1424532839093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1257347436093521"><p>KeyType { KEY_TYPE_MIME = 0x6d696d65, KEY_TYPE_HTTP_HEADERS =
+0x68706864, KEY_TYPE_LANGUAGE = 0x6c616e67, KEY_TYPE_PRE_CACHE =
+0x70726361 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p863976279093521"><p>Enumerates key types used for setting and obtaining parameters.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1719560079093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1499655246093521"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1389957649093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row859046519093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p158610810093521"><p>FormatInit (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1466079153093521"><p>void</p>
+</p><p id="p646592996093521"><p>Initializes the format.</p>
+</p></td></tr><tr id="row1811379226093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1550997094093521"><p>FormatDeInit (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1001017225093521"><p>void</p>
+</p><p id="p898240311093521"><p>Deinitializes the format.</p>
+</p></td></tr><tr id="row692590308093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p813361837093521"><p>FormatDemuxerCreate (const FormatSource *source, void **handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p234082961093521"><p>int32_t</p>
+</p><p id="p1259929089093521"><p>Creates a demuxer component and returns its context handle.</p>
+</p></td></tr><tr id="row331133364093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1479482199093521"><p>FormatDemuxerSetParameter (const void <em>handle, int32_t trackId, const
+ParameterItem</em>metaData, int32_t metaDataCnt)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p57918253093521"><p>int32_t</p>
+</p><p id="p2111307591093521"><p>Sets demuxer attributes.</p>
+</p></td></tr><tr id="row51131790093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p359032817093521"><p>FormatDemuxerGetParameter (const void <em>handle, int32_t trackId,
+ParameterItem</em>metaData)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p621105903093521"><p>int32_t</p>
+</p><p id="p108534306093521"><p>Obtains demuxer attributes.</p>
+</p></td></tr><tr id="row1219868785093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1581246732093521"><p>FormatDemuxerSetCallBack (void <em>handle, const FormatCallback</em>callBack)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1845587077093521"><p>int32_t</p>
+</p><p id="p962160619093521"><p>Sets a callback for the demuxer.</p>
+</p></td></tr><tr id="row677040066093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1452067094093521"><p>FormatDemuxerSetBufferConfig (void <em>handle, const
+FormatBufferSetting</em>setting)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1589293972093521"><p>int32_t</p>
+</p><p id="p1998230666093521"><p>Sets buffer information for the demuxer.</p>
+</p></td></tr><tr id="row1625644382093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1163961406093521"><p>FormatDemuxerGetBufferConfig (const void <em>handle,
+FormatBufferSetting</em>setting)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1075586504093521"><p>int32_t</p>
+</p><p id="p1019243560093521"><p>Obtains the buffer information of the demuxer.</p>
+</p></td></tr><tr id="row581263133093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1507115950093521"><p>FormatDemuxerPrepare (void *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2078002482093521"><p>int32_t</p>
+</p><p id="p664098533093521"><p>Makes preparations for the demuxer.</p>
+</p></td></tr><tr id="row1732197718093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1108735710093521"><p>FormatDemuxerGetFileInfo (void <em>handle, FileInfo</em>info)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1944561549093521"><p>int32_t</p>
+</p><p id="p1189386484093521"><p>Obtains the attributes of a media file.</p>
+</p></td></tr><tr id="row1421156431093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p160038344093521"><p>FormatDemuxerSelectTrack (const void *handle, int32_t programId,
+int32_t trackId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1472728064093521"><p>int32_t</p>
+</p><p id="p55569832093521"><p>Selects a specified media track.</p>
+</p></td></tr><tr id="row1880113838093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p367253246093521"><p>FormatDemuxerUnselectTrack (const void *handle, int32_t programId,
+int32_t trackId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1238373850093521"><p>int32_t</p>
+</p><p id="p260708209093521"><p>Unselects a specified media track from which the demuxer reads data
+frames.</p>
+</p></td></tr><tr id="row88687480093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1053065715093521"><p>FormatDemuxerStart (void *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p327905445093521"><p>int32_t</p>
+</p><p id="p963552498093521"><p>Starts the demuxer.</p>
+</p></td></tr><tr id="row496630091093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p676323919093521"><p>FormatDemuxerGetSelectedTrack (const void <em>handle, int32_t</em>programId,
+int32_t trackId[], int32_t *nums)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p864237664093521"><p>int32_t</p>
+</p><p id="p286873732093521"><p>Obtains the ID of the media track selected by the demuxer for output.</p>
+</p></td></tr><tr id="row1133487224093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1620731428093521"><p>FormatDemuxerReadFrame (const void <em>handle, FormatFrame</em>frame, int32_t
+timeOutMs)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p734058558093521"><p>int32_t</p>
+</p><p id="p1506054494093521"><p>Reads data frames.</p>
+</p></td></tr><tr id="row2028168319093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p76929873093521"><p>FormatDemuxerFreeFrame (void <em>handle, FormatFrame</em>frame)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1462293332093521"><p>int32_t</p>
+</p><p id="p1649582317093521"><p>Frees data frames.</p>
+</p></td></tr><tr id="row1754629280093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1269673606093521"><p>FormatDemuxerSeek (const void *handle, int32_t streamIndex, int64_t
+timeStampUs, FormatSeekMode mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p508518409093521"><p>int32_t</p>
+</p><p id="p484360537093521"><p>Seeks for a specified position for the demuxer.</p>
+</p></td></tr><tr id="row403656741093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1836567296093521"><p>FormatDemuxerStop (void *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1651744877093521"><p>int32_t</p>
+</p><p id="p819884744093521"><p>Stops the demuxer from working.</p>
+</p></td></tr><tr id="row167205576093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p410570327093521"><p>FormatDemuxerDestory (void *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p182575283093521"><p>int32_t</p>
+</p><p id="p301481497093521"><p>Destroys demuxer resources.</p>
+</p></td></tr><tr id="row1491814882093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1523108479093521"><p>FormatMuxerCreate (void **handle, FormatOutputConfig *outputConfig)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1353850247093521"><p>int32_t</p>
+</p><p id="p1637412764093521"><p>Creates a muxer and returns its context handle.</p>
+</p></td></tr><tr id="row28465424093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p495238821093521"><p>FormatMuxerDestory (const void *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1083851557093521"><p>int32_t</p>
+</p><p id="p574140425093521"><p>Destroys a muxer and release its resources created by calling
+FormatMuxerCreate.</p>
+</p></td></tr><tr id="row852177305093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p855014994093521"><p>FormatMuxerAddTrack (void <em>handle, const TrackSource</em>trackSource)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p649850289093521"><p>int32_t</p>
+</p><p id="p1804129790093521"><p>Adds a media track source for the muxer. For details about track
+sources, see TrackSource.</p>
+</p></td></tr><tr id="row544124608093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1061927492093521"><p>FormatMuxerSetCallBack (void <em>handle, const FormatCallback</em>callBack)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p232699723093521"><p>int32_t</p>
+</p><p id="p1342771037093521"><p>Sets a callback for the muxer. For details about the callback, see
+FormatCallback.</p>
+</p></td></tr><tr id="row1142480063093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1060807975093521"><p>FormatMuxerSetOrientation (void *handle, int degrees)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p434888784093521"><p>int32_t</p>
+</p><p id="p101681644093521"><p>Sets the orientation of the video track for the muxer.</p>
+</p></td></tr><tr id="row376640218093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p756079189093521"><p>FormatMuxerSetLocation (const void *handle, int latitude, int
+longitude)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p502043158093521"><p>int32_t</p>
+</p><p id="p70701905093521"><p>Sets the geographical information for the output file of the muxer.</p>
+</p></td></tr><tr id="row1880303264093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1994233454093521"><p>FormatMuxerSetMaxFileSize (void *handle, int64_t bytes)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1217804614093521"><p>int32_t</p>
+</p><p id="p193740414093521"><p>Sets the maximum size (in bytes) for the output file of the muxer.</p>
+</p></td></tr><tr id="row915634191093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p966199151093521"><p>FormatMuxerSetMaxFileDuration (void *handle, int64_t durationUs)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p979275665093521"><p>int32_t</p>
+</p><p id="p1975891033093521"><p>Sets the maximum duration (in seconds) for the output file.</p>
+</p></td></tr><tr id="row1399588307093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1333938121093521"><p>FormatMuxerSetFileSplitDuration (const void *handle, ManualSplitType
+type, int64_t timestampUs, uint32_t durationUs)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p771112803093521"><p>int32_t</p>
+</p><p id="p333133591093521"><p>Manually splits a file.</p>
+</p></td></tr><tr id="row770128984093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p914405381093521"><p>FormatMuxerStart (void *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p669991615093521"><p>int32_t</p>
+</p><p id="p718432015093521"><p>Starts the muxer.</p>
+</p></td></tr><tr id="row1305196220093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1466783541093521"><p>FormatMuxerWriteFrame (const void <em>handle, const
+FormatFrame</em>frameData)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p59644135093521"><p>int32_t</p>
+</p><p id="p1600461512093521"><p>Writes data frames into the muxer.</p>
+</p></td></tr><tr id="row1519741104093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1035081221093521"><p>FormatMuxerSetNextOutputFile (const void *handle, int32_t fd)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1374483493093521"><p>int32_t</p>
+</p><p id="p1126769406093521"><p>Sets the descriptor for the next output file.</p>
+</p></td></tr><tr id="row1462486203093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1062980499093521"><p>FormatMuxerStop (const void *handle, bool block)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1056445150093521"><p>int32_t</p>
+</p><p id="p740669376093521"><p>Stops the muxer that was started by calling FormatMuxerStart.</p>
+</p></td></tr><tr id="row1649355356093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p251126297093521"><p>FormatMuxerSetParameter (void <em>handle, int32_t trackId, const
+ParameterItem</em>item, int32_t itemNum)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2082779476093521"><p>int32_t</p>
+</p><p id="p352556141093521"><p>Sets muxer attributes.</p>
+</p></td></tr><tr id="row1659055422093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p90075810093521"><p>FormatMuxerGetParameter (void <em>handle, int32_t trackId,
+ParameterItem</em>item, int32_t itemNum)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1217885946093521"><p>int32_t</p>
+</p><p id="p1748397282093521"><p>Obtains muxer attributes.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macro-definition-documentation">
+<h2><strong>Macro Definition Documentation</strong><a class="headerlink" href="#macro-definition-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="format-invalid-program-id">
+<h2>FORMAT_INVALID_PROGRAM_ID<a class="headerlink" href="#format-invalid-program-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define FORMAT_INVALID_PROGRAM_ID   -1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates an invalid program ID.</p>
+</div>
+<div class="section" id="format-invalid-track-id">
+<h2>FORMAT_INVALID_TRACK_ID<a class="headerlink" href="#format-invalid-track-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define FORMAT_INVALID_TRACK_ID   -1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates an invalid track ID.</p>
+</div>
+<div class="section" id="format-language-len">
+<h2>FORMAT_LANGUAGE_LEN<a class="headerlink" href="#format-language-len" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define FORMAT_LANGUAGE_LEN   4</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the number of characters contained in the language
+description.</p>
+</div>
+<div class="section" id="format-max-language-num">
+<h2>FORMAT_MAX_LANGUAGE_NUM<a class="headerlink" href="#format-max-language-num" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define FORMAT_MAX_LANGUAGE_NUM   4</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the number of languages in the subtitle file.</p>
+</div>
+<div class="section" id="format-title-len">
+<h2>FORMAT_TITLE_LEN<a class="headerlink" href="#format-title-len" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define FORMAT_TITLE_LEN   64</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the number of title characters.</p>
+</div>
+<div class="section" id="url-len">
+<h2>URL_LEN<a class="headerlink" href="#url-len" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define URL_LEN   4096</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the URL length.</p>
+</div>
+<div class="section" id="typedef-documentation">
+<h2><strong>Typedef Documentation</strong><a class="headerlink" href="#typedef-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="callback-handle">
+<h2>CALLBACK_HANDLE<a class="headerlink" href="#callback-handle" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">void</span><span class="o">*</span> <span class="p">[</span><span class="n">CALLBACK_HANDLE</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gab928f39c359734527bda3fd160f89331)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the pointer to the callback handle for listening the muxer.</p>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="audiosamplefmt">
+<h2>AudioSampleFmt<a class="headerlink" href="#audiosamplefmt" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">AudioSampleFmt</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gadf0700999998f587f0017c4d02977b22)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates audio sampling formats.</p>
+<table><thead align="left"><tr id="row995313103093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1414905922093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p825449265093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row142652456093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_FMT_S8</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1257877867093521"><p>8-bit integer for a single sample</p>
+</p></td></tr><tr id="row241666779093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_FMT_S16</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1789108074093521"><p>16-bit integer for a single sample</p>
+</p></td></tr><tr id="row780110453093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_FMT_S24</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1687836901093521"><p>24-bit integer for a single sample</p>
+</p></td></tr><tr id="row384646312093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_FMT_S32</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p395537646093521"><p>32-bit integer for a single sample</p>
+</p></td></tr><tr id="row1466358585093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>AUDIO_SAMPLE_FMT_FLOAT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p27517539093521"><p>Single-precision floating point number for a single sample</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="codecformat">
+<h2>CodecFormat<a class="headerlink" href="#codecformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">CodecFormat</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaf7ed135f15d4b218d41705bac0122ba7)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates audio, video, and image encoding formats.</p>
+<table><thead align="left"><tr id="row514391967093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p463646786093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p538901090093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row499685312093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_H264</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1543988183093521"><p>H264 or AVC</p>
+</p></td></tr><tr id="row1092418994093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_H265</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1554768152093521"><p>H265 or HEVC</p>
+</p></td></tr><tr id="row709084506093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_JPEG</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1653141955093521"><p>JPEG</p>
+</p></td></tr><tr id="row1846765727093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_AAC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1764458286093521"><p>AAC</p>
+</p></td></tr><tr id="row2090088587093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_G711A</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p971715022093521"><p>G711A</p>
+</p></td></tr><tr id="row1114102458093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_G711U</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1803051484093521"><p>G711u</p>
+</p></td></tr><tr id="row1977463941093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_PCM</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1350528423093521"><p>PCM</p>
+</p></td></tr><tr id="row1069486894093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_MP3</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1331158148093521"><p>MP3</p>
+</p></td></tr><tr id="row445487857093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>CODEC_BUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1386672946093521"><p>Undefined format</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="dataflags">
+<h2>DataFlags<a class="headerlink" href="#dataflags" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">DataFlags</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gacff079fdf8427c743f9197ea5be33a7f)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates flags of raw stream data.</p>
+<table><thead align="left"><tr id="row1475559647093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1139927798093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1742020083093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row609296170093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DATA_FLAG_NONE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1913419081093521"><p>None</p>
+</p></td></tr><tr id="row1473389835093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DATA_FLAG_SYNCFRAME</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p46732691093521"><p>Synchronization frame</p>
+</p></td></tr><tr id="row230562051093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DATA_FLAG_CODECCONFIG</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1012502667093521"><p>Codec configuration information</p>
+</p></td></tr><tr id="row1612947259093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DATA_FLAG_EOS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1984063168093521"><p>End of a single stream</p>
+</p></td></tr><tr id="row2098979085093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DATA_FLAG_PARTIAL_FRAME</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1831628170093521"><p>Partial synchronization frame. This flag is used for multiple segments
+(except for the last one) into which a single frame is divided.</p>
+</p></td></tr><tr id="row285435004093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DATA_FLAG_ENDOFFRAME</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p833444118093521"><p>End of a frame. This flag is used in pair with DATA_FLAG_PARTIAL_FRAME
+for the last segment of the frame.</p>
+</p></td></tr><tr id="row278471952093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DATA_FLAG_MUXER_DATA</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p384267497093521"><p>Encapsulated data with its container</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="formaterrortype">
+<h2>FormatErrorType<a class="headerlink" href="#formaterrortype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">FormatErrorType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga31e7fcf42722fa15e4e5489c2fef9092)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates callback error types.</p>
+</div>
+<div class="section" id="formatinfotype">
+<h2>FormatInfoType<a class="headerlink" href="#formatinfotype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">FormatInfoType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga6f00342925d3d5e586c76f8695985cad)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates types of callback information.</p>
+<table><thead align="left"><tr id="row264059071093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p204214856093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1267901941093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row888097793093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MUXER_INFO_MAX_DURATION_APPROACHING</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p268141386093521"><p>The capturing duration is reaching the threshold specified by
+FormatMuxerSetMaxFileDuration. This information is reported when only
+one second or 10% is left to reach the allowed duration.</p>
+</p></td></tr><tr id="row456790013093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MUXER_INFO_MAX_FILESIZE_APPROACHING</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p301792517093521"><p>The captured file size is reaching the threshold specified by
+FormatMuxerSetMaxFileSize. This information is reported when only 100 KB
+or 10% is left to reach the allowed size.</p>
+</p></td></tr><tr id="row2050673571093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MUXER_INFO_MAX_DURATION_REACHED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2005504051093521"><p>The capturing duration reached the threshold specified by
+FormatMuxerSetMaxFileDuration, and the capturing is ended. If the file
+is set by a file descriptor, the caller needs to close the file.</p>
+</p></td></tr><tr id="row2090836213093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MUXER_INFO_MAX_FILESIZE_REACHED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1587908724093521"><p>The captured file size reached the threshold specified by
+FormatMuxerSetMaxFileSize, and the capturing is ended. If the file is
+set by a file descriptor, the caller needs to close the file.</p>
+</p></td></tr><tr id="row160837749093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MUXER_INFO_NEXT_OUTPUT_FILE_STARTED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p898127442093521"><p>The capturing started for the next output file.</p>
+</p></td></tr><tr id="row986400207093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MUXER_INFO_FILE_SPLIT_FINISHED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p940191868093521"><p>Manual file split is completed.</p>
+</p></td></tr><tr id="row1944192314093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MUXER_INFO_FILE_START_TIME_MS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p845426130093521"><p>Start time of the captured file</p>
+</p></td></tr><tr id="row1846348047093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DEMUXER_INFO_PREPARED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1444840561093521"><p>The prepare function is asynchronously executed. This information is
+reported after the execution is complete.</p>
+</p></td></tr><tr id="row15371093093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DEMUXER_INFO_SEEK_COMPLETE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p111784993093521"><p>The seek function is asynchronously executed. This information is
+reported after the execution is complete.</p>
+</p></td></tr><tr id="row672883370093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DEMUXER_INFO_NETWORK_DISCONNECTED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2056675389093521"><p>The network is disconnected during network playback.</p>
+</p></td></tr><tr id="row2119448927093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>DEMUXER_INFO_NETWORK_RECONNECTED</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p972685301093521"><p>The network is automatically reconnected during network playback.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="formatseekmode">
+<h2>FormatSeekMode<a class="headerlink" href="#formatseekmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">FormatSeekMode</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga14aa9d18a71eff4a0b70f748f0377c94)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates seek modes.</p>
+<table><thead align="left"><tr id="row1339621874093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1808974563093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1582882632093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row780323944093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SEEK_MODE_FORWARD_KEY</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1763467037093521"><p>Seeks forwards for the keyframe closest to specified position.</p>
+</p></td></tr><tr id="row199795335093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SEEK_MODE_BACKWARD_KEY</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p946931078093521"><p>Seeks backwards for the keyframe closest to specified position.</p>
+</p></td></tr><tr id="row520604414093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SEEK_MODE_CLOSEST_KEY</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1314241651093521"><p>Seeks for the keyframe closest to specified position.</p>
+</p></td></tr><tr id="row400664660093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SEEK_MODE_BUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1671282352093521"><p>Undefined mode</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="frametype">
+<h2>FrameType<a class="headerlink" href="#frametype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">FrameType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad495a9f61af7fff07d7e97979d1ab854)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates data frame types.</p>
+<table><thead align="left"><tr id="row1383565375093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2003587545093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1723211395093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1608175641093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FRAME_TYPE_NONE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p833656462093521"><p>Unknown type, which can be used for transport stream (TS) packets</p>
+</p></td></tr><tr id="row690348683093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FRAME_TYPE_AUDIO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1722568530093521"><p>Audio frame</p>
+</p></td></tr><tr id="row1174183993093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FRAME_TYPE_VIDEO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1247231659093521"><p>Video frame</p>
+</p></td></tr><tr id="row607111081093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FRAME_TYPE_IMAGE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p411847570093521"><p>Image frame</p>
+</p></td></tr><tr id="row1989354109093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FRAME_TYPE_SUB</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p783706636093521"><p>Subtitle frame</p>
+</p></td></tr><tr id="row2137216778093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FRAME_TYPE_DATA</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p572608919093521"><p>Data</p>
+</p></td></tr><tr id="row1947122066093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FRAME_TYPE_BUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1184735482093521"><p>Undefined type</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="keytype">
+<h2>KeyType<a class="headerlink" href="#keytype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">KeyType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaab0feaba617470cb4aa830dc5935238c)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates key types used for setting and obtaining parameters.</p>
+<table><thead align="left"><tr id="row1954819580093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p925093377093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1649612756093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1870813679093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>KEY_TYPE_MIME</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p895977101093521"><p>MIME type. The value type is cstring.</p>
+</p></td></tr><tr id="row592286137093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>KEY_TYPE_HTTP_HEADERS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p99679331093521"><p>HTTP header. The value type is cstring.</p>
+</p></td></tr><tr id="row1744945803093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>KEY_TYPE_LANGUAGE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1228765348093521"><p>Track language, which is usually the language of audio and subtitles.
+The value type is cstring.</p>
+</p></td></tr><tr id="row1939080916093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>KEY_TYPE_PRE_CACHE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p79455067093521"><p>Precapture cache size. The value type is int</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="manualsplittype">
+<h2>ManualSplitType<a class="headerlink" href="#manualsplittype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">ManualSplitType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga10d9833450f29129d249c41d9acb4bc4)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates manual split types for the muxer.</p>
+<table><thead align="left"><tr id="row828851819093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1022007680093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p643654761093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1069674031093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MANUAL_SPLIT_POST</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p159312674093521"><p>Search forwards from the current I-frame and split the file at the
+closest I-frame.</p>
+</p></td></tr><tr id="row2026613663093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MANUAL_SPLIT_PRE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1119727078093521"><p>Search backwards from the current I-frame and split the file at the
+closest I-frame.</p>
+</p></td></tr><tr id="row1811217090093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>MANUAL_SPLIT_NORMAL</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p508482109093521"><p>Normal split</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="outputformat">
+<h2>OutputFormat<a class="headerlink" href="#outputformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OutputFormat</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaeb712c6c6c0a8af0dfd79f451ecb9277)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates output file formats.</p>
+<table><thead align="left"><tr id="row355702899093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p276409929093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1010427283093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row656689565093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_FORMAT_MPEG_4</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p978609002093521"><p>MP4</p>
+</p></td></tr><tr id="row1467869679093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_FORMAT_TS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p550406472093521"><p>TS</p>
+</p></td></tr><tr id="row182194698093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_FORMAT_THREE_GPP</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1389811354093521"><p>3GPP</p>
+</p></td></tr><tr id="row528766304093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_FORMAT_HEIF</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1460064084093521"><p>HEIF</p>
+</p></td></tr><tr id="row697398658093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_FORMAT_OGG</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1505506870093521"><p>Ogg</p>
+</p></td></tr><tr id="row179866407093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_FORMAT_INVALID</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p715204200093521"><p>Invalid format</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="outputtype">
+<h2>OutputType<a class="headerlink" href="#outputtype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OutputType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga4e0517338e6c4a31a2addafc06d4f3a3)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates muxer output types.</p>
+<table><thead align="left"><tr id="row95070812093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p953771372093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p352211687093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1924644014093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_TYPE_FD</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p417686610093521"><p>File descriptor</p>
+</p></td></tr><tr id="row531698574093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_TYPE_URI</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1363482708093521"><p>Local file URI</p>
+</p></td></tr><tr id="row429416132093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>OUTPUT_TYPE_INVALID</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1904293850093521"><p>Undefined type</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="sourcetype">
+<h2>SourceType<a class="headerlink" href="#sourcetype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">SourceType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga3ae727773c367ac1041d72ac770a0ab1)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates types of the demuxer data source.</p>
+<table><thead align="left"><tr id="row333172576093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1863822342093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2067333260093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row265501713093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SOURCE_TYPE_FD</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1304416880093521"><p>File descriptor</p>
+</p></td></tr><tr id="row1678394546093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SOURCE_TYPE_URI</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1355637244093521"><p>URI, which can be a network address or a local file path</p>
+</p></td></tr><tr id="row1024254742093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SOURCE_TYPE_STREAM</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p858902887093521"><p>Streams</p>
+</p></td></tr><tr id="row1188740499093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SOURCE_TYPE_BUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p328123464093521"><p>Undefined source</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="subtitleformat">
+<h2>SubtitleFormat<a class="headerlink" href="#subtitleformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">SubtitleFormat</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gadac45ce4731516c262292c15433439b3)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates subtitle file formats.</p>
+<table><thead align="left"><tr id="row1862933837093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p333514096093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2146415089093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row661493732093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_ASS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1486000511093521"><p>ASS</p>
+</p></td></tr><tr id="row11129794093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_LRC</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1232793156093521"><p>LRC</p>
+</p></td></tr><tr id="row1947082313093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_SRT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p809455324093521"><p>SRT</p>
+</p></td></tr><tr id="row2112108078093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_SMI</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1756238200093521"><p>SMI</p>
+</p></td></tr><tr id="row103492605093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_SUB</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1131399377093521"><p>SUB</p>
+</p></td></tr><tr id="row518733011093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_TXT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1275842944093521"><p>RAW UTF-8</p>
+</p></td></tr><tr id="row1925508674093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_HDMV_PGS</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p370672065093521"><p>HDMV PGS</p>
+</p></td></tr><tr id="row1475065770093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_DVB_SUB</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1079583032093521"><p>DVB</p>
+</p></td></tr><tr id="row329597240093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_DVD_SUB</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1485361007093521"><p>DVD</p>
+</p></td></tr><tr id="row152497887093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_TTML</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1148031142093521"><p>TTML</p>
+</p></td></tr><tr id="row1597362424093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_WEBVTT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p456906527093521"><p>WebVTT</p>
+</p></td></tr><tr id="row1977553526093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FORMAT_SUB_BUTT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p735265631093521"><p>Undefined format</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="subtitleframetype">
+<h2>SubtitleFrameType<a class="headerlink" href="#subtitleframetype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">SubtitleFrameType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga43b7f046e365a89697272d850b0517b7)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates subtitle frame types.</p>
+<table><thead align="left"><tr id="row1376359339093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1152436085093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p183068191093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row83643393093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>HI_SVR_SUBTITLE_BITMAP</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p848227290093521"><p>Bitmap (BMP)</p>
+</p></td></tr><tr id="row477023337093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>HI_SVR_SUBTITLE_TEXT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1488152462093521"><p>Text</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="tracksourcetype">
+<h2>TrackSourceType<a class="headerlink" href="#tracksourcetype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">TrackSourceType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga953bc46f95d7b2d8866838d792f8f6aa)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates types of the muxer source track.</p>
+<table><thead align="left"><tr id="row1562723278093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p321066869093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p793678213093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row870872573093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_SOURCE_TYPE_VIDEO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p377890486093521"><p>Video track</p>
+</p></td></tr><tr id="row1065474942093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_SOURCE_TYPE_AUDIO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1700365975093521"><p>Audio track</p>
+</p></td></tr><tr id="row113708797093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_SOURCE_TYPE_DATA</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p666165779093521"><p>Data track</p>
+</p></td></tr><tr id="row303401902093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_SOURCE_TYPE_INVALID</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p957810827093521"><p>Invalid type</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="tracktype">
+<h2>TrackType<a class="headerlink" href="#tracktype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">TrackType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad80740dd555f7d3688d2c4d9f44d3b04)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates track types.</p>
+<table><thead align="left"><tr id="row1892745297093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2057949081093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p504682618093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row141950187093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_TYPE_VIDEO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1871227671093521"><p>Video track</p>
+</p></td></tr><tr id="row1922287066093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_TYPE_AUDIO</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p681765589093521"><p>Audio track</p>
+</p></td></tr><tr id="row1483349535093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_TYPE_IMAGE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1209483762093521"><p>Image track</p>
+</p></td></tr><tr id="row190291793093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_TYPE_SUB</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p576970682093521"><p>Subtitle track</p>
+</p></td></tr><tr id="row528123334093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_TYPE_DATA</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p572080364093521"><p>Data track</p>
+</p></td></tr><tr id="row1210200829093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>TRACK_TYPE_BUT</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p140642713093521"><p>Undefined track</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="formatdeinit">
+<h2>FormatDeInit()<a class="headerlink" href="#formatdeinit" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">FormatDeInit</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Deinitializes the format.</p>
+<p>You can call this function to deinitialize the demuxer and muxer. This
+function works in pair with
+<a class="reference external" href="format.md#gae10a50c8f3de6e54ee0dc3937f755920">FormatInit</a>.</p>
+</div>
+<div class="section" id="formatdemuxercreate">
+<h2>FormatDemuxerCreate()<a class="headerlink" href="#formatdemuxercreate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerCreate</span> <span class="p">(</span><span class="n">const</span> <span class="p">[</span><span class="n">FormatSource</span><span class="p">](</span><span class="n">formatsource</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">source</span><span class="p">,</span> <span class="n">void</span> <span class="o">**</span> <span class="n">handle</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Creates a demuxer component and returns its context handle.</p>
+<p>This function returns the demuxer context handle without probing the
+container format or obtaining stream information.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2081201673093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p646955537093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1342044817093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row774244071093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>source</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the format source of the demuxer. For details,
+see FormatSource.</p>
+</td></tr><tr id="row253113825093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the double pointer to the demuxer context handle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerdestory">
+<h2>FormatDemuxerDestory()<a class="headerlink" href="#formatdemuxerdestory" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerDestory</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Destroys demuxer resources.</p>
+<p>This function works in pair with
+<a class="reference external" href="format.md#ga183fbc31f2c9877ef56464abcccef374">FormatDemuxerCreate</a>.
+If you do not call this function, resource leakage may occur.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2003564781093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p436641008093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1629568207093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1179224034093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerfreeframe">
+<h2>FormatDemuxerFreeFrame()<a class="headerlink" href="#formatdemuxerfreeframe" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerFreeFrame</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">FormatFrame</span><span class="p">](</span><span class="n">formatframe</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">frame</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Frees data frames.</p>
+<p>You can call this function to free the data frames obtained by calling
+<a class="reference external" href="format.md#ga7b20e1b88413d20a348d7f796917cd94">FormatDemuxerReadFrame</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1564451630093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p469401256093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1628269329093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1054859146093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row544531747093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>frame</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data structure FormatFrame.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxergetbufferconfig">
+<h2>FormatDemuxerGetBufferConfig()<a class="headerlink" href="#formatdemuxergetbufferconfig" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerGetBufferConfig</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">FormatBufferSetting</span><span class="p">](</span><span class="n">formatbuffersetting</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">setting</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the buffer information of the demuxer.</p>
+<p>If there is a buffer mechanism in the demuxer, you can call this
+function to obtain the maximum buffer size and time.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1829403889093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1813619492093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1197733245093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1076818207093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row1680407064093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>setting</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the maximum demuxer buffer size and time, as
+defined in FormatBufferSetting.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxergetfileinfo">
+<h2>FormatDemuxerGetFileInfo()<a class="headerlink" href="#formatdemuxergetfileinfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerGetFileInfo</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">FileInfo</span><span class="p">](</span><span class="n">fileinfo</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">info</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the attributes of a media file.</p>
+<p>The attributes contain file, program, and stream attributes. This
+function should be called after
+<a class="reference external" href="format.md#gacfcf40d869a48125bd67d17f8a4fc3ce">FormatDemuxerPrepare</a>
+is called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1658936772093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p538384659093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1307434399093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row106529412093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row323668174093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>info</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the source attributes, as defined in FileInfo.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxergetparameter">
+<h2>FormatDemuxerGetParameter()<a class="headerlink" href="#formatdemuxergetparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerGetParameter</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">trackId</span><span class="p">,</span> <span class="p">[</span><span class="n">ParameterItem</span><span class="p">](</span><span class="n">parameteritem</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">metaData</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains demuxer attributes.</p>
+<p>You can call this function to obtain the HTTP header, HTTP referer, and
+other extension items for the demuxer after
+<a class="reference external" href="format.md#ga183fbc31f2c9877ef56464abcccef374">FormatDemuxerCreate</a>
+is called. The demuxer will store the value in the <strong>metaData</strong> based on
+the key.If the demuxer has allocated memory for the <strong>metaData</strong> to
+store the value, the caller should manually free the memory.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1063373121093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1353297617093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p896443166093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1309599707093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row1691491931093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the track. If the value is an invalid value (-1), this
+parameter identifies the file or program.</p>
+</td></tr><tr id="row548928144093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>metaData</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the buffer for storing the parameters values
+that the demuxer has searched for based on the input key. For details,
+see ParameterItem.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxergetselectedtrack">
+<h2>FormatDemuxerGetSelectedTrack()<a class="headerlink" href="#formatdemuxergetselectedtrack" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerGetSelectedTrack</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="o">*</span> <span class="n">programId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">trackId</span><span class="p">[],</span> <span class="n">int32_t</span> <span class="o">*</span> <span class="n">nums</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the ID of the media track selected by the demuxer for output.</p>
+<p>The demuxer automatically selects the default program and its media
+tracks. However, if the program and media tracks have changed after
+<a class="reference external" href="format.md#ga1d9cb94614e207def34f13eaa16ef2b7">FormatDemuxerSelectTrack</a>
+and
+<a class="reference external" href="format.md#gaf5fd5bab9613d133827054f157d5520e">FormatDemuxerUnselectTrack</a>
+are called, you can obtain the currently selected program and media
+tracks by calling this function (<strong>FormatDemuxerGetSelectedTrack</strong>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row187318541093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p36423678093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1584917809093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row63976565093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row2111989750093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>programId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the pointer to the program.</p>
+</td></tr><tr id="row1882217386093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the array of selected media tracks. This parameter works in
+pair with nums.</p>
+</td></tr><tr id="row1813159984093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>nums</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the total number of selected media tracks. This
+parameter works in pair with trackId.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerprepare">
+<h2>FormatDemuxerPrepare()<a class="headerlink" href="#formatdemuxerprepare" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerPrepare</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Makes preparations for the demuxer.</p>
+<p>This function triggers the demuxer to probe the media file container
+format and parse stream information. You can obtain media file
+attributes only after this function is called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1258043956093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p212297568093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1627796086093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1224727419093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerreadframe">
+<h2>FormatDemuxerReadFrame()<a class="headerlink" href="#formatdemuxerreadframe" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerReadFrame</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">FormatFrame</span><span class="p">](</span><span class="n">formatframe</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">frame</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">timeOutMs</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reads data frames.</p>
+<p>After the data frames are read, you need to call
+<strong>FormatDemuxerFreeFame</strong> to free them.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1461813216093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p745043148093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1620522714093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1176443378093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row175602781093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>frame</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data structure FormatFrame.</p>
+</td></tr><tr id="row393216243093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeOutMs</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the time required for waiting data frame read. The value 0
+indicates that data frames are immediately read without any wait.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerseek">
+<h2>FormatDemuxerSeek()<a class="headerlink" href="#formatdemuxerseek" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerSeek</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">streamIndex</span><span class="p">,</span> <span class="n">int64_t</span> <span class="n">timeStampUs</span><span class="p">,</span> <span class="p">[</span><span class="n">FormatSeekMode</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga14aa9d18a71eff4a0b70f748f0377c94) mode )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Seeks for a specified position for the demuxer.</p>
+<p>After being started, the demuxer seeks for a specified position to read
+data frames. You can specify the position close to the time specified by
+<strong>streamIndex</strong>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row546524079093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1809222127093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1820561013093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row772313307093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row1864622593093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>streamIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the stream in the media file.</p>
+</td></tr><tr id="row209380853093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timeStampUs</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the target position, in microseconds.</p>
+</td></tr><tr id="row1067525581093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>mode</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the seek mode, as defined in FormatSeekMode.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerselecttrack">
+<h2>FormatDemuxerSelectTrack()<a class="headerlink" href="#formatdemuxerselecttrack" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerSelectTrack</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">programId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">trackId</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Selects a specified media track.</p>
+<p>The media tracks to select must belong to the same program. If you do
+not call this function, the default media tracks of the default program
+are selected. If <strong>programId</strong> is valid but <strong>trackId</strong> is invalid, the
+default media track of the specified program is used.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1757970985093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p598499828093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1843588570093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row690881194093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row449824731093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>programId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the program.</p>
+</td></tr><tr id="row1299496694093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the media track. If a valid value is passed, the media track
+must belong to the specified program. If an invalid value is passed, the
+default media track of the specified program is used. If multiple audio
+tracks are specified, the player determines which audio track to use.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxersetbufferconfig">
+<h2>FormatDemuxerSetBufferConfig()<a class="headerlink" href="#formatdemuxersetbufferconfig" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerSetBufferConfig</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">FormatBufferSetting</span><span class="p">](</span><span class="n">formatbuffersetting</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">setting</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets buffer information for the demuxer.</p>
+<p>If there is a buffer mechanism in the demuxer, you can call this
+function to set the maximum buffer size and time. Alternatively, you can
+disable the buffer mechanism by setting the buffer size and time to
+<strong>0</strong> in the <strong>setting</strong> parameter. If there is no buffer mechanism or
+the default setting is retained, you can skip this function.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row387097499093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p773708452093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p849426307093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row320941209093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row1190675639093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>setting</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the maximum demuxer buffer size and time, as
+defined in FormatBufferSetting.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxersetcallback">
+<h2>FormatDemuxerSetCallBack()<a class="headerlink" href="#formatdemuxersetcallback" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerSetCallBack</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">FormatCallback</span><span class="p">](</span><span class="n">formatcallback</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">callBack</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets a callback for the demuxer.</p>
+<p>The callback will be invoked to notify the upper layer of internal
+events of the demuxer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1731354315093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1814793033093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p36906236093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1232371777093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row230507732093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>callBack</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the callback, as defined in FormatCallback.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxersetparameter">
+<h2>FormatDemuxerSetParameter()<a class="headerlink" href="#formatdemuxersetparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerSetParameter</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">trackId</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">ParameterItem</span><span class="p">](</span><span class="n">parameteritem</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">metaData</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">metaDataCnt</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets demuxer attributes.</p>
+<p>You can call this function to set the HTTP header, HTTP referer, and
+other extension items for the demuxer after
+<a class="reference external" href="format.md#ga183fbc31f2c9877ef56464abcccef374">FormatDemuxerCreate</a>
+is called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1598288618093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p836161466093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1471754921093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row869253735093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row1605439720093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the track. If the value is an invalid value (-1), this
+parameter identifies the file or program.</p>
+</td></tr><tr id="row604154816093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>metaData</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to an array of key-value pairs representing
+parameter names and values. For details, see ParameterItem.</p>
+</td></tr><tr id="row1810194904093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>metaDataCnt</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the number of key-value pairs in the array. This parameter
+works in pair with metaData.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerstart">
+<h2>FormatDemuxerStart()<a class="headerlink" href="#formatdemuxerstart" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerStart</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Starts the demuxer.</p>
+<p>After being started, the caller can read data frames from the demuxer.
+This function should be called after
+<a class="reference external" href="format.md#gacfcf40d869a48125bd67d17f8a4fc3ce">FormatDemuxerPrepare</a>
+is called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1322053758093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1959406771093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1254408359093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1956217074093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerstop">
+<h2>FormatDemuxerStop()<a class="headerlink" href="#formatdemuxerstop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerStop</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Stops the demuxer from working.</p>
+<p>After this function is called, the demuxer cannot resume decapsulation.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row945193171093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1300333337093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p742285199093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row51553721093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatdemuxerunselecttrack">
+<h2>FormatDemuxerUnselectTrack()<a class="headerlink" href="#formatdemuxerunselecttrack" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatDemuxerUnselectTrack</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">programId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">trackId</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Unselects a specified media track from which the demuxer reads data
+frames.</p>
+<p>The demuxer can read all media tracks of the default program. You can
+call this function to unselect all or certain tracks of a specified
+program that the demuxer is expected not to read. If <strong>trackId</strong> is
+invalid, the demuxer will read none of the tracks of the specified
+program.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row143205687093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p983760709093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p730938207093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1316106637093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the demuxer context handle.</p>
+</td></tr><tr id="row165090765093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>programId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the program.</p>
+</td></tr><tr id="row549662481093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the media track that the demuxer will unselect. This
+parameter works in pair with programId. If a valid value is passed, the
+media track must belong to the program specified by programId. If an
+invalid value is passed, and all media tracks of the specified program
+are unselected.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatinit">
+<h2>FormatInit()<a class="headerlink" href="#formatinit" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">FormatInit</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Initializes the format.</p>
+<p>You can call this function to initialize the demuxer and muxer. This
+function should always be called before other format-specific functions,
+and it can be called only once within a process.</p>
+</div>
+<div class="section" id="formatmuxeraddtrack">
+<h2>FormatMuxerAddTrack()<a class="headerlink" href="#formatmuxeraddtrack" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerAddTrack</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">TrackSource</span><span class="p">](</span><span class="n">tracksource</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">trackSource</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Adds a media track source for the muxer. For details about track
+sources, see <a class="reference external" href="tracksource.md">TrackSource</a>.</p>
+<p>This function must be called after
+<a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a> is
+successfully called and before
+<a class="reference external" href="format.md#ga9a2af831a6f4a63dc85d2c23b5c7c81b">FormatMuxerStart</a> is
+called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row307039005093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2056716226093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1556510704093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row350111152093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row796634555093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackSource</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the track source.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxercreate">
+<h2>FormatMuxerCreate()<a class="headerlink" href="#formatmuxercreate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerCreate</span> <span class="p">(</span><span class="n">void</span> <span class="o">**</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">FormatOutputConfig</span><span class="p">](</span><span class="n">formatoutputconfig</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">outputConfig</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Creates a muxer and returns its context handle.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row513172560093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p594078721093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1205638004093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1146849950093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the double pointer to the muxer context handle.</p>
+</td></tr><tr id="row1144722840093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>outputConfig</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer output configuration, as defined in
+FormatOutputConfig.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxerdestory">
+<h2>FormatMuxerDestory()<a class="headerlink" href="#formatmuxerdestory" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerDestory</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Destroys a muxer and release its resources created by calling
+<a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1059922786093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1037934378093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2056456973093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2109920811093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxergetparameter">
+<h2>FormatMuxerGetParameter()<a class="headerlink" href="#formatmuxergetparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerGetParameter</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">trackId</span><span class="p">,</span> <span class="p">[</span><span class="n">ParameterItem</span><span class="p">](</span><span class="n">parameteritem</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">item</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">itemNum</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains muxer attributes.</p>
+<p>This is an extended function that can be used to obtain muxer or track
+attributes. The demuxer then obtains the muxer attributes based on the
+key contained in <strong>item</strong>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1253132050093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1994365580093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2079592545093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2074663183093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row1476381890093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the media track. If the value is FORMAT_INVALID_TRACK_ID,
+this function obtains the muxer attributes.</p>
+</td></tr><tr id="row742812185093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>item</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the items carrying muxer attributes. You can
+specify multiple items at a time in this parameter, which works in pair
+with itemNum.</p>
+</td></tr><tr id="row1694976947093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>itemNum</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the number of attributes set at a time.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+if any requested attribute fails to be obtained or is not found.</p>
+</div>
+<div class="section" id="formatmuxersetcallback">
+<h2>FormatMuxerSetCallBack()<a class="headerlink" href="#formatmuxersetcallback" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetCallBack</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">FormatCallback</span><span class="p">](</span><span class="n">formatcallback</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">callBack</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets a callback for the muxer. For details about the callback, see
+<a class="reference external" href="formatcallback.md">FormatCallback</a>.</p>
+<p>This function should be called after
+<a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a> is
+successfully called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1219082513093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1741583344093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1729757828093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1410778355093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row141731826093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>FormatCallback</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer callback to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxersetfilesplitduration">
+<h2>FormatMuxerSetFileSplitDuration()<a class="headerlink" href="#formatmuxersetfilesplitduration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetFileSplitDuration</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="p">[</span><span class="n">ManualSplitType</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga10d9833450f29129d249c41d9acb4bc4) type, int64_t timestampUs, uint32_t durationUs )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Manually splits a file.</p>
+<p>This function can be called after
+<a class="reference external" href="format.md#ga9a2af831a6f4a63dc85d2c23b5c7c81b">FormatMuxerStart</a> is
+called. Once this function is called, the file is split based on the
+manual split type. After manual split is complete, file split will
+proceed to use the initially set split type. You can call this function
+again only after the
+<a class="reference external" href="format.md#gga6f00342925d3d5e586c76f8695985cada3cf56a06f5990ab657d61bd7e57c1783">MUXER_INFO_FILE_SPLIT_FINISHED</a>
+event is reported.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row983058427093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p503082523093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1465417157093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row673875171093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row2142075788093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the file split type, as defined in FileSplitType.</p>
+</td></tr><tr id="row1218065118093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>timestamp</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the file split timestamp. This parameter is not supported
+currently. The value �C1 indicates that the file is split at the time
+this function is called.</p>
+</td></tr><tr id="row1343763417093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>duration</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the period from the file split time to the time the next
+output file starts.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxersetlocation">
+<h2>FormatMuxerSetLocation()<a class="headerlink" href="#formatmuxersetlocation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetLocation</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="nb">int</span> <span class="n">latitude</span><span class="p">,</span> <span class="nb">int</span> <span class="n">longitude</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the geographical information for the output file of the muxer.</p>
+<p>This function should be called after
+<a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a> is
+successfully called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row971599791093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p679255550093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1631607735093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1798240557093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row1141781246093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>latitude</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the latitude, within the range [-90,90].</p>
+</td></tr><tr id="row1816025769093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>longitude</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the longitude, within the range [-180,180].</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxersetmaxfileduration">
+<h2>FormatMuxerSetMaxFileDuration()<a class="headerlink" href="#formatmuxersetmaxfileduration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetMaxFileDuration</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int64_t</span> <span class="n">durationUs</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the maximum duration (in seconds) for the output file.</p>
+<p>You need to call this function before calling
+<a class="reference external" href="format.md#ga9a2af831a6f4a63dc85d2c23b5c7c81b">FormatMuxerStart</a>. If
+the maximum duration you set is valid and capturing is approaching 90%
+of that duration or the remaining duration is 1s, the message
+<a class="reference external" href="format.md#gga6f00342925d3d5e586c76f8695985cadaf6214216fd62faa4fc5e20d0d0ba60bf">MUXER_INFO_MAX_DURATION_APPROACHING</a>
+is reported via <strong>OnInfo</strong> of <a class="reference external" href="formatcallback.md">FormatCallback</a>. If
+the output file has been set by calling
+<a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a>,
+you need to call
+<a class="reference external" href="format.md#gaa936b56996294d76977537267fef058c">FormatMuxerSetNextOutputFile</a>
+to set the next output file. Otherwise, the current output file will be
+overwritten when the capturing reaches the maximum duration you set.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row875063661093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p253110482093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1787627792093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row13207541093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row611550830093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>duration</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the maximum duration to set, in seconds. If the value is 0 or
+negative, the operation fails. In this case, the default duration (60
+seconds) will be used.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxersetmaxfilesize">
+<h2>FormatMuxerSetMaxFileSize()<a class="headerlink" href="#formatmuxersetmaxfilesize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetMaxFileSize</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int64_t</span> <span class="nb">bytes</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the maximum size (in bytes) for the output file of the muxer.</p>
+<p>This function should be called after
+<a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a> is
+successfully called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1492776530093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p970918027093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1829474965093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1520856586093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row479514251093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>bytes</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the maximum size of a file, in bytes. If the value is 0 or
+negative, the operation fails and the maximum size does not take effect.
+In this case, the maximum size of a single file supported by the current
+file system is used as the value of this parameter.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxersetnextoutputfile">
+<h2>FormatMuxerSetNextOutputFile()<a class="headerlink" href="#formatmuxersetnextoutputfile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetNextOutputFile</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">fd</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the descriptor for the next output file.</p>
+<p>If <a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a>
+is successfully called and the file descriptor involved is valid, you
+can call this function (<strong>FormatMuxerSetNextOutputFile</strong>) upon receiving
+the message
+<a class="reference external" href="format.md#gga6f00342925d3d5e586c76f8695985cadafc74f41e73f13a29a83b3a13ea6e66e1">MUXER_INFO_MAX_FILESIZE_APPROACHING</a>
+or
+<a class="reference external" href="format.md#gga6f00342925d3d5e586c76f8695985cadaf6214216fd62faa4fc5e20d0d0ba60bf">MUXER_INFO_MAX_DURATION_APPROACHING</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row599892512093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1446641828093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1207360919093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row469866897093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row1733651160093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the file descriptor to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxersetorientation">
+<h2>FormatMuxerSetOrientation()<a class="headerlink" href="#formatmuxersetorientation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetOrientation</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="nb">int</span> <span class="n">degrees</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the orientation of the video track for the muxer.</p>
+<p>This function should be called after
+<a class="reference external" href="format.md#ga94e9ab3e534b69a358b7cc16e4f79b78">FormatMuxerAddTrack</a>
+is successfully called. The following degrees are supported: 0, 90, 180,
+and 270.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row825094109093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1707875236093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p847160608093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row53794740093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row1256147855093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>degrees</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the clockwise angle of the video track.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxersetparameter">
+<h2>FormatMuxerSetParameter()<a class="headerlink" href="#formatmuxersetparameter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerSetParameter</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">trackId</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">ParameterItem</span><span class="p">](</span><span class="n">parameteritem</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">item</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">itemNum</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets muxer attributes.</p>
+<p>This is an extended function that can be used to add MP4-dedicated boxes
+and tags (such as <strong>exif</strong>).</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row197173739093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p993072037093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p457848852093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row803478731093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row1754490102093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>trackId</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Identifies the media track. If the value is FORMAT_INVALID_TRACK_ID,
+this function sets the muxer attributes.</p>
+</td></tr><tr id="row598846850093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>item</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the items carrying muxer attributes. You can
+specify multiple items at a time in this parameter, which works in pair
+with itemNum.</p>
+</td></tr><tr id="row1594883835093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>itemNum</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the number of attributes set at a time.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxerstart">
+<h2>FormatMuxerStart()<a class="headerlink" href="#formatmuxerstart" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerStart</span> <span class="p">(</span><span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Starts the muxer.</p>
+<p>You can call this function to encapsulate media data after the muxer is
+created, media tracks are added, and related parameters are set.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1436229310093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2084861128093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2086156535093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row847430936093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxerstop">
+<h2>FormatMuxerStop()<a class="headerlink" href="#formatmuxerstop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerStop</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">block</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Stops the muxer that was started by calling
+<a class="reference external" href="format.md#ga9a2af831a6f4a63dc85d2c23b5c7c81b">FormatMuxerStart</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1534923412093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p914048312093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1327723944093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1109495250093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row634009895093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>block</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates how to stop the muxer. The value true indicates that the muxer
+is stopped after all buffered data is processed, and false indicates
+that the buffered data is discarded and the muxer is immediately
+stopped.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+<div class="section" id="formatmuxerwriteframe">
+<h2>FormatMuxerWriteFrame()<a class="headerlink" href="#formatmuxerwriteframe" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">FormatMuxerWriteFrame</span> <span class="p">(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">const</span> <span class="p">[</span><span class="n">FormatFrame</span><span class="p">](</span><span class="n">formatframe</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">frameData</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Writes data frames into the muxer.</p>
+<p>This function should be called after
+<a class="reference external" href="format.md#ga9c390276cb90f4753c32af5aa5c600ad">FormatMuxerCreate</a> is
+successfully called.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1609620565093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1835437629093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p444628819093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1095595979093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the muxer context handle.</p>
+</td></tr><tr id="row1972668650093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>frameData</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data structure FormatFrame.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a non-zero value
+otherwise.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/format.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

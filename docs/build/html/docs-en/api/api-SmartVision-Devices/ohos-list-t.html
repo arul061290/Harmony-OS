@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OHOS::List&lt; T &gt; &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ohos-list-t">
+<h1>OHOS::List&lt; T &gt;<a class="headerlink" href="#ohos-list-t" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="graphic.md">Graphic</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines a linked list template class, which implements the data
+structure of bidirectional linked list and provides basic functions such
+as adding, deleting, inserting, clearing, popping up, and obtaining the
+size of the linked list.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1214409965093535"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p814485051093535"><p>Public Member Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1209819071093535"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row864247227093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p176169038093535"><p>List ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1440841676093535"></p><p id="p1974452479093535"><p>A default constructor used to create a List instance. The initial size
+is 0.</p>
+</p></td></tr><tr id="row367635340093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p136958496093535"><p>~List ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1972706612093535"><p>virtual</p>
+</p><p id="p1857457833093535"><p>A destructor used to delete the List instance.</p>
+</p></td></tr><tr id="row842418913093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p539868339093535"><p>Front () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1014332058093535"><p>const T</p>
+</p><p id="p1105794174093535"><p>Obtains the head node data of a linked list.</p>
+</p></td></tr><tr id="row313982868093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2133215436093535"><p>Back () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p343508726093535"><p>const T</p>
+</p><p id="p218988823093535"><p>Obtains the tail node data of a linked list.</p>
+</p></td></tr><tr id="row1854269693093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1717955174093535"><p>PushBack (T data)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1555417860093535"><p>void</p>
+</p><p id="p955304063093535"><p>Inserts data at the end of a linked list.</p>
+</p></td></tr><tr id="row1444572328093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p328076155093535"><p>PushFront (T data)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1115377960093535"><p>void</p>
+</p><p id="p23726567093535"><p>Inserts data at the start of a linked list.</p>
+</p></td></tr><tr id="row1465844936093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1958493835093535"><p>PopBack ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p328686225093535"><p>void</p>
+</p><p id="p784663505093535"><p>Pops up a data record at the end of a linked list.</p>
+</p></td></tr><tr id="row26922725093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p416058486093535"><p>PopFront ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p582644141093535"><p>void</p>
+</p><p id="p1154341097093535"><p>Pops up a data record at the start of a linked list.</p>
+</p></td></tr><tr id="row530134640093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p549757858093535"><p>Insert (ListNode&lt; T &gt; *node, T data)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2130753822093535"><p>void</p>
+</p><p id="p1721680024093535"><p>Inserts data before a specified node, which follows the inserted data
+node.</p>
+</p></td></tr><tr id="row1249507990093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p945043277093535"><p>Remove (ListNode&lt; T &gt; *node)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1851549972093535"><p>void</p>
+</p><p id="p348495271093535"><p>Deletes a data node.</p>
+</p></td></tr><tr id="row1382209790093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p82011437093535"><p>Clear ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p820144600093535"><p>void</p>
+</p><p id="p2089423948093535"><p>Deletes all nodes from a linked list.</p>
+</p></td></tr><tr id="row553782959093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p422293740093535"><p>Head () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p996333690093535"><p>ListNode&lt; T &gt; *</p>
+</p><p id="p1377590836093535"><p>Obtains the head node address of a linked list.</p>
+</p></td></tr><tr id="row704752045093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p549791968093535"><p>Tail () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p301262696093535"><p>ListNode&lt; T &gt; *</p>
+</p><p id="p2120630251093535"><p>Obtains the tail node address of a linked list.</p>
+</p></td></tr><tr id="row1897529712093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p315393380093535"><p>Begin () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p79316061093535"><p>ListNode&lt; T &gt; *</p>
+</p><p id="p994769156093535"><p>Obtains the head node address of a linked list.</p>
+</p></td></tr><tr id="row1930309012093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2107612287093535"><p>End () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p45766537093535"><p>const ListNode&lt; T &gt; *</p>
+</p><p id="p1685504002093535"><p>Obtains the end node address of a linked list.</p>
+</p></td></tr><tr id="row819522621093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p808343164093535"><p>Next (const ListNode&lt; T &gt; *node) const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p307825907093535"><p>ListNode&lt; T &gt; *</p>
+</p><p id="p1437513343093535"><p>Obtains the address of the node following the specified node.</p>
+</p></td></tr><tr id="row825032147093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1294317588093535"><p>IsEmpty () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1610897723093535"><p>bool</p>
+</p><p id="p258235851093535"><p>Checks whether a linked list is empty.</p>
+</p></td></tr><tr id="row1496968028093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1057083896093535"><p>Size () const</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1825875689093535"><p>uint16_t</p>
+</p><p id="p1685566564093535"><p>Obtains the size of a linked list.</p>
+</p></td></tr><tr id="row797564814093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p397588334093535"><p>operator new (size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p147157838093535"><p>void *</p>
+</p><p id="p1522454176093535"><p>Overrides the new function.</p>
+</p></td></tr><tr id="row413049094093535"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1001200379093535"><p>operator delete (void *p)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1260341487093535"><p>void</p>
+</p><p id="p1376592439093535"><p>Overrides the delete function.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/ohos-list-t.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

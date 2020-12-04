@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenHarmony Lite Kernel File System &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="openharmony-lite-kernel-file-system">
+<h1>OpenHarmony Lite Kernel File System<a class="headerlink" href="#openharmony-lite-kernel-file-system" title="Permalink to this headline">¶</a></h1>
+<p>The OpenHarmony lite kernel supports the following file systems: Virtual
+File System (VFS), Network File System (NFS), RAM File System (RAMFS),
+File Allocation Table (FAT), and Journalling Flash File System Version 2
+(JFFS2).</p>
+<p>The table below describes the functions of these file systems.</p>
+<p><strong>Table 1</strong> File system functions</p>
+<table><thead align="left"><tr id="row6331184864111"><th class="cellrowborder" valign="top" width="11.559999999999999%" id="mcps1.2.3.1.1"><p id="p17644161411438"><p>File System</p>
+</p></th><th class="cellrowborder" valign="top" width="88.44%" id="mcps1.2.3.1.2"><p id="p116441414184312"><p>Function</p>
+</p></th></tr></thead><tbody><tr id="row371213562318"><td class="cellrowborder" valign="top" width="11.559999999999999%" headers="mcps1.2.3.1.1 "><p id="p37130569316"><p>VFS</p>
+</p></td><td class="cellrowborder" valign="top" width="88.44%" headers="mcps1.2.3.1.2 "><p id="p1771335615316"><p>In essence, VFS is not a real file system. It is an abstract layer on
+top of a heterogeneous file system and provides you with a unified
+Unix-like file operation interface.</p>
+</p></td></tr><tr id="row189255844219"><td class="cellrowborder" valign="top" width="11.559999999999999%" headers="mcps1.2.3.1.1 "><p id="p1564481494319"><p>NFS</p>
+</p></td><td class="cellrowborder" valign="top" width="88.44%" headers="mcps1.2.3.1.2 "><p id="p764561414434"><p>NFS allows you to share files across hosts and OSs over a network.</p>
+</p></td></tr><tr id="row17332194820411"><td class="cellrowborder" valign="top" width="11.559999999999999%" headers="mcps1.2.3.1.1 "><p id="p2064561415435"><p>RAMFS</p>
+</p></td><td class="cellrowborder" valign="top" width="88.44%" headers="mcps1.2.3.1.2 "><p id="p12646614204320"><p>RAMFS is a RAM-based file system. All files are stored in the RAM, and
+file read/write operations are performed in the RAM, which reduces the
+read/write loss of the memory and improves the data read/write speed. It
+provides a RAM-based storage buffer for dynamic file systems.</p>
+</p></td></tr><tr id="row16332174894116"><td class="cellrowborder" valign="top" width="11.559999999999999%" headers="mcps1.2.3.1.1 "><p id="p1864571410433"><p>FAT</p>
+</p></td><td class="cellrowborder" valign="top" width="88.44%" headers="mcps1.2.3.1.2 "><p id="p364511141434"><p>There are FAT12, FAT16, and FAT32. FAT is often used on removable
+storage media (such as USB flash drives, SD cards, and portable hard
+disks) to provide better compatibility between devices and desktop
+systems such as Windows and Linux.</p>
+</p></td></tr><tr id="row1880218157414"><td class="cellrowborder" valign="top" width="11.559999999999999%" headers="mcps1.2.3.1.1 "><p id="p19645814144312"><p>JFFS2</p>
+</p></td><td class="cellrowborder" valign="top" width="88.44%" headers="mcps1.2.3.1.2 "><p id="p8645161454314"><p>JFFS2 is a journal-type file system implemented on Memory Technology
+Devices (MTDs). It is mainly used to manage files of the NOR flash
+memory. JFFS2 used in the OpenHarmony kernel supports multiple
+partitions.</p>
+</p></td></tr></tbody></table><ul class="simple">
+<li><p><a class="reference external" href="vfs.md">VFS</a></p></li>
+<li><p><a class="reference external" href="nfs.md">NFS</a></p></li>
+<li><p><a class="reference external" href="ramfs.md">RAMFS</a></p></li>
+<li><p><a class="reference external" href="fat.md">FAT</a></p></li>
+<li><p><a class="reference external" href="jffs2.md">JFFS2</a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/openharmony-lite-kernel-file-system.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

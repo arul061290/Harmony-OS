@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="faqs">
+<h1>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>What should I do when the message <strong>configure: error: no acceptable
+C compiler found in $PATH</strong> is displayed during Python 3
+installation?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image1" src="../../_images/en-us_image_0000001053782588.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p><strong>gcc</strong> is not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<ol class="arabic simple">
+<li><p>Run the <strong>apt-get install gcc</strong> command to install <strong>gcc</strong>
+online.</p></li>
+<li><p>After the installation, reinstall Python 3.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message <strong>-bash: make: command not found</strong>
+is displayed during Python 3 installation?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image2" src="../../_images/en-us_image_0000001053302604.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p><strong>make</strong> is not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<ol class="arabic simple">
+<li><p>Run the <strong>apt-get install make</strong> command to install <strong>make</strong>
+online.</p></li>
+<li><p>After the installation, reinstall Python 3.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message <strong>zlib not available</strong> is
+displayed during Python 3 installation?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image3" src="../../_images/en-us_image_0000001053183929.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p><strong>zlib</strong> is not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Solution 1: Run the <strong>apt-get install zlib</strong> command to install
+<strong>zlib</strong> online.</p>
+<p>Solution 2: If the software source does not contain <strong>zlib</strong>,
+download the source code from <a class="reference external" href="http://www.zlib.net/">http://www.zlib.net/</a>.</p>
+<p><img alt="image4" src="../../_images/10.png" /></p>
+<p>Then run the following commands to install <strong>zlib</strong> offline:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># tar xvf zlib-1.2.11.tar.gz</span>
+<span class="c1"># cd zlib-1.2.11</span>
+<span class="c1"># ./configure</span>
+<span class="c1"># make &amp;&amp; make install</span>
+</pre></div>
+</div>
+<p>After the installation, reinstall Python 3.</p>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message <strong>No module named ‘_ctypes’</strong> is
+displayed during Python 3 installation?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image5" src="../../_images/en-us_image_0000001052623895.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p><strong>libffi</strong> and <strong>libffi-devel</strong> are not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<ol class="arabic simple">
+<li><p>Run the <strong>apt-get install libffi* -y</strong> command to install
+<strong>libffi</strong> and <strong>libffi-devel</strong> online.</p></li>
+<li><p>After the installation, reinstall Python 3.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message <strong>No module named ‘Crypto’</strong> is
+displayed during compilation and building?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image6" src="../../_images/en-us_image_0000001052983874.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p><strong>Crypto</strong> is not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Solution 1: Run the <strong>pip3 install Crypto</strong> command to install
+<strong>Crypto</strong> online.</p>
+<p>Solution 2: Install <strong>Crypto</strong> offline.</p>
+<ul class="simple">
+<li><p>Download the source code from
+<a class="reference external" href="https://pypi.org/project/pycrypto/#files">https://pypi.org/project/pycrypto/#files</a>.</p></li>
+</ul>
+<p><img alt="image7" src="../../_images/en-us_image_0000001053462612.png" /></p>
+<ul class="simple">
+<li><p>Save the source code package to the Linux server, decompress
+the package, and run the <strong>python3 setup.py install</strong> command
+to install <strong>Crypto</strong>.</p></li>
+<li><p>Rebuild an environment.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message <strong>No module named ‘ecdsa’</strong> is
+displayed during compilation and building?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image8" src="../../_images/en-us_image_0000001053782588.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p><strong>ecdsa</strong> is not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Solution 1: Run the <strong>pip3 install ecdsa</strong> command to install
+<strong>ecdsa</strong> online.</p>
+<p>Solution 2: Install <strong>ecdsa</strong> offline.</p>
+<ul class="simple">
+<li><p>Download the installation package from
+<a class="reference external" href="https://pypi.org/project/ecdsa/#files">https://pypi.org/project/ecdsa/#files</a>.</p></li>
+</ul>
+<p><img alt="image9" src="../../_images/en-us_image_0000001053022609.png" /></p>
+<ul class="simple">
+<li><p>Save the installation package to the Linux server and run the
+<strong>pip3 install ecdsa-0.15-py2.py3-none-any.whl</strong> command to
+install <strong>ecdsa</strong>.</p></li>
+<li><p>Rebuild an environment.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message <strong>Could not find a version that
+satisfies the requirement six&gt;=1.9.0</strong> is displayed during
+compilation and building?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image10" src="../../_images/en-us_image_0000001052862621.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p><strong>six</strong> is not installed.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Solution 1: Run the <strong>pip3 install six</strong> command to install
+<strong>six</strong> online.</p>
+<p>Solution 2: Install <strong>six</strong> offline.</p>
+<ul class="simple">
+<li><p>Download the installation package from
+<a class="reference external" href="https://pypi.org/project/six/#files">https://pypi.org/project/six/#files</a>.</p></li>
+</ul>
+<p><img alt="image11" src="../../_images/en-us_image_0000001052742629.png" /></p>
+<ul class="simple">
+<li><p>Save the source code to the Linux server and run the <strong>pip3
+install six-1.14.0-py2.py3-none-any.whl</strong> command to install
+<strong>six</strong>.</p></li>
+<li><p>Rebuild an environment.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message <strong>cannot find -lgcc</strong> is displayed
+during compilation and building?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image12" src="../../_images/en-us_image_0000001053142611.png" /></p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p>The PATH is incorrectly written by <strong>gcc_riscv32</strong>, as shown in
+the following figure. There is an extra slash (/).</p>
+<p><img alt="image13" src="../../_images/en-us_image_0000001055682654.png" /></p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Modify the PATH by deleting the slash (/).</p>
+<p><img alt="image14" src="../../_images/en-us_image_0000001054804171.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>What should I do when the message indicating Python cannot be found
+is displayed during compilation and building?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p><img alt="image15" src="../../_images/en-us_image_0000001055172843.png" /></p>
+</li>
+<li><p><strong>Possible Cause 1:</strong> Python is not installed.</p></li>
+<li><p><strong>Solutions</strong></p>
+<p>Install Python by referring to <a class="reference external" href="setting-up-a-development-environment.md#section126831816258">Installing a Python
+Environment</a>.</p>
+</li>
+<li><p><strong>Possible Cause 2:</strong> The soft link that points to the Python
+does not exist in the <strong>usr/bin</strong> directory.</p>
+<p><img alt="image16" src="../../_images/en-us_image_0000001055372855.png" /></p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># cd /usr/bin/</span>
+<span class="c1"># which python3</span>
+<span class="c1"># ln -s /usr/local/bin/python3 python</span>
+<span class="c1"># python --version</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p><img alt="image17" src="../../_images/en-us_image_0000001055012855.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>What should I do when an error with <strong>lsb_release</strong> occurs during
+<strong>kconfiglib</strong> installation?</p>
+<ul>
+<li><p><strong>Symptom</strong></p>
+<p>The following error information is displayed during
+<strong>kconfiglib</strong> installation:</p>
+<p>“subprocess.CalledProcessError: Command ‘(’lsb_release’, ‘-a’)’
+returned non-zero exit status 1.”</p>
+</li>
+<li><p><strong>Possible Causes</strong></p>
+<p>The Python version matched with the <strong>lsb_release</strong> module is
+different from the current Python version.</p>
+</li>
+<li><p><strong>Solutions</strong></p>
+<p>Run the <strong>find / -name lsb_release</strong> command, for example, <strong>sudo
+rm -rf /usr/bin/lsb_release</strong> to locate and delete
+<strong>lsb_release</strong>.</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/quick-start/faqs.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

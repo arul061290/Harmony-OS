@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distributed Communication Subsystem &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="distributed-communication-subsystem">
+<h1>Distributed Communication Subsystem<a class="headerlink" href="#distributed-communication-subsystem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The use of different communication modes (such as USB, WLAN, and
+Bluetooth) varies greatly and is complex. In addition, the convergence,
+sharing, and conflicts between communication links cannot be resolved,
+and communication security is difficult to guarantee. The distributed
+communication subsystem manages unified distributed communication
+between near-field devices and provides device discovery and data
+transmission APIs that apply to all links. Currently, the following
+features are available:</p>
+<ul class="simple">
+<li><p>Service publishing: After a service is published, peripheral devices
+can discover and use it.</p></li>
+<li><p>Data transmission: A session is established based on the service name
+and device ID to transmit data between services.</p></li>
+<li><p>Security: Communication data is encrypted.</p></li>
+</ul>
+<p>You can use APIs of the distributed communication subsystem to implement
+fast and secure communication between devices without caring about
+management of communication details, thereby achieving cross-platform
+development.</p>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>The following figure shows the softbus_lite source code directory
+structure.</p>
+<p><strong>Table 1</strong> softbus_lite source code directory structure</p>
+<table><thead align="left"><tr id="row16552191445314"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p75521114125314"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2055231419539"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row15552151465314"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p255221425316"><p>authmanager</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p11552114135313"><p>Provides the device authentication mechanism and manages device
+knowledge libraries.</p>
+</p></td></tr><tr id="row1755251416537"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p455231495317"><p>discovery</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p15531214115319"><p>Provides a device discovery mechanism that is based on the Constrained
+Application Protocol (CoAP).</p>
+</p></td></tr><tr id="row155534148533"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1252015524711"><p>trans_service</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1752055220713"><p>Provides authentication and transmission channels.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Language: C</p></li>
+<li><p>Networking: Devices must be in the same LAN.</p></li>
+</ul>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Discover devices.</p></li>
+</ol>
+<p>When using device discovery, ensure that the device to perform a
+discovery and the discovered device are in the same LAN and the devices
+can receive packets from each other.</p>
+<ol class="loweralpha simple">
+<li><p>After a device sends a discovery request, it uses CoAP to send a
+broadcast packet in the LAN. The following figure shows the request
+packet.</p></li>
+</ol>
+<p><img alt="image1" src="../_images/1.png" /></p>
+<ol class="loweralpha simple" start="2">
+<li><p>The discovered device uses the <strong>PublishService</strong> API to publish
+services. After receiving the broadcast packet, the device sends a
+CoAP unicast packet to the device that performs the discovery. The
+following figure shows the packet example.</p></li>
+</ol>
+<p><img alt="image2" src="../_images/2.png" /></p>
+<ol class="loweralpha simple" start="3">
+<li><p>After receiving the packet, the device that performs the discovery
+updates device information.</p></li>
+</ol>
+<p>The following is an example of how to use device discovery:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Declare</span> <span class="n">the</span> <span class="n">callback</span> <span class="n">function</span><span class="o">.</span>
+<span class="n">void</span> <span class="n">onSuccess</span><span class="p">(</span><span class="nb">int</span> <span class="n">publishId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;public success,publishId = </span><span class="si">%d</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">publishId</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">void</span> <span class="n">onFail</span><span class="p">(</span><span class="nb">int</span> <span class="n">publishId</span><span class="p">,</span> <span class="n">PublishFailReason</span> <span class="n">reason</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;publish failed, publishId = </span><span class="si">%d</span><span class="s2">, reason = </span><span class="si">%d</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">publishId</span><span class="p">,</span> <span class="n">reason</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Publish</span> <span class="n">services</span><span class="o">.</span>
+<span class="n">PublishInfo</span> <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">IPublishCallback</span> <span class="n">cb</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">onPublishSuccess</span> <span class="o">=</span> <span class="n">onSuccess</span><span class="p">;</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">onPublishFail</span> <span class="o">=</span> <span class="n">onFail</span><span class="p">;</span>
+<span class="n">char</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;456&quot;</span><span class="p">;</span>
+<span class="n">info</span><span class="o">.</span><span class="n">capabilityData</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">info</span><span class="o">.</span><span class="n">capability</span> <span class="o">=</span> <span class="s2">&quot;ddmpCapability&quot;</span><span class="p">;</span>
+<span class="n">info</span><span class="o">.</span><span class="n">dataLen</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="s2">&quot;456&quot;</span><span class="p">);</span>
+<span class="n">info</span><span class="o">.</span><span class="n">medium</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">info</span><span class="o">.</span><span class="n">publishId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">PublishService</span><span class="p">(</span><span class="s2">&quot;cxx&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">cb</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Transmit data.</p></li>
+</ol>
+<p>The soft bus provides unified session-based transmission. Services can
+receive and send data or obtain basic attributes through <strong>sessionId</strong>.
+Currently, services can determine whether to accept a received session
+based on the service requirements and session attributes. Currently,
+sessions cannot be enabled.</p>
+<p>The sample code for data transmission is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Define</span> <span class="n">the</span> <span class="n">service</span> <span class="n">name</span><span class="p">,</span> <span class="n">session</span> <span class="n">name</span><span class="p">,</span> <span class="ow">and</span> <span class="n">related</span> <span class="n">callback</span><span class="o">.</span>
+<span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">g_moduleName</span>  <span class="o">=</span> <span class="s2">&quot;BUSINESS_NAME&quot;</span><span class="p">;</span>
+<span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">g_sessionName</span> <span class="o">=</span> <span class="s2">&quot;SESSION_NAME&quot;</span><span class="p">;</span>
+<span class="n">struct</span> <span class="n">ISessionListener</span> <span class="o">*</span> <span class="n">g_sessionCallback</span><span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">Implement</span> <span class="n">the</span> <span class="n">callback</span><span class="p">:</span> <span class="n">After</span> <span class="n">receiving</span> <span class="n">data</span> <span class="n">sent</span> <span class="n">by</span> <span class="n">the</span> <span class="n">peer</span> <span class="n">end</span> <span class="n">using</span> <span class="n">SendBytes</span><span class="p">,</span> <span class="k">return</span> <span class="n">a</span> <span class="n">fixed</span> <span class="n">message</span><span class="o">.</span>
+<span class="n">void</span> <span class="n">OnBytesReceivedTest</span><span class="p">(</span><span class="nb">int</span> <span class="n">sessionId</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">dataLen</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;OnBytesReceivedTest</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Recv Data: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Recv Data dataLen: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dataLen</span><span class="p">);</span>
+    <span class="n">char</span> <span class="o">*</span><span class="n">testSendData</span> <span class="o">=</span> <span class="s2">&quot;Hello World, Hello!&quot;</span><span class="p">;</span>
+    <span class="n">SendBytes</span><span class="p">(</span><span class="n">sessionId</span><span class="p">,</span> <span class="n">testSendData</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">testSendData</span><span class="p">));</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Implement</span> <span class="n">the</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Perform</span> <span class="n">relevant</span> <span class="n">operations</span> <span class="n">after</span> <span class="n">the</span> <span class="n">session</span> <span class="ow">is</span> <span class="n">closed</span><span class="p">,</span> <span class="k">for</span> <span class="n">example</span><span class="p">,</span> <span class="n">releasing</span> <span class="n">service</span> <span class="n">resources</span> <span class="n">related</span> <span class="n">to</span> <span class="n">the</span> <span class="n">current</span> <span class="n">session</span><span class="o">.</span> <span class="n">The</span> <span class="n">session</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">released</span> <span class="n">by</span> <span class="n">the</span> <span class="n">service</span><span class="o">.</span>
+<span class="n">void</span> <span class="n">OnSessionClosedEventTest</span><span class="p">(</span><span class="nb">int</span> <span class="n">sessionId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Close session successfully, sessionId=</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sessionId</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Implement</span> <span class="n">the</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Perform</span> <span class="n">relevant</span> <span class="n">operations</span> <span class="n">after</span> <span class="n">a</span> <span class="n">session</span> <span class="ow">is</span> <span class="n">opened</span><span class="o">.</span> <span class="n">The</span> <span class="k">return</span> <span class="n">value</span> <span class="mi">0</span> <span class="n">means</span> <span class="n">to</span> <span class="n">accept</span> <span class="n">the</span> <span class="n">session</span><span class="p">,</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">values</span> <span class="n">mean</span> <span class="n">to</span> <span class="n">reject</span> <span class="n">the</span> <span class="n">session</span><span class="o">.</span> <span class="n">In</span> <span class="n">the</span> <span class="n">following</span> <span class="n">example</span><span class="p">,</span> <span class="n">only</span> <span class="n">sessions</span> <span class="k">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="kn">from</span> <span class="nn">other</span> <span class="n">devices</span> <span class="n">are</span> <span class="n">accepted</span><span class="o">.</span>
+<span class="nb">int</span> <span class="n">OnSessionOpenedEventTest</span><span class="p">(</span><span class="nb">int</span> <span class="n">sessionId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">GetPeerSessionName</span><span class="p">(</span><span class="n">sessionId</span><span class="p">),</span> <span class="n">SESSION_NAME</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Reject the session which name is different from mine, sessionId=</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sessionId</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Open session successfully, sessionId=</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sessionId</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Register</span> <span class="n">the</span> <span class="n">service</span> <span class="n">session</span> <span class="n">service</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">callbacks</span> <span class="k">with</span> <span class="n">the</span> <span class="n">soft</span> <span class="n">bus</span><span class="o">.</span>
+<span class="nb">int</span> <span class="n">StartSessionServer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_sessionCallback</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">g_sessionCallback</span> <span class="o">=</span> <span class="p">(</span><span class="n">struct</span> <span class="n">ISessionListener</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">struct</span> <span class="n">ISessionListener</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_sessionCallback</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Failed to malloc g_sessionCallback!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">g_sessionCallback</span><span class="o">-&gt;</span><span class="n">onBytesReceived</span> <span class="o">=</span> <span class="n">OnBytesReceivedTest</span><span class="p">;</span>
+    <span class="n">g_sessionCallback</span><span class="o">-&gt;</span><span class="n">onSessionOpened</span> <span class="o">=</span> <span class="n">OnSessionOpenedEventTest</span><span class="p">;</span>
+    <span class="n">g_sessionCallback</span><span class="o">-&gt;</span><span class="n">onSessionClosed</span> <span class="o">=</span> <span class="n">OnSessionClosedEventTest</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">CreateSessionServer</span><span class="p">(</span><span class="n">g_moduleName</span> <span class="p">,</span> <span class="n">g_sessionName</span><span class="p">,</span> <span class="n">g_sessionCallback</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Failed to create session server!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">g_sessionCallback</span><span class="p">);</span>
+        <span class="n">g_sessionCallback</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Delete</span> <span class="n">the</span> <span class="n">service</span> <span class="n">session</span> <span class="n">service</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">callbacks</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">soft</span> <span class="n">bus</span><span class="o">.</span>
+<span class="n">void</span> <span class="n">StopSessionServer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">RemoveSessionServer</span><span class="p">(</span><span class="n">g_moduleName</span> <span class="p">,</span> <span class="n">g_sessionName</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Failed to remove session server!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_sessionCallback</span> <span class="o">!=</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">g_sessionCallback</span><span class="p">);</span>
+        <span class="n">g_sessionCallback</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="repositories-involved">
+<h2>Repositories Involved<a class="headerlink" href="#repositories-involved" title="Permalink to this headline">¶</a></h2>
+<p>communication_frameworks_wifi_lite</p>
+<p>communication_frameworks_ipc_lite</p>
+<p>communication_hals_wifi_lite</p>
+<p>communication_interfaces_kits_ipc_lite</p>
+<p>communication_interfaces_kits_softbuskit_lite</p>
+<p>communication_interfaces_kits_wifi_lite</p>
+<p>communication_services_softbus_lite</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/readme/distributed-communication-subsystem.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

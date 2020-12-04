@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hdf_workqueue.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hdf-workqueue-h">
+<h1>hdf_workqueue.h<a class="headerlink" href="#hdf-workqueue-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="driverutils.md">DriverUtils</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares work queue structures and interfaces.</p>
+<p>This file provides interfaces such as initializing a work queue, a work
+item, and a delayed work item, adding a work or delayed work item to a
+work queue, and destroying a work queue, a work item, and a delayed work
+item. You need to define a work queue, a work item, and a delayed work
+item, and then call the initialization function to initialize them. The
+work item, delayed work item, and work queue must be destroyed when they
+are no longer used.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1360238883084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1968042402084830"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p943818314084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1434911255084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p514069162084830"><p>HdfWork</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p907779839084830"><p>Describes a work item and a delayed work item. This structure defines
+the work and delayed work items, and then calls the initialization
+function HdfWorkInit or HdfDelayedWorkInit to perform initialization.
+The HdfAddWork() function is to add a work item to a work queue
+immediately, and the HdfAddDelayedWork() function is to add a work item
+to a work queue after the configured delayed time.</p>
+</p></td></tr><tr id="row1802013458084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p998152855084830"><p>HdfWorkQueue</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1365611694084830"><p>Describes a work queue.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1597367619084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1031734572084830"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1460598530084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row490139171084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1102368224084830"><p>HdfWorkFunc) (void *)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p269047179084830"><p>typedef void(*</p>
+</p><p id="p1999600304084830"><p>Describes a work execution function type.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2124463498084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1496982916084830"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1776550794084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row669166566084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1601257371084830"><p>{ HDF_WORK_BUSY_PENDING = 1 &lt;&lt; 0, HDF_WORK_BUSY_RUNNING = 1 &lt;&lt; 1 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1971952756084830"><p>Enumerates statuses of a work item or a delayed work item.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row339047166084830"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p232532670084830"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p841794344084830"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row147242575084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1313646015084830"><p>HdfWorkQueueInit (HdfWorkQueue <em>queue, char</em>name)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1706687062084830"><p>int32_t</p>
+</p><p id="p284401409084830"><p>Initializes a work queue.</p>
+</p></td></tr><tr id="row556623978084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p599591141084830"><p>HdfWorkInit (HdfWork <em>work, HdfWorkFunc func, void</em>arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1755883664084830"><p>int32_t</p>
+</p><p id="p416488721084830"><p>Initializes a work item.</p>
+</p></td></tr><tr id="row1787455279084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2064729633084830"><p>HdfDelayedWorkInit (HdfWork <em>work, HdfWorkFunc func, void</em>arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1344171128084830"><p>int32_t</p>
+</p><p id="p1602471906084830"><p>Initializes a delayed work item.</p>
+</p></td></tr><tr id="row477224259084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1121109798084830"><p>HdfWorkDestroy (HdfWork *work)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1238969536084830"><p>void</p>
+</p><p id="p1967184621084830"><p>Destroys a work item.</p>
+</p></td></tr><tr id="row1014511519084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p463421174084830"><p>HdfWorkQueueDestroy (HdfWorkQueue *queue)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p891089876084830"><p>void</p>
+</p><p id="p258088213084830"><p>Destroys a work queue.</p>
+</p></td></tr><tr id="row1811834620084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1034360051084830"><p>HdfDelayedWorkDestroy (HdfWork *work)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1681311062084830"><p>void</p>
+</p><p id="p1748378682084830"><p>Destroys a delayed work item.</p>
+</p></td></tr><tr id="row347413514084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1595651010084830"><p>HdfAddWork (HdfWorkQueue <em>queue, HdfWork</em>work)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p875301184084830"><p>bool</p>
+</p><p id="p1896119807084830"><p>Adds a work item to a work queue.</p>
+</p></td></tr><tr id="row946016147084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p359686978084830"><p>HdfAddDelayedWork (HdfWorkQueue <em>queue, HdfWork</em>work, unsigned long
+ms)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p258667420084830"><p>bool</p>
+</p><p id="p1833995004084830"><p>Adds a delayed work item to a work queue.</p>
+</p></td></tr><tr id="row1727584565084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p623052194084830"><p>HdfWorkBusy (HdfWork *work)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p521268089084830"><p>unsigned int</p>
+</p><p id="p1799315868084830"><p>Obtains the status of a work item or delayed work item.</p>
+</p></td></tr><tr id="row1501275061084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1665384149084830"><p>HdfCancelWorkSync (HdfWork *work)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p420342372084830"><p>bool</p>
+</p><p id="p358413145084830"><p>Cancels a work item. This function waits until the work item is
+complete.</p>
+</p></td></tr><tr id="row768685854084830"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1527212482084830"><p>HdfCancelDelayedWorkSync (HdfWork *work)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1546014179084830"><p>bool</p>
+</p><p id="p69545758084830"><p>Cancels a delayed work item.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/hdf_workqueue-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UART Overview &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="uart-overview">
+<h1>UART Overview<a class="headerlink" href="#uart-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The Universal Asynchronous Receiver/Transmitter (UART) is a universal
+serial data bus used for asynchronous communication. It enables
+bi-directional communication between devices in full-duplex mode.</p></li>
+<li><p>UART is widely used to print information for debugging or to connect
+to various external modules such as GPS and Bluetooth.</p></li>
+<li><p>A UART is connected to other modules through two wires (as shown in
+<a class="reference external" href="#fig209936401896">Figure 1</a>) or four wires (as shown in <a class="reference external" href="#fig1435614171015">Figure
+2</a>).</p>
+<ol class="arabic">
+<li><p>TX: TX pin of the transmitting UART. It is connected to the RX pin
+of the peer UART.</p></li>
+<li><p>RX: RX pin of the receiving UART. It is connected to the TX pin of
+the peer UART.</p></li>
+<li><p>RTS: Request to Send signal pin. It is connected to the CTS pin of
+the peer UART and is used to indicate whether the local UART is
+ready to receive data.</p></li>
+<li><p>CTS: Clear to Send signal pin. It is connected to the RTS pin of
+the peer UART and is used to indicate whether the local UART is
+allowed to send data to the peer end.</p>
+<p><strong>Figure 1</strong> 2-wire UART communication</p>
+<p><img alt="image1" src="../_images/en-us_image_0000001053926237.png" /></p>
+<p><strong>Figure 2</strong> 4-wire UART communication</p>
+<p><img alt="image2" src="../_images/en-us_image_0000001054007499.png" /></p>
+</li>
+</ol>
+</li>
+<li><p>The transmitting and receiving UARTs must ensure that they have the
+same settings on particular attributes such as the baud rate and data
+format (start bit, data bit, parity bit, and stop bit) before they
+start to communicate. During data transmission, a UART sends data to
+the peer end over the TX pin and receives data from the peer end over
+the RX pin. When the size of the buffer used by a UART for storing
+received data reaches the preset threshold, the RTS signal of the
+UART changes to <strong>1</strong> (data cannot be received), and the peer UART
+stops sending data to it because its CTS signal does not allow it to
+send data.</p></li>
+<li><p>The UART interface defines a set of common functions for operating a
+UART port, including obtaining and releasing device handles, reading
+and writing data of a specified length, and obtaining and setting the
+baud rate, as well as the device attributes.</p></li>
+</ul>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> APIs for the UART driver</p>
+<table><thead align="left"><tr id="row1223152681611"><th class="cellrowborder" valign="top" width="26.619999999999997%" id="mcps1.2.4.1.1"><p id="p210413571619"><p>Capability</p>
+</p></th><th class="cellrowborder" valign="top" width="31.369999999999997%" id="mcps1.2.4.1.2"><p id="p810403511614"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="42.01%" id="mcps1.2.4.1.3"><p id="p110418354161"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1638573613415"><td class="cellrowborder" rowspan="2" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p917154316414"><p>Obtaining and releasing device handles</p>
+</p><p id="p9596111154212"></p></td><td class="cellrowborder" valign="top" width="31.369999999999997%" headers="mcps1.2.4.1.2 "><p id="p20385163614412"><p>UartOpen</p>
+</p></td><td class="cellrowborder" valign="top" width="42.01%" headers="mcps1.2.4.1.3 "><p id="p12101135184213"><p>Obtains the UART device handle.</p>
+</p></td></tr><tr id="row5950143316415"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p149501733134113"><p>UartClose</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p371073520422"><p>Releases a specified UART device handle.</p>
+</p></td></tr><tr id="row34145016535"><td class="cellrowborder" rowspan="2" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p229610227124"><p>Reading and writing data</p>
+</p><p id="p131072201215"></p></td><td class="cellrowborder" valign="top" width="31.369999999999997%" headers="mcps1.2.4.1.2 "><p id="p8296182221219"><p>UartRead</p>
+</p></td><td class="cellrowborder" valign="top" width="42.01%" headers="mcps1.2.4.1.3 "><p id="p16297172213125"><p>Reads data of a specified length from a UART device.</p>
+</p></td></tr><tr id="row11585016539"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1095722493616"><p>UartWrite</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p15297162215122"><p>Writes data of a specified length into a UART device.</p>
+</p></td></tr><tr id="row8687115843715"><td class="cellrowborder" rowspan="2" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p196317143813"><p>Obtaining and setting the baud rate</p>
+</p></td><td class="cellrowborder" valign="top" width="31.369999999999997%" headers="mcps1.2.4.1.2 "><p id="p166885582375"><p>UartGetBaud</p>
+</p></td><td class="cellrowborder" valign="top" width="42.01%" headers="mcps1.2.4.1.3 "><p id="p13688358183716"><p>Obtains the UART baud rate.</p>
+</p></td></tr><tr id="row18987529382"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p698719214383"><p>UartSetBaud</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1398712123810"><p>Sets the UART baud rate.</p>
+</p></td></tr><tr id="row1551850115317"><td class="cellrowborder" rowspan="2" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p1629782201218"><p>Obtaining and setting device attributes</p>
+</p><p id="p10308192211216"></p></td><td class="cellrowborder" valign="top" width="31.369999999999997%" headers="mcps1.2.4.1.2 "><p id="p32972022151218"><p>UartGetAttribute</p>
+</p></td><td class="cellrowborder" valign="top" width="42.01%" headers="mcps1.2.4.1.3 "><p id="p13297122216123"><p>Obtains the UART device attributes.</p>
+</p></td></tr><tr id="row7545065311"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p102974224120"><p>UartSetAttribute</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p152971322111219"><p>Sets the UART device attributes.</p>
+</p></td></tr><tr id="row14614115403"><td class="cellrowborder" valign="top" width="26.619999999999997%" headers="mcps1.2.4.1.1 "><p id="p1746281144010"><p>Setting the transmission mode</p>
+</p></td><td class="cellrowborder" valign="top" width="31.369999999999997%" headers="mcps1.2.4.1.2 "><p id="p1146215112405"><p>UartSetTransMode</p>
+</p></td><td class="cellrowborder" valign="top" width="42.01%" headers="mcps1.2.4.1.3 "><p id="p11303181216414"><p>Sets the UART transmission mode.</p>
+</p></td></tr></tbody></table><blockquote>
+<div><p><img alt="image3" src="../_images/icon-note2.gif" /> <strong>NOTE:</strong> All functions provided in this document can be
+called only in kernel space.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/uartoverview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

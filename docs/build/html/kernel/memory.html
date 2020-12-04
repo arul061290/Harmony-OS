@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="memory">
+<h1>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-concepts">
+<h2>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">¶</a></h2>
+<p>Memory management is an important procedure in software development,
+including memory allocation, usage, and reclamation.</p>
+<p>Sound memory management approaches and strategies help you improve
+software performance and reliability.</p>
+</div>
+<div class="section" id="when-to-use">
+<h2>When to Use<a class="headerlink" href="#when-to-use" title="Permalink to this headline">¶</a></h2>
+<p>For user-space development, the OpenHarmony memory management module
+provides a set of APIs for you to perform memory-related operations,
+such as memory application, release, remapping, and attribute setting,
+in addition to standard APIs provided by the C library.</p>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Standard APIs in the C library</p>
+<table><thead align="left"><tr id="row7850171781719"><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.1"><p id="p23316052015"><p>Header File</p>
+</p></th><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.2"><p id="p03417010208"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="p14347010207"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row785091771710"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p73450202019"><p>strings.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p934008201"><p>int bcmp(const void <em>s1, const void</em>s2, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p93412018209"><p>Compares byte sequences.</p>
+</p></td></tr><tr id="row14791155651713"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p934605204"><p>strings.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p113414018209"><p>void bcopy(const void <em>src, void</em>dest, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1134180102016"><p>Copies byte sequences.</p>
+</p></td></tr><tr id="row1734319481817"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1134900205"><p>strings.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p18344012207"><p>void bzero(void *s, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p23410042015"><p>Sets byte sequences to zero.</p>
+</p></td></tr><tr id="row79226010178"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p435705201"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p83520042019"><p>void <em>memccpy(void</em>dest, const void *src, int c, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1720911419407"><p>Copies the first n bytes from the source memory area pointed to by src
+to the destination memory area pointed to by dest. The copy checks
+whether a character specified by c is found. If c is found, this
+function returns the next character of character c in the destination
+memory area.</p>
+</p></td></tr><tr id="row1992212019173"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p8355012013"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1635180162014"><p>void <em>memchr(const void</em>s, int c, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p235306203"><p>Searches for the first occurrence of the character specified by c in the
+n-byte memory area pointed to by s.</p>
+</p></td></tr><tr id="row19231001174"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p23560172012"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1335404201"><p>int memcmp(const void <em>s1, const void</em>s2, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p183518092016"><p>Compares two memory areas.</p>
+</p></td></tr><tr id="row189641849111717"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p758113203203"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p17581112013208"><p>void <em>memcpy(void</em>dest, const void *src, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1958102014208"><p>Copies n bytes from the source memory area pointed to by src to the
+destination memory area pointed to by dest.</p>
+</p></td></tr><tr id="row2964114919178"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p85811620182012"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p3581112042013"><p>void <em>memmem(const void</em>haystack, size_t haystacklen, const void
+*needle, size_t needlelen)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p4581102032018"><p>Searches for a needle string in its haystack string.</p>
+</p></td></tr><tr id="row3965049101716"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p17581820192011"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1058119209207"><p>void <em>memmove(void</em>dest, const void *src, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p55811020162015"><p>Copies n bytes from the source memory area pointed to by src to the
+destination memory area pointed to by dest.</p>
+</p></td></tr><tr id="row12421329179"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p358112042016"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p18581720102016"><p>void <em>mempcpy(void</em>dest, const void *src, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p25811520132017"><p>Copies n bytes from the source memory area pointed to by src to the
+destination memory area pointed to by dest.</p>
+</p></td></tr><tr id="row343932141715"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p358152062019"><p>string.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p20581720152017"><p>void <em>memset(void</em>s, int c, size_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p258102052019"><p>Copies a character to the specified memory area.</p>
+</p></td></tr><tr id="row19344649182"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p93511010206"><p>stdlib.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p135180172016"><p>void *malloc(size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p193580102017"><p>Dynamically allocates a memory block of size.</p>
+</p></td></tr><tr id="row923218311911"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p8347042018"><p>stdlib.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p133415072012"><p>void *calloc(size_t nmemb, size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p2342062011"><p>Dynamically allocates nmemb memory blocks of size.</p>
+</p></td></tr><tr id="row612852462210"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p11582162062013"><p>stdlib.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1558211209205"><p>void <em>realloc(void</em>ptr, size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p7582172082018"><p>Changes the size of the memory block pointed to by ptr to size bytes.</p>
+</p></td></tr><tr id="row32325321910"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p15582192010204"><p>stdlib.h/malloc.</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p458211205205"><p>void *valloc(size_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p6582420192014"><p>Allocates a block of memory with the specified size and aligns the
+allocated memory by page size.</p>
+</p></td></tr><tr id="row450114218205"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p93419062018"><p>stdlib.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1535303201"><p>void free(void *ptr)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p173511072015"><p>Releases the memory space pointed to by ptr.</p>
+</p></td></tr><tr id="row96751881817"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p14351408208"><p>malloc.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1735120142011"><p>size_t malloc_usable_size(void *ptr)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p153513042014"><p>Obtains the size of the memory block pointed to by ptr.</p>
+</p></td></tr><tr id="row46759851816"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1235140172015"><p>unistd.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p4351906203"><p>int getpagesize(void)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p103513010204"><p>Obtains the page size.</p>
+</p></td></tr><tr id="row20901907199"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1558232032010"><p>unistd.h</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p158232012203"><p>void *sbrk(intptr_t increment)</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1558212014202"><p>Changes the data segment size.</p>
+</p></td></tr></tbody></table><p>Details on API differences:</p>
+<ul>
+<li><p><strong>mmap</strong></p>
+<p><strong>Function prototype:</strong></p>
+<p>void *mmap(void *addr, size_t length, int prot, int flags, int fd,
+off_t offset);</p>
+<p><strong>Function description:</strong> applies for virtual memory.</p>
+<p><strong>Parameter description:</strong></p>
+<table><thead align="left"><tr id="row1346572219429"><th class="cellrowborder" valign="top" width="11.92%" id="mcps1.1.3.1.1"><p id="p146632215425"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="88.08%" id="mcps1.1.3.1.2"><p id="p1446620227424"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1346652216429"><td class="cellrowborder" valign="top" width="11.92%" headers="mcps1.1.3.1.1 "><p id="p19466122104213"><p>addr</p>
+</p></td><td class="cellrowborder" valign="top" width="88.08%" headers="mcps1.1.3.1.2 "><p id="p1046692215426"><p>Indicates the pointer to the start address of the mapping between the
+virtual address space of the calling process and a file or device. If
+this parameter is NULL, the kernel determines the address to start
+(recommended). Otherwise, the portability of the program will
+deteriorate, because the available addresses vary depending on the
+OS.</p>
+</p></td></tr><tr id="row8466182274215"><td class="cellrowborder" valign="top" width="11.92%" headers="mcps1.1.3.1.1 "><p id="p5466162284220"><p>length</p>
+</p></td><td class="cellrowborder" valign="top" width="88.08%" headers="mcps1.1.3.1.2 "><p id="p17466152214420"><p>Indicates the length of the mapping.</p>
+</p></td></tr><tr id="row154671722134211"><td class="cellrowborder" valign="top" width="11.92%" headers="mcps1.1.3.1.1 "><p id="p0467142204215"><p>prot</p>
+</p></td><td class="cellrowborder" valign="top" width="88.08%" headers="mcps1.1.3.1.2 "><p id="p6467162234215"><p>Indicates the permission to be granted on the mapping area. The
+options are as follows:</p>
+</p><ul id="ul166872913431"><li><p>PROT_READ: The mapping area is readable.</p>
+</li><li><p>PROT_WRITE: The mapping area is writable.</p>
+</li><li><p>PROT_EXEC: The mapping area is executable.</p>
+</li><li><p>PROT_NONE: The mapping area cannot be accessed.</p>
+</li></ul></td></tr><tr id="row173845488436"><td class="cellrowborder" valign="top" width="11.92%" headers="mcps1.1.3.1.1 "><p id="p1538474818437"><p>flags</p>
+</p></td><td class="cellrowborder" valign="top" width="88.08%" headers="mcps1.1.3.1.2 "><p id="p92503134411"><p>Specifies whether updates are visible to other processes mapping the
+same segment. The options are as follows:</p>
+</p><ul id="ul1971648144411"><li><p>MAP_PRIVATE: The mapping area is private, and updates to the mapping
+are invisible to other processes mapping the same segment.</p>
+</li><li><p>MAP_SHARED: Updates to the mapping are visible to other processes
+mapping the same segment, and are stored to the disk file.</p>
+</li></ul></td></tr><tr id="row771075312437"><td class="cellrowborder" valign="top" width="11.92%" headers="mcps1.1.3.1.1 "><p id="p187105538438"><p>fd</p>
+</p></td><td class="cellrowborder" valign="top" width="88.08%" headers="mcps1.1.3.1.2 "><p id="p1871005374312"><p>Indicates the file descriptor.</p>
+</p></td></tr><tr id="row1624023824419"><td class="cellrowborder" valign="top" width="11.92%" headers="mcps1.1.3.1.1 "><p id="p62406387445"><p>offset</p>
+</p></td><td class="cellrowborder" valign="top" width="88.08%" headers="mcps1.1.3.1.2 "><p id="p92401382448"><p>Indicates the offset into the file where the mapping will start.</p>
+</p></td></tr></tbody></table><blockquote>
+<div><p><img alt="image1" src="../_images/icon-note4.gif" /> <strong>NOTE:</strong> For details about the implementation
+differences of <strong>mmap</strong> between the OS and Linux, see <a class="reference external" href="differences-from-the-linux-standard-library.md">Differences
+from the Linux Standard
+Library</a>.</p>
+</div></blockquote>
+<p><strong>Return values:</strong></p>
+<ul class="simple">
+<li><p>Returns the pointer to the page-aligned address where the mapping
+is placed if the operation is successful.</p></li>
+<li><p>Returns <strong>(void *)-1</strong> if the operation fails.</p></li>
+</ul>
+</li>
+<li><p><strong>munmap</strong></p>
+<p><strong>Function prototype:</strong></p>
+<p>int munmap(void *addr, size_t length);</p>
+<p><strong>Function description:</strong> releases virtual memory.</p>
+<p><strong>Parameter description:</strong></p>
+<table><thead align="left"><tr id="row11908192513464"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p186351516144710"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1163581610472"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row6908112512469"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p10908325194614"><p>addr</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p209081825114610"><p>Indicates the pointer to the start address of the memory region to
+unmap.</p>
+</p></td></tr><tr id="row2908725174617"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p29084251467"><p>length</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p11908152510468"><p>Indicates the length of the address range to unmap.</p>
+</p></td></tr></tbody></table><p><strong>Return values:</strong></p>
+<ul class="simple">
+<li><p>Returns <strong>0</strong> if the operation is successful.</p></li>
+<li><p>Returns <strong>-1</strong> if the operation fails.</p></li>
+</ul>
+</li>
+<li><p><strong>mprotect</strong></p>
+<p><strong>Function prototype:</strong></p>
+<p>int mprotect(void *addr, size_t length, int prot);</p>
+<p><strong>Function description:</strong> modifies the access permission on a memory
+region.</p>
+<p><strong>Parameter description:</strong></p>
+<table><thead align="left"><tr id="row19636124813475"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p26364483473"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p13636748124717"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row176369484473"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p763615487477"><p>addr</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1763654844715"><p>Indicates the pointer to the start address of the memory region to
+modify, which must be a multiple of the page size. If the access
+permission is abnormal, the kernel throws an exception and kills the
+process rather than send SIGSEGV signals to the current process.</p>
+</p></td></tr><tr id="row17636134824716"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1163694824714"><p>length</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p463613482472"><p>Indicates the length of the memory region to modify.</p>
+</p></td></tr><tr id="row196361148184716"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p8636184810477"><p>prot</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p474391424815"><p>Indicates the permission of the memory region to modify. The options
+are as follows:</p>
+</p><ul id="ul333217192481"><li><p>PROT_READ: The memory region is readable.</p>
+</li><li><p>PROT_WRITE: The memory region is writable.</p>
+</li><li><p>PROT_EXEC: The memory region is executable.</p>
+</li><li><p>PROT_NONE: The memory region cannot be accessed.</p>
+</li></ul></td></tr></tbody></table><p><strong>Return values:</strong></p>
+<ul class="simple">
+<li><p>Returns <strong>0</strong> if the operation is successful.</p></li>
+<li><p>Returns <strong>-1</strong> if the operation fails.</p></li>
+</ul>
+</li>
+<li><p><strong>mremap</strong></p>
+<p><strong>Function prototype:</strong></p>
+<p>void *mremap(void *old_address, size_t old_size, size_t new_size,
+int flags, void new_address);</p>
+<p><strong>Function description:</strong> remaps the virtual memory address.</p>
+<p><strong>Parameter description:</strong></p>
+<table><thead align="left"><tr id="row19544132134919"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p205459214499"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p4545102104911"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row75451321164918"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p125451321144916"><p>old_address</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1554522104914"><p>Indicates the old address of the virtual memory block that needs to
+be expanded or shrunk. The old_address must be page-aligned.</p>
+</p></td></tr><tr id="row1545172118495"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p205452215498"><p>old_size</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p954572164910"><p>Indicates the old size of the virtual memory block.</p>
+</p></td></tr><tr id="row1754512144913"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1854532184916"><p>new_size</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p85451021164911"><p>Indicates the new size of the virtual memory block.</p>
+</p></td></tr><tr id="row1545152120497"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p145451221204913"><p>flags</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2692195864912"><p>Indicates the flags to control the remapping. If there is no
+sufficient space to expand the mapping in the current location, the
+operation will fail.</p>
+</p><ul id="ul14935819135019"><li><p>MREMAP_MAYMOVE: allows the kernel to relocate the mapping to a new
+virtual address.</p>
+</li><li><p>MREMAP_FIXED: enables the mremap() function to accept the fifth
+parameter void *new_address, which specifies that the mapping
+address must be page-aligned. All previous mappings within the
+address range specified by new_address and new_size are unmapped. If
+MREMAP_FIXED is specified, MREMAP_MAYMOVE must also be specified.</p>
+</li></ul></td></tr></tbody></table><p><strong>Return values:</strong></p>
+<ul class="simple">
+<li><p>Returns the pointer to the new virtual memory area if the
+operation is successful.</p></li>
+<li><p>Returns <strong>(void *)-1</strong> if the operation fails.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/memory.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sdio_if.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sdio-if-h">
+<h1>sdio_if.h<a class="headerlink" href="#sdio-if-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="sdio.md">SDIO</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares the standard SDIO APIs.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2054765201093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p928426435093527"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1045776833093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2144733756093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p686692731093527"><p>SdioFuncInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1101495468093527"><p>Defines the SDIO capabilities.</p>
+</p></td></tr><tr id="row1299902468093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2056013779093527"><p>SdioCommonInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p186678445093527"><p>Defines SDIO common information.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1031092721093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p878480039093527"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p495592868093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row688333406093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p872820735093527"><p>SdioIrqHandler(void *)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p971496478093527"><p>typedef void</p>
+</p><p id="p563912778093527"><p>Defines the function type of an SDIO IRQ.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1765663663093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p896565792093527"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1636314604093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1672872858093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1429003366093527"><p>SdioCommonInfoType { SDIO_FUNC_INFO = 0, SDIO_OTHER_INFO }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p570634045093527"><p>Enumerates SDIO common information types.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1736764406093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1323915635093527"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2087410301093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1685307285093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1460103277093527"><p>SdioOpen (int16_t busNum)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1061511309093527"><p>struct DevHandle *</p>
+</p><p id="p1692586144093527"><p>Opens an SDIO controller with a specified bus number.</p>
+</p></td></tr><tr id="row1606912840093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p252187722093527"><p>SdioClose (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p779357974093527"><p>void</p>
+</p><p id="p395510129093527"><p>Closes an SDIO controller.</p>
+</p></td></tr><tr id="row1790990103093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p310831698093527"><p>SdioReadBytes (struct DevHandle <em>handle, uint8_t</em>data, uint32_t addr,
+uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2051363363093527"><p>int32_t</p>
+</p><p id="p405305099093527"><p>Incrementally reads a given length of data from the specified SDIO
+address.</p>
+</p></td></tr><tr id="row290900429093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1953056535093527"><p>SdioWriteBytes (struct DevHandle <em>handle, uint8_t</em>data, uint32_t addr,
+uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p534397445093527"><p>int32_t</p>
+</p><p id="p709757074093527"><p>Incrementally writes a given length of data into the specified SDIO
+address.</p>
+</p></td></tr><tr id="row1487234683093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1503102571093527"><p>SdioReadBytesFromFixedAddr (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1134602047093527"><p>int32_t</p>
+</p><p id="p1419075222093527"><p>Reads a given length of data from the fixed SDIO address.</p>
+</p></td></tr><tr id="row973211294093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p130779472093527"><p>SdioWriteBytesToFixedAddr (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2118875638093527"><p>int32_t</p>
+</p><p id="p1734809374093527"><p>Writes a given length of data into the fixed SDIO address.</p>
+</p></td></tr><tr id="row324313615093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p67036297093527"><p>SdioReadBytesFromFunc0 (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1464346952093527"><p>int32_t</p>
+</p><p id="p1267871168093527"><p>Reads a given length of data from the address space of SDIO function 0.</p>
+</p></td></tr><tr id="row1984529484093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p532480187093527"><p>SdioWriteBytesToFunc0 (struct DevHandle <em>handle, uint8_t</em>data,
+uint32_t addr, uint32_t size, uint32_t timeOut)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2094935302093527"><p>int32_t</p>
+</p><p id="p307915212093527"><p>Writes a given length of data into the address space of SDIO function 0.</p>
+</p></td></tr><tr id="row1724765618093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1957520679093527"><p>SdioSetBlockSize (struct DevHandle *handle, uint32_t blockSize)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1165187585093527"><p>int32_t</p>
+</p><p id="p779107638093527"><p>Sets the block size.</p>
+</p></td></tr><tr id="row1782260416093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1599248429093527"><p>SdioGetCommonInfo (struct DevHandle <em>handle, SdioCommonInfo</em>info,
+SdioCommonInfoType infoType)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1084218452093527"><p>int32_t</p>
+</p><p id="p1378709499093527"><p>Obtains common information.</p>
+</p></td></tr><tr id="row680838212093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1755596232093527"><p>SdioSetCommonInfo (struct DevHandle <em>handle, SdioCommonInfo</em>info,
+SdioCommonInfoType infoType)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1993211705093527"><p>int32_t</p>
+</p><p id="p266812401093527"><p>Sets common information.</p>
+</p></td></tr><tr id="row1185998328093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1052947801093527"><p>SdioFlushData (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p168461386093527"><p>int32_t</p>
+</p><p id="p584641785093527"><p>Flushes data.</p>
+</p></td></tr><tr id="row814051288093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1104487683093527"><p>SdioClaimHost (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1184583510093527"><p>void</p>
+</p><p id="p513377809093527"><p>Claims a host exclusively.</p>
+</p></td></tr><tr id="row175002314093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p337402827093527"><p>SdioReleaseHost (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1077861665093527"><p>void</p>
+</p><p id="p493818075093527"><p>Releases the exclusively claimed host.</p>
+</p></td></tr><tr id="row1284330069093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1085108008093527"><p>SdioEnableFunc (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1203608503093527"><p>int32_t</p>
+</p><p id="p1364140771093527"><p>Enables the SDIO device so that its register can be accessed.</p>
+</p></td></tr><tr id="row1491790156093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2143959607093527"><p>SdioDisableFunc (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1365427742093527"><p>int32_t</p>
+</p><p id="p1840882325093527"><p>Disables the SDIO device.</p>
+</p></td></tr><tr id="row1746054416093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1530334307093527"><p>SdioClaimIrq (struct DevHandle <em>handle, SdioIrqHandler</em>irqHandler)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1016710629093527"><p>int32_t</p>
+</p><p id="p1377642477093527"><p>Claims an SDIO IRQ.</p>
+</p></td></tr><tr id="row694356972093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p304671525093527"><p>SdioReleaseIrq (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p430960217093527"><p>int32_t</p>
+</p><p id="p1010237191093527"><p>Releases an SDIO IRQ.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/sdio_if-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

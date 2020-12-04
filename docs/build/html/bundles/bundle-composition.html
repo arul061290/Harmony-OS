@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bundle Composition &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bundle-composition">
+<h1>Bundle Composition<a class="headerlink" href="#bundle-composition" title="Permalink to this headline">¶</a></h1>
+<p>A bundle contains the following contents:</p>
+<ul>
+<li><p><strong>src</strong> directory for storing code files or code library</p></li>
+<li><p><strong>ohos_bundles</strong> folder for storing dependent bundles (It is
+automatically generated during bundle installation, without the need
+to submit to the code library.)</p></li>
+<li><p><strong>README.md</strong> file for describing the bundle</p></li>
+<li><p><strong>bundle.json</strong> file for declaring metadata of the bundle</p></li>
+<li><p><strong>LICENSE</strong> file for open-source code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">-</span><span class="n">bundle</span>
+   <span class="o">|</span><span class="n">_ohos_bundles</span>
+   <span class="o">|</span><span class="n">_src</span>
+   <span class="o">|</span><span class="n">_bundle</span><span class="o">.</span><span class="n">json</span>
+   <span class="o">|</span><span class="n">_README</span><span class="o">.</span><span class="n">md</span>
+   <span class="o">|</span><span class="n">_LICENSE</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="code-files">
+<h2>Code files<a class="headerlink" href="#code-files" title="Permalink to this headline">¶</a></h2>
+<p>Bundle code files are the same as those in a common code directory. The
+only difference lies in the open APIs (declared in header files) of a
+bundle, which are likely to be referenced by other bundles and need to
+be declared in the <strong>dirs</strong> of <strong>bundle.json</strong>.</p>
+</div>
+<div class="section" id="readme-file">
+<h2>README File<a class="headerlink" href="#readme-file" title="Permalink to this headline">¶</a></h2>
+<p><strong>README.md</strong> is a bundle self-description file using the markdown
+syntax. For details, see <a class="reference external" href="https://www.markdownguide.org/getting-started/">Syntax
+Reference</a>.</p>
+<p>To help you easily find and use the desired bundle on the HarmonyOS
+Package Manager (HPM) platform, a <strong>README</strong> file is provided in the
+root directory of each bundle.</p>
+<p>The <strong>README</strong> file may include instructions on how to install,
+configure, and use the instance code in the bundle, as well as any other
+information helpful to you.</p>
+<p>The <strong>README</strong> file is available in the bundle details page of the HPM
+platform.</p>
+</div>
+<div class="section" id="metadata-description-file">
+<h2>Metadata Description File<a class="headerlink" href="#metadata-description-file" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>bundle.json</strong> file describes the metadata of a bundle. Each bundle
+has its own <strong>bundle.json</strong> file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;@myorg/demo-bundle&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;bundle description&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hos&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;applications&quot;</span><span class="p">,</span> <span class="s2">&quot;drivers&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">},</span>
+  <span class="s2">&quot;contributors&quot;</span><span class="p">:[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">},{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}],</span>
+  <span class="s2">&quot;homepage&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.foo.bar.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;repository&quot;</span><span class="p">:</span> <span class="s2">&quot;https://git@gitee.com:foo/bar.git&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;publishAs&quot;</span><span class="p">:</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;dirs&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;src/**/*.c&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers/**/*.h&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;bin&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bin/**/*.o&quot;</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;build&quot;</span><span class="p">:</span> <span class="s2">&quot;make&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;envs&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">&quot;ohos&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;board&quot;</span><span class="p">:</span> <span class="s2">&quot;hi3516&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kernel&quot;</span><span class="p">:</span> <span class="s2">&quot;liteos-a&quot;</span>
+  <span class="p">},</span>
+ <span class="s2">&quot;rom&quot;</span><span class="p">:</span> <span class="s2">&quot;10240&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;ram&quot;</span><span class="p">:</span> <span class="s2">&quot;1024&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;@myorg/net&quot;</span><span class="p">:</span><span class="s2">&quot;1.0.0&quot;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each <strong>bundle.json</strong> file has the following fields:</p>
+<ul class="simple">
+<li><p><strong>name</strong>: a bundle name, which starts with &#64; and is separated by /,
+for example, <strong>&#64;myorg/mybundle</strong></p></li>
+<li><p><strong>version</strong>: a bundle version number, for example, 1.0.0. The version
+number must comply with the Semantic Versioning Specification
+(SemVer) standards.</p></li>
+<li><p><strong>description</strong>: a brief description of a bundle</p></li>
+<li><p><strong>dependencies</strong>: bundles that a bundle depends on</p></li>
+<li><p><strong>envs</strong>: parameters required for bundle compilation, including
+global parameters and dependency parameters.</p></li>
+<li><p><strong>scripts</strong>: commands executable to a bundle, such as those for
+compiling, building, testing, and burning</p></li>
+<li><p><strong>publishAs</strong>: bundle publishing type, which can be <strong>source</strong>,
+<strong>binary</strong>, <strong>distribution</strong>, or <strong>code-segment</strong></p></li>
+<li><p><strong>dirs</strong>: directory structure (such as the header file) generated for
+publishing</p></li>
+<li><p><strong>ram&amp;rom</strong>: statistical information about the estimated read-only
+memory (ROM) and random access memory (RAM) usage</p></li>
+<li><p><strong>ohos</strong>: mappings among OpenHarmony versions, development boards,
+and kernels, separated by commas (,).</p></li>
+<li><p>Extended information: author, home page, code repository, license,
+tags, and keywords</p></li>
+<li><p><strong>base</strong> (only for a distribution): a base distribution which others
+inherit from.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/bundles/bundle-composition.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

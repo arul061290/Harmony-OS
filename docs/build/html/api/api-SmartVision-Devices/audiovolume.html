@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AudioVolume &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="audiovolume">
+<h1>AudioVolume<a class="headerlink" href="#audiovolume" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="audio.md">Audio</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides volume-related APIs for audio rendering or capturing, including
+functions to set the mute operation, volume, and gain.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1362139157093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p6782264093529"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1776037723093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row690396245093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p997491488093529"><p>SetMute )(AudioHandle handle, bool mute)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1202809094093529"><p>int32_t(*</p>
+</p><p id="p1179793263093529"><p>Sets the mute operation for the audio.</p>
+</p></td></tr><tr id="row816291286093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p669363454093529"><p>GetMute )(AudioHandle handle, bool *mute)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p264433287093529"><p>int32_t(*</p>
+</p><p id="p1122515558093529"><p>Obtains the mute operation set for the audio.</p>
+</p></td></tr><tr id="row1234034709093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p502038161093529"><p>SetVolume )(AudioHandle handle, float volume)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p95070023093529"><p>int32_t(*</p>
+</p><p id="p1381585916093529"><p>Sets the audio volume.</p>
+</p></td></tr><tr id="row933920953093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1302109921093529"><p>GetVolume )(AudioHandle handle, float *volume)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1277071742093529"><p>int32_t(*</p>
+</p><p id="p1712955929093529"><p>Obtains the audio volume.</p>
+</p></td></tr><tr id="row1517800626093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2044450501093529"><p>GetGainThreshold )(AudioHandle handle, float <em>min, float</em>max)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p867974546093529"><p>int32_t(*</p>
+</p><p id="p1595973203093529"><p>Obtains the range of the audio gain.</p>
+</p></td></tr><tr id="row1610683547093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2017776776093529"><p>GetGain )(AudioHandle handle, float *gain)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p114369398093529"><p>int32_t(*</p>
+</p><p id="p3372462093529"><p>Obtains the audio gain.</p>
+</p></td></tr><tr id="row224241809093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1188053879093529"><p>SetGain )(AudioHandle handle, float gain)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1081553004093529"><p>int32_t(*</p>
+</p><p id="p1982363719093529"><p>Sets the audio gain.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="getgain">
+<h2>GetGain<a class="headerlink" href="#getgain" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioVolume</span><span class="p">::</span><span class="n">GetGain</span><span class="p">)</span> <span class="p">([</span><span class="n">AudioHandle</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga18675ddb073465fdeac33a897f675d79) handle, float *gain)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the audio gain.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row266958968093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p296790972093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1479496832093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2095789939093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio handle.</p>
+</td></tr><tr id="row605196641093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>gain</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the audio gain.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the audio gain is obtained; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiovolume.md#aa42ff18fa2b7e6780acf120ea49054ed">GetGainThreshold</a></p>
+</div>
+<div class="section" id="getgainthreshold">
+<h2>GetGainThreshold<a class="headerlink" href="#getgainthreshold" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioVolume</span><span class="p">::</span><span class="n">GetGainThreshold</span><span class="p">)</span> <span class="p">([</span><span class="n">AudioHandle</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga18675ddb073465fdeac33a897f675d79) handle, float *min, float *max)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the range of the audio gain.</p>
+<p>The audio gain can be expressed in one of the following two ways
+(depending on the chip platform), corresponding to two types of value
+ranges:</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1661485470093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p906756001093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1726746302093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row62648005093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio handle.</p>
+</td></tr><tr id="row2035432634093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>min</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the minimum value of the range.</p>
+</td></tr><tr id="row894217910093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>max</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the maximum value of the range.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the range is obtained; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiovolume.md#a5ff7f9e5b763d20822a1fadecc5a8db7">GetGain</a></p>
+</div>
+<div class="section" id="getmute">
+<h2>GetMute<a class="headerlink" href="#getmute" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioVolume</span><span class="p">::</span><span class="n">GetMute</span><span class="p">)</span> <span class="p">([</span><span class="n">AudioHandle</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga18675ddb073465fdeac33a897f675d79) handle, bool *mute)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the mute operation set for the audio.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1292394694093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1841902693093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p822607811093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row422066367093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio handle.</p>
+</td></tr><tr id="row135291710093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>mute</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the mute operation set for the audio. Value
+true means that the audio is muted, and false means the opposite.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the mute operation is obtained; returns a negative
+value otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiovolume.md#a79c127fa37eb2dbf8dc5fe9f0ed4421e">SetMute</a></p>
+</div>
+<div class="section" id="getvolume">
+<h2>GetVolume<a class="headerlink" href="#getvolume" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioVolume</span><span class="p">::</span><span class="n">GetVolume</span><span class="p">)</span> <span class="p">([</span><span class="n">AudioHandle</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga18675ddb073465fdeac33a897f675d79) handle, float *volume)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the audio volume.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row657959418093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p824423118093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1968750967093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1407553026093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio handle.</p>
+</td></tr><tr id="row301105229093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>volume</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the volume to obtain. The value ranges from 0.0
+to 1.0.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the volume is obtained; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiovolume.md#aebf67caf924cba5f3be9d0f395390908">SetVolume</a></p>
+</div>
+<div class="section" id="setgain">
+<h2>SetGain<a class="headerlink" href="#setgain" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioVolume</span><span class="p">::</span><span class="n">SetGain</span><span class="p">)</span> <span class="p">([</span><span class="n">AudioHandle</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga18675ddb073465fdeac33a897f675d79) handle, float gain)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the audio gain.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row367035938093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p944006992093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1410472517093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1545397542093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio handle.</p>
+</td></tr><tr id="row810703336093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>gain</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio gain to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiovolume.md#aa42ff18fa2b7e6780acf120ea49054ed">GetGainThreshold</a></p>
+</div>
+<div class="section" id="setmute">
+<h2>SetMute<a class="headerlink" href="#setmute" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioVolume</span><span class="p">::</span><span class="n">SetMute</span><span class="p">)</span> <span class="p">([</span><span class="n">AudioHandle</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga18675ddb073465fdeac33a897f675d79) handle, bool mute)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the mute operation for the audio.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row601242116093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p409303485093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1239866234093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1216090141093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio handle.</p>
+</td></tr><tr id="row1707240016093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>mute</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Specifies whether to mute the audio. Value true means to mute the audio,
+and false means the opposite.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiovolume.md#a75fcb5bda7e0ca9b823187f6056ad1d4">GetMute</a></p>
+</div>
+<div class="section" id="setvolume">
+<h2>SetVolume<a class="headerlink" href="#setvolume" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioVolume</span><span class="p">::</span><span class="n">SetVolume</span><span class="p">)</span> <span class="p">([</span><span class="n">AudioHandle</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga18675ddb073465fdeac33a897f675d79) handle, float volume)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the audio volume.</p>
+<p>The volume ranges from 0.0 to 1.0. If the volume level in an audio
+service ranges from 0 to 15, <strong>0.0</strong> indicates that the audio is muted,
+and <strong>1.0</strong> indicates the maximum volume level (15).</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1316567439093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p879235417093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p221858954093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1767365621093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the audio handle.</p>
+</td></tr><tr id="row293198829093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>volume</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the volume to set. The value ranges from 0.0 to 1.0.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiovolume.md#a649524ce280ecdb62ddacb78e1a63439">GetVolume</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/audiovolume.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

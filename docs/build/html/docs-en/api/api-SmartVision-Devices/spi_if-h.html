@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spi_if.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="spi-if-h">
+<h1>spi_if.h<a class="headerlink" href="#spi-if-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="spi.md">SPI</a></p>
+<p><strong>Description:</strong></p>
+<p>Defines standard SPI-specific interfaces for driver development.</p>
+<p>A driver needs to use the SPI-specific interfaces for data writing and
+reading before performing any operations on an SPI-compliant device.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1512900548093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1772806573093527"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1369919995093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1409435938093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p600594942093527"><p>SpiDevInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p325436427093527"><p>Defines the general SPI device descriptor, which can be used as the
+unique identifier of an SPI device. When operating an SPI device, you
+need to specify a descriptor of the SpiDevInfo type, and obtain the
+handle of the SPI device by calling SpiOpen.</p>
+</p></td></tr><tr id="row692333337093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1321650928093527"><p>SpiMsg</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1700013246093527"><p>Defines the custom SPI transfer message.</p>
+</p></td></tr><tr id="row1253674709093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2091256253093527"><p>SpiCfg</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p449036053093527"><p>Defines the configuration of an SPI device.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row464382079093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p517847462093527"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1661572641093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row868046486093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1545306063093527"><p>SPI_CLK_PHASE (1 &lt;&lt; 0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p298008591093527"><p>Indicates the SPI clock phase. The value 0 indicates that data will be
+sampled on the first clock edge, and 1 indicates that data will be
+sampled on the second clock edge.</p>
+</p></td></tr><tr id="row1026536706093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p626812110093527"><p>SPI_CLK_POLARITY (1 &lt;&lt; 1)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p752687059093527"><p>Indicates the SPI clock polarity. The value 0 indicates a low-level
+clock signal in the idle state, and 1 indicates a high-level clock
+signal in the idle state.</p>
+</p></td></tr><tr id="row1566082770093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1401673796093527"><p>SPI_MODE_3WIRE (1 &lt;&lt; 2)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1785050281093527"><p>Indicates that a single data line is used for both input and output.</p>
+</p></td></tr><tr id="row1445479735093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p830610576093527"><p>SPI_MODE_LOOP (1 &lt;&lt; 3)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p715271392093527"><p>Indicates the SPI loopback mode.</p>
+</p></td></tr><tr id="row559953218093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1573947038093527"><p>SPI_MODE_LSBFE (1 &lt;&lt; 4)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p38268436093527"><p>Indicates the SPI data transfer order. The value 0 indicates that data
+is transferred from the most significant bit (MSB) to the least
+significant bit (LSB), and 1 indicates the opposite.</p>
+</p></td></tr><tr id="row326063033093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2139746966093527"><p>SPI_MODE_NOCS (1 &lt;&lt; 5)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p699097746093527"><p>Indicates that there is only one SPI device, and no chip select (CS) is
+required.</p>
+</p></td></tr><tr id="row344317221093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2133853802093527"><p>SPI_MODE_CS_HIGH (1 &lt;&lt; 6)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1402530544093527"><p>Indicates that the CS level is high when an SPI device is selected.</p>
+</p></td></tr><tr id="row1651797657093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p238282886093527"><p>SPI_MODE_READY (1 &lt;&lt; 7)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1693715464093527"><p>Indicates that the SPI device is set to low for pausing data transfer.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2071986664093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1316055075093527"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1702628853093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2102400759093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p304953365093527"><p>SpiTransferMode { SPI_INTERRUPT_TRANSFER = 0, SPI_POLLING_TRANSFER,
+SPI_DMA_TRANSFER }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1792310132093527"><p>Enumerates transfer modes of SPI data.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row487669440093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1193489648093527"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p497023671093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1240379880093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1185178561093527"><p>SpiOpen (const struct SpiDevInfo *info)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p528264086093527"><p>struct DevHandle *</p>
+</p><p id="p1107997835093527"><p>Obtains the handle of an SPI device.</p>
+</p></td></tr><tr id="row1670343611093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1339525192093527"><p>SpiClose (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1432144908093527"><p>void</p>
+</p><p id="p1858896005093527"><p>Releases the handle of an SPI device.</p>
+</p></td></tr><tr id="row880979998093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1027707973093527"><p>SpiTransfer (struct DevHandle <em>handle, struct SpiMsg</em>msgs, uint32_t
+count)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1725831484093527"><p>int32_t</p>
+</p><p id="p1925062623093527"><p>Launches a custom transfer to an SPI device.</p>
+</p></td></tr><tr id="row1807092719093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p444208565093527"><p>SpiRead (struct DevHandle <em>handle, uint8_t</em>buf, uint32_t len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2053006582093527"><p>int32_t</p>
+</p><p id="p50345262093527"><p>Reads data of a specified length from an SPI device.</p>
+</p></td></tr><tr id="row1821324241093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p552686047093527"><p>SpiWrite (struct DevHandle <em>handle, uint8_t</em>buf, uint32_t len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1162985995093527"><p>int32_t</p>
+</p><p id="p432788656093527"><p>Writes data of a specified length to an SPI device.</p>
+</p></td></tr><tr id="row990760181093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2085305013093527"><p>SpiSetCfg (struct DevHandle <em>handle, struct SpiCfg</em>cfg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1448874130093527"><p>int32_t</p>
+</p><p id="p187296781093527"><p>Sets configuration parameters for an SPI device.</p>
+</p></td></tr><tr id="row128678419093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1293512203093527"><p>SpiGetCfg (struct DevHandle <em>handle, struct SpiCfg</em>cfg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p497023749093527"><p>int32_t</p>
+</p><p id="p671918044093527"><p>Obtains the configuration parameters of an SPI device.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/spi_if-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

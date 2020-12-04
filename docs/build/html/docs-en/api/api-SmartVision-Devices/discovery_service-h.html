@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>discovery_service.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="discovery-service-h">
+<h1>discovery_service.h<a class="headerlink" href="#discovery-service-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="softbus.md">Softbus</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares unified device service publishing interfaces.</p>
+<p>This file provides capabilities related to device service publishing,
+including publishing services, unpublishing services, and setting device
+parameters. After multiple nearby devices are discovered and networked,
+these interfaces can be used to perform service publishing-related
+operations.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row414086995084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1251617356084829"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1268416049084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1141893673084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1132515937084829"><p>PublishInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1525417816084829"><p>Defines service provisioning information sent to a discovering device.</p>
+</p></td></tr><tr id="row1315069622084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1024813539084829"><p>CapabilityMap</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p180410913084829"><p>Defines the mapping between supported capabilities and bitmaps.</p>
+</p></td></tr><tr id="row223004731084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2050096100084829"><p>DeviceMap</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1359017063084829"><p>Defines the mappings between the device type enumerations and device
+type names.</p>
+</p></td></tr><tr id="row179998896084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p645941396084829"><p>IPublishCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1012806537084829"><p>Defines the callbacks for successful and failed service publishing.</p>
+</p></td></tr><tr id="row1795833105084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1320471579084829"><p>CommonDeviceInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p96926203084829"><p>Defines the type and content of a device to set.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row402592891084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1293936484084829"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p677418605084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1770861383084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1814793193084829"><p>PublishInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1130179853084829"><p>typedef struct PublishInfo</p>
+</p><p id="p1371666815084829"><p>Defines service provisioning information sent to a discovering device.</p>
+</p></td></tr><tr id="row1255817346084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p281522908084829"><p>DeviceType</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p918373677084829"><p>typedef enum DeviceTypeEnum</p>
+</p><p id="p1392609150084829"><p>Enumerates device types.</p>
+</p></td></tr><tr id="row831641204084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p7136796084829"><p>IPublishCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1417245575084829"><p>typedef struct IPublishCallback</p>
+</p><p id="p789162881084829"><p>Defines the callbacks for successful and failed service publishing.</p>
+</p></td></tr><tr id="row1880837001084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2081741278084829"><p>CommonDeviceInfo</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1777766772084829"><p>typedef struct CommonDeviceInfo</p>
+</p><p id="p410458846084829"><p>Defines the type and content of a device to set.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row632299668084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1642967045084829"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p357303118084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1007889117084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1061727002084829"><p>ExchanageMedium { AUTO = 0, BLE = 1, COAP = 2, USB = 3 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1272596469084829"><p>Enumerates media, such as Bluetooth, Wi-Fi, and USB, used for publishing
+services.</p>
+</p></td></tr><tr id="row1754036231084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1015327798084829"><p>ExchangeFre { LOW = 0, MID = 1, HIGH = 2, SUPER_HIGH = 3 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p68222552084829"><p>Enumerates frequencies for publishing services. This enumeration is
+involved only in Bluetooth and is not supported currently.</p>
+</p></td></tr><tr id="row862508646084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p575056219084829"><p>DiscoverMode { DISCOVER_MODE_PASSIVE = 0x55, DISCOVER_MODE_ACTIVE = 0xAA
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1520813352084829"><p>Enumerates the modes in which services are published. The publishing
+service supports the passive mode. Lite devices support the passive mode
+only.</p>
+</p></td></tr><tr id="row758538390084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p352273398084829"><p>PublishFailReason { PUBLISH_FAIL_REASON_NOT_SUPPORT_MEDIUM = 1,
+PUBLISH_FAIL_REASON_PARAMETER_INVALID = 2, PUBLISH_FAIL_REASON_UNKNOWN =
+0xFF }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p423365486084829"><p>Enumerates failure reasons for publishing services.</p>
+</p></td></tr><tr id="row142090791084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1533621369084829"><p>DataBitMap { HICALL_CAPABILITY_BITMAP = 0, PROFILE_CAPABILITY_BITMAP =
+1, HOMEVISIONPIC_CAPABILITY_BITMAP = 2, CASTPLUS_CAPABILITY_BITMAP,
+AA_CAPABILITY_BITMAP, DVKIT_CAPABILITY_BITMAP, DDMP_CAPABILITY_BITMAP }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p318507935084829"><p>Enumerates supported capabilities published by a device.</p>
+</p></td></tr><tr id="row1507670522084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p500300172084829"><p>DeviceTypeEnum { UNKOWN = 0x00, PHONE = 0x0E, PAD = 0x11, TV = 0x9C, PC
+= 0x0C, AUDIO = 0x0A, CAR = 0x83, L0 = 0xF1, L1 = 0xF2 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p963513798084829"><p>Enumerates device types.</p>
+</p></td></tr><tr id="row907013790084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p88349120084829"><p>CommonDeviceKey { COMM_DEVICE_KEY_DEVID = 0, COMM_DEVICE_KEY_DEVTYPE =
+1, COMM_DEVICE_KEY_DEVNAME = 2, COMM_DEVICE_KEY_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1836727706084829"><p>Enumerates device information, such as its ID, type, and name.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1357710724084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1629864132084829"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2125937335084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1184919613084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1870839655084829"><p>PublishService (const char <em>moduleName, const struct PublishInfo</em>info,
+const struct IPublishCallback *cb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p647305267084829"><p>int</p>
+</p><p id="p69917097084829"><p>Publishes a service to the discovering device in the LAN.</p>
+</p></td></tr><tr id="row120982794084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p698689724084829"><p>UnPublishService (const char *moduleName, int publishId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1565879832084829"><p>int</p>
+</p><p id="p402413612084829"><p>Unpublishes a service based on the publicId and moduleName.</p>
+</p></td></tr><tr id="row1676186209084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1873873801084829"><p>SetCommonDeviceInfo (const struct CommonDeviceInfo *devInfo, unsigned
+int num)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p363254311084829"><p>int</p>
+</p><p id="p430277308084829"><p>Sets common device information, such as its ID, type, and name.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/discovery_service-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

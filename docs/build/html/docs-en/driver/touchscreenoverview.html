@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touchscreen Overview &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="touchscreen-overview">
+<h1>Touchscreen Overview<a class="headerlink" href="#touchscreen-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><strong>Functions of the Touchscreen driver</strong></p>
+<p>The Touchscreen driver is used to power on its integrated circuit
+(IC), configure and initialize hardware pins, register interrupts,
+configure Inter-Integrated Circuit (I2C) or SPI APIs, set
+input-related configurations, and download and update firmware,
+thereby enabling a touchscreen to work properly.</p>
+</li>
+<li><p><strong>Layers of the Touchscreen driver</strong></p>
+<p>Figure 1 shows an overall structure of the Touchscreen driver.</p>
+<p>The Touchscreen driver is developed based on the OpenHarmony Driver
+Foundation (HDF), Platform, and operating system abstraction layer
+(OSAL) interfaces. It provides hardware capabilities for external
+systems through the OpenHarmony Driver Interface (HDI) layer, so that
+upper-layer services can obtain driver capabilities through the HDI
+layer, and then control the touchscreen.</p>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Layers of the Touchscreen driver</div>
+<div class="line"><img alt="image1" src="../../_images/layers-of-the-touchscreen-driver.png" /></div>
+</div>
+<ul>
+<li><p><strong>Advantages of developing drivers based on the HDF</strong></p>
+<p>The Touchscreen driver is developed based on the HDF <a class="reference external" href="driver-development.md">Driver
+Development</a> and is implemented via calls
+to the OSAL and Platform APIs, including bus APIs and native
+operating system (OS) APIs (such as memory, lock, thread, and timer).
+The OSAL and Platform hides the differences of underlying hardware,
+so that the Touchscreen HDF driver can be executed across platforms
+and OSs. In this regard, you can develop the Touchscreen driver only
+once but deploy it on multiple devices.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p>Based on the attributes of the pins, interfaces on the touchscreens can
+be classified into the following types:</p>
+<ul class="simple">
+<li><p>Power interfaces</p></li>
+<li><p>I/O control interfaces</p></li>
+<li><p>Communications interfaces</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>Figure 2</strong> Common pins of the touchscreen</div>
+<div class="line"><img alt="image2" src="../../_images/common-pins-of-the-touchscreen.png" /></div>
+</div>
+<p>The interfaces shown in the figure are described as follows:</p>
+<ol class="arabic">
+<li><p><strong>Power interfaces</strong></p>
+<ul>
+<li><p>LDO_1P8: 1.8 V digital circuits</p></li>
+<li><p>LDO_3P3: 3.3 V analog circuits</p>
+<p>Generally, the Touchscreen driver IC is separated from the LCD
+driver IC. In this case, the Touchscreen driver IC requires both
+1.8 V and 3.3 V power supplies. Nowadays, the Touchscreen driver
+IC and LCD driver IC can be integrated. Therefore, the
+touchscreen, requires only the 1.8 V power supply, and the 3.3 V
+power required internally is supplied by the LCD VSP power
+(typical value: 5.5 V) in the driver chip IC.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>I/O control interfaces</strong></p>
+<ul class="simple">
+<li><p>RESET: reset pin, which is used to reset the driver IC on the host
+when suspending or resuming the system.</p></li>
+<li><p>INT: interrupt pin, which needs to be set to the input direction
+and pull-up status during driver initialization. After detecting
+an external touch signal, the driver IC notifies the driver by
+operating the interrupt pin. The driver reads the touch reporting
+data in the ISR function.</p></li>
+</ul>
+</li>
+<li><p><strong>Communications interfaces</strong></p>
+<ul class="simple">
+<li><p>I2C: Since only a small amount of touch data is reported by the
+touchscreen, I2C is used to transmit the reported data. For
+details about the I2C protocol and interfaces, see <a class="reference external" href="i2c-usage-guidelines.md">I2C Usage
+Guidelines</a>.</p></li>
+<li><p>SPI: In addition to touch reporting data coordinates, some vendors
+need to obtain basic capacitance data. Therefore, Serial
+Peripheral Interface (SPI) is used to transmit such huge amount of
+data. For details about the SPI protocol and interfaces, see <a class="reference external" href="spiusage-guidelines.md">SPI
+Usage Guidelines</a>.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/driver/touchscreenoverview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

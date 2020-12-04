@@ -1,0 +1,18 @@
+Overview
+========
+
+This document describes how to use the IoT camera development board and
+the built-in camera of the development kit to implement photographing
+and video recording.
+
+You can perform operations provided in `Use Case <use-case.md>`__ to
+learn more about development board peripheral control and then develop
+devices, such as security cameras.
+
+If you want to view the sample effect first, see `Use
+Case <use-case.md>`__. To customize application behavior, modify the
+sample code by referring to APIs described in `Development
+Guidelines <development-guidelines.md>`__.
+
+For details about basic concepts for camera development, see the `camera
+development overview <../subsystems/overview.md>`__.

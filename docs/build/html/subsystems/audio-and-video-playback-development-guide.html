@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio and Video Playback Development Guide &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="audio-and-video-playback-development-guide">
+<h1>Audio and Video Playback Development Guide<a class="headerlink" href="#audio-and-video-playback-development-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="when-to-use">
+<h2>When to Use<a class="headerlink" href="#when-to-use" title="Permalink to this headline">¶</a></h2>
+<p>Audio and video playback is a process in which audio and video files or
+audio and video stream data is decoded and played by using an output
+device, and a playback task is managed.</p>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p>The audio and video playback APIs are described as follows. For details
+about the APIs, see the API reference document.</p>
+<p><strong>Table 1</strong> Audio and Video Playback APIs</p>
+<table><thead align="left"><tr id="row85501040111310"><th class="cellrowborder" valign="top" width="15.959999999999999%" id="mcps1.2.4.1.1"><p id="p755044051316"><p>API</p>
+</p></th><th class="cellrowborder" valign="top" width="47.77%" id="mcps1.2.4.1.2"><p id="p1755024018131"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="36.27%" id="mcps1.2.4.1.3"><p id="p8550134015131"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row17550440151310"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p6550440111312"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p65504403132"><p>static Player *CreatePlayer();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p115501540191319"><p>Creates a Player instance.</p>
+</p></td></tr><tr id="row14550164011132"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p55505406135"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p15550240191312"><p>int32_t SetSource(const Source &amp;source);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p125502402132"><p>Set playback source</p>
+</p></td></tr><tr id="row155044001318"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p255064021310"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p10550104014132"><p>int32_t Prepare();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p155503406138"><p>Prepares the playback environment and buffers media data.</p>
+</p></td></tr><tr id="row165502040141313"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p3550174081313"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p9550144011310"><p>int32_t Play();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p255094041314"><p>Starts playback.</p>
+</p></td></tr><tr id="row855064010130"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p3550840151318"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p195501409137"><p>bool IsPlaying()</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p255114020137"><p>Determines whether the playback is in progress.</p>
+</p></td></tr><tr id="row1555111402135"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p05511840151313"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p16551340151314"><p>int32_t Pause();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p14551164021311"><p>Pauses playback.</p>
+</p></td></tr><tr id="row155511740111315"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p185515403139"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p19551184031318"><p>int32_t Stop();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p555154041312"><p>Stops playback.</p>
+</p></td></tr><tr id="row1255118400138"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p6551114081317"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p8551154015135"><p>int32_t Rewind(int_64 mSeconds, int32_t mode);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p1255184019138"><p>Change the playback position.</p>
+</p></td></tr><tr id="row195511640141312"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1455164061314"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p5551340151313"><p>int32_t SetVolume(float leftVolume, float rightVolume);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p19551940181320"><p>Sets the volume of the audio-left and audio-right channels.</p>
+</p></td></tr><tr id="row19551144015130"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p2055113408131"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1055124011314"><p>int32_t SetVideoSurface(Surface *surface)</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p1355104041311"><p>Setting the Playback Window</p>
+</p></td></tr><tr id="row1355174010135"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p85511140161313"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p155114401137"><p>int32_t EnableSingleLooping(bool loop)</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p05513403130"><p>Single-song repeat</p>
+</p></td></tr><tr id="row185511040151319"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p3552124010139"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p6552144021318"><p>bool IsSingleLooping();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p555220403134"><p>Determines whether to play the video cyclically.</p>
+</p></td></tr><tr id="row24941622111618"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1555214041314"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1655294011317"><p>int32_t GetCurrentTime(int64_t &amp;time) const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p255234031315"><p>Obtains the current playback duration.</p>
+</p></td></tr><tr id="row655224015139"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p165520406137"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p7552164071320"><p>int32_t GetDuration(int64_t &amp;duration) const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p17552640141312"><p>Obtains the total playback duration.</p>
+</p></td></tr><tr id="row11552194019131"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p955214013132"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p655234018131"><p>int32_t GetVideoWidth(int32_t &amp;videoWidth);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p12552174081314"><p>Obtains the width of a video source.</p>
+</p></td></tr><tr id="row8552164013134"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p125525404136"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p13552114011316"><p>int32_t GetVideoHeight(int32_t &amp;videoHeight);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p14552134011138"><p>Obtains the height of a video source.</p>
+</p></td></tr><tr id="row6552340181312"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1155244017138"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1955374031313"><p>int32_t Reset();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p1553124061317"><p>Restores the player to the initial state.</p>
+</p></td></tr><tr id="row6553134021311"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1655314021316"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p13553194018132"><p>int32_t Release();</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p455354018139"><p>Releasing Player Resources</p>
+</p></td></tr><tr id="row25531940151318"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p95531440191318"><p>Player</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1955317400131"><p>void SetPlayerCallback(const std::shared_ptr&lt;PlayerCallback&gt; &amp;cb);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p135530402139"><p>Sets the playback callback function.</p>
+</p></td></tr><tr id="row26841936205916"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p155531940171317"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1955314012137"><p>Source(const std::string&amp; uri);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p755314031315"><p>Creating a Source Instance Based on the URI</p>
+</p></td></tr><tr id="row1839749195917"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p13553040181316"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p125538401138"><p>Source(const std::string &amp;uri, const std::map&lt;std::string, std::string&gt;
+&amp;header);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p35533406130"><p>Creating a Source Instance Based on the URI and URI Header</p>
+</p></td></tr><tr id="row16713165319598"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p195531740141316"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p655310403132"><p>Source(const std::shared_ptr&lt;StreamSource&gt; &amp;stream, const Format
+&amp;formats);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p05536401138"><p>Creating a Source Instance Based on Flows</p>
+</p></td></tr><tr id="row39004563590"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p15531340191312"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p13553174091318"><p>SourceType GetSourceType() const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p1455354016136"><p>Obtains the source type.</p>
+</p></td></tr><tr id="row15429101008"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1655434018139"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p7554154013137"><p>const std::string &amp;GetSourceUri() const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p1855414071310"><p>Obtains the audio and video URIs.</p>
+</p></td></tr><tr id="row12357142103"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1554124015132"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p12554134016134"><p>const std::map&lt;std::string, std::string&gt; &amp;GetSourceHeader() const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p3554124091318"><p>Obtains the audio and video URI headers.</p>
+</p></td></tr><tr id="row17477411011"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p105540409134"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1355434014138"><p>const std::shared_ptr&lt;StreamSource&gt; &amp;GetSourceStream() const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p455415408132"><p>Obtaining Audio and Video Streams</p>
+</p></td></tr><tr id="row19135971706"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p257064871110"><p>Source</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p151191016151214"><p>const Format &amp;GetSourceStreamFormat() const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p14257126131210"><p>Obtains the audio and video stream formats.</p>
+</p></td></tr><tr id="row1543179104"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p255412409135"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p655454001314"><p>bool PutIntValue(const std::string &amp;key, int32_t value);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p205661711619"><p>Sets the metadata of the integer type.</p>
+</p></td></tr><tr id="row695314111204"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p655454019138"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1554840111319"><p>bool PutLongValue(const std::string &amp;key, int64_t value);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p230317337163"><p>Sets the metadata of the long integer type.</p>
+</p></td></tr><tr id="row3518133213019"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1855434031312"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p1555484014139"><p>bool PutFloatValue(const std::string &amp;key, float value);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p12391147111614"><p>Sets the metadata of the single-precision floating-point type.</p>
+</p></td></tr><tr id="row176434351308"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p655534031317"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p5555640111320"><p>bool PutDoubleValue(const std::string &amp;key, double value);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p185881525191711"><p>Sets the metadata of the double-precision floating-point type.</p>
+</p></td></tr><tr id="row9476163810013"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p3555154017133"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p3555124015133"><p>bool PutStringValue(const std::string &amp;key, const std::string &amp;value);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p16021743131719"><p>Sets the metadata of the character string type.</p>
+</p></td></tr><tr id="row879515406015"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p15551540181313"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p19555164041313"><p>bool GetIntValue(const std::string &amp;key, int32_t &amp;value) const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p435725714171"><p>Obtains the metadata value of the integer type.</p>
+</p></td></tr><tr id="row462919431104"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1655544021318"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p0555194031314"><p>bool GetLongValue(const std::string &amp;key, int64_t &amp;value) const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p7330132141811"><p>Obtains the metadata value of the long integer type.</p>
+</p></td></tr><tr id="row1797513451904"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1655624011319"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p155567401134"><p>bool GetFloatValue(const std::string &amp;key, float &amp;value) const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p080203817189"><p>Obtains the metadata value of the single-precision floating-point type.</p>
+</p></td></tr><tr id="row012319491603"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p855694013132"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p10556124015132"><p>bool GetDoubleValue(const std::string &amp;key, double &amp;value) const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p116117558189"><p>Obtains the metadata value of the double-precision floating-point type.</p>
+</p></td></tr><tr id="row22531651901"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p1855604081314"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p9556840171310"><p>bool GetStringValue(const std::string &amp;key, std::string &amp;value) const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p6495161451914"><p>Obtains the metadata value of the character string type.</p>
+</p></td></tr><tr id="row552743019"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p165563405133"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p4556134061315"><p>const std::map&lt;std::string, FormatData *&gt; &amp;GetFormatMap() const;</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p3379195115711"><p>Obtain the Map table of the format.</p>
+</p></td></tr><tr id="row127651251115"><td class="cellrowborder" valign="top" width="15.959999999999999%" headers="mcps1.2.4.1.1 "><p id="p16556240111315"><p>Format</p>
+</p></td><td class="cellrowborder" valign="top" width="47.77%" headers="mcps1.2.4.1.2 "><p id="p195561240111317"><p>bool CopyFrom(const Format &amp;format);</p>
+</p></td><td class="cellrowborder" valign="top" width="36.27%" headers="mcps1.2.4.1.3 "><p id="p185953195717"><p>Copies all content from a format instance.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="limitations-and-constraints">
+<h2>Limitations and Constraints<a class="headerlink" href="#limitations-and-constraints" title="Permalink to this headline">¶</a></h2>
+<p>When the input source is an audio or video stream, the playback progress
+cannot be controlled and the file duration cannot be obtained.</p>
+</div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Implement the PlayerCallback callback function for event processing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestPlayerCallback</span> <span class="p">:</span> <span class="n">public</span> <span class="n">PlayerCallback</span><span class="p">{</span>
+    <span class="n">void</span> <span class="n">OnPlayBackComplete</span><span class="p">()</span> <span class="n">override</span>
+    <span class="p">{</span>
+<span class="o">//</span> <span class="n">The</span> <span class="n">implementation</span> <span class="n">code</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">process</span> <span class="n">the</span> <span class="n">event</span> <span class="n">that</span> <span class="n">the</span> <span class="n">file</span> <span class="n">playback</span> <span class="ow">is</span> <span class="n">complete</span><span class="o">.</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">OnError</span><span class="p">(</span><span class="n">int32_t</span> <span class="n">errorType</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">errorCode</span><span class="p">)</span> <span class="n">override</span>
+    <span class="p">{</span>
+<span class="o">//</span> <span class="n">Implement</span> <span class="n">the</span> <span class="n">code</span> <span class="n">processing</span> <span class="n">error</span> <span class="n">event</span><span class="o">.</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">OnInfo</span><span class="p">(</span><span class="nb">int</span> <span class="nb">type</span><span class="p">,</span> <span class="nb">int</span> <span class="n">extra</span><span class="p">)</span> <span class="n">override</span>
+    <span class="p">{</span>
+<span class="o">//</span><span class="n">Implement</span> <span class="n">the</span> <span class="n">code</span> <span class="n">to</span> <span class="n">process</span> <span class="n">common</span> <span class="n">events</span><span class="o">.</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">OnRewindToComplete</span><span class="p">()</span> <span class="n">override</span>
+    <span class="p">{</span>
+<span class="o">//</span><span class="n">Implement</span> <span class="n">the</span> <span class="n">event</span> <span class="n">that</span> <span class="n">the</span> <span class="n">code</span> <span class="n">processing</span> <span class="n">progress</span> <span class="n">control</span> <span class="ow">is</span> <span class="n">complete</span><span class="o">.</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a player instance, set the playback source, and start
+playback.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Player</span> <span class="o">*</span><span class="n">player</span> <span class="o">=</span> <span class="n">Player</span><span class="p">::</span><span class="n">CreatePlayer</span><span class="p">();</span>
+<span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">PlayerCallback</span><span class="o">&gt;</span> <span class="n">callback</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TestPlayerCallback</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">SetPlayerCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span><span class="o">//</span> <span class="n">Set</span> <span class="n">player</span> <span class="n">callback</span><span class="o">.</span>
+<span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">uri</span><span class="p">(</span><span class="n">filePath</span><span class="p">);</span><span class="o">//</span> <span class="n">filePath</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">local</span> <span class="n">file</span> <span class="n">path</span><span class="o">.</span>
+<span class="n">Source</span> <span class="n">source</span><span class="p">(</span><span class="n">uri</span><span class="p">);</span><span class="o">//</span><span class="n">Save</span> <span class="n">the</span> <span class="n">URI</span> <span class="n">to</span> <span class="n">the</span> <span class="n">source</span> <span class="n">instance</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">SetSource</span><span class="p">(</span><span class="n">source</span><span class="p">);</span><span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">source</span> <span class="n">to</span> <span class="n">the</span> <span class="n">player</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">SetVideoSurface</span><span class="p">(</span><span class="n">surface</span><span class="p">);</span><span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">playback</span> <span class="n">window</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">Prepare</span><span class="p">();</span> <span class="o">//</span> <span class="n">Prepare</span> <span class="k">for</span> <span class="n">the</span> <span class="n">playback</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">Play</span><span class="p">();</span> <span class="o">//</span><span class="n">Starts</span> <span class="n">playback</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Perform playback control based on the scenario.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">player</span><span class="o">-&gt;</span><span class="n">SetVolume</span><span class="p">(</span><span class="n">lvolume</span><span class="p">,</span> <span class="n">rvolume</span><span class="p">);</span><span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">left</span> <span class="ow">and</span> <span class="n">right</span> <span class="n">sound</span> <span class="n">channels</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">EnableSingleLooping</span><span class="p">(</span><span class="n">true</span><span class="p">);</span><span class="o">//</span> <span class="n">Set</span> <span class="n">cyclic</span> <span class="n">playback</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">Pause</span><span class="p">();</span> <span class="o">//</span><span class="n">Pause</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">Play</span><span class="p">();</span> <span class="o">//</span><span class="n">Continue</span> <span class="n">the</span> <span class="n">playback</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Release resources after the playback task is complete.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">player</span><span class="o">-&gt;</span><span class="n">Stop</span><span class="p">();</span> <span class="o">//</span><span class="n">Stop</span> <span class="n">the</span> <span class="n">playback</span><span class="o">.</span>
+<span class="n">player</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span> <span class="o">//</span> <span class="n">Release</span> <span class="n">resources</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/subsystems/audio-and-video-playback-development-guide.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

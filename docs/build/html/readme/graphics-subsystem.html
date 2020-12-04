@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphics Subsystem &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="graphics-subsystem">
+<h1>Graphics Subsystem<a class="headerlink" href="#graphics-subsystem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The graphics subsystem mainly includes user interface (UI) components,
+layout, animator, font, input event, window management, rendering and
+drawing modules. It builds an application framework based on the LiteOS
+to develop applications on Internet of Things (IoT) devices with small
+hardware resources.</p>
+<p>Module description:</p>
+<ul class="simple">
+<li><p>Components: provides application components, including the UIView,
+UIViewGoup, UIButton, UILabel, UILabelButton, UIList, and UISlider.</p></li>
+<li><p>Layout: lays out components, including Flexlayout, GridLayout, and
+ListLayout.</p></li>
+<li><p>Animator: defines functions for customizing animators.</p></li>
+<li><p>Fonts: defines functions related to fonts.</p></li>
+<li><p>Event: processes basic events, including click, press, drag, and long
+press.</p></li>
+<li><p>Tasks: manages tasks.</p></li>
+<li><p>Input: processes input events.</p></li>
+<li><p>Display: processes display events.</p></li>
+<li><p>Render: renders and draws components.</p></li>
+<li><p>Draw2d: draws lines, rectangles, circles, arcs, images, and texts,
+and interconnects with software rendering and hardware acceleration.</p></li>
+<li><p>Surface: applies for and releases shared memory.</p></li>
+<li><p>Window: manages windows, including creating, showing, hiding a
+window, and combining windows.</p></li>
+<li><p>Adapter: interconnects with underlying interfaces of the adaptation
+layer.</p></li>
+</ul>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Directory structure of source code for the graphics
+subsystem</p>
+<table><thead align="left"><tr id="row7977610131417"><th class="cellrowborder" valign="top" width="17.7%" id="mcps1.2.3.1.1"><p id="p18792459121314"><p>Directory</p>
+</p></th><th class="cellrowborder" valign="top" width="82.3%" id="mcps1.2.3.1.2"><p id="p77921459191317"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row17977171010144"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p2793159171311"><p>config</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p879375920132"><p>Configuration files</p>
+</p></td></tr><tr id="row6978161091412"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p37931659101311"><p>frameworks/surface</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p6793059171318"><p>Shared memory</p>
+</p></td></tr><tr id="row6978201031415"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p117935599130"><p>frameworks/ui</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p0793185971316"><p>UI module, which defines functions related to UI components, animators
+and fonts.</p>
+</p></td></tr><tr id="row1897841071415"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p16793185961315"><p>hals</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p14793959161317"><p>Hardware abstraction layer (HAL) logic</p>
+</p></td></tr><tr id="row1420633124613"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p16207133194613"><p>interfaces/ui</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p182076317465"><p>Header files of open APIs related to the UI module</p>
+</p></td></tr><tr id="row1679114715461"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p1079120477466"><p>interfaces/utils</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p1279144754611"><p>Header files of utils for the graphics subsystem</p>
+</p></td></tr><tr id="row1534591617478"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p43456161472"><p>services/ims</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p23451616124717"><p>Input event management, including processing and distributing input
+events such as click and press.</p>
+</p></td></tr><tr id="row1044522874716"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p644516283476"><p>services/wms</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p194451528144716"><p>Window management, including creating, managing, and combining windows.</p>
+</p></td></tr><tr id="row48471930154713"><td class="cellrowborder" valign="top" width="17.7%" headers="mcps1.2.3.1.1 "><p id="p4847830134713"><p>utils</p>
+</p></td><td class="cellrowborder" valign="top" width="82.3%" headers="mcps1.2.3.1.2 "><p id="p8847193074715"><p>Public library of the graphics subsystem</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Language version</p>
+<ul>
+<li><p>C++ 11 or later</p></li>
+</ul>
+</li>
+<li><p>The specifications of the application framework vary depending on the
+System-on-a-Chip (SoC) and underlying OS capabilities.</p>
+<ul>
+<li><p>Cortex-M RAM and ROM:</p>
+<ul>
+<li><p>RAM: greater than 100 KB (recommended)</p></li>
+<li><p>ROM: greater than 300 KB</p></li>
+</ul>
+</li>
+<li><p>Cortex-A RAM/ROM:</p>
+<ul>
+<li><p>RAM: greater than 1 MB (recommended)</p></li>
+<li><p>ROM: greater than 1 MB</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="adding-a-ui-component">
+<h2>Adding a UI Component<a class="headerlink" href="#adding-a-ui-component" title="Permalink to this headline">¶</a></h2>
+<p>All components inherit from the base class UIView and share common
+attributes and styles. UI components are classified into common and
+container ones. You can add child components for a container component,
+but not for a common component.</p>
+<p>Store new header files in the <strong>interfaces/ui/components</strong> directory and
+.cpp files in the <strong>frameworks/ui/src/components</strong> directory. Override
+<strong>OnDraw</strong> function to draw this UI component. Add the new file to the
+<strong>frameworks/ui/BUILD.gn</strong> directory and it will be compiled to
+<strong>libui.so</strong> during building.</p>
+</div>
+<div class="section" id="repositories-involved">
+<h2>Repositories Involved<a class="headerlink" href="#repositories-involved" title="Permalink to this headline">¶</a></h2>
+<p>graphic_lite</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/readme/graphics-subsystem.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

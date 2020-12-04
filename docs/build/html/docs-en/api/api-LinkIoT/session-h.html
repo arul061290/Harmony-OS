@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>session.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="session-h">
+<h1>session.h<a class="headerlink" href="#session-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="softbus.md">Softbus</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares unified data transmission interfaces.</p>
+<p>This file provides data transmission capabilities, including creating
+and removing a session server, opening and closing sessions, receiving
+data, and querying basic session information. After multiple nearby
+devices are discovered and networked, these interfaces can be used to
+transmit data across devices.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2109716048191850"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1165991245191850"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p670551981191850"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2001288377191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p765293961191850"><p>ISessionListener</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p52010906191850"><p>Defines session callbacks.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row509631151191850"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1107812792191850"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2099590694191850"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1345238350191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p339485991191850"><p>CreateSessionServer (const char <em>mouduleName, const char</em>sessionName,
+struct ISessionListener *listener)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2138475678191850"><p>int</p>
+</p><p id="p1547580346191850"><p>Creates a session server based on a module name and session name.</p>
+</p></td></tr><tr id="row1621694930191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2076630316191850"><p>RemoveSessionServer (const char <em>mouduleName, const char</em>sessionName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p309083734191850"><p>int</p>
+</p><p id="p952645970191850"><p>Removes a session server based on a module name and session name.</p>
+</p></td></tr><tr id="row1498725396191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p723045014191850"><p>SendBytes (int sessionId, const void *data, unsigned int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p181959608191850"><p>int</p>
+</p><p id="p1493334283191850"><p>Sends data based on a session ID.</p>
+</p></td></tr><tr id="row11177390191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p168975478191850"><p>GetMySessionName (int sessionId, char *sessionName, unsigned int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1528791458191850"><p>int</p>
+</p><p id="p1728371366191850"><p>Obtains the session name registered by the local device based on the
+session ID.</p>
+</p></td></tr><tr id="row1374836815191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1047475709191850"><p>GetPeerSessionName (int sessionId, char *sessionName, unsigned int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1794515787191850"><p>int</p>
+</p><p id="p2097384205191850"><p>Obtains the session name registered by the peer device based on the
+session ID.</p>
+</p></td></tr><tr id="row167905559191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1975444409191850"><p>GetPeerDeviceId (int sessionId, char *devId, unsigned int len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p429008240191850"><p>int</p>
+</p><p id="p1249024965191850"><p>Obtains the peer device ID based on a session ID.</p>
+</p></td></tr><tr id="row1035797152191850"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1093811689191850"><p>CloseSession (int sessionId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1910693025191850"><p>void</p>
+</p><p id="p1171631554191850"><p>Closes a connected session based on a session ID.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-LinkIoT/session-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

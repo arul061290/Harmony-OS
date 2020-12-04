@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wifiiot_sdio.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wifiiot-sdio-h">
+<h1>wifiiot_sdio.h<a class="headerlink" href="#wifiiot-sdio-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wifiiot.md">Wifiiot</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares the SDIO interface functions.</p>
+<p>These functions are used for SDIO initialization and data transmission.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2025119091191856"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2006787447191856"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p778205323191856"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1724056676191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p960840943191856"><p>WifiIotSdioExtendFunc</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p970883816191856"><p>Provides extended SDIO attributes.</p>
+</p></td></tr><tr id="row832681846191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p672529293191856"><p>WifiIotSdioAdmatable</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p327288398191856"><p>Defines attributes of an SDIO ADMA table.</p>
+</p></td></tr><tr id="row528612650191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1786681748191856"><p>WifiIotSdioIntcallback</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p313451112191856"><p>SDIO interrupt callback structure.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row147245563191856"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2118691992191856"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p634520737191856"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row479764922191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p497858152191856"><p>WIFI_IOT_SDIO_EXTENDREG_COUNT 64</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p351457485191856"><p>Indicates the number of extended registers on an SDIO device.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1775478469191856"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p396002329191856"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1939039124191856"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1337505744191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1133302331191856"><p>NotifyHostMessageEvent) (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1186958895191856"><p>typedef void(*</p>
+</p><p id="p1068228501191856"><p>Indicates the callback invoked upon a message event on the host.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1111734442191856"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p106035715191856"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p863697095191856"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row779767322191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1679090442191856"><p>SdioInit (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p958594571191856"><p>unsigned int</p>
+</p><p id="p1526930300191856"><p>Initializes the SDIO device.</p>
+</p></td></tr><tr id="row535330025191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p846167486191856"><p>SdioReinit (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p197196488191856"><p>unsigned int</p>
+</p><p id="p1687484172191856"><p>Reinitializes the SDIO device.</p>
+</p></td></tr><tr id="row1029225989191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p838166926191856"><p>SdioSoftReset (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1703191067191856"><p>void</p>
+</p><p id="p567609182191856"><p>Resets the SDIO device.</p>
+</p></td></tr><tr id="row1760485709191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2022255439191856"><p>SdioRegisterCallback (const WifiIotSdioIntcallback *callbackFunc)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1200302670191856"><p>unsigned int</p>
+</p><p id="p1192958254191856"><p>Registers an interrupt callback for the SDIO device.</p>
+</p></td></tr><tr id="row72719481191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1450225611191856"><p>SdioCompleteSend (unsigned char *admaTable, unsigned int admaIndex)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p389381829191856"><p>unsigned int</p>
+</p><p id="p1051861650191856"><p>Completes data sending on the SDIO device.</p>
+</p></td></tr><tr id="row1505090611191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p280036595191856"><p>SdioSetPadAdmatab (unsigned int padlen, unsigned char *admatable,
+unsigned int admaIndex)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p924354191191856"><p>unsigned int</p>
+</p><p id="p1023993112191856"><p>Sets the ADMA table that requires data padding.</p>
+</p></td></tr><tr id="row1134223407191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p488033918191856"><p>SdioWriteExtinfo (WifiIotSdioExtendFunc *extFunc)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p260015344191856"><p>unsigned int</p>
+</p><p id="p504048199191856"><p>Sets the extended SDIO attributes.</p>
+</p></td></tr><tr id="row727547964191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1982763229191856"><p>SdioSendData (unsigned int xferBytes)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p856672693191856"><p>void</p>
+</p><p id="p1474205635191856"><p>Starts to send data.</p>
+</p></td></tr><tr id="row1840278548191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1591993505191856"><p>SdioSetAdmatable (unsigned char <em>admatable, unsigned int admaIndex,
+const unsigned int</em>dataAddr, unsigned int dataLen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p368023490191856"><p>unsigned int</p>
+</p><p id="p310998694191856"><p>Sets an SDIO ADMA.</p>
+</p></td></tr><tr id="row1499368369191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p773525563191856"><p>SdioSchedMsg (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1577621158191856"><p>unsigned int</p>
+</p><p id="p39164521191856"><p>Sends a suspended SDIO message.</p>
+</p></td></tr><tr id="row539898116191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1052060773191856"><p>SdioSendSyncMsg (unsigned int msg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p386560680191856"><p>unsigned int</p>
+</p><p id="p1779525623191856"><p>Adds a message to a message queue and sends the message.</p>
+</p></td></tr><tr id="row1094352814191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1454484793191856"><p>SdioSendMsgAck (unsigned int msg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1989812219191856"><p>unsigned int</p>
+</p><p id="p1392673565191856"><p>Sends a specified message.</p>
+</p></td></tr><tr id="row224530568191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p76290585191856"><p>SdioProcessMsg (unsigned int sendMsg, unsigned int clearMsg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p475982639191856"><p>unsigned int</p>
+</p><p id="p1479731141191856"><p>Clears a specified suspended message in the message queue, adds a new
+message to it, and sends the new message.</p>
+</p></td></tr><tr id="row413993814191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1097768192191856"><p>SdioIsPendingMsg (unsigned int msg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1133927959191856"><p>unsigned int</p>
+</p><p id="p412611338191856"><p>Checks whether a specified message is suspended.</p>
+</p></td></tr><tr id="row162791983191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p631585513191856"><p>SdioIsSendingMsg (unsigned int msg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p787726993191856"><p>unsigned int</p>
+</p><p id="p1570974268191856"><p>Checks whether a specified message is being sent.</p>
+</p></td></tr><tr id="row151182942191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p605545143191856"><p>SdioGetExtendInfo (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1111850642191856"><p>WifiIotSdioExtendFunc *</p>
+</p><p id="p94762755191856"><p>Obtains the extended configuration.</p>
+</p></td></tr><tr id="row990780187191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p275385992191856"><p>SdioRegisterNotifyMessageCallback (NotifyHostMessageEvent
+msgEventCallback)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p61351880191856"><p>void</p>
+</p><p id="p2124667716191856"><p>Registers the callback that will be invoked when the host sends a
+message or data.</p>
+</p></td></tr><tr id="row495022824191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1443087532191856"><p>SdioSetPowerdownWhenDeepSleep (unsigned char powerDown)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1070065849191856"><p>void</p>
+</p><p id="p432990987191856"><p>Sets whether the SDIO device is powered off in deep sleep mode.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-LinkIoT/wifiiot_sdio-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

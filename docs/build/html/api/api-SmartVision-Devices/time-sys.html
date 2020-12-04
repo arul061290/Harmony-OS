@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIME-SYS &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="time-sys">
+<h1>TIME-SYS<a class="headerlink" href="#time-sys" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides time-related structures and functions.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row192266033084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p281060842084825"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p637352577084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1126027299084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p106420225084825"><p>time.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2058398998084825"><p>Provides structures and functions related to the system time.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1198783983084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1678700962084825"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p318765907084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2032316635084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1772240382084825"><p>timeval</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1233136180084825"><p>Describes a period of time, accurate to microseconds.</p>
+</p></td></tr><tr id="row1671024393084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p935917371084825"><p>timespec</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p502340297084825"><p>Describes a period of time, accurate to nanoseconds.</p>
+</p></td></tr><tr id="row1408615150084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p697548861084825"><p>itimerval</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p398326615084825"><p>Describes a timer.</p>
+</p></td></tr><tr id="row273398965084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p176454503084825"><p>timezone</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p534996797084825"><p>Describes a time zone.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row354212481084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p889477735084825"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p176366868084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row913285298084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p614423692084825"><p>ITIMER_REAL 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p590867262084825"><p>Defines the timer that runs in real time.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1327413087084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1628064872084825"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1344928813084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row780566616084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1313326500084825"><p>gettimeofday (struct timeval *__restrict value, void *__restrict
+ovalue)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1619759575084825"><p>int</p>
+</p><p id="p549403834084825"><p>Obtains the system time and time zone.</p>
+</p></td></tr><tr id="row1476296576084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1334998215084825"><p>getitimer (int w, struct itimerval *old)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1994400571084825"><p>int</p>
+</p><p id="p397925961084825"><p>Obtains the value of an intermittent timer.</p>
+</p></td></tr><tr id="row1500423706084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p498304946084825"><p>setitimer (int w, const struct itimerval *__restrict value, struct
+itimerval *__restrict ovalue)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p854510192084825"><p>int</p>
+</p><p id="p1973114522084825"><p>Sets the value for a timer.</p>
+</p></td></tr><tr id="row1451724982084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2078376698084825"><p>settimeofday (const struct timeval <em>tv, const struct timezone</em>tz)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1883048061084825"><p>int</p>
+</p><p id="p1660625993084825"><p>Sets the system time and time zone.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="getitimer">
+<h2>getitimer()<a class="headerlink" href="#getitimer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">getitimer</span> <span class="p">(</span><span class="nb">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">itimerval</span><span class="p">](</span><span class="n">itimerval</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">old</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the value of an intermittent timer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row430070198084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1017941395084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1218417076084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1066156706084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>w</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timer type. Only ITIMER_REAL is supported.</p>
+</td></tr><tr id="row1189108372084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>old</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the timer value.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1258296409084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1145039964084825"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1615727535084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1527306109084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1376636081084825"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p850019798084825"><p>Incorrect input or timer type.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="gettimeofday">
+<h2>gettimeofday()<a class="headerlink" href="#gettimeofday" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">gettimeofday</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">timeval</span><span class="p">](</span><span class="n">timeval</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">value</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">ovalue</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the system time and time zone.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1596036796084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p393365129084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1259338566084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row584004683084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the timeval structure that contains the time.</p>
+</td></tr><tr id="row527445636084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>ovalue</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>This parameter is used for compatibility only.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>Currently, there is no time zone structure. The return value of
+<strong>ovalue</strong> is empty.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1111404798084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p720701527084825"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2028863164084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row988637233084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p280346866084825"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2095748546084825"><p>Incorrect input.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="setitimer">
+<h2>setitimer()<a class="headerlink" href="#setitimer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">setitimer</span> <span class="p">(</span><span class="nb">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="p">[</span><span class="n">itimerval</span><span class="p">](</span><span class="n">itimerval</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">value</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">itimerval</span><span class="p">](</span><span class="n">itimerval</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">ovalue</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the value for a timer.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1653251937084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1900786889084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1020031589084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row420722515084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>w</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the timer type. Currently, only ITIMER_REAL is supported.</p>
+</td></tr><tr id="row685371915084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the timer value to set.</p>
+</td></tr><tr id="row643035268084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>ovalue</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the original timer value before the current
+setting, which can be NULL.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1582451809084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1134317088084825"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1064401294084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row969443180084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2112150985084825"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1989868443084825"><p>Incorrect input or timer type.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="settimeofday">
+<h2>settimeofday()<a class="headerlink" href="#settimeofday" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">settimeofday</span> <span class="p">(</span><span class="n">const</span> <span class="n">struct</span> <span class="p">[</span><span class="n">timeval</span><span class="p">](</span><span class="n">timeval</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">tv</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="p">[</span><span class="n">timezone</span><span class="p">](</span><span class="n">timezone</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">tz</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the system time and time zone.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row169668102084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1953545329084825"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p874517521084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row626945386084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>tv</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the time to set.</p>
+</td></tr><tr id="row253178761084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>tz</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the time zone to set. This parameter is not
+used yet.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p><strong>tz</strong> is invalid. The time is set internally using <strong>clock_settime</strong>.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1924991776084825"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1769644581084825"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1227878334084825"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row408770764084825"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p466449714084825"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p370213637084825"><p>Incorrect input.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/time-sys.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

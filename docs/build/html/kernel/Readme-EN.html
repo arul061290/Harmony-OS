@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kernel Usage Guidelines &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="kernel-usage-guidelines">
+<h1>Kernel Usage Guidelines<a class="headerlink" href="#kernel-usage-guidelines" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="openharmony-lite-kernel-basic-functions.rst">OpenHarmony Lite Kernel Basic
+Functions</a></p>
+<ul>
+<li><p><a class="reference external" href="process.rst">Process</a></p></li>
+<li><p><a class="reference external" href="thread.rst">Thread</a></p></li>
+<li><p><a class="reference external" href="memory.rst">Memory</a></p></li>
+<li><p><a class="reference external" href="network.rst">Network</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="openharmony-lite-kernel-file-system.rst">OpenHarmony Lite Kernel File
+System</a></p>
+<ul>
+<li><p><a class="reference external" href="vfs.rst">VFS</a></p></li>
+<li><p><a class="reference external" href="nfs.rst">NFS</a></p></li>
+<li><p><a class="reference external" href="ramfs.rst">RAMFS</a></p></li>
+<li><p><a class="reference external" href="fat.rst">FAT</a></p></li>
+<li><p><a class="reference external" href="jffs2.rst">JFFS2</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="standard-library.rst">Standard Library</a></p>
+<ul>
+<li><p><a class="reference external" href="standard-library-0.rst">Standard Library</a></p></li>
+<li><p><a class="reference external" href="differences-from-the-linux-standard-library.rst">Differences from the Linux Standard
+Library</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="commissioning.rst">Commissioning</a></p>
+<ul>
+<li><p><a class="reference external" href="introduction-to-the-shell.rst">Introduction to the Shell</a></p></li>
+<li><p><a class="reference external" href="shell-command-development-guidelines.rst">Shell Command Development
+Guidelines</a></p></li>
+<li><p><a class="reference external" href="shell-command-programming-example.rst">Shell Command Programming
+Example</a></p></li>
+<li><p><a class="reference external" href="shell-command-reference.rst">Shell Command Reference</a></p>
+<ul>
+<li><p><a class="reference external" href="system-commands.rst">System Commands</a></p>
+<ul>
+<li><p><a class="reference external" href="cpup.rst">cpup</a></p></li>
+<li><p><a class="reference external" href="date.rst">date</a></p></li>
+<li><p><a class="reference external" href="dmesg.rst">dmesg</a></p></li>
+<li><p><a class="reference external" href="exec.rst">exec</a></p></li>
+<li><p><a class="reference external" href="free.rst">free</a></p></li>
+<li><p><a class="reference external" href="help.rst">help</a></p></li>
+<li><p><a class="reference external" href="hwi.rst">hwi</a></p></li>
+<li><p><a class="reference external" href="kill.rst">kill</a></p></li>
+<li><p><a class="reference external" href="log.rst">log</a></p></li>
+<li><p><a class="reference external" href="memcheck.rst">memcheck</a></p></li>
+<li><p><a class="reference external" href="oom.rst">oom</a></p></li>
+<li><p><a class="reference external" href="pmm.rst">pmm</a></p></li>
+<li><p><a class="reference external" href="reset.rst">reset</a></p></li>
+<li><p><a class="reference external" href="sem.rst">sem</a></p></li>
+<li><p><a class="reference external" href="stack.rst">stack</a></p></li>
+<li><p><a class="reference external" href="su.rst">su</a></p></li>
+<li><p><a class="reference external" href="swtmr.rst">swtmr</a></p></li>
+<li><p><a class="reference external" href="systeminfo.rst">systeminfo</a></p></li>
+<li><p><a class="reference external" href="task.rst">task</a></p></li>
+<li><p><a class="reference external" href="uname.rst">uname</a></p></li>
+<li><p><a class="reference external" href="vmm.rst">vmm</a></p></li>
+<li><p><a class="reference external" href="watch.rst">watch</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="file-commands.rst">File Commands</a></p>
+<ul>
+<li><p><a class="reference external" href="cat.rst">cat</a></p></li>
+<li><p><a class="reference external" href="cd.rst">cd</a></p></li>
+<li><p><a class="reference external" href="chgrp.rst">chgrp</a></p></li>
+<li><p><a class="reference external" href="chmod.rst">chmod</a></p></li>
+<li><p><a class="reference external" href="chown.rst">chown</a></p></li>
+<li><p><a class="reference external" href="cp.rst">cp</a></p></li>
+<li><p><a class="reference external" href="format.rst">format</a></p></li>
+<li><p><a class="reference external" href="ls.rst">ls</a></p></li>
+<li><p><a class="reference external" href="lsfd.rst">lsfd</a></p></li>
+<li><p><a class="reference external" href="mkdir.rst">mkdir</a></p></li>
+<li><p><a class="reference external" href="mount.rst">mount</a></p></li>
+<li><p><a class="reference external" href="partinfo.rst">partinfo</a></p></li>
+<li><p><a class="reference external" href="partition.rst">partition</a></p></li>
+<li><p><a class="reference external" href="pwd.rst">pwd</a></p></li>
+<li><p><a class="reference external" href="rm.rst">rm</a></p></li>
+<li><p><a class="reference external" href="rmdir.rst">rmdir</a></p></li>
+<li><p><a class="reference external" href="statfs.rst">statfs</a></p></li>
+<li><p><a class="reference external" href="sync.rst">sync</a></p></li>
+<li><p><a class="reference external" href="touch.rst">touch</a></p></li>
+<li><p><a class="reference external" href="writeproc.rst">writeproc</a></p></li>
+<li><p><a class="reference external" href="umount.rst">umount</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="network-commands.rst">Network Commands</a></p>
+<ul>
+<li><p><a class="reference external" href="arp.rst">arp</a></p></li>
+<li><p><a class="reference external" href="dhclient.rst">dhclient</a></p></li>
+<li><p><a class="reference external" href="dns.rst">dns</a></p></li>
+<li><p><a class="reference external" href="ifconfig.rst">ifconfig</a></p></li>
+<li><p><a class="reference external" href="ipdebug.rst">ipdebug</a></p></li>
+<li><p><a class="reference external" href="netstat.rst">netstat</a></p></li>
+<li><p><a class="reference external" href="ntpdate.rst">ntpdate</a></p></li>
+<li><p><a class="reference external" href="ping.rst">ping</a></p></li>
+<li><p><a class="reference external" href="ping6.rst">ping6</a></p></li>
+<li><p><a class="reference external" href="telnet.rst">telnet</a></p></li>
+<li><p><a class="reference external" href="tftp.rst">tftp</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="magic-key-usage.rst">Magic Key Usage</a></p></li>
+<li><p><a class="reference external" href="user-space-exception-information.rst">User-Space Exception
+Information</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/Readme-EN.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

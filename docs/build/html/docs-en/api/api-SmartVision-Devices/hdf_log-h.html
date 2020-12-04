@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hdf_log.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hdf-log-h">
+<h1>hdf_log.h<a class="headerlink" href="#hdf-log-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="driverutils.md">DriverUtils</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares log printing functions of the driver module. This module
+provides functions for printing logs at the verbose, debug, information,
+warning, and error levels.</p>
+<p>To use these functions, you must define <strong>HDF_LOG_TAG</strong>, for example,
+#define HDF_LOG_TAG evt.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1540299786093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1375405289093525"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p831903220093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2016145204093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1567601529093525"><p>LOG_TAG_MARK_EXTEND(HDF_TAG) #HDF_TAG</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "></td></tr><tr id="row2052661276093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1717711828093525"><p>HDF_LOGV(fmt, arg…) printf(“[HDF:V/&quot; LOG_TAG &quot;]” fmt
+“<a href="#id1"><span class="problematic" id="id2">:raw-latex:`\r\n`</span></a>”, ##arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1201297239093525"><p>Prints logs at the verbose level.</p>
+</p></td></tr><tr id="row1026030118093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1571404864093525"><p>HDF_LOGD(fmt, arg…) printf(“[HDF:D/&quot; LOG_TAG &quot;]” fmt
+“<a href="#id3"><span class="problematic" id="id4">:raw-latex:`\r\n`</span></a>”, ##arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1903141057093525"><p>Prints logs at the debug level.</p>
+</p></td></tr><tr id="row1310544128093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p656632918093525"><p>HDF_LOGI(fmt, arg…) printf(“[HDF:I/&quot; LOG_TAG &quot;]” fmt
+“<a href="#id5"><span class="problematic" id="id6">:raw-latex:`\r\n`</span></a>”, ##arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2142371427093525"><p>Prints logs at the information level.</p>
+</p></td></tr><tr id="row1863126406093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p256499208093525"><p>HDF_LOGW(fmt, arg…) printf(“[HDF:W/&quot; LOG_TAG &quot;]” fmt
+“<a href="#id7"><span class="problematic" id="id8">:raw-latex:`\r\n`</span></a>”, ##arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p508076966093525"><p>Prints logs at the warning level.</p>
+</p></td></tr><tr id="row1258814462093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1898504596093525"><p>HDF_LOGE(fmt, arg…) printf(“[HDF:E/&quot; LOG_TAG &quot;]” fmt
+“<a href="#id9"><span class="problematic" id="id10">:raw-latex:`\r\n`</span></a>”, ##arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1443792214093525"><p>Prints logs at the error level.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/hdf_log-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

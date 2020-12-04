@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development Guidelines on Photographing &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="development-guidelines-on-photographing">
+<h1>Development Guidelines on Photographing<a class="headerlink" href="#development-guidelines-on-photographing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="when-to-use">
+<h2>When to Use<a class="headerlink" href="#when-to-use" title="Permalink to this headline">¶</a></h2>
+<p>Use the camera module APIs to capture frames (photographing).</p>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> APIs for photographing</p>
+<table><thead align="left"><tr id="row4903852104914"><th class="cellrowborder" valign="top" width="18.811881188118814%" id="mcps1.2.4.1.1"><p id="p2903252174918"><p>Class</p>
+</p></th><th class="cellrowborder" valign="top" width="46.534653465346544%" id="mcps1.2.4.1.2"><p id="p1595113912507"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="34.65346534653466%" id="mcps1.2.4.1.3"><p id="p15951597508"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row492815717494"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1592812716495"><p>CameraKit</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p1492837144919"><p>int32_t GetCameraIds(std::list&lt;string&gt; cameraList)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p2092807134919"><p>Obtains IDs of cameras that are currently available.</p>
+</p></td></tr><tr id="row11928157114912"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p139287774911"><p>CameraKit</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p9928107174915"><p>CameraAbility&amp; GetCameraAbility(string cameraId)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p139281171494"><p>Obtains the camera capability</p>
+</p></td></tr><tr id="row119282719496"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p159288734914"><p>CameraKit</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p99280794913"><p>void RegisterCameraDeviceCallback(CameraDeviceCallback* callback,
+EventHandler* handler)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p8928197134910"><p>Registers a camera callback for camera status changes.</p>
+</p></td></tr><tr id="row4928673496"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p14928770497"><p>CameraKit</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p14928197194915"><p>void UnregisterCameraDeviceCallback(CameraDeviceCallback* callback)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p17929197134913"><p>Unregisters a camera callback.</p>
+</p></td></tr><tr id="row16929187104912"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p6929157184911"><p>CameraKit</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p1192910704914"><p>void CreateCamera(string cameraId, CameraStateCallback* callback,
+EventHandler* handler)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p12929167154912"><p>Creates a Camera instance.</p>
+</p></td></tr><tr id="row592967184912"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p9929127134915"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p0929107204913"><p>string GetCameraId()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p1592914710490"><p>Obtains the camera ID.</p>
+</p></td></tr><tr id="row13929197104913"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p16929167134913"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p15929175491"><p>CameraConfig&amp; GetCameraConfig()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p19298714917"><p>Obtains the camera configuration.</p>
+</p></td></tr><tr id="row1892918764915"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p69291072495"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p5930172494"><p>FrameConfig&amp; GetFrameConfig(int32_t type)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p19301176495"><p>Obtains the frame configuration.</p>
+</p></td></tr><tr id="row893019794915"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p893016714919"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p1093067134915"><p>void Configure(CameraConfig&amp; config)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p1493037114912"><p>Configures the camera using the CameraConfig object.</p>
+</p></td></tr><tr id="row11930197174917"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p4930197184914"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p19304717492"><p>void Release()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p189301479494"><p>Releases the Camera object and associated resources.</p>
+</p></td></tr><tr id="row109304717499"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p4930873496"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p1893017720490"><p>int TriggerLoopingCapture(FrameConfig&amp; frameConfig)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p149307754918"><p>Starts looping-frame capture.</p>
+</p></td></tr><tr id="row19306794915"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p6930167194910"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p139311577499"><p>void StopLoopingCapture()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p693115764914"><p>Stops looping-frame capture.</p>
+</p></td></tr><tr id="row593116713492"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1193187174913"><p>Camera</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p1493111713496"><p>int32_t TriggerSingleCapture(FrameConfig&amp; frameConfig)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p1193137104919"><p>Starts single-frame capture.</p>
+</p></td></tr><tr id="row1693112711491"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p89312716494"><p>CameraConfig</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p199312784912"><p>void SetFrameStateCallback(FrameStateCallback* callback, EventHandler*
+handler);</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p49312714495"><p>Sets a frame state callback to respond to state changes.</p>
+</p></td></tr><tr id="row9931076492"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p59317784917"><p>CameraConfig</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p17931197124912"><p>static CameraConfig* CreateCameraConfig()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p5931177164912"><p>Creates a CameraConfig instance.</p>
+</p></td></tr><tr id="row29321744917"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1093219716492"><p>CameraAbility</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p12932979493"><p>std::list&lt;Size&gt; GetSupportedSizes(int format)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p1493210764918"><p>Obtains the supported image sizes for a specified image format.</p>
+</p></td></tr><tr id="row1193267184910"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1393214717492"><p>CameraAbility</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p119321477495"><p>std::list&lt;T&gt; GetParameterRange(uint32_t key)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p139331079491"><p>Obtains the parameter value range based on a specified parameter key.</p>
+</p></td></tr><tr id="row0933197134920"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1493310764917"><p>CameraDevice</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p493313724915"><p>CameraDeviceCallback()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p993416724915"><p>A constructor used to create a CameraDeviceCallback instance.</p>
+</p></td></tr><tr id="row093418712498"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p159341779492"><p>CameraDevice</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p1493411774912"><p>void OnCameraStatus​(std::string cameraId, int32_t status)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p1393419715491"><p>Called when the camera device status changes.</p>
+</p></td></tr><tr id="row109348711497"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p993419724914"><p>CameraStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p993418720497"><p>CameraStateCallback​()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p693511794919"><p>A constructor used to create a CameraStateCallback instance.</p>
+</p></td></tr><tr id="row159358717497"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1992012253527"><p>CameraStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p29351077497"><p>void OnConfigured​(Camera&amp; camera)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p093515774914"><p>Called when the camera is configured.</p>
+</p></td></tr><tr id="row9935147184918"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p117291328135211"><p>CameraStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p19935174496"><p>void OnConfigureFailed​(Camera&amp; camera,int32_t errorCode)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p159352077495"><p>Called when the camera fails to be configured.</p>
+</p></td></tr><tr id="row1935279498"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1514619311525"><p>CameraStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p493512744915"><p>void OnCreated​(Camera&amp; camera)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p1493511784914"><p>Called when the camera is successfully created.</p>
+</p></td></tr><tr id="row189351877493"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p172071933175218"><p>CameraStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p129361977498"><p>void OnCreateFailed​(std::string cameraId,int32_t errorCode)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p2936197114919"><p>Called when the camera fails to be created.</p>
+</p></td></tr><tr id="row20936472491"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p61213391523"><p>CameraStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p793697174919"><p>void OnReleased​(Camera&amp; camera)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p49361719495"><p>Called when the camera is released.</p>
+</p></td></tr><tr id="row159361179493"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p10936147194918"><p>FrameStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p9936279496"><p>FrameStateCallback​()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p49367718499"><p>A constructor used to create a FrameStateCallback instance.</p>
+</p></td></tr><tr id="row1893617744916"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p136968511524"><p>FrameStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p209379744911"><p>void OnFrameFinished(Camera&amp; camera, FrameConfig&amp; frameConfig,
+FrameResult&amp; frameResult)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p19374724913"><p>Called when the frame capture is completed.</p>
+</p></td></tr><tr id="row093719718495"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p772975317527"><p>FrameStateCallback</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p189371471498"><p>void OnFrameError​(Camera&amp; camera, FrameConfig&amp; frameConfig, int32_t
+errorCode, FrameResult&amp; frameResult)</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p109371778497"><p>Called when the frame capture fails.</p>
+</p></td></tr><tr id="row179381979499"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p169381975499"><p>FrameConfig</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p1793867124910"><p>int32_t GetFrameConfigType()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p1993817744915"><p>Obtains the frame configuration type.</p>
+</p></td></tr><tr id="row793817784912"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p69381724914"><p>FrameConfig</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p149382077496"><p>std::list&lt;OHOS::Surface&gt; GetSurfaces()</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p893867114919"><p>Obtains a list of surface objects (shared memories).</p>
+</p></td></tr><tr id="row109401570498"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p294019712492"><p>FrameConfig</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p19940170499"><p>void AddSurface(OHOS::AGP::UISurface&amp; surface);</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p11940197144915"><p>Adds a surface.</p>
+</p></td></tr><tr id="row994018711492"><td class="cellrowborder" valign="top" width="18.811881188118814%" headers="mcps1.2.4.1.1 "><p id="p1094016718493"><p>FrameConfig</p>
+</p></td><td class="cellrowborder" valign="top" width="46.534653465346544%" headers="mcps1.2.4.1.2 "><p id="p139411279498"><p>void RemoveSurface(OHOS::AGP::UISurface&amp; surface);</p>
+</p></td><td class="cellrowborder" valign="top" width="34.65346534653466%" headers="mcps1.2.4.1.3 "><p id="p39415717494"><p>Removes a surface.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="limitations-and-constraints">
+<h2>Limitations and Constraints<a class="headerlink" href="#limitations-and-constraints" title="Permalink to this headline">¶</a></h2>
+<p>None</p>
+</div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Extend the <strong>CameraDeviceCallback</strong> class and call <strong>OnCameraStatus</strong>
+to customize operations when the camera device changes, for example,
+when a camera becomes available or unavailable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SampleCameraDeviceCallback</span> <span class="p">:</span> <span class="n">public</span> <span class="n">CameraDeviceCallback</span> <span class="p">{</span>
+    <span class="n">void</span> <span class="n">OnCameraStatus</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">cameraId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">status</span><span class="p">)</span> <span class="n">override</span>
+    <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Do</span> <span class="n">something</span> <span class="n">when</span> <span class="n">camera</span> <span class="ow">is</span> <span class="n">available</span> <span class="ow">or</span> <span class="n">unavailable</span><span class="o">.</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</li>
+<li><p>Extend the <strong>FrameStateCallback</strong> class. After obtaining the frame
+data, save the data as a file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">SampleSaveCapture</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Start saving picture&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="n">timeval</span> <span class="n">tv</span><span class="p">;</span>
+    <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+    <span class="n">struct</span> <span class="n">tm</span> <span class="o">*</span><span class="n">ltm</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="o">.</span><span class="n">tv_sec</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ltm</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ostringstream</span> <span class="n">ss</span><span class="p">(</span><span class="s2">&quot;Capture_&quot;</span><span class="p">);</span>
+        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Capture&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;-&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_min</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;-&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_sec</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;.jpg&quot;</span><span class="p">;</span>
+
+        <span class="n">ofstream</span> <span class="n">pic</span><span class="p">(</span><span class="s2">&quot;/sdcard/&quot;</span> <span class="o">+</span> <span class="n">ss</span><span class="o">.</span><span class="n">str</span><span class="p">(),</span> <span class="n">ofstream</span><span class="p">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ofstream</span><span class="p">::</span><span class="n">trunc</span><span class="p">);</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;write &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">size</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; bytes&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Saving picture end&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">TestFrameStateCallback</span> <span class="p">:</span> <span class="n">public</span> <span class="n">FrameStateCallback</span> <span class="p">{</span>
+    <span class="n">void</span> <span class="n">OnFrameFinished</span><span class="p">(</span><span class="n">Camera</span> <span class="o">&amp;</span><span class="n">camera</span><span class="p">,</span> <span class="n">FrameConfig</span> <span class="o">&amp;</span><span class="n">fc</span><span class="p">,</span> <span class="n">FrameResult</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">)</span> <span class="n">override</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Receive frame complete inform.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">GetFrameConfigType</span><span class="p">()</span> <span class="o">==</span> <span class="n">FRAME_CONFIG_CAPTURE</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Capture frame received.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="nb">list</span><span class="o">&lt;</span><span class="n">Surface</span> <span class="o">*&gt;</span> <span class="n">surfaceList</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">GetSurfaces</span><span class="p">();</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">Surface</span> <span class="o">*</span><span class="n">surface</span> <span class="p">:</span> <span class="n">surfaceList</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">SurfaceBuffer</span> <span class="o">*</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">AcquireBuffer</span><span class="p">();</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">buffer</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">char</span> <span class="o">*</span><span class="n">virtAddr</span> <span class="o">=</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="n">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">GetVirAddr</span><span class="p">());</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">virtAddr</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">SampleSaveCapture</span><span class="p">(</span><span class="n">virtAddr</span><span class="p">,</span> <span class="n">buffer</span><span class="o">-&gt;</span><span class="n">GetSize</span><span class="p">());</span>
+                    <span class="p">}</span>
+                    <span class="n">surface</span><span class="o">-&gt;</span><span class="n">ReleaseBuffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">delete</span> <span class="n">surface</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">delete</span> <span class="o">&amp;</span><span class="n">fc</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</li>
+<li><p>Extend the <strong>CameraStateCallback</strong> class and customize operations
+when the camera state changes (configuration successful or failed,
+and creation successful or failed).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SampleCameraStateMng</span> <span class="p">:</span> <span class="n">public</span> <span class="n">CameraStateCallback</span> <span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+    <span class="n">SampleCameraStateMng</span><span class="p">()</span> <span class="o">=</span> <span class="n">delete</span><span class="p">;</span>
+    <span class="n">SampleCameraStateMng</span><span class="p">(</span><span class="n">EventHandler</span> <span class="o">&amp;</span><span class="n">eventHdlr</span><span class="p">)</span> <span class="p">:</span> <span class="n">eventHdlr_</span><span class="p">(</span><span class="n">eventHdlr</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="o">~</span><span class="n">SampleCameraStateMng</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">recordFd_</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">recordFd_</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">OnCreated</span><span class="p">(</span><span class="n">Camera</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="n">override</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Sample recv OnCreate camera.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">auto</span> <span class="n">config</span> <span class="o">=</span> <span class="n">CameraConfig</span><span class="p">::</span><span class="n">CreateCameraConfig</span><span class="p">();</span>
+        <span class="n">config</span><span class="o">-&gt;</span><span class="n">SetFrameStateCallback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fsCb_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">eventHdlr_</span><span class="p">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">Configure</span><span class="p">(</span><span class="o">*</span><span class="n">config</span><span class="p">);</span>
+        <span class="n">cam_</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">void</span> <span class="n">OnCreateFailed</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">cameraId</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">errorCode</span><span class="p">)</span> <span class="n">override</span> <span class="p">{}</span>
+    <span class="n">void</span> <span class="n">OnReleased</span><span class="p">(</span><span class="n">Camera</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="n">override</span> <span class="p">{}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a <strong>CameraKit</strong> instance to set and obtain camera information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CameraKit</span> <span class="o">*</span><span class="n">camKit</span> <span class="o">=</span> <span class="n">CameraKit</span><span class="p">::</span><span class="n">GetInstance</span><span class="p">();</span>
+<span class="nb">list</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">camList</span> <span class="o">=</span> <span class="n">camKit</span><span class="o">-&gt;</span><span class="n">GetCameraIds</span><span class="p">();</span>
+<span class="n">string</span> <span class="n">camId</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">cam</span> <span class="p">:</span> <span class="n">camList</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;camera name:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">cam</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">const</span> <span class="n">CameraAbility</span> <span class="o">*</span><span class="n">ability</span> <span class="o">=</span> <span class="n">camKit</span><span class="o">-&gt;</span><span class="n">GetCameraAbility</span><span class="p">(</span><span class="n">cam</span><span class="p">);</span>
+    <span class="o">/*</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">camera</span> <span class="n">that</span> <span class="n">fits</span> <span class="n">your</span> <span class="n">ability</span><span class="o">.</span> <span class="o">*/</span>
+    <span class="nb">list</span><span class="o">&lt;</span><span class="n">CameraPicSize</span><span class="o">&gt;</span> <span class="n">sizeList</span> <span class="o">=</span> <span class="n">ability</span><span class="o">-&gt;</span><span class="n">GetSupportedSizes</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">sizeList</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">sizeList</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">CAM_PIC_1080P</span><span class="p">)</span> <span class="o">!=</span> <span class="n">sizeList</span><span class="o">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">camId</span> <span class="o">=</span> <span class="n">cam</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a <strong>Camera</strong> instance.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EventHandler</span> <span class="n">eventHdlr</span><span class="p">;</span> <span class="o">//</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">thread</span> <span class="n">to</span> <span class="n">handle</span> <span class="n">callback</span> <span class="n">events</span><span class="o">.</span>
+<span class="n">SampleCameraStateMng</span> <span class="n">CamStateMng</span><span class="p">(</span><span class="n">eventHdlr</span><span class="p">);</span>
+
+<span class="n">camKit</span><span class="o">-&gt;</span><span class="n">CreateCamera</span><span class="p">(</span><span class="n">camId</span><span class="p">,</span> <span class="n">CamStateMng</span><span class="p">,</span> <span class="n">eventHdlr</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>In the main process, synchronize configurations set by callback
+functions implemented in <a class="reference external" href="#li378084192111">step 1</a>, <a class="reference external" href="#li8716104682913">step
+2</a>, and <a class="reference external" href="#li6671035102514">step 3</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">OnCreated</span><span class="p">(</span><span class="n">Camera</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="n">override</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Sample recv OnCreate camera.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">auto</span> <span class="n">config</span> <span class="o">=</span> <span class="n">CameraConfig</span><span class="p">::</span><span class="n">CreateCameraConfig</span><span class="p">();</span>
+    <span class="n">config</span><span class="o">-&gt;</span><span class="n">SetFrameStateCallback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fsCb_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">eventHdlr_</span><span class="p">);</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">Configure</span><span class="p">(</span><span class="o">*</span><span class="n">config</span><span class="p">);</span>
+    <span class="n">cam_</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">Capture</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">cam_</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Camera is not ready.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">FrameConfig</span> <span class="o">*</span><span class="n">fc</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FrameConfig</span><span class="p">(</span><span class="n">FRAME_CONFIG_CAPTURE</span><span class="p">);</span>
+    <span class="n">Surface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Surface</span><span class="p">::</span><span class="n">CreateSurface</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">surface</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">delete</span> <span class="n">fc</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">surface</span><span class="o">-&gt;</span><span class="n">SetWidthAndHeight</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">);</span> <span class="o">/*</span> <span class="mi">1920</span><span class="p">:</span><span class="n">width</span><span class="p">,</span><span class="mi">1080</span><span class="p">:</span><span class="n">height</span> <span class="o">*/</span>
+    <span class="n">fc</span><span class="o">-&gt;</span><span class="n">AddSurface</span><span class="p">(</span><span class="o">*</span><span class="n">surface</span><span class="p">);</span>
+    <span class="n">cam_</span><span class="o">-&gt;</span><span class="n">TriggerSingleCapture</span><span class="p">(</span><span class="o">*</span><span class="n">fc</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/subsystems/development-guidelines-on-photographing.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

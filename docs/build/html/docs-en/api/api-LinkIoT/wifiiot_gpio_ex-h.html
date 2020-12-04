@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wifiiot_gpio_ex.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wifiiot-gpio-ex-h">
+<h1>wifiiot_gpio_ex.h<a class="headerlink" href="#wifiiot-gpio-ex-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wifiiot.md">Wifiiot</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares the extended GPIO interface functions.</p>
+<p>These functions are used for settings GPIO pulls and driver strength.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1923223240191855"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p463847437191855"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1541683396191855"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row941234300191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p227114784191855"><p>WifiIotIoName { WIFI_IOT_IO_NAME_GPIO_0, WIFI_IOT_IO_NAME_GPIO_1,
+WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_IO_NAME_GPIO_3,
+WIFI_IOT_IO_NAME_GPIO_4, WIFI_IOT_IO_NAME_GPIO_5,
+WIFI_IOT_IO_NAME_GPIO_6, WIFI_IOT_IO_NAME_GPIO_7,
+WIFI_IOT_IO_NAME_GPIO_8, WIFI_IOT_IO_NAME_GPIO_9,
+WIFI_IOT_IO_NAME_GPIO_10, WIFI_IOT_IO_NAME_GPIO_11,
+WIFI_IOT_IO_NAME_GPIO_12, WIFI_IOT_IO_NAME_GPIO_13,
+WIFI_IOT_IO_NAME_GPIO_14, WIFI_IOT_IO_NAME_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1827688024191855"><p>Enumerates GPIO hardware pin IDs.</p>
+</p></td></tr><tr id="row748543777191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p672095043191855"><p>WifiIotIoFuncGpio0 { WIFI_IOT_IO_FUNC_GPIO_0_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_0_UART1_TXD = 2, WIFI_IOT_IO_FUNC_GPIO_0_SPI1_CK,
+WIFI_IOT_IO_FUNC_GPIO_0_JTAG_TDO, WIFI_IOT_IO_FUNC_GPIO_0_PWM3_OUT,
+WIFI_IOT_IO_FUNC_GPIO_0_I2C1_SDA }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p931018453191855"><p>Enumerates the functions of GPIO hardware pin 0.</p>
+</p></td></tr><tr id="row818982764191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2099804926191855"><p>WifiiIotIoFuncGpio1 { WIFI_IOT_IO_FUNC_GPIO_1_GPIO }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2129370089191855"><p>Enumerates the functions of GPIO hardware pin 1.</p>
+</p></td></tr><tr id="row754706440191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1378806986191855"><p>WifiIotIoFuncGpio2 { WIFI_IOT_IO_FUNC_GPIO_2_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_2_UART1_RTS_N = 2,
+WIFI_IOT_IO_FUNC_GPIO_2_SPI1_TXD, WIFI_IOT_IO_FUNC_GPIO_2_JTAG_TRSTN,
+WIFI_IOT_IO_FUNC_GPIO_2_PWM2_OUT, WIFI_IOT_IO_FUNC_GPIO_2_SSI_CLK = 7 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1306968485191855"><p>Enumerates the functions of GPIO hardware pin 2.</p>
+</p></td></tr><tr id="row1204772861191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p243258400191855"><p>WifiIotIoFuncGpio3 { WIFI_IOT_IO_FUNC_GPIO_3_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_3_UART0_TXD, WIFI_IOT_IO_FUNC_GPIO_3_UART1_CTS_N,
+WIFI_IOT_IO_FUNC_GPIO_3_SPI1_CSN, WIFI_IOT_IO_FUNC_GPIO_3_JTAG_TDI,
+WIFI_IOT_IO_FUNC_GPIO_3_PWM5_OUT, WIFI_IOT_IO_FUNC_GPIO_3_I2C1_SDA,
+WIFI_IOT_IO_FUNC_GPIO_3_SSI_DATA }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1141988592191855"><p>Enumerates the functions of GPIO hardware pin 3.</p>
+</p></td></tr><tr id="row1874411640191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p832690429191855"><p>WifiIotIoFuncGpio4 { WIFI_IOT_IO_FUNC_GPIO_4_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_4_UART0_RXD = 2, WIFI_IOT_IO_FUNC_GPIO_4_JTAG_TMS
+= 4, WIFI_IOT_IO_FUNC_GPIO_4_PWM1_OUT, WIFI_IOT_IO_FUNC_GPIO_4_I2C1_SCL
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1413819347191855"><p>Enumerates the functions of GPIO hardware pin 4.</p>
+</p></td></tr><tr id="row2043658420191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2116967066191855"><p>WifiIotIoFuncGpio5 { WIFI_IOT_IO_FUNC_GPIO_5_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_5_UART1_RXD = 2, WIFI_IOT_IO_FUNC_GPIO_5_SPI0_CSN,
+WIFI_IOT_IO_FUNC_GPIO_5_PWM2_OUT = 5, WIFI_IOT_IO_FUNC_GPIO_5_I2S0_MCLK,
+WIFI_IOT_IO_FUNC_GPIO_5_BT_STATUS }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1221900176191855"><p>Enumerates the functions of GPIO hardware pin 5.</p>
+</p></td></tr><tr id="row2125104688191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1248045812191855"><p>WifiIotIoFuncGpio6 { WIFI_IOT_IO_FUNC_GPIO_6_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_6_UART1_TXD = 2, WIFI_IOT_IO_FUNC_GPIO_6_SPI0_CK,
+WIFI_IOT_IO_FUNC_GPIO_6_PWM3_OUT = 5, WIFI_IOT_IO_FUNC_GPIO_6_I2S0_TX,
+WIFI_IOT_IO_FUNC_GPIO_6_COEX_SWITCH }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1903805650191855"><p>Enumerates the functions of GPIO hardware pin 6.</p>
+</p></td></tr><tr id="row394032662191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1901842529191855"><p>WifiIotIoFuncGpio7 { WIFI_IOT_IO_FUNC_GPIO_7_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_7_UART1_CTS_N = 2,
+WIFI_IOT_IO_FUNC_GPIO_7_SPI0_RXD, WIFI_IOT_IO_FUNC_GPIO_7_PWM0_OUT = 5,
+WIFI_IOT_IO_FUNC_GPIO_7_I2S0_BCLK, WIFI_IOT_IO_FUNC_GPIO_7_BT_ACTIVE }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1673206689191855"><p>Enumerates the functions of GPIO hardware pin 7.</p>
+</p></td></tr><tr id="row1131072795191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1527128916191855"><p>WifiIotIoFuncGpio8 { WIFI_IOT_IO_FUNC_GPIO_8_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_8_UART1_RTS_N = 2,
+WIFI_IOT_IO_FUNC_GPIO_8_SPI0_TXD, WIFI_IOT_IO_FUNC_GPIO_8_PWM1_OUT = 5,
+WIFI_IOT_IO_FUNC_GPIO_8_I2S0_WS, WIFI_IOT_IO_FUNC_GPIO_8_WLAN_ACTIVE }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p298400775191855"><p>Enumerates the functions of GPIO hardware pin 8.</p>
+</p></td></tr><tr id="row1263273151191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1396515134191855"><p>WifiIotIoFuncGpio9 { WIFI_IOT_IO_FUNC_GPIO_9_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_9_I2C0_SCL, WIFI_IOT_IO_FUNC_GPIO_9_UART2_RTS_N,
+WIFI_IOT_IO_FUNC_GPIO_9_SDIO_D2, WIFI_IOT_IO_FUNC_GPIO_9_SPI0_TXD,
+WIFI_IOT_IO_FUNC_GPIO_9_PWM0_OUT, WIFI_IOT_IO_FUNC_GPIO_9_I2S0_MCLK = 7
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1327261295191855"><p>Enumerates the functions of GPIO hardware pin 9.</p>
+</p></td></tr><tr id="row671900722191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p347001875191855"><p>WifiIotIoFuncGpio10 { WIFI_IOT_IO_FUNC_GPIO_10_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_10_I2C0_SDA, WIFI_IOT_IO_FUNC_GPIO_10_UART2_CTS_N,
+WIFI_IOT_IO_FUNC_GPIO_10_SDIO_D3, WIFI_IOT_IO_FUNC_GPIO_10_SPI0_CK,
+WIFI_IOT_IO_FUNC_GPIO_10_PWM1_OUT, WIFI_IOT_IO_FUNC_GPIO_10_I2S0_TX = 7
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1139072309191855"><p>Enumerates the functions of GPIO hardware pin 10.</p>
+</p></td></tr><tr id="row1161784794191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1916899317191855"><p>WifiIotIoFuncGpio11 { WIFI_IOT_IO_FUNC_GPIO_11_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_11_UART2_TXD = 2,
+WIFI_IOT_IO_FUNC_GPIO_11_SDIO_CMD, WIFI_IOT_IO_FUNC_GPIO_11_SPI0_RXD,
+WIFI_IOT_IO_FUNC_GPIO_11_PWM2_OUT,
+WIFI_IOT_IO_FUNC_GPIO_11_RF_TX_EN_EXT, WIFI_IOT_IO_FUNC_GPIO_11_I2S0_RX
+}</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1910803656191855"><p>Enumerates the functions of GPIO hardware pin 11.</p>
+</p></td></tr><tr id="row71608615191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1059426275191855"><p>WifiIotIoFuncGpio12 { WIFI_IOT_IO_FUNC_GPIO_12_GPIO,
+WIFI_IOT_IO_FUNC_GPIO_12_UART2_RXD = 2,
+WIFI_IOT_IO_FUNC_GPIO_12_SDIO_CLK, WIFI_IOT_IO_FUNC_GPIO_12_SPI0_CSN,
+WIFI_IOT_IO_FUNC_GPIO_12_PWM3_OUT,
+WIFI_IOT_IO_FUNC_GPIO_12_RF_RX_EN_EXT,
+WIFI_IOT_IO_FUNC_GPIO_12_I2S0_BCLK }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p358111920191855"><p>Enumerates the functions of GPIO hardware pin 12.</p>
+</p></td></tr><tr id="row1265377075191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p14034757191855"><p>WifiIotIoFuncGpio13 { WIFI_IOT_IO_FUNC_GPIO_13_SSI_DATA,
+WIFI_IOT_IO_FUNC_GPIO_13_UART0_TXD,
+WIFI_IOT_IO_FUNC_GPIO_13_UART2_RTS_N, WIFI_IOT_IO_FUNC_GPIO_13_SDIO_D0,
+WIFI_IOT_IO_FUNC_GPIO_13_GPIO, WIFI_IOT_IO_FUNC_GPIO_13_PWM4_OUT,
+WIFI_IOT_IO_FUNC_GPIO_13_I2C0_SDA, WIFI_IOT_IO_FUNC_GPIO_13_I2S0_WS }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1338189786191855"><p>Enumerates the functions of GPIO hardware pin 13.</p>
+</p></td></tr><tr id="row1693674190191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1611461836191855"><p>WifiIotIoFuncGpio14 { WIFI_IOT_IO_FUNC_GPIO_14_SSI_CLK,
+WIFI_IOT_IO_FUNC_GPIO_14_UART0_RXD,
+WIFI_IOT_IO_FUNC_GPIO_14_UART2_CTS_N, WIFI_IOT_IO_FUNC_GPIO_14_SDIO_D1,
+WIFI_IOT_IO_FUNC_GPIO_14_GPIO, WIFI_IOT_IO_FUNC_GPIO_14_PWM5_OUT,
+WIFI_IOT_IO_FUNC_GPIO_14_I2C0_SCL }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p696172478191855"><p>Enumerates the functions of GPIO hardware pin 14.</p>
+</p></td></tr><tr id="row493352952191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p733664900191855"><p>WifiIotIoDriverStrength { WIFI_IOT_IO_DRIVER_STRENGTH_0 = 0,
+WIFI_IOT_IO_DRIVER_STRENGTH_1, WIFI_IOT_IO_DRIVER_STRENGTH_2,
+WIFI_IOT_IO_DRIVER_STRENGTH_3, WIFI_IOT_IO_DRIVER_STRENGTH_4,
+WIFI_IOT_IO_DRIVER_STRENGTH_5, WIFI_IOT_IO_DRIVER_STRENGTH_6,
+WIFI_IOT_IO_DRIVER_STRENGTH_7, WIFI_IOT_IO_DRIVER_STRENGTH_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1940553004191855"><p>Enumerates I/O driver strength levels.</p>
+</p></td></tr><tr id="row188735532191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1929724730191855"><p>WifiIotIoPull { WIFI_IOT_IO_PULL_NONE, WIFI_IOT_IO_PULL_UP,
+WIFI_IOT_IO_PULL_DOWN, WIFI_IOT_IO_PULL_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1626436920191855"><p>Enumerates GPIO pull-up or pull-down settings.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1135034810191855"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1705089723191855"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1557842670191855"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1431638042191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1436768789191855"><p>IoSetPull (WifiIotIoName id, WifiIotIoPull val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1212835318191855"><p>unsigned int</p>
+</p><p id="p143088046191855"><p>Sets the pull for a GPIO pin.</p>
+</p></td></tr><tr id="row1214420909191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1986833851191855"><p>IoSetFunc (WifiIotIoName id, unsigned char val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p749841875191855"><p>unsigned int</p>
+</p><p id="p953474949191855"><p>Sets the multiplexing function for a GPIO pin.</p>
+</p></td></tr><tr id="row1808513915191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1973366603191855"><p>IoGetPull (WifiIotIoName id, WifiIotIoPull *val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1327149614191855"><p>unsigned int</p>
+</p><p id="p38986411191855"><p>Obtains the pull type of a GPIO pin.</p>
+</p></td></tr><tr id="row279108655191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p847359784191855"><p>IoGetFunc (WifiIotIoName id, unsigned char *val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p240121022191855"><p>unsigned int</p>
+</p><p id="p283154257191855"><p>Obtains the multiplexing function for a GPIO pin.</p>
+</p></td></tr><tr id="row716609789191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1677140020191855"><p>IOGetDriverStrength (WifiIotIoName id, WifiIotIoDriverStrength *val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p785812322191855"><p>unsigned int</p>
+</p><p id="p717161299191855"><p>Obtains the driver strength of a GPIO pin.</p>
+</p></td></tr><tr id="row802220655191855"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p114466196191855"><p>IOSetDriverStrength (WifiIotIoName id, WifiIotIoDriverStrength val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1970081170191855"><p>unsigned int</p>
+</p><p id="p1172105982191855"><p>Sets the driver strength of a GPIO pin.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-LinkIoT/wifiiot_gpio_ex-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

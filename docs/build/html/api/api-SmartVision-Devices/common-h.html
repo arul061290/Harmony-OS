@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>common.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="common-h">
+<h1>common.h<a class="headerlink" href="#common-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="samgr.md">Samgr</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides common objects and functions for Samgr and external modules.</p>
+<p>This file provides simplified vector containers and downcast functions.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row895033026084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1465440290084829"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p343099128084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1829469714084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1053495260084829"><p>SimpleVector</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1130662023084829"><p>Defines the simplified vector class, which is extended by four elements.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row684569336084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2013278882084829"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p760384676084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1748160862084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1951619495084829"><p>GET_OFFSIZE(T, member) (long)((char <em>)&amp;(((T</em>)(0))-&gt;member))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1481142113084829"><p>Calculates the offset of the member in the T type.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row211825259084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p841756497084829"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1008946612084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row279621227084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1826683570084829"><p>Vector</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1915636425084829"><p>typedef struct SimpleVector</p>
+</p><p id="p1295488024084829"><p>Defines the simplified vector class, which is extended by four elements.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1480004627084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p994091695084829"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1924818835084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row341086008084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1993631919084829"><p>VECTOR_Make (VECTOR_Key key, VECTOR_Compare compare)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p460002576084829"><p>Vector</p>
+</p><p id="p911995001084829"><p>Creates or initializes a vector object.</p>
+</p></td></tr><tr id="row1678313751084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p621409671084829"><p>VECTOR_Clear (Vector *vector)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p985384400084829"><p>void</p>
+</p><p id="p745201302084829"><p>Destruct a vector object.</p>
+</p></td></tr><tr id="row1151716189084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p238184110084829"><p>VECTOR_Add (Vector <em>vector, void</em>element)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p805674329084829"><p>int16</p>
+</p><p id="p1436443396084829"><p>Adds an element to the vector.</p>
+</p></td></tr><tr id="row2063212975084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p567382327084829"><p>VECTOR_Size (Vector *vector)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1216378305084829"><p>int16</p>
+</p><p id="p1984979656084829"><p>Obtains the number of elements in the vector, including elements that
+have been set to NULL.</p>
+</p></td></tr><tr id="row786643968084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1283731084829"><p>VECTOR_Num (Vector *vector)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1579904021084829"><p>int16</p>
+</p><p id="p1381585756084829"><p>Obtains the number of valid elements in the vector, excluding elements
+that have been set to NULL.</p>
+</p></td></tr><tr id="row78862721084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p940902735084829"><p>VECTOR_At (Vector *vector, int16 index)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p480539533084829"><p>void *</p>
+</p><p id="p1078481822084829"><p>Obtains the element at a specified position.</p>
+</p></td></tr><tr id="row1513843380084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1307298800084829"><p>VECTOR_Swap (Vector <em>vector, int16 index, void</em>element)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1873037282084829"><p>void *</p>
+</p><p id="p1183549760084829"><p>Swaps the element at a specified position in a vector with another
+element.</p>
+</p></td></tr><tr id="row1063540854084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p863328461084829"><p>VECTOR_Find (Vector <em>vector, const void</em>element)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p177130075084829"><p>int16</p>
+</p><p id="p1048676133084829"><p>Checks the position of an element.</p>
+</p></td></tr><tr id="row1943039642084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1846340884084829"><p>VECTOR_FindByKey (Vector <em>vector, const void</em>key)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1185594924084829"><p>int16</p>
+</p><p id="p614322523084829"><p>Checks the position of the element with a specified key.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/common-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

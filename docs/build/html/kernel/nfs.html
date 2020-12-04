@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFS &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="nfs">
+<h1>NFS<a class="headerlink" href="#nfs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>NFS allows you to share files across hosts and OSs over a network. You
+can treat NFS as a file system service, which is equivalent to folder
+sharing in the Windows OS to some extent.</p>
+<p>An NFS client can mount a directory shared by a remote NFS server to the
+local host to run programs and share files without occupying the current
+system resources. The directory of the remote server is like a disk to
+the local host.</p>
+</div>
+<div class="section" id="important-notes">
+<h2>Important Notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>NFS files do not support permissions control. Use file permission
+<strong>777</strong> when creating NFS directories and files.</p></li>
+<li><p>NFS files do not support read or write blocking.</p></li>
+<li><p>NFS files do not support the signal function.</p></li>
+<li><p>In NFS, the path length (excluding the IP address) in a <strong>mount</strong>
+operation cannot exceed 255 characters. If the maximum length is
+exceeded, the error code <strong>ENAMETOOLONG</strong> error is returned.</p></li>
+<li><p>You can perform the following operation on NFS files: <strong>open</strong>,
+<strong>close</strong>, <strong>read</strong>, <strong>write</strong>, <strong>seek</strong>, <strong>dup</strong>, <strong>dup2</strong>,
+<strong>sync</strong>, <strong>opendir</strong>, <strong>closedir</strong>, <strong>readdir</strong>, <strong>readdir_r</strong>,
+<strong>rewinddir</strong>, <strong>scandir</strong>, <strong>statfs</strong>, <strong>remove</strong>, <strong>unlink</strong>,
+<strong>mkdir</strong>, <strong>rmdir</strong>, <strong>rename</strong>, <strong>stat</strong>, <strong>stat64</strong>, <strong>seek64</strong>,
+<strong>mmap</strong>, <strong>mount</strong>, and <strong>umount</strong>.</p></li>
+<li><p>Two transport layer protocols are supported in NFS: TCP (default) and
+UDP.</p></li>
+<li><p>When you use <strong>open</strong> with the parameter <strong>O_TRUNC</strong> to open a file,
+the file content will be cleared only when you have the write
+permission on the file.</p></li>
+<li><p>When file A is not closed and the <strong>rename()</strong> function renames file
+A as B, the fd is not changed.</p></li>
+<li><p>The NFS feature is currently in the beta test and may be unstable.
+You are advised not to use the feature in commercial products.</p></li>
+</ul>
+</div>
+<div class="section" id="development-guidelines">
+<h2>Development Guidelines<a class="headerlink" href="#development-guidelines" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Create an NFS server.</strong></p>
+<p>This section uses the Ubuntu operating system (OS) as an example to
+describe how to configure an NFS server.</p>
+<ol class="arabic">
+<li><p>Install the NFS server software.</p>
+<p>Set the download source of the Ubuntu OS when the network
+connection is normal.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">nfs</span><span class="o">-</span><span class="n">kernel</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a directory for mounting and set full permissions for the
+directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sqbin</span><span class="o">/</span><span class="n">nfs</span>
+<span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sqbin</span><span class="o">/</span><span class="n">nfs</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configure and start the NFS server.</p>
+<p>Append the following line in the <strong>/etc/exports</strong> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sqbin</span><span class="o">/</span><span class="n">nfs</span> <span class="o">*</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span><span class="n">no_root_squash</span><span class="p">,</span><span class="k">async</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>/home/sqbin/nfs</strong> is the root directory shared by the NFS
+server.</p>
+<p>Start the NFS server.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">nfs</span><span class="o">-</span><span class="n">kernel</span><span class="o">-</span><span class="n">server</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>Restart the NFS server.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">nfs</span><span class="o">-</span><span class="n">kernel</span><span class="o">-</span><span class="n">server</span> <span class="n">restart</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p><strong>Configure a board as the NFS client.</strong></p>
+<p>In this section, the NFS client is a device running the OpenHarmony
+kernel.</p>
+<ol class="arabic">
+<li><p>Set the hardware connection.</p>
+<p>Connect the OpenHarmony kernel device to the NFS server. Set their
+IP addresses in the same network segment. For example, set the IP
+address of the NFS server to 10.67.212.178/24 and that of the
+OpenHarmony kernel device to 10.67.212.3/24.</p>
+<p>You can run the <strong>ifconfig</strong> command to view the device’s IP
+address.</p>
+</li>
+<li><p>Start the network and ensure that the network between the board
+and NFS server is normal.</p>
+<p>Start the Ethernet or another type of network, and then run
+<strong>ping</strong> to check whether the network connection to the server is
+normal.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># ping 10.67.212.178</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="n">Reply</span> <span class="kn">from</span> <span class="mf">10.67</span><span class="o">.</span><span class="mf">212.178</span><span class="p">:</span> <span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">63</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="n">Reply</span> <span class="kn">from</span> <span class="mf">10.67</span><span class="o">.</span><span class="mf">212.178</span><span class="p">:</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">63</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="n">Reply</span> <span class="kn">from</span> <span class="mf">10.67</span><span class="o">.</span><span class="mf">212.178</span><span class="p">:</span> <span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">63</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="n">Reply</span> <span class="kn">from</span> <span class="mf">10.67</span><span class="o">.</span><span class="mf">212.178</span><span class="p">:</span> <span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">63</span>
+<span class="o">---</span> <span class="mf">10.67</span><span class="o">.</span><span class="mf">212.178</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
+<span class="mi">4</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">4</span> <span class="n">received</span><span class="p">,</span> <span class="mi">0</span> <span class="n">loss</span>
+</pre></div>
+</div>
+<p>Initialize the NFS client.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># mkdir /nfs</span>
+<span class="n">OHOS</span> <span class="c1"># mount 10.67.212.178:/home/sqbin/nfs /nfs nfs 1011 1000</span>
+</pre></div>
+</div>
+<p>If the following information is displayed, the NFS client is
+initialized.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># mount 10.67.212.178:/home/sqbin/nfs /nfs nfs 1011 1000</span>
+<span class="n">Mount</span> <span class="n">nfs</span> <span class="n">on</span> <span class="mf">10.67</span><span class="o">.</span><span class="mf">212.178</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sqbin</span><span class="o">/</span><span class="n">nfs</span><span class="p">,</span> <span class="n">uid</span><span class="p">:</span><span class="mi">1011</span><span class="p">,</span> <span class="n">gid</span><span class="p">:</span><span class="mi">1000</span>
+<span class="n">Mount</span> <span class="n">nfs</span> <span class="n">finished</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This command mounts the <strong>/home/sqbin/nfs</strong> directory on the NFS
+server whose IP address is 10.67.212.178 to the <strong>/nfs</strong> directory
+on the device.</p>
+<blockquote>
+<div><p><img alt="image1" src="../_images/icon-note4.gif" /> <strong>NOTE:</strong> This section assumes that the NFS server is
+available, that is, the <strong>/home/sqbin/nfs</strong> directory on the
+NFS server 10.67.212.178 is accessible.</p>
+</div></blockquote>
+<p>The <strong>mount</strong> command format is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mount</span> <span class="o">&lt;</span><span class="n">SERVER_IP</span><span class="p">:</span><span class="n">SERVER_PATH</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">CLIENT_PATH</span><span class="o">&gt;</span> <span class="n">nfs</span>
+</pre></div>
+</div>
+<p>In this command, <strong>SERVER_IP</strong> indicates the IP address of the NFS
+server, <strong>SERVER_PATH</strong> indicates the path of the shared directory
+on the NFS server, and <strong>CLIENT_PATH</strong> indicates the NFS path on
+the device.</p>
+<p>If you do not want to restrict the NFS access permission, set the
+permission of the NFS root directory to <strong>777</strong> on the Linux CLI.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="mi">777</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sqbin</span><span class="o">/</span><span class="n">nfs</span>
+</pre></div>
+</div>
+<p>The NFS client setting is complete, and the NFS file system has
+been mounted.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>Share files using NFS.</strong></p>
+<p>Create the <strong>dir</strong> directory on the NFS server and save the
+directory. Run the <strong>ls</strong> command in the OpenHarmony kernel.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># ls /nfs</span>
+</pre></div>
+</div>
+<p>The following information is returned from the serial port:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># ls /nfs</span>
+<span class="n">Directory</span> <span class="o">/</span><span class="n">nfs</span><span class="p">:</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">0</span>        <span class="n">u</span><span class="p">:</span><span class="mi">0</span>     <span class="n">g</span><span class="p">:</span><span class="mi">0</span>     <span class="nb">dir</span>
+</pre></div>
+</div>
+<p>The <strong>dir</strong> directory created on the NFS server has been synchronized
+to the <strong>/nfs</strong> directory on the device.</p>
+<p>Similarly, you can create files and directories on the device and
+access them on the NFS server.</p>
+<p><strong>Platform Differences</strong></p>
+<p>Currently, the NFS client supports some NFS v3 specifications.
+Therefore, the NFS client is not fully compatible with all types of
+NFS servers. During the development and test, you are advised to use
+the Linux NFS server.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/nfs.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

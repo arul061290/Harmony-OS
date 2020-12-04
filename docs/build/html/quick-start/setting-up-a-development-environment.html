@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setting Up a Development Environment &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="setting-up-a-development-environment">
+<h1>Setting Up a Development Environment<a class="headerlink" href="#setting-up-a-development-environment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="environment-requirements">
+<h2>Environment Requirements<a class="headerlink" href="#environment-requirements" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Linux server</p></li>
+<li><p>Windows workstation (host computer)</p></li>
+<li><p>Hi3861 WLAN module</p></li>
+<li><p>USB Type-C cable used to connect to Windows workstation and Hi3861
+WLAN module</p></li>
+</ul>
+<p><a class="reference external" href="#fig1651211924914">Figure 1</a> shows the hardware connections.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Hardware connections</div>
+<div class="line"><img alt="image1" src="../_images/hardware-connections1.png" /></div>
+</div>
+</div>
+<div class="section" id="software">
+<h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Requirements on the development platform</p>
+<table><thead align="left"><tr id="ra9df6acc53154b819d5f86d885d994de"><th class="cellrowborder" valign="top" width="12.41%" id="mcps1.2.5.1.1"><p id="a999bb40532eb4f74a7383e1e776bb94a"><p>Hardware</p>
+</p></th><th class="cellrowborder" valign="top" width="12.389999999999999%" id="mcps1.2.5.1.2"><p id="ae63cf791fbe348d3b907d20fc4927df8"><p>Software</p>
+</p></th><th class="cellrowborder" valign="top" width="46.21%" id="mcps1.2.5.1.3"><p id="a54c4c80c43c84cb187342865a1d2b51e"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="28.99%" id="mcps1.2.5.1.4"><p id="a11e8d096fb204378a63d8805cd6d1f88"><p>Remarks</p>
+</p></th></tr></thead><tbody><tr id="row117591159175819"><td class="cellrowborder" valign="top" width="12.41%" headers="mcps1.2.5.1.1 "><p id="a0c1290183f2548898dbfc516a4db2c4b"><p>Linux compile server</p>
+</p></td><td class="cellrowborder" valign="top" width="12.389999999999999%" headers="mcps1.2.5.1.2 "><p id="a687efa8001f140488dc1da9a2ee8f6d1"><p>Operating system</p>
+</p></td><td class="cellrowborder" valign="top" width="46.21%" headers="mcps1.2.5.1.3 "><p id="ace724e00c9094eccb8c600d6ad426ed8"><p>Ubuntu 16.04 64-bit server or later (Use bash as the shell.)</p>
+</p></td><td class="cellrowborder" rowspan="2" valign="top" width="28.99%" headers="mcps1.2.5.1.4 "><p id="a4d0e2c8444484554ab58949ce322be32"><p>You can develop programs on the Windows workstation or Linux server via
+a remote login.</p>
+</p></td></tr><tr id="r85c4bf56ff3244e48db9d2f5b622b340"><td class="cellrowborder" valign="top" headers="mcps1.2.5.1.1 "><p id="a8e99fd0262cb4489b70cf86c2144c294"><p>Windows workstation</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.5.1.2 "><p id="a44d6164ce2e9421f9ade362f600c2815"><p>Operating system</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.5.1.3 "><p id="a1c17349e334a44ada5c5f150457fe17d"><p>Windows XP/Windows7/Windows10</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="build-tools-for-linux">
+<h2>Build Tools for Linux<a class="headerlink" href="#build-tools-for-linux" title="Permalink to this headline">¶</a></h2>
+<p>The following table describes the tools required for setting up the
+general environment for a Linux server and how to obtain these tools.</p>
+<p><strong>Table 2</strong> Development tools and obtaining methods</p>
+<table><thead align="left"><tr id="row122993276512"><th class="cellrowborder" valign="top" width="25.562556255625562%" id="mcps1.2.4.1.1"><p id="p1829914271858"><p>Development Tool</p>
+</p></th><th class="cellrowborder" valign="top" width="20.7020702070207%" id="mcps1.2.4.1.2"><p id="p429918274517"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="53.73537353735374%" id="mcps1.2.4.1.3"><p id="p12997271757"><p>How to Obtain</p>
+</p></th></tr></thead><tbody><tr id="row1829915274517"><td class="cellrowborder" valign="top" width="25.562556255625562%" headers="mcps1.2.4.1.1 "><p id="p1629902717511"><p>gcc_riscv32</p>
+</p></td><td class="cellrowborder" valign="top" width="20.7020702070207%" headers="mcps1.2.4.1.2 "><p id="p1219863434519"><p>Executes script cross compilation.</p>
+</p></td><td class="cellrowborder" valign="top" width="53.73537353735374%" headers="mcps1.2.4.1.3 "><p id="p14145637348"><p><a class="reference external" href="https://repo.huaweicloud.com/harmonyos/compiler/gcc_riscv32/7.3.0/linux/gcc_riscv32-linux-7.3.0.tar.gz">https://repo.huaweicloud.com/harmonyos/compiler/gcc_riscv32/7.3.0/linux/gcc_riscv32-linux-7.3.0.tar.gz</a></p>
+</p></td></tr><tr id="row430016273514"><td class="cellrowborder" valign="top" width="25.562556255625562%" headers="mcps1.2.4.1.1 "><p id="p330015271158"><p>Python3.7+</p>
+</p></td><td class="cellrowborder" valign="top" width="20.7020702070207%" headers="mcps1.2.4.1.2 "><p id="p43003270510"><p>Executes script compilation.</p>
+</p></td><td class="cellrowborder" valign="top" width="53.73537353735374%" headers="mcps1.2.4.1.3 "><p id="p18254155164617"><p><a class="reference external" href="https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz">https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz</a></p>
+</p></td></tr><tr id="row1397335913612"><td class="cellrowborder" valign="top" width="25.562556255625562%" headers="mcps1.2.4.1.1 "><p id="p097355911620"><p>SCons3.0.4+</p>
+</p></td><td class="cellrowborder" valign="top" width="20.7020702070207%" headers="mcps1.2.4.1.2 "><p id="p1973195917619"><p>Executes script compilation.</p>
+</p></td><td class="cellrowborder" valign="top" width="53.73537353735374%" headers="mcps1.2.4.1.3 "><p id="p1722663441514"><p>Internet</p>
+</p></td></tr><tr id="row42668197206"><td class="cellrowborder" valign="top" width="25.562556255625562%" headers="mcps1.2.4.1.1 "><p id="p426711912014"><p>bash</p>
+</p></td><td class="cellrowborder" valign="top" width="20.7020702070207%" headers="mcps1.2.4.1.2 "><p id="p14267131962014"><p>Executes commands.</p>
+</p></td><td class="cellrowborder" valign="top" width="53.73537353735374%" headers="mcps1.2.4.1.3 "><p id="p14267101962014"><p>Internet</p>
+</p></td></tr><tr id="row1463517494402"><td class="cellrowborder" valign="top" width="25.562556255625562%" headers="mcps1.2.4.1.1 "><p id="p258814561424"><p>build-essential</p>
+</p></td><td class="cellrowborder" valign="top" width="20.7020702070207%" headers="mcps1.2.4.1.2 "><p id="p1749611716181"><p>Provides basic software package for compilation.</p>
+</p></td><td class="cellrowborder" valign="top" width="53.73537353735374%" headers="mcps1.2.4.1.3 "><p id="p8635174916403"><p>Internet</p>
+</p></td></tr><tr id="row1711946154018"><td class="cellrowborder" valign="top" width="25.562556255625562%" headers="mcps1.2.4.1.1 "><p id="p15588165684216"><p>gn</p>
+</p></td><td class="cellrowborder" valign="top" width="20.7020702070207%" headers="mcps1.2.4.1.2 "><p id="p4588135634213"><p>Generates ninja compilation scripts.</p>
+</p></td><td class="cellrowborder" valign="top" width="53.73537353735374%" headers="mcps1.2.4.1.3 "><p id="p10572194318318"><p><a class="reference external" href="https://repo.huaweicloud.com/harmonyos/compiler/gn/1523/linux/gn.1523.tar">https://repo.huaweicloud.com/harmonyos/compiler/gn/1523/linux/gn.1523.tar</a></p>
+</p></td></tr><tr id="row16990164213404"><td class="cellrowborder" valign="top" width="25.562556255625562%" headers="mcps1.2.4.1.1 "><p id="p1858825613428"><p>ninja</p>
+</p></td><td class="cellrowborder" valign="top" width="20.7020702070207%" headers="mcps1.2.4.1.2 "><p id="p15844174611816"><p>Executes ninja compilation scripts.</p>
+</p></td><td class="cellrowborder" valign="top" width="53.73537353735374%" headers="mcps1.2.4.1.3 "><p id="p1923373393515"><p><a class="reference external" href="https://repo.huaweicloud.com/harmonyos/compiler/ninja/1.9.0/linux/ninja.1.9.0.tar">https://repo.huaweicloud.com/harmonyos/compiler/ninja/1.9.0/linux/ninja.1.9.0.tar</a></p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="development-tools-for-windows">
+<h2>Development Tools for Windows<a class="headerlink" href="#development-tools-for-windows" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 3</strong> Development tools and obtaining methods</p>
+<table><thead align="left"><tr id="row3133133312711"><th class="cellrowborder" valign="top" width="16.371637163716375%" id="mcps1.2.4.1.1"><p id="p16132203372716"><p>Development Tool</p>
+</p></th><th class="cellrowborder" valign="top" width="50.29502950295029%" id="mcps1.2.4.1.2"><p id="p1413219339278"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="p17133183312711"><p>How to Obtain</p>
+</p></th></tr></thead><tbody><tr id="row138432533451"><td class="cellrowborder" valign="top" width="16.371637163716375%" headers="mcps1.2.4.1.1 "><p id="p163612016916"><p>Visual Studio Code</p>
+</p></td><td class="cellrowborder" valign="top" width="50.29502950295029%" headers="mcps1.2.4.1.2 "><p id="p1563690791"><p>Edits code.</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p146361701097"><p><a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+</p></td></tr><tr id="row12133123315277"><td class="cellrowborder" valign="top" width="16.371637163716375%" headers="mcps1.2.4.1.1 "><p id="p613393317271"><p>HUAWEI DevEco Device Tool</p>
+</p></td><td class="cellrowborder" valign="top" width="50.29502950295029%" headers="mcps1.2.4.1.2 "><p id="p10133193310276"><p>Supports code editing, compilation, burning, and debugging.</p>
+</p><div class="admonition note" id="note7133193392718">
+<p class="admonition-title">Note</p>
+<p>NOTE:</p>
+<div class="notebody docutils container">
+<p id="p1133183310277"><p>HUAWEI DevEco Device Tool is a one-stop integrated development
+environment (IDE) provided for developers of OpenHarmony-based
+smart devices. It supports C and C++ languages and is installed in
+Visual Studio Code as a plug-in.</p>
+</p></div>
+</div>
+</td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1240954393114"><p><a class="reference external" href="https://device.harmonyos.com/cn/ide">https://device.harmonyos.com/cn/ide</a></p>
+</p></td></tr><tr id="row18342145821513"><td class="cellrowborder" valign="top" width="16.371637163716375%" headers="mcps1.2.4.1.1 "><p id="p123421958131517"><p>IPOP, PuTTY, or other HyperTerminal</p>
+</p></td><td class="cellrowborder" valign="top" width="50.29502950295029%" headers="mcps1.2.4.1.2 "><p id="p18342658131511"><p>Remotely connects to a Linux compile server or a serial port.</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p17342125851518"><p>Internet (for example, <a class="reference external" href="https://www.putty.org/">https://www.putty.org/</a>)</p>
+</p></td></tr><tr id="row244884215147"><td class="cellrowborder" valign="top" width="16.371637163716375%" headers="mcps1.2.4.1.1 "><p id="p1044974291416"><p>CH341SER.EXE</p>
+</p></td><td class="cellrowborder" valign="top" width="50.29502950295029%" headers="mcps1.2.4.1.2 "><p id="p94491342131413"><p>Identifies serial port device to transmit data.</p>
+</p></td><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p6449184214148"><p><a class="reference external" href="http://www.wch.cn/search?q=ch340g&amp;t=downloads">http://www.wch.cn/search?q=ch340g&amp;t=downloads</a></p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="installing-basic-compilation-environment">
+<h2>Installing Basic Compilation Environment<a class="headerlink" href="#installing-basic-compilation-environment" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="connecting-to-a-linux-server">
+<h2>Connecting to a Linux Server<a class="headerlink" href="#connecting-to-a-linux-server" title="Permalink to this headline">¶</a></h2>
+<p>Using PuTTY to log in to a Linux server from a PC running Windows</p>
+<ol class="arabic">
+<li><p>Open <a class="reference external" href="https://www.putty.org/">PuTTY</a>, enter the IP address of the
+Linux server, and click <strong>Open</strong>.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 2</strong> PuTTY configuration</div>
+<div class="line"><img alt="image2" src="../_images/putty-configuration.png" /></div>
+</div>
+</li>
+<li><p>Click <strong>Yes</strong> in the PuTTY <strong>Security Alert</strong> dialog box.</p></li>
+<li><p>Enter the account and password.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 3</strong> Login</div>
+<div class="line"><img alt="image3" src="../_images/login.png" /></div>
+</div>
+</li>
+<li><p>The login is successful.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 4</strong> Successful login</div>
+<div class="line"><img alt="image4" src="../_images/successful-login.png" /></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="changing-linux-shell-to-bash">
+<h2>Changing Linux Shell to Bash<a class="headerlink" href="#changing-linux-shell-to-bash" title="Permalink to this headline">¶</a></h2>
+<p>Run the following command to check whether bash is used as the shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>If <strong>/bin/sh -&gt; bash</strong> is not displayed, do as follows to change shell
+to bash.</p>
+<p><strong>Method 1:</strong> Run the following command on the device and then click
+<strong>No</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span><span class="o">-</span><span class="n">reconfigure</span> <span class="n">dash</span>
+</pre></div>
+</div>
+<p><strong>Method 2:</strong> Run the <strong>rm -rf /bin/sh</strong> command to delete sh and then
+run the sudo <strong>ln -s /bin/bash /bin/sh</strong> command to create a new soft
+link.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-a-python-environment">
+<h2>Installing a Python Environment<a class="headerlink" href="#installing-a-python-environment" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Start a Linux server.</p></li>
+<li><p>Run the following command to check the Python version (Python 3.7 or
+later is required):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>Do as follows to install Python, for example, Python 3.8.</p>
+<ol class="arabic simple">
+<li><p>Run the following command to check the Ubuntu version:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">issue</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Install Python based on the Ubuntu version.</p>
+<ul>
+<li><p>If the Ubuntu version is 18 or later, run the following
+command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">.</span><span class="mi">8</span>
+</pre></div>
+</div>
+</li>
+<li><p>If the Ubuntu version is 16, download the installation package
+and install Python.</p>
+<ol class="arabic simple">
+<li><p>Run the following command to install Python environment
+dependencies (gcc, g++, make, zlib, libffi):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gcc</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">g</span><span class="o">++</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">zlib</span><span class="o">*</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libffi</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Obtain the <a class="reference external" href="https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz">Python3.8.5 installation
+package</a>,
+save it to the Linux server, and run the following command:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">xvzf</span> <span class="n">Python</span><span class="o">-</span><span class="mf">3.8</span><span class="o">.</span><span class="mf">5.</span><span class="n">tgz</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="mf">3.8</span><span class="o">.</span><span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="o">./</span><span class="n">configure</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>After Python is installed, run the following command to link the
+Python path to <strong>/usr/bin/python</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">python3</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">rm</span> <span class="n">python</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">8</span> <span class="n">python</span> <span class="o">&amp;&amp;</span> <span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install and upgrade the Python package management tool (pip3) using
+either of the following methods:</p>
+<ul>
+<li><p><strong>Command line:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">setuptools</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Installation package:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">pypa</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">o</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Run the following command to install setuptools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">setuptools</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install the GUI menuconfig tool (Kconfiglib). You are advised to
+install Kconfiglib 13.2.0 or later.</p>
+<ul>
+<li><p><strong>Command line:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">kconfiglib</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Installation package:</strong></p>
+<ol class="arabic">
+<li><p>Download the .whl file (for example,
+<strong>kconfiglib-13.2.0-py2.py3-none-any.whl</strong>).</p>
+<p>Download path: <a class="reference external" href="https://pypi.org/project/kconfiglib#files">https://pypi.org/project/kconfiglib#files</a></p>
+</li>
+<li><p>Run the following command to install the .whl file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">kconfiglib</span><span class="o">-</span><span class="mf">13.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Install <strong>pycryptodome</strong> using either of the following methods:</p>
+<p>Install the Python component packages on which the file signature
+depends, including pycryptodome, six, and ecdsa. As the installation
+of <strong>ecdsa</strong> depends on that of <strong>six</strong>, install <strong>six</strong> first.</p>
+<ul>
+<li><p><strong>Command line:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pycryptodome</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Installation package:</strong></p>
+<ol class="arabic">
+<li><p>Download the .whl file, for example,
+<strong>pycryptodome-3.7.3-cp37-cp37m-manylinux1_x86_64.whl</strong> from
+<a class="reference external" href="https://pypi.org/project/pycryptodome/#files">https://pypi.org/project/pycryptodome/#files</a>.</p></li>
+<li><p>Run the following command to install the .whl file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pycryptodome</span><span class="o">-</span><span class="mf">3.7</span><span class="o">.</span><span class="mi">3</span><span class="o">-</span><span class="n">cp37</span><span class="o">-</span><span class="n">cp37m</span><span class="o">-</span><span class="n">manylinux1_x86_64</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Install <strong>six</strong> using either of the following methods:</p>
+<ul>
+<li><p><strong>Command line:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">six</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">installed</span> <span class="n">six</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Installation package:</strong></p>
+<ol class="arabic">
+<li><p>Download the .whl file, for example,
+<strong>six-1.12.0-py2.py3-none-any.whl</strong> from
+<a class="reference external" href="https://pypi.org/project/six/#files">https://pypi.org/project/six/#files</a>.</p></li>
+<li><p>Run the following command to install the .whl file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">six</span><span class="o">-</span><span class="mf">1.12</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Install <strong>ecdsa</strong> using either of the following methods:</p>
+<ul>
+<li><p><strong>Command line:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">ecdsa</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Installation package:</strong></p>
+<ol class="arabic">
+<li><p>Download the .whl file, for example,
+<strong>ecdsa-0.14.1-py2.py3-none-any.whl</strong> from
+<a class="reference external" href="https://pypi.org/project/ecdsa/#files">https://pypi.org/project/ecdsa/#files</a>.</p></li>
+<li><p>Run the following command to install the .whl file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">ecdsa</span><span class="o">-</span><span class="mf">0.14</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-scons">
+<h2>Installing Scons<a class="headerlink" href="#installing-scons" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Start a Linux server.</p></li>
+<li><p>Run the following command to install the SCons installation package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">scons</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>If the installation package cannot be found in the software source,
+do as follows:</p>
+<ol class="arabic">
+<li><p>Download the source code package from
+<a class="reference external" href="https://scons.org/pages/download.html">https://scons.org/pages/download.html</a>. The recommended SCons
+version is 3.0.4 or later.</p></li>
+<li><p>Decompress the source code package to any directory.</p></li>
+<li><p>Go to the source code directory and run the following command to
+install the source code package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>Run the following command to check whether the installation is
+successful.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scons</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Figure 5</strong> Successful installation</div>
+<div class="line"><img alt="image5" src="../_images/successful-installation.png" /></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-compilation-tools">
+<h2>Installing Compilation Tools<a class="headerlink" href="#installing-compilation-tools" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><img alt="image6" src="../_images/icon-notice3.gif" /> <strong>NOTICE:</strong> - If you acquire the source code using an HPM
+component or HPM CLI tool, compilation tools like <strong>gn</strong>, <strong>ninja</strong>,
+<strong>gcc_riscv32</strong> are not required. - (Recommended) If you obtain the
+source code via the mirror site or code repository, install
+compilation tools such as <strong>gn</strong>, <strong>ninja</strong>, and <strong>gcc_riscv32</strong>.
+Ensure that only <strong>gn</strong>, <strong>ninja</strong>, and <strong>gcc_riscv32</strong> are used for
+the compilation environment of Hi3861 WLAN module.</p>
+</div></blockquote>
+</div>
+<div class="section" id="installing-gn">
+<h2>Installing gn<a class="headerlink" href="#installing-gn" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Start a Linux server.</p></li>
+<li><p>Download
+<a class="reference external" href="https://repo.huaweicloud.com/harmonyos/compiler/gn/1523/linux/gn.1523.tar">gn</a>.</p></li>
+<li><p>Run the following command to decompress the gn installation package
+to <strong>~/gn</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">gn</span><span class="o">.</span><span class="mf">1523.</span><span class="n">tar</span> <span class="o">-</span><span class="n">C</span> <span class="o">~/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set an environment variable by performing the following steps. Open
+the <strong>~/.bashrc</strong> file in Vim first.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Copy the following command to the last line of the <strong>.bashrc</strong> file,
+save the file, and exit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=~/gn:$PATH
+</pre></div>
+</div>
+</li>
+<li><p>Run the following command to validate the environment variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-ninjah">
+<h2>Installing ninjah<a class="headerlink" href="#installing-ninjah" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Start a Linux server.</p></li>
+<li><p>Download
+<a class="reference external" href="https://repo.huaweicloud.com/harmonyos/compiler/ninja/1.9.0/linux/ninja.1.9.0.tar">ninja</a>.</p></li>
+<li><p>Run the following command to decompress the ninja installation
+package to <strong>~/ninja</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">ninja</span><span class="o">.</span><span class="mf">1.9</span><span class="o">.</span><span class="mf">0.</span><span class="n">tar</span> <span class="o">-</span><span class="n">C</span> <span class="o">~/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set an environment variable by performing the following steps. Open
+the <strong>~/.bashrc</strong> file in Vim first.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Copy the following command to the last line of the <strong>.bashrc</strong> file,
+save the file, and exit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=~/ninja:$PATH
+</pre></div>
+</div>
+</li>
+<li><p>Run the following command to validate the environment variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-gcc-riscv32-compilation-toolchain-for-wlan-module">
+<h2>Installing gcc_riscv32 (Compilation Toolchain for WLAN Module)<a class="headerlink" href="#installing-gcc-riscv32-compilation-toolchain-for-wlan-module" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><img alt="image7" src="../_images/icon-notice3.gif" /> <strong>NOTICE:</strong> The Hi3861 platform supports only the static
+link of the libgcc library. <strong>The dynamic link is not recommended
+because version 3 of the GNU General Public License (GPLv3) will be
+polluted during commercial distribution.</strong></p>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Start a Linux server.</p></li>
+<li><p>Download
+<a class="reference external" href="https://repo.huaweicloud.com/harmonyos/compiler/gcc_riscv32/7.3.0/linux/gcc_riscv32-linux-7.3.0.tar.gz">gcc_riscv32</a>.</p></li>
+<li><p>Run the following command to decompress the gcc_riscv32 installation
+package to <strong>~/gcc_riscv32</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">gcc_riscv32</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="mf">7.3</span><span class="o">.</span><span class="mf">0.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">~/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set an environment variable by performing the following steps. Open
+the <strong>~/.bashrc</strong> file in Vim first.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Copy the following command to the last line of the <strong>.bashrc</strong> file,
+save the file, and exit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=~/gcc_riscv32/bin:$PATH
+</pre></div>
+</div>
+</li>
+<li><p>Run the following command to validate the environment variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enter the following command to check whether the compiler is
+successfully installed. If the compiler version number is correctly
+displayed, the installation is successful.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">riscv32</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">elf</span><span class="o">-</span><span class="n">gcc</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/quick-start/setting-up-a-development-environment.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

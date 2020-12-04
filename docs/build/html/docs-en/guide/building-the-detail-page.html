@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building the Detail Page &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="building-the-detail-page">
+<h1>Building the Detail Page<a class="headerlink" href="#building-the-detail-page" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>detail</strong> page displays air quality data, such as CO, NO2, PM10,
+PM2.5, and SO2. Use multiple <strong>&lt;text&gt;</strong> components to display the
+information, and use the <strong>&lt;list&gt;</strong> component to continuously swipe up
+and down on the page. Note that <strong>&lt;list-item&gt;</strong> can have multiple child
+components, which must be <strong>&lt;list&gt;</strong>. For the <strong>detail</strong> page, you need
+to develop for the page typesetting and styles. The detailed code is as
+follows:</p>
+<div class="section" id="detail-hml">
+<h2>detail.hml<a class="headerlink" href="#detail-hml" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;list style=&quot;top:67px;left:320px;width:321px;height:350px;&quot;&gt;
+    &lt;list-item style=&quot;width:321px;height:300px;&quot;&gt;
+        &lt;div style=&quot;width: 321px;height:300px;background-color:#000000;flex-direction:column;align-items:flex-start;&quot;&gt;
+        &lt;text style=&quot;width:321px;height:40px; color:#dcdcdc;&quot;&gt;{{location}}&lt;/text&gt;
+        &lt;div class=&quot;line-div&quot;&gt;&lt;/div&gt;
+         &lt;!- Display all indicator values --&gt;
+        &lt;div class=&quot;info-div-width-height&quot; style=&quot;margin-top:10px;&quot;&gt;
+            &lt;text class=&quot;gas-name&quot;&gt;CO&lt;/text&gt;
+            &lt;text class=&quot;gas-value&quot;&gt;{{airData[0]}}&lt;/text&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;info-div-width-height&quot; style=&quot;margin-top:10px;&quot;&gt;
+            &lt;text class=&quot;gas-name&quot;&gt;NO2&lt;/text&gt;
+            &lt;text class=&quot;gas-value&quot;&gt;{{airData[1]}}&lt;/text&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;info-div-width-height&quot; style=&quot;margin-top:10px;&quot;&gt;
+            &lt;text class=&quot;gas-name&quot;&gt;PM10&lt;/text&gt;
+            &lt;text class=&quot;gas-value&quot;&gt;{{airData[2]}}&lt;/text&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;info-div-width-height&quot; style=&quot;margin-top:10px;&quot;&gt;
+            &lt;text class=&quot;gas-name&quot;&gt;PM2.5&lt;/text&gt;
+            &lt;text class=&quot;gas-value&quot;&gt;{{airData[3]}}&lt;/text&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;info-div-width-height&quot; style=&quot;margin-top:10px;&quot;&gt;
+            &lt;text class=&quot;gas-name&quot;&gt;SO2&lt;/text&gt;
+            &lt;text class=&quot;gas-value&quot;&gt;{{airData[4]}}&lt;/text&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/list-item&gt;
+    &lt;list-item style=&quot;width:321px;height:220px;&quot;&gt;
+        &lt;div style=&quot;width:321px;height:220px;background-color:#000000;flex-direction:column;align-items:flex-start;&quot;&gt;
+            &lt;!-- Update time --&gt;
+            &lt;text class=&quot;config-info&quot;&gt;{{updated}}:{{updateStatus}}&lt;/text&gt;
+            &lt;!- Data source --&gt;
+            &lt;text class=&quot;config-info&quot;&gt;{{dataSourceName}}:{{dataSource}}&lt;/text&gt;
+            &lt;div class=&quot;line-div&quot;&gt;&lt;/div&gt;
+            &lt;!- Page redirection button --&gt;
+            &lt;div style=&quot;width:321px; height:55px;align-items:center; margin-top:20px;&quot;&gt;
+                &lt;input type=&quot;button&quot;value=&quot;History&quot; style=&quot;border-width: 3px;margin-left:10px; border-color: #90ee90;width:146px;height:50;&quot;onclick=&quot;openHistory&quot;/&gt;
+                &lt;input type=&quot;button&quot;value=&quot;Close&quot; style=&quot;border-width: 3px;margin-left:5px; border-color:#ff0000;width:146px;height:50;&quot;onclick=&quot;backMain&quot;/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/list-item&gt;
+&lt;/list&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="detail-css">
+<h2>detail.css<a class="headerlink" href="#detail-css" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">line</span><span class="o">-</span><span class="n">div</span><span class="p">{</span>
+    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span><span class="c1">#f5fffa;</span>
+    <span class="n">height</span><span class="p">:</span><span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">width</span><span class="p">:</span><span class="mi">454</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">info</span><span class="o">-</span><span class="n">div</span><span class="o">-</span><span class="n">width</span><span class="o">-</span><span class="n">height</span><span class="p">{</span>
+    <span class="n">width</span><span class="p">:</span><span class="mi">321</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">height</span><span class="p">:</span><span class="mi">60</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">margin</span><span class="o">-</span><span class="n">top</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">gas</span><span class="o">-</span><span class="n">name</span><span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span><span class="c1">#f5fffa;</span>
+    <span class="n">width</span><span class="p">:</span><span class="mi">160</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">height</span><span class="p">:</span><span class="mi">30</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">gas</span><span class="o">-</span><span class="n">value</span><span class="p">{</span>
+    <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span><span class="n">right</span><span class="p">;</span>
+    <span class="n">color</span><span class="p">:</span><span class="c1">#00fa9a;</span>
+    <span class="n">width</span><span class="p">:</span><span class="mi">160</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">height</span><span class="p">:</span><span class="mi">30</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">config</span><span class="o">-</span><span class="n">info</span> <span class="p">{</span>
+    <span class="n">height</span><span class="p">:</span><span class="mi">40</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">width</span><span class="p">:</span><span class="mi">321</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">color</span><span class="p">:</span><span class="c1">#f5fffa;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="detail-js">
+<h2>detail.js<a class="headerlink" href="#detail-js" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import router from&#39;@system.router&#39;
+export default {
+     data:{// Initialization information
+        location:&quot;HangZhou&quot;,
+        udpateStatus:&quot;1h ago&quot;,
+        dataSource:&quot;tianqi.com&quot;,
+        updateTime:&quot;15:13&quot;,
+        updated:&#39;Updated&#39;,
+        dataSourceName:&#39;Data Source&#39;,
+        sampledOn:&#39;Sampled on&#39;,
+        cityIndex:0,
+        airData:[&#39;100&#39;, &#39;90&#39;, &#39;120&#39;, &#39;50&#39;, &#39;150&#39;, &#39;40&#39;, &#39;25&#39;]
+    },
+    onInit(){
+        // Process information in multiple languages.
+        this.location = this.$t(this.location);
+        this.updated = this.$t(&quot;updated&quot;);
+        this.dataSourceName = this.$t(&quot;dataSourceName&quot;);
+        this.sampledOn = this.$t(&quot;sampledOn&quot;);
+        this.monitoringStation = this.$t(&quot;monitoringStation&quot;);
+        if(this.selectedCityIndex != null){  // Save city information sent from the home page.
+            this.cityIndex= this.selectedCityIndex;
+        }
+    },
+    openHistroy(){// Switch to the history page.
+        router.replace({
+            uri:&#39;pages/history/history&#39;
+        });
+    },
+    backMain(){  // Return to the home page and return the information about the selected city.
+        router.replace({
+            uri:&#39;pages/index/index&#39;,
+            params:{selectedCityIndex:this.cityIndex}
+        });
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/guide/building-the-detail-page.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

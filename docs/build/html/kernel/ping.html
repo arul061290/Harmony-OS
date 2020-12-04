@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ping &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ping">
+<h1>ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-function">
+<h2>Command Function<a class="headerlink" href="#command-function" title="Permalink to this headline">¶</a></h2>
+<p>This command is used to test whether the network connection is normal.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>ping_ <em>[</em>-n <a href="#id1"><span class="problematic" id="id2">cnt_</span></a>] [<em>-w interval</em>] [<em>-l data_len</em>]_ &lt;IP&gt;_</p>
+<p>ping [<em>-t</em>] [<em>-w interval</em>] <em>&lt;IP&gt;</em></p>
+<p>ping <em>-k</em></p>
+</div>
+<div class="section" id="parameter-description">
+<h2>Parameter Description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Parameters</p>
+<table><thead align="left"><tr id="row2670mcpsimp"><th class="cellrowborder" valign="top" width="21%" id="mcps1.2.4.1.1"><p id="p2672mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="52%" id="mcps1.2.4.1.2"><p id="p2674mcpsimp"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="27%" id="mcps1.2.4.1.3"><p id="p2676mcpsimp"><p>Value Range</p>
+</p></th></tr></thead><tbody><tr id="row2677mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p2679mcpsimp"><p>IP</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p2681mcpsimp"><p>Indicates the IPv4 address whose network connectivity is to be tested.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="entry2682mcpsimpp0"><p>N/A</p>
+</p></td></tr><tr id="row2690mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p2692mcpsimp"><p>-n cnt</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p2694mcpsimp"><p>Indicates the number of execution times. If this parameter is not
+specified, the default value is 4.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p2696mcpsimp"><p>1-65535</p>
+</p></td></tr><tr id="row2697mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p2699mcpsimp"><p>-w interval</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p2701mcpsimp"><p>Indicates the interval between two ping packets, in ms.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p971414819577"><p>&gt;0</p>
+</p></td></tr><tr id="row2703mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p2705mcpsimp"><p>-l data_len</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p2707mcpsimp"><p>Indicates the length of the ping packet, that is, the ICMP echo request
+packet.</p>
+</p><p id="p2708mcpsimp"><p>The ICMP packet header is not included.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p2710mcpsimp"><p>0-65500</p>
+</p></td></tr><tr id="row2711mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p2713mcpsimp"><p>-t</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p2715mcpsimp"><p>Indicates a permanent ping thread, which will be killed until the ping
+-k command is executed.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p20501182215720"><p>N/A</p>
+</p></td></tr><tr id="row2718mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p2720mcpsimp"><p>-k</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p2722mcpsimp"><p>Kills the ping thread and stops the ping operation.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p940472325719"><p>N/A</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Run the <strong>ping</strong> command by setting a destination IP address to check
+whether the network connection to the destination IP address is
+normal.</p></li>
+<li><p>If the destination IP address is unreachable, the system displays a
+message indicating that the request times out.</p></li>
+<li><p>If no route is available to the destination IP address, an error
+message is displayed.</p></li>
+<li><p>This command can be used only after the TCP/IP protocol stack is
+enabled.</p></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Enter <strong>ping 169.254.60.115</strong>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Output of pinging the IP address of the TFTP server</div>
+<div class="line"><img alt="image1" src="../_images/output-of-pinging-the-ip-address-of-the-tftp-server.png" /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/ping.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

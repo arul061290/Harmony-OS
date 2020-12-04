@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>uart_if.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="uart-if-h">
+<h1>uart_if.h<a class="headerlink" href="#uart-if-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="uart.md">UART</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares standard UART APIs.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1576081718093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p479694904093527"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p305471414093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row195678275093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p430760983093527"><p>UartAttribute</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1590311422093527"><p>Defines basic attributes of the UART port.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1638574849093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1124319015093527"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p957128434093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1637276026093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p479973437093527"><p>UART_ATTR_DATABIT_8 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2111789724093527"><p>Indicates the UART word length, which is 8 data bits per frame.</p>
+</p></td></tr><tr id="row94414899093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1486986110093527"><p>UART_ATTR_DATABIT_7 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p547053454093527"><p>Indicates the UART word length, which is 7 data bits per frame.</p>
+</p></td></tr><tr id="row564913763093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1581206974093527"><p>UART_ATTR_DATABIT_6 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p43166249093527"><p>Indicates the UART word length, which is 6 data bits per frame.</p>
+</p></td></tr><tr id="row1629846167093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p689691590093527"><p>UART_ATTR_DATABIT_5 3</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p656397699093527"><p>Indicates the UART word length, which is 5 data bits per frame.</p>
+</p></td></tr><tr id="row1705425608093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1694761609093527"><p>UART_ATTR_PARITY_NONE 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1417272971093527"><p>Indicates that the UART device has no parity bit.</p>
+</p></td></tr><tr id="row1202301849093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1749969521093527"><p>UART_ATTR_PARITY_ODD 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p749088985093527"><p>Indicates that the UART device has an odd parity bit.</p>
+</p></td></tr><tr id="row1589773847093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1369867932093527"><p>UART_ATTR_PARITY_EVEN 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1473693677093527"><p>Indicates that the UART device has an even parity bit.</p>
+</p></td></tr><tr id="row1636289564093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p467521476093527"><p>UART_ATTR_PARITY_MARK 3</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p115952420093527"><p>Indicates that the parity bit is 1.</p>
+</p></td></tr><tr id="row2027644398093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1705576967093527"><p>UART_ATTR_PARITY_SPACE 4</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p103653612093527"><p>Indicates that the parity bit is 0.</p>
+</p></td></tr><tr id="row139524069093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1169461258093527"><p>UART_ATTR_STOPBIT_1 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p449616698093527"><p>Indicates that the UART device has 1 stop bit.</p>
+</p></td></tr><tr id="row1648640070093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p190294640093527"><p>UART_ATTR_STOPBIT_1P5 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1258210614093527"><p>Indicates that the UART device has 1.5 stop bits.</p>
+</p></td></tr><tr id="row84668351093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p344126867093527"><p>UART_ATTR_STOPBIT_2 2</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1715701436093527"><p>Indicates that the UART device has 2 stop bits.</p>
+</p></td></tr><tr id="row1779191568093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p984669101093527"><p>UART_ATTR_RTS_DIS 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p602316918093527"><p>Indicates that Request To Send (RTS) is disabled for the UART device.</p>
+</p></td></tr><tr id="row493967635093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p124292543093527"><p>UART_ATTR_RTS_EN 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p463896249093527"><p>Indicates that RTS is enabled for the UART device.</p>
+</p></td></tr><tr id="row1636343005093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1821060740093527"><p>UART_ATTR_CTS_DIS 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1395162325093527"><p>Indicates that Clear To Send (CTS) is disabled for the UART device.</p>
+</p></td></tr><tr id="row1164868689093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p430270146093527"><p>UART_ATTR_CTS_EN 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1897449765093527"><p>Indicates that CTS is enabled for the UART device.</p>
+</p></td></tr><tr id="row324196087093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p719333132093527"><p>UART_ATTR_RX_FIFO_DIS 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p147045015093527"><p>Indicates that First In First Out (FIFO) is disabled for the receiving
+UART.</p>
+</p></td></tr><tr id="row1174770426093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p744747470093527"><p>UART_ATTR_RX_FIFO_EN 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p36875678093527"><p>Indicates that FIFO is enabled for the receiving UART.</p>
+</p></td></tr><tr id="row1437956432093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1878985920093527"><p>UART_ATTR_TX_FIFO_DIS 0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p869002595093527"><p>Indicates that FIFO is disabled for the transmitting UART.</p>
+</p></td></tr><tr id="row188347080093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1673292556093527"><p>UART_ATTR_TX_FIFO_EN 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p53611762093527"><p>Indicates that FIFO is enabled for the transmitting UART.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1557293483093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p356314504093527"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1433410403093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1837651474093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p150175129093527"><p>UartTransMode { UART_MODE_RD_BLOCK = 0, UART_MODE_RD_NONBLOCK,
+UART_MODE_DMA_RX_EN, UART_MODE_DMA_RX_DIS, UART_MODE_DMA_TX_EN,
+UART_MODE_DMA_TX_DIS }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p963091240093527"><p>Enumerates UART transmission modes.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1682636094093527"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1962704383093527"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p90383042093527"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row612414594093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p385950719093527"><p>UartOpen (uint32_t port)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p973745404093527"><p>struct DevHandle *</p>
+</p><p id="p1160200787093527"><p>Obtains the UART device handle.</p>
+</p></td></tr><tr id="row1464353367093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1273698839093527"><p>UartClose (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1669185606093527"><p>void</p>
+</p><p id="p669420015093527"><p>Releases the UART device handle.</p>
+</p></td></tr><tr id="row882401123093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p419485129093527"><p>UartRead (struct DevHandle <em>handle, uint8_t</em>data, uint32_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p140534119093527"><p>int32_t</p>
+</p><p id="p1604485254093527"><p>Reads data of a specified size from a UART device.</p>
+</p></td></tr><tr id="row478078031093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p545069818093527"><p>UartWrite (struct DevHandle <em>handle, uint8_t</em>data, uint32_t size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p123306622093527"><p>int32_t</p>
+</p><p id="p573421610093527"><p>Writes data of a specified size into a UART device.</p>
+</p></td></tr><tr id="row2087284478093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p788155434093527"><p>UartGetBaud (struct DevHandle <em>handle, uint32_t</em>baudRate)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p3049900093527"><p>int32_t</p>
+</p><p id="p494579193093527"><p>Obtains the baud rate of the UART device.</p>
+</p></td></tr><tr id="row1915098509093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p415182898093527"><p>UartSetBaud (struct DevHandle *handle, uint32_t baudRate)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1801096035093527"><p>int32_t</p>
+</p><p id="p1009914343093527"><p>Sets the baud rate for the UART device.</p>
+</p></td></tr><tr id="row639563052093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p370485474093527"><p>UartGetAttribute (struct DevHandle <em>handle, struct
+UartAttribute</em>attribute)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p846432300093527"><p>int32_t</p>
+</p><p id="p776272685093527"><p>Obtains the UART attribute.</p>
+</p></td></tr><tr id="row496523685093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p256990546093527"><p>UartSetAttribute (struct DevHandle <em>handle, struct
+UartAttribute</em>attribute)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1550688130093527"><p>int32_t</p>
+</p><p id="p658680631093527"><p>Sets the UART attribute.</p>
+</p></td></tr><tr id="row264008761093527"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p657786213093527"><p>UartSetTransMode (struct DevHandle *handle, enum UartTransMode mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1589458981093527"><p>int32_t</p>
+</p><p id="p1241233022093527"><p>Sets the UART transmission mode.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macro-definition-documentation">
+<h2><strong>Macro Definition Documentation</strong><a class="headerlink" href="#macro-definition-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="uart-attr-cts-dis">
+<h2>UART_ATTR_CTS_DIS<a class="headerlink" href="#uart-attr-cts-dis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_CTS_DIS   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that Clear To Send (CTS) is disabled for the UART device.</p>
+</div>
+<div class="section" id="uart-attr-cts-en">
+<h2>UART_ATTR_CTS_EN<a class="headerlink" href="#uart-attr-cts-en" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_CTS_EN   1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that CTS is enabled for the UART device.</p>
+</div>
+<div class="section" id="uart-attr-databit-5">
+<h2>UART_ATTR_DATABIT_5<a class="headerlink" href="#uart-attr-databit-5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_DATABIT_5   3</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the UART word length, which is 5 data bits per frame.</p>
+</div>
+<div class="section" id="uart-attr-databit-6">
+<h2>UART_ATTR_DATABIT_6<a class="headerlink" href="#uart-attr-databit-6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_DATABIT_6   2</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the UART word length, which is 6 data bits per frame.</p>
+</div>
+<div class="section" id="uart-attr-databit-7">
+<h2>UART_ATTR_DATABIT_7<a class="headerlink" href="#uart-attr-databit-7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_DATABIT_7   1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the UART word length, which is 7 data bits per frame.</p>
+</div>
+<div class="section" id="uart-attr-databit-8">
+<h2>UART_ATTR_DATABIT_8<a class="headerlink" href="#uart-attr-databit-8" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_DATABIT_8   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the UART word length, which is 8 data bits per frame.</p>
+</div>
+<div class="section" id="uart-attr-parity-even">
+<h2>UART_ATTR_PARITY_EVEN<a class="headerlink" href="#uart-attr-parity-even" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_PARITY_EVEN   2</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the UART device has an even parity bit.</p>
+</div>
+<div class="section" id="uart-attr-parity-mark">
+<h2>UART_ATTR_PARITY_MARK<a class="headerlink" href="#uart-attr-parity-mark" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_PARITY_MARK   3</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the parity bit is 1.</p>
+</div>
+<div class="section" id="uart-attr-parity-none">
+<h2>UART_ATTR_PARITY_NONE<a class="headerlink" href="#uart-attr-parity-none" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_PARITY_NONE   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the UART device has no parity bit.</p>
+</div>
+<div class="section" id="uart-attr-parity-odd">
+<h2>UART_ATTR_PARITY_ODD<a class="headerlink" href="#uart-attr-parity-odd" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_PARITY_ODD   1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the UART device has an odd parity bit.</p>
+</div>
+<div class="section" id="uart-attr-parity-space">
+<h2>UART_ATTR_PARITY_SPACE<a class="headerlink" href="#uart-attr-parity-space" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_PARITY_SPACE   4</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the parity bit is 0.</p>
+</div>
+<div class="section" id="uart-attr-rts-dis">
+<h2>UART_ATTR_RTS_DIS<a class="headerlink" href="#uart-attr-rts-dis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_RTS_DIS   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that <a class="reference external" href="request.md">Request</a> To Send (RTS) is disabled for
+the UART device.</p>
+</div>
+<div class="section" id="uart-attr-rts-en">
+<h2>UART_ATTR_RTS_EN<a class="headerlink" href="#uart-attr-rts-en" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_RTS_EN   1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that RTS is enabled for the UART device.</p>
+</div>
+<div class="section" id="uart-attr-rx-fifo-dis">
+<h2>UART_ATTR_RX_FIFO_DIS<a class="headerlink" href="#uart-attr-rx-fifo-dis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_RX_FIFO_DIS   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that First In First Out (FIFO) is disabled for the receiving
+UART.</p>
+</div>
+<div class="section" id="uart-attr-rx-fifo-en">
+<h2>UART_ATTR_RX_FIFO_EN<a class="headerlink" href="#uart-attr-rx-fifo-en" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_RX_FIFO_EN   1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that FIFO is enabled for the receiving UART.</p>
+</div>
+<div class="section" id="uart-attr-stopbit-1">
+<h2>UART_ATTR_STOPBIT_1<a class="headerlink" href="#uart-attr-stopbit-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_STOPBIT_1   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the UART device has 1 stop bit.</p>
+</div>
+<div class="section" id="uart-attr-stopbit-1p5">
+<h2>UART_ATTR_STOPBIT_1P5<a class="headerlink" href="#uart-attr-stopbit-1p5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_STOPBIT_1P5   1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the UART device has 1.5 stop bits.</p>
+</div>
+<div class="section" id="uart-attr-stopbit-2">
+<h2>UART_ATTR_STOPBIT_2<a class="headerlink" href="#uart-attr-stopbit-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_STOPBIT_2   2</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that the UART device has 2 stop bits.</p>
+</div>
+<div class="section" id="uart-attr-tx-fifo-dis">
+<h2>UART_ATTR_TX_FIFO_DIS<a class="headerlink" href="#uart-attr-tx-fifo-dis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_TX_FIFO_DIS   0</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that FIFO is disabled for the transmitting UART.</p>
+</div>
+<div class="section" id="uart-attr-tx-fifo-en">
+<h2>UART_ATTR_TX_FIFO_EN<a class="headerlink" href="#uart-attr-tx-fifo-en" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define UART_ATTR_TX_FIFO_EN   1</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates that FIFO is enabled for the transmitting UART.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/uart_if-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

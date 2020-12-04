@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wifiiot_pwm.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wifiiot-pwm-h">
+<h1>wifiiot_pwm.h<a class="headerlink" href="#wifiiot-pwm-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wifiiot.md">Wifiiot</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares the PWM interface functions.</p>
+<p>These functions are used for PWM initialization, deinitialization, and
+signal output.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row57998761191856"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1752471129191856"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p393234153191856"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row370422970191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p240232763191856"><p>WifiIotPwmClkSource { WIFI_IOT_PWM_CLK_160M, WIFI_IOT_PWM_CLK_XTAL,
+WIFI_IOT_PWM_CLK_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1219299254191856"><p>Enumerates PWM clock sources.</p>
+</p></td></tr><tr id="row831047131191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p181037701191856"><p>WifiIotPwmPort { WIFI_IOT_PWM_PORT_PWM0 = 0, WIFI_IOT_PWM_PORT_PWM1 = 1,
+WIFI_IOT_PWM_PORT_PWM2 = 2, WIFI_IOT_PWM_PORT_PWM3 = 3,
+WIFI_IOT_PWM_PORT_PWM4 = 4, WIFI_IOT_PWM_PORT_PWM5 = 5,
+WIFI_IOT_PWM_PORT_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p361725082191856"><p>Enumerates PWM ports.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1645917653191856"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1909192175191856"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p790177599191856"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row734243333191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1377107128191856"><p>PwmInit (WifiIotPwmPort port)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2120948831191856"><p>unsigned int</p>
+</p><p id="p596003761191856"><p>Initializes a PWM device.</p>
+</p></td></tr><tr id="row1379300673191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2051943474191856"><p>PwmDeinit (WifiIotPwmPort port)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1203808215191856"><p>unsigned int</p>
+</p><p id="p1009878953191856"><p>Deinitializes a PWM device.</p>
+</p></td></tr><tr id="row1168419637191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p292946667191856"><p>PwmStart (WifiIotPwmPort port, unsigned short duty, unsigned short freq)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1308573525191856"><p>unsigned int</p>
+</p><p id="p1307967811191856"><p>Outputs PWM signals based on the input parameters.</p>
+</p></td></tr><tr id="row1692903580191856"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p607057869191856"><p>PwmStop (WifiIotPwmPort port)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p725693650191856"><p>unsigned int</p>
+</p><p id="p455394764191856"><p>Stops the PWM signal output.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-LinkIoT/wifiiot_pwm-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WLAN Development Guidelines &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wlan-development-guidelines">
+<h1>WLAN Development Guidelines<a class="headerlink" href="#wlan-development-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>The WLAN driver is developed based on the HDF and PAL. It provides a
+unified driver model for WLAN modules of different vendors regardless of
+the operating system (OS) and system on a chip (SoC).</p>
+<div class="section" id="limitations-and-constraints">
+<h2>Limitations and Constraints<a class="headerlink" href="#limitations-and-constraints" title="Permalink to this headline">¶</a></h2>
+<p>None</p>
+</div>
+<div class="section" id="how-to-develop">
+<h2>How to Develop<a class="headerlink" href="#how-to-develop" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Configure hardware parameters such as <strong>module</strong> (different features)
+and <strong>chip</strong> in the <strong>wifi_config.hcs</strong> file.</p></li>
+<li><p>Parse the <strong>wifi_config.hcs</strong> file and generate a structure with the
+configured parameters.</p></li>
+<li><p>Initialize and create a module.</p></li>
+<li><p>Mount and initialize the chip.</p></li>
+<li><p>Initialize the bus.</p></li>
+<li><p>Mount the upper-layer WPA service.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="image1" src="../../_images/icon-note2.gif" /> <strong>NOTE:</strong> Some of the above adaptation steps have been
+provided. For details, see the third part <strong>Development Example</strong>.
+The steps waiting to be performed by developers include modifying
+configuration parameters based on hardware parameters, adapting and
+mounting a module, and performing tests and verification.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/driver/wlandevelopment-guidelines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

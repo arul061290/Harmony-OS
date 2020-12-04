@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cp &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="cp">
+<h1>cp<a class="headerlink" href="#cp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-function">
+<h2>Command Function<a class="headerlink" href="#command-function" title="Permalink to this headline">¶</a></h2>
+<p>This command is used to create a copy for a file.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>cp [<em>SOURCEFILE</em>] [<em>DESTFILE</em>]</p>
+</div>
+<div class="section" id="parameter-description">
+<h2>Parameter Description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Parameters</p>
+<table><thead align="left"><tr id="row1136mcpsimp"><th class="cellrowborder" valign="top" width="21%" id="mcps1.2.4.1.1"><p id="p1138mcpsimp"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="52%" id="mcps1.2.4.1.2"><p id="p1140mcpsimp"><p>Description</p>
+</p></th><th class="cellrowborder" valign="top" width="27%" id="mcps1.2.4.1.3"><p id="p1142mcpsimp"><p>Value Range</p>
+</p></th></tr></thead><tbody><tr id="row1143mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p1145mcpsimp"><p>SOURCEFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p1147mcpsimp"><p>Indicates the path to the source file.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p1149mcpsimp"><p>Currently, only files are supported. Directories are not supported.</p>
+</p></td></tr><tr id="row1150mcpsimp"><td class="cellrowborder" valign="top" width="21%" headers="mcps1.2.4.1.1 "><p id="p1152mcpsimp"><p>DESTFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="52%" headers="mcps1.2.4.1.2 "><p id="p1154mcpsimp"><p>Indicates the path to the destination file.</p>
+</p></td><td class="cellrowborder" valign="top" width="27%" headers="mcps1.2.4.1.3 "><p id="p1156mcpsimp"><p>Both directories and files are supported.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The name of the source file cannot be the same as that of the
+destination file in the same path.</p></li>
+<li><p>The source file must exist and cannot be a directory.</p></li>
+<li><p>The source file path supports wildcards: asterisks (*) and question
+marks (?). The asterisk (*) indicates any number of characters, and
+the question mark (?) represents a single character. The destination
+file path does not support wildcards. If the specified source file
+path matches multiple files, the destination file path must be a
+directory.</p></li>
+<li><p>If the destination file path is a directory, this directory must
+exist. In this case, the destination file is named after the source
+file.</p></li>
+<li><p>If the destination file path is a file, the directory for this file
+must exist. In this case, the file copy is renamed.</p></li>
+<li><p>Currently, this command can be used to copy only one file. If more
+than two parameters are specified, only the first two parameters take
+effect.</p></li>
+<li><p>If the destination file does not exist, a new file is created. If the
+destination file already exists, the existing file is overwritten.</p></li>
+</ul>
+<p>When important system resources are copied, unexpected results such as a
+system breakdown may occur. For example, when the <strong>/dev/uartdev-0</strong>
+file is copied, the system may stop responding.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Enter <strong>cp hello-harmony.txt ./tmp/</strong>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> File copying result</div>
+<div class="line"><img alt="image1" src="../_images/file-copying-result.png" /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/cp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

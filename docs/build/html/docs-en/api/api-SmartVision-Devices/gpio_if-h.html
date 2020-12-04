@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gpio_if.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gpio-if-h">
+<h1>gpio_if.h<a class="headerlink" href="#gpio-if-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="gpio.md">GPIO</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares the standard GPIO interface functions.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1416172452093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1195878570093525"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2058372822093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1515464930093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1731801660093525"><p>GpioIrqFunc) (uint16_t gpio, void *data)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1526421391093525"><p>typedef int32_t(*</p>
+</p><p id="p531480224093525"><p>Defines the function type of a GPIO interrupt service routine (ISR).</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1321215397093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1465394970093525"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p353972010093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1541721609093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2040196149093525"><p>GpioValue { GPIO_VAL_LOW = 0, GPIO_VAL_HIGH = 1, GPIO_VAL_ERR }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p891849267093525"><p>Enumerates GPIO level values.</p>
+</p></td></tr><tr id="row794582949093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p878821529093525"><p>GpioDirType { GPIO_DIR_IN = 0, GPIO_DIR_OUT = 1, GPIO_DIR_ERR }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2120219831093525"><p>Enumerates GPIO directions.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1294156111093525"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p666628771093525"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2066031502093525"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row618206516093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1788359671093525"><p>GpioRead (uint16_t gpio, uint16_t *val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p535765376093525"><p>int32_t</p>
+</p><p id="p509720568093525"><p>Reads the level value of a GPIO pin.</p>
+</p></td></tr><tr id="row2052979895093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1877051775093525"><p>GpioWrite (uint16_t gpio, uint16_t val)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p754255742093525"><p>int32_t</p>
+</p><p id="p1741949158093525"><p>Writes the level value for a GPIO pin.</p>
+</p></td></tr><tr id="row182998170093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1321565838093525"><p>GpioSetDir (uint16_t gpio, uint16_t dir)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1231789661093525"><p>int32_t</p>
+</p><p id="p1708938136093525"><p>Sets the input/output direction for a GPIO pin.</p>
+</p></td></tr><tr id="row1190927522093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1410849678093525"><p>GpioGetDir (uint16_t gpio, uint16_t *dir)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2056425586093525"><p>int32_t</p>
+</p><p id="p138058763093525"><p>Obtains the input/output direction of a GPIO pin.</p>
+</p></td></tr><tr id="row1324429715093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p78497656093525"><p>GpioSetIrq (uint16_t gpio, uint16_t mode, GpioIrqFunc func, void *arg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1629043579093525"><p>int32_t</p>
+</p><p id="p199316244093525"><p>Sets the ISR function for a GPIO pin.</p>
+</p></td></tr><tr id="row48598003093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1066672345093525"><p>GpioUnSetIrq (uint16_t gpio)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1190314442093525"><p>int32_t</p>
+</p><p id="p1547979313093525"><p>Cancels the setting of the ISR function for a GPIO pin.</p>
+</p></td></tr><tr id="row635196069093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1007654053093525"><p>GpioEnableIrq (uint16_t gpio)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1832446299093525"><p>int32_t</p>
+</p><p id="p1750477328093525"><p>Enables a GPIO pin interrupt.</p>
+</p></td></tr><tr id="row589998032093525"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1508630448093525"><p>GpioDisableIrq (uint16_t gpio)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p144670230093525"><p>int32_t</p>
+</p><p id="p1384590075093525"><p>Disables a GPIO pin interrupt.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/gpio_if-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

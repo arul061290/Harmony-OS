@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>select.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="select-h">
+<h1>select.h<a class="headerlink" href="#select-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="io.md">IO</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides functions and structures related to I/O multiplexing.</p>
+<p>These functions can be used to implement I/O multiplexing.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1649408500084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2014026377084832"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1253704069084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row492029554084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1643407967084832"><p>fd_set</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1715559974084832"><p>Defines a file descriptor set.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row921533866084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p701959697084832"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1731968878084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1108902339084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1650812497084832"><p>FD_SETSIZE 1024</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1139773375084832"><p>Defines the size of fd_set, that is, the maximum number of monitored
+files.</p>
+</p></td></tr><tr id="row861560833084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1661715575084832"><p>FD_ZERO(s) do { int __i; unsigned long *__b=(s)-&gt;fds_bits;
+for(__i=sizeof (fd_set)/sizeof (long); __i; __i–) *__b++=0; }
+while(0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p80140664084832"><p>Clears all elements in the file descriptor set.</p>
+</p></td></tr><tr id="row416051624084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1156997731084832"><p>FD_SET(d, s) ((s)-&gt;fds_bits[(d)/(8*sizeof(long))] |=
+(1UL&lt;&lt;((d)%(8*sizeof(long)))))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1257310763084832"><p>Adds a file descriptor to a set.</p>
+</p></td></tr><tr id="row1677640319084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1913874416084832"><p>FD_CLR(d, s) ((s)-&gt;fds_bits[(d)/(8*sizeof(long))] &amp;=
+~(1UL&lt;&lt;((d)%(8*sizeof(long)))))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1222205870084832"><p>Removes a file descriptor from a set.</p>
+</p></td></tr><tr id="row1110544797084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p649021908084832"><p>FD_ISSET(d, s) !!((s)-&gt;fds_bits[(d)/(8*sizeof(long))] &amp;
+(1UL&lt;&lt;((d)%(8*sizeof(long)))))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p477531023084832"><p>Checks whether a file descriptor is in a set.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1468911401084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p528750822084832"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2134898350084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row308483391084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1315107899084832"><p>fd_mask</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1802709091084832"><p>typedef unsigned long</p>
+</p><p id="p1625605073084832"><p>Defines fd_set as the alias of the element type.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1240106929084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p473382419084832"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p294226086084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2136086266084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1234837647084832"><p>select (int nfds, fd_set *__restrict readfds, fd_set *__restrict
+writefds, fd_set *__restrict exceptfds, struct timeval *__restrict
+timeout)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p154469654084832"><p>int</p>
+</p><p id="p311161381084832"><p>Monitors the I/O events of multiple file descriptors.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/select-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

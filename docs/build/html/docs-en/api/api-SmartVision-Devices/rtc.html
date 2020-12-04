@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTC &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rtc">
+<h1>RTC<a class="headerlink" href="#rtc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides standard real-time clock (RTC) APIs.</p>
+<p>These APIs allow you to perform operations such as reading or writing
+system time, reading or writing alarm time, setting alarm interrupts,
+registering alarm callbacks, setting the external frequency, resetting
+the RTC driver, and customizing RTC configurations. The RTC driver
+provides precise real time for the operating system (OS). If the OS is
+powered off, the RTC driver continues to keep track of the system time
+using an external battery.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1764677613093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1023983285093521"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p589755885093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row898144024093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1654962587093521"><p>rtc_if.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1726052973093521"><p>Declares the standard RTC APIs.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row128252741093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p633300058093521"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p702019239093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row586840723093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1696088341093521"><p>RtcTime</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p215874222093521"><p>Defines the RTC information.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row2066230666093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p272333322093521"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p670736132093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row668529916093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1780210016093521"><p>RtcAlarmCallback ) (enum RtcAlarmIndex)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p140309370093521"><p>typedef int32_t(*</p>
+</p><p id="p918521637093521"><p>Defines a callback that will be invoked when an alarm is generated at
+the specified time.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1869879084093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p7336256093521"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1492518531093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2113321662093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1379837811093521"><p>RtcAlarmIndex { RTC_ALARM_INDEX_A = 0, RTC_ALARM_INDEX_B = 1 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p819027507093521"><p>Enumerates alarm indexes.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row992707622093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1322875222093521"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p869967716093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1011926722093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p252860186093521"><p>RtcOpen (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1925072324093521"><p>struct DevHandle *</p>
+</p><p id="p1412189172093521"><p>Opens the RTC device to obtain its handle.</p>
+</p></td></tr><tr id="row439111271093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p287353328093521"><p>RtcClose (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p342954698093521"><p>void</p>
+</p><p id="p531356832093521"><p>Releases a specified handle of the RTC device.</p>
+</p></td></tr><tr id="row434411123093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p379895631093521"><p>RtcReadTime (struct DevHandle <em>handle, struct RtcTime</em>time)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1605713419093521"><p>int32_t</p>
+</p><p id="p334046675093521"><p>Reads time from the RTC driver.</p>
+</p></td></tr><tr id="row1046218584093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p944073501093521"><p>RtcWriteTime (struct DevHandle <em>handle, const struct RtcTime</em>time)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1240921132093521"><p>int32_t</p>
+</p><p id="p413634172093521"><p>Writes format-compliant time to the RTC driver.</p>
+</p></td></tr><tr id="row922490600093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1184746641093521"><p>RtcReadAlarm (struct DevHandle <em>handle, enum RtcAlarmIndex alarmIndex,
+struct RtcTime</em>time)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1483941894093521"><p>int32_t</p>
+</p><p id="p1741757373093521"><p>Reads the RTC alarm time that was set last time.</p>
+</p></td></tr><tr id="row831848830093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1591457611093521"><p>RtcWriteAlarm (struct DevHandle <em>handle, enum RtcAlarmIndex alarmIndex,
+const struct RtcTime</em>time)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p727419872093521"><p>int32_t</p>
+</p><p id="p500970763093521"><p>Writes the RTC alarm time based on the alarm index.</p>
+</p></td></tr><tr id="row820404879093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p458584345093521"><p>RtcRegisterAlarmCallback (struct DevHandle *handle, enum RtcAlarmIndex
+alarmIndex, RtcAlarmCallback cb)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2115148176093521"><p>int32_t</p>
+</p><p id="p944758566093521"><p>Registers RtcAlarmCallback that will be invoked when an alarm is
+generated at the specified time.</p>
+</p></td></tr><tr id="row83290207093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1095240362093521"><p>RtcAlarmInterruptEnable (struct DevHandle *handle, enum RtcAlarmIndex
+alarmIndex, uint8_t enable)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1667288410093521"><p>int32_t</p>
+</p><p id="p1440709771093521"><p>Enables or disables alarm interrupts.</p>
+</p></td></tr><tr id="row563780284093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1073229750093521"><p>RtcGetFreq (struct DevHandle <em>handle, uint32_t</em>freq)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p641388026093521"><p>int32_t</p>
+</p><p id="p633410747093521"><p>Reads the RTC external frequency.</p>
+</p></td></tr><tr id="row171157579093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1902000317093521"><p>RtcSetFreq (struct DevHandle *handle, uint32_t freq)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p839905874093521"><p>int32_t</p>
+</p><p id="p1681899005093521"><p>Sets the frequency of the external crystal oscillator connected to the
+RTC driver.</p>
+</p></td></tr><tr id="row1036002330093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1396551746093521"><p>RtcReset (struct DevHandle *handle)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p644679346093521"><p>int32_t</p>
+</p><p id="p1633084976093521"><p>Resets the RTC driver.</p>
+</p></td></tr><tr id="row1386557013093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1947161351093521"><p>RtcReadReg (struct DevHandle <em>handle, uint8_t usrDefIndex,
+uint8_t</em>value)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p182464436093521"><p>int32_t</p>
+</p><p id="p408281511093521"><p>Reads the configuration of a custom RTC register based on the register
+index.</p>
+</p></td></tr><tr id="row1691474759093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1152831449093521"><p>RtcWriteReg (struct DevHandle *handle, uint8_t usrDefIndex, uint8_t
+value)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1967869605093521"><p>int32_t</p>
+</p><p id="p290992327093521"><p>Writes the configuration of a custom RTC register based on the register
+index.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="rtcalarmindex">
+<h2>RtcAlarmIndex<a class="headerlink" href="#rtcalarmindex" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">RtcAlarmIndex</span><span class="p">](</span><span class="n">rtc</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad7b3a575c848e2669db5e5b6f7e74330)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates alarm indexes.</p>
+<p>The alarm indexes will be used when you perform operations related to
+alarms.</p>
+<table><thead align="left"><tr id="row760863074093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p229590463093521"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p878731569093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row720006758093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RTC_ALARM_INDEX_A</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1578376653093521"><p>Index of alarm A</p>
+</p></td></tr><tr id="row972580826093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>RTC_ALARM_INDEX_B</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1291793693093521"><p>Index of alarm B</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="rtcalarminterruptenable">
+<h2>RtcAlarmInterruptEnable()<a class="headerlink" href="#rtcalarminterruptenable" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcAlarmInterruptEnable</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">enum</span> <span class="p">[</span><span class="n">RtcAlarmIndex</span><span class="p">](</span><span class="n">rtc</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad7b3a575c848e2669db5e5b6f7e74330) alarmIndex, uint8_t enable )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enables or disables alarm interrupts.</p>
+<p>Before performing alarm operations, you need to call this function to
+enable alarm interrupts, so that the
+<a class="reference external" href="rtc.md#gac40e57d996375e1762968b66dedb5914">RtcRegisterAlarmCallback</a>
+will be called when the alarm is not generated upon a timeout.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1897013525093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2079063377093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p295812377093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row19591866093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row698007374093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alarmIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the RTC alarm index. For details, see RtcAlarmIndex.</p>
+</td></tr><tr id="row594440287093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>enable</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Specifies whether to enable RTC alarm interrupts. The value 1 means to
+enable alarm interrupts and value 0 means to disable alarm interrupts.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcclose">
+<h2>RtcClose()<a class="headerlink" href="#rtcclose" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">RtcClose</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Releases a specified handle of the RTC device.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2114646283093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p808114225093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1643229674093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2005732189093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle to release, which is
+created via RtcGetHandle.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="rtcgetfreq">
+<h2>RtcGetFreq()<a class="headerlink" href="#rtcgetfreq" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcGetFreq</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="o">*</span> <span class="n">freq</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reads the RTC external frequency.</p>
+<p>This function reads the frequency of the external crystal oscillator
+connected to the RTC driver.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row300558597093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p224752946093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p952995590093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1265750346093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row1319964133093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>freq</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the frequency of the external crystal
+oscillator, in Hz.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcopen">
+<h2>RtcOpen()<a class="headerlink" href="#rtcopen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">RtcOpen</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Opens the RTC device to obtain its handle.</p>
+<p>The OS supports only one RTC device.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns <a class="reference external" href="devhandle.md">DevHandle</a> if the operation is successful;
+returns <strong>NULL</strong> if the operation fails.</p>
+</div>
+<div class="section" id="rtcreadalarm">
+<h2>RtcReadAlarm()<a class="headerlink" href="#rtcreadalarm" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcReadAlarm</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">enum</span> <span class="p">[</span><span class="n">RtcAlarmIndex</span><span class="p">](</span><span class="n">rtc</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad7b3a575c848e2669db5e5b6f7e74330) alarmIndex, struct [RtcTime](rtctime.md) * time )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reads the RTC alarm time that was set last time.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1493472911093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1493605734093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p846747868093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1214743885093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row1807708613093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alarmIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the RTC alarm index. For details, see RtcAlarmIndex.</p>
+</td></tr><tr id="row748033729093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>time</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC alarm time information. For details,
+see RtcTime.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcreadreg">
+<h2>RtcReadReg()<a class="headerlink" href="#rtcreadreg" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcReadReg</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">usrDefIndex</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reads the configuration of a custom RTC register based on the register
+index.</p>
+<p>One index corresponds to one byte of the configuration value.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row875214868093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p979328003093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1367150434093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row802562778093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row432967364093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>usrDefIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the index of the custom register.</p>
+</td></tr><tr id="row1942179495093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the configuration value of the specified
+register index.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcreadtime">
+<h2>RtcReadTime()<a class="headerlink" href="#rtcreadtime" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcReadTime</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">RtcTime</span><span class="p">](</span><span class="n">rtctime</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">time</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Reads time from the RTC driver.</p>
+<p>The time information includes the year, month, day, day of the week,
+hour, minute, second, and millisecond.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2069334217093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1030216493093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p22710908093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1931844786093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row25920622093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>time</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the time information read from the RTC driver.
+For details, see RtcTime.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcregisteralarmcallback">
+<h2>RtcRegisterAlarmCallback()<a class="headerlink" href="#rtcregisteralarmcallback" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcRegisterAlarmCallback</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">enum</span> <span class="p">[</span><span class="n">RtcAlarmIndex</span><span class="p">](</span><span class="n">rtc</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad7b3a575c848e2669db5e5b6f7e74330) alarmIndex, [RtcAlarmCallback](rtc.md#gaf9932b7e647bce0503f1314bbe5eef8d) cb )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Registers
+<a class="reference external" href="rtc.md#gaf9932b7e647bce0503f1314bbe5eef8d">RtcAlarmCallback</a> that
+will be invoked when an alarm is generated at the specified time.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row600043312093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1602367490093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p39259559093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1176654135093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row2080741403093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alarmIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the RTC alarm index. For details, see RtcAlarmIndex.</p>
+</td></tr><tr id="row1662668017093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>cb</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the callback to register. For details, see RtcAlarmCallback.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcreset">
+<h2>RtcReset()<a class="headerlink" href="#rtcreset" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcReset</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Resets the RTC driver.</p>
+<p>After the reset, the configuration registers are restored to the default
+values.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1380358810093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1363536303093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1354884443093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1857614163093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcsetfreq">
+<h2>RtcSetFreq()<a class="headerlink" href="#rtcsetfreq" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcSetFreq</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">freq</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the frequency of the external crystal oscillator connected to the
+RTC driver.</p>
+<p>Note that the frequency must be configured in accordance with the
+requirements specified in the product manual of the in-use component.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row375657748093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1370609795093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p733546174093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row293457866093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row2075686904093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>freq</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the frequency to set for the external crystal oscillator, in
+Hz.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcwritealarm">
+<h2>RtcWriteAlarm()<a class="headerlink" href="#rtcwritealarm" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcWriteAlarm</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">enum</span> <span class="p">[</span><span class="n">RtcAlarmIndex</span><span class="p">](</span><span class="n">rtc</span><span class="o">.</span><span class="n">md</span><span class="c1">#gad7b3a575c848e2669db5e5b6f7e74330) alarmIndex, const struct [RtcTime](rtctime.md) * time )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Writes the RTC alarm time based on the alarm index.</p>
+<p>Note that the RTC start time is 1970/01/01 Thursday 00:00:00 (UTC). Set
+the maximum value of <strong>year</strong> based on the requirements specified in the
+product manual of the in-use component.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1568251987093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2112482406093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1226669856093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row823916756093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row837193087093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alarmIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the RTC alarm index. For details, see RtcAlarmIndex.</p>
+</td></tr><tr id="row906199917093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>tm</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC alarm time information. For details,
+see RtcTime.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcwritereg">
+<h2>RtcWriteReg()<a class="headerlink" href="#rtcwritereg" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcWriteReg</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">usrDefIndex</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Writes the configuration of a custom RTC register based on the register
+index.</p>
+<p>One index corresponds to one byte of the configuration value.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row938207764093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2074153280093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p286519964093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row363417556093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row2015441742093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>usrDefIndex</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the index of the custom register.</p>
+</td></tr><tr id="row881078034093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the configuration value to write at the index of the register.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+<div class="section" id="rtcwritetime">
+<h2>RtcWriteTime()<a class="headerlink" href="#rtcwritetime" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">RtcWriteTime</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">DevHandle</span><span class="p">](</span><span class="n">devhandle</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">handle</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="p">[</span><span class="n">RtcTime</span><span class="p">](</span><span class="n">rtctime</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">time</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Writes format-compliant time to the RTC driver.</p>
+<p>Note that the RTC start time is 1970/01/01 Thursday 00:00:00 (UTC). Set
+the maximum value of <strong>year</strong> based on the requirements specified in the
+product manual of the in-use component.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1067714704093521"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p179576997093521"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p158172035093521"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1178085783093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>handle</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the RTC device handle, which is obtained via
+RtcGetHandle.</p>
+</td></tr><tr id="row514929124093521"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>time</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the time information to write. For details, see
+RtcTime.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns a negative value
+if the operation fails. For details, see
+<a class="reference external" href="driverutils.md#ga7e01536ecbe9b17563dd3fe256202a67">HDF_STATUS</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/rtc.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

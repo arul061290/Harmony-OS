@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>complex.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="complex-h">
+<h1>complex.h<a class="headerlink" href="#complex-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="math.md">MATH</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares functions to perform operations on complex numbers.</p>
+<p>You can use the functions provided in this file to perform operations on
+complex numbers during development. The functions include complex
+trigonometric, inverse trigonometric, hyperbolic, inverse hyperbolic,
+exponential, and logarithmic functions, and the functions to obtain the
+real and imaginary parts of a complex number.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row415088873084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p602904731084829"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p710081797084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1658660842084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p505534013084829"><p>complex _Complex</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p778783812084829"><p>Indicates the type of a complex number.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row818977951084829"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p797173634084829"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1075227862084829"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1186807969084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p217787038084829"><p>cacos (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1321442786084829"><p>double complex</p>
+</p><p id="p622109066084829"><p>Calculates the arc cosine of the complex number z.</p>
+</p></td></tr><tr id="row514432194084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1185405076084829"><p>cacosf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1718672657084829"><p>float complex</p>
+</p><p id="p411804850084829"><p>Calculates the arc cosine of the complex number z.</p>
+</p></td></tr><tr id="row2135156239084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p278715723084829"><p>cacosl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p896588105084829"><p>long double complex</p>
+</p><p id="p1234806673084829"><p>Calculates the arc cosine of the complex number z.</p>
+</p></td></tr><tr id="row319559913084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p908728861084829"><p>casin (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p719967220084829"><p>double complex</p>
+</p><p id="p1765996729084829"><p>Calculates the arc sine of the complex number z.</p>
+</p></td></tr><tr id="row489363048084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p90118614084829"><p>casinf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p955645761084829"><p>float complex</p>
+</p><p id="p979508799084829"><p>Calculates the arc sine of the complex number z.</p>
+</p></td></tr><tr id="row260035095084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p727764006084829"><p>casinl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p36726841084829"><p>long double complex</p>
+</p><p id="p590673169084829"><p>Calculates the arc sine of the complex number z.</p>
+</p></td></tr><tr id="row847487681084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2087056529084829"><p>catan (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p649698075084829"><p>double complex</p>
+</p><p id="p711782797084829"><p>Calculates the arc tangent of the complex number z.</p>
+</p></td></tr><tr id="row1161096849084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1892897470084829"><p>catanf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1233820659084829"><p>float complex</p>
+</p><p id="p620710720084829"><p>Calculates the arc tangent of the complex number z.</p>
+</p></td></tr><tr id="row1889265999084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p496387585084829"><p>catanl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1403204152084829"><p>long double complex</p>
+</p><p id="p1105549973084829"><p>Calculates the arc tangent of the complex number z.</p>
+</p></td></tr><tr id="row456525481084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1564849010084829"><p>ccos (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1821429107084829"><p>double complex</p>
+</p><p id="p519000021084829"><p>Calculates the cosine of the complex number z.</p>
+</p></td></tr><tr id="row1143723206084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1314188780084829"><p>ccosf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p277688325084829"><p>float complex</p>
+</p><p id="p958560879084829"><p>Calculates the cosine of the complex number z.</p>
+</p></td></tr><tr id="row1483569472084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1350233766084829"><p>ccosl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1123243354084829"><p>long double complex</p>
+</p><p id="p2073654893084829"><p>Calculates the cosine of the complex number z.</p>
+</p></td></tr><tr id="row2037880280084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p831743210084829"><p>csin (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1990563655084829"><p>double complex</p>
+</p><p id="p1849836073084829"><p>Calculates the sine of the complex number z.</p>
+</p></td></tr><tr id="row489957103084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1519202031084829"><p>csinf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p305883089084829"><p>float complex</p>
+</p><p id="p675129833084829"><p>Calculates the sine of the complex number z.</p>
+</p></td></tr><tr id="row103543422084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2056623371084829"><p>csinl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p867894084829"><p>long double complex</p>
+</p><p id="p943300912084829"><p>Calculates the sine of the complex number z.</p>
+</p></td></tr><tr id="row252395887084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1261000955084829"><p>ctan (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1584774297084829"><p>double complex</p>
+</p><p id="p1094231799084829"><p>Calculates the tangent of the complex number z.</p>
+</p></td></tr><tr id="row1661815988084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1249522177084829"><p>ctanf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1464960852084829"><p>float complex</p>
+</p><p id="p1767148233084829"><p>Calculates the tangent of the complex number z.</p>
+</p></td></tr><tr id="row625607827084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1939187181084829"><p>ctanl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1843012819084829"><p>long double complex</p>
+</p><p id="p1489418754084829"><p>Calculates the tangent of the complex number z.</p>
+</p></td></tr><tr id="row638213401084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p226693316084829"><p>cacosh (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1763947632084829"><p>double complex</p>
+</p><p id="p2111994724084829"><p>Calculates the inverse hyperbolic cosine of the complex number z.</p>
+</p></td></tr><tr id="row723913209084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p509465913084829"><p>cacoshf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p461621629084829"><p>float complex</p>
+</p><p id="p461440728084829"><p>Calculates the inverse hyperbolic cosine of the complex number z.</p>
+</p></td></tr><tr id="row1954613275084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1499370926084829"><p>cacoshl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1501941369084829"><p>long double complex</p>
+</p><p id="p1448681723084829"><p>Calculates the inverse hyperbolic cosine of the complex number z.</p>
+</p></td></tr><tr id="row1242218412084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1081257366084829"><p>casinh (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1809429697084829"><p>double complex</p>
+</p><p id="p1977162007084829"><p>Calculates the inverse hyperbolic sine of the complex number z.</p>
+</p></td></tr><tr id="row1454448280084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1859667283084829"><p>casinhf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1459078686084829"><p>float complex</p>
+</p><p id="p829964705084829"><p>Calculates the inverse hyperbolic sine of the complex number z.</p>
+</p></td></tr><tr id="row643035800084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1522100640084829"><p>casinhl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p827912785084829"><p>long double complex</p>
+</p><p id="p379214010084829"><p>Calculates the inverse hyperbolic sine of the complex number z.</p>
+</p></td></tr><tr id="row1120805892084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1658049776084829"><p>catanh (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1052423757084829"><p>double complex</p>
+</p><p id="p1477198842084829"><p>Calculates the inverse hyperbolic tangent of the complex number z.</p>
+</p></td></tr><tr id="row661718036084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p735217235084829"><p>catanhf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p405467987084829"><p>float complex</p>
+</p><p id="p1151434477084829"><p>Calculates the inverse hyperbolic tangent of the complex number z.</p>
+</p></td></tr><tr id="row1336972013084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p610837380084829"><p>catanhl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1225986290084829"><p>long double complex</p>
+</p><p id="p1316777080084829"><p>Calculates the inverse hyperbolic tangent of the complex number z.</p>
+</p></td></tr><tr id="row373610129084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p717264077084829"><p>ccosh (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1347757698084829"><p>double complex</p>
+</p><p id="p250355243084829"><p>Calculates the hyperbolic cosine of the complex number z.</p>
+</p></td></tr><tr id="row785252460084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1714514828084829"><p>ccoshf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1965060898084829"><p>float complex</p>
+</p><p id="p916029083084829"><p>Calculates the hyperbolic cosine of the complex number z.</p>
+</p></td></tr><tr id="row295675599084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p492343552084829"><p>ccoshl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1609961515084829"><p>long double complex</p>
+</p><p id="p1869527423084829"><p>Calculates the hyperbolic cosine of the complex number z.</p>
+</p></td></tr><tr id="row383846607084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1626691790084829"><p>csinh (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1086374700084829"><p>double complex</p>
+</p><p id="p1277276345084829"><p>Calculates the hyperbolic sine of the complex number z.</p>
+</p></td></tr><tr id="row694035483084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p526983325084829"><p>csinhf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p481168755084829"><p>float complex</p>
+</p><p id="p810442156084829"><p>Calculates the hyperbolic sine of the complex number z.</p>
+</p></td></tr><tr id="row2062587487084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1882259774084829"><p>csinhl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1016241249084829"><p>long double complex</p>
+</p><p id="p1754655646084829"><p>Calculates the hyperbolic sine of the complex number z.</p>
+</p></td></tr><tr id="row1416469573084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p179800412084829"><p>ctanh (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p279555700084829"><p>double complex</p>
+</p><p id="p1552063511084829"><p>Calculates the hyperbolic tangent of the complex number z.</p>
+</p></td></tr><tr id="row531279087084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p749244975084829"><p>ctanhf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p566162640084829"><p>float complex</p>
+</p><p id="p1686169653084829"><p>Calculates the hyperbolic tangent of the complex number z.</p>
+</p></td></tr><tr id="row451510915084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1955178154084829"><p>ctanhl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p327065249084829"><p>long double complex</p>
+</p><p id="p1212235739084829"><p>Calculates the hyperbolic tangent of the complex number z.</p>
+</p></td></tr><tr id="row569927314084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1856387570084829"><p>cexp (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p48938986084829"><p>double complex</p>
+</p><p id="p1709269702084829"><p>Calculates the base-e exponential of the complex number z.</p>
+</p></td></tr><tr id="row584493118084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1275916939084829"><p>cexpf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p412672431084829"><p>float complex</p>
+</p><p id="p1049785240084829"><p>Calculates the base-e exponential of the complex number z.</p>
+</p></td></tr><tr id="row1275059144084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p479451691084829"><p>cexpl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p467076671084829"><p>long double complex</p>
+</p><p id="p445469697084829"><p>Calculates the base-e exponential of the complex number z.</p>
+</p></td></tr><tr id="row790290631084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1564643277084829"><p>clog (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p683165929084829"><p>double complex</p>
+</p><p id="p1084449800084829"><p>Calculates the natural (base-e) logarithm of the complex number z.</p>
+</p></td></tr><tr id="row1939764064084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1818085369084829"><p>clogf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2142575118084829"><p>float complex</p>
+</p><p id="p814564757084829"><p>Calculates the natural (base-e) logarithm of the complex number z.</p>
+</p></td></tr><tr id="row2094715311084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p315661156084829"><p>clogl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2030649692084829"><p>long double complex</p>
+</p><p id="p532481015084829"><p>Calculates the natural (base-e) logarithm of the complex number z.</p>
+</p></td></tr><tr id="row1149303088084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1772355187084829"><p>cabs (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p567393505084829"><p>double</p>
+</p><p id="p1061628743084829"><p>Calculates the absolute value of the complex number z.</p>
+</p></td></tr><tr id="row626333610084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p402118812084829"><p>cabsf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p246408576084829"><p>float</p>
+</p><p id="p725822101084829"><p>Calculates the absolute value of the complex number z.</p>
+</p></td></tr><tr id="row647135485084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p194282052084829"><p>cabsl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2125478359084829"><p>long double</p>
+</p><p id="p1934090792084829"><p>Calculates the absolute value of the complex number z.</p>
+</p></td></tr><tr id="row2047569864084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p683184775084829"><p>cpow (double complex x, double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p686811971084829"><p>double complex</p>
+</p><p id="p342086902084829"><p>Calculates the value of x raised to the z power.</p>
+</p></td></tr><tr id="row1430195479084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1654641989084829"><p>cpowf (float complex x, float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1608050237084829"><p>float complex</p>
+</p><p id="p1491666318084829"><p>Calculates the value of x raised to the z power.</p>
+</p></td></tr><tr id="row615215917084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p732851406084829"><p>cpowl (long double complex x, long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p231904872084829"><p>long double complex</p>
+</p><p id="p311235887084829"><p>Calculates the value of x raised to the z power.</p>
+</p></td></tr><tr id="row1867869208084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p159924990084829"><p>csqrt (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1167760912084829"><p>double complex</p>
+</p><p id="p791962903084829"><p>Calculates the square root of the complex number z.</p>
+</p></td></tr><tr id="row1929889024084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p554858101084829"><p>csqrtf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p456846621084829"><p>float complex</p>
+</p><p id="p1355961447084829"><p>Calculates the square root of the complex number z.</p>
+</p></td></tr><tr id="row839767111084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p461277853084829"><p>csqrtl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p16038253084829"><p>long double complex</p>
+</p><p id="p273157664084829"><p>Calculates the square root of the complex number z.</p>
+</p></td></tr><tr id="row1254272180084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p166235045084829"><p>carg (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1245958558084829"><p>double</p>
+</p><p id="p994860142084829"><p>Calculates the phase angle of the complex number z.</p>
+</p></td></tr><tr id="row450442444084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p727447941084829"><p>cargf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p656389067084829"><p>float</p>
+</p><p id="p137617898084829"><p>Calculates the phase angle of the complex number z.</p>
+</p></td></tr><tr id="row1969726717084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p421717689084829"><p>cargl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p840622213084829"><p>long double</p>
+</p><p id="p1232312951084829"><p>Calculates the phase angle of the complex number z.</p>
+</p></td></tr><tr id="row84215393084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1221112511084829"><p>cimag (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p227793902084829"><p>double</p>
+</p><p id="p1787782590084829"><p>Calculates the imaginary part of the complex number z.</p>
+</p></td></tr><tr id="row1047143166084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1052845836084829"><p>cimagf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1117521652084829"><p>float</p>
+</p><p id="p641466035084829"><p>Calculates the imaginary part of the complex number z.</p>
+</p></td></tr><tr id="row1444984669084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p770053406084829"><p>cimagl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1193973454084829"><p>long double</p>
+</p><p id="p76413477084829"><p>Calculates the imaginary part of the complex number z.</p>
+</p></td></tr><tr id="row1591299555084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1006051806084829"><p>conj (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1393905210084829"><p>double complex</p>
+</p><p id="p435037235084829"><p>Calculates the conjugate of the complex number z.</p>
+</p></td></tr><tr id="row908683319084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p217677688084829"><p>conjf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1809740162084829"><p>float complex</p>
+</p><p id="p1669497150084829"><p>Calculates the conjugate of the complex number z.</p>
+</p></td></tr><tr id="row678062067084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1940925185084829"><p>conjl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1320330987084829"><p>long double complex</p>
+</p><p id="p226256585084829"><p>Calculates the conjugate of the complex number z.</p>
+</p></td></tr><tr id="row1584159718084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p148761746084829"><p>cproj (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1242088077084829"><p>double complex</p>
+</p><p id="p1689582149084829"><p>Calculates the projection of the complex number z onto the Riemann
+sphere.</p>
+</p></td></tr><tr id="row1175280658084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1919499576084829"><p>cprojf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p458411055084829"><p>float complex</p>
+</p><p id="p1956670939084829"><p>Calculates the projection of the complex number z onto the Riemann
+sphere.</p>
+</p></td></tr><tr id="row1951954311084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1251503385084829"><p>cprojl (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p986021684084829"><p>long double complex</p>
+</p><p id="p436554116084829"><p>Calculates the projection of the complex number z onto the Riemann
+sphere.</p>
+</p></td></tr><tr id="row1752515630084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p974692738084829"><p>creal (double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1278859374084829"><p>double</p>
+</p><p id="p256135245084829"><p>Calculates the real part of the complex number z.</p>
+</p></td></tr><tr id="row182707269084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1458892058084829"><p>crealf (float complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1947316963084829"><p>float</p>
+</p><p id="p2144227985084829"><p>Calculates the real part of the complex number z.</p>
+</p></td></tr><tr id="row16846834084829"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p879330262084829"><p>creall (long double complex z)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p380083658084829"><p>long double</p>
+</p><p id="p38131433084829"><p>Calculates the real part of the complex number z.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/complex-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

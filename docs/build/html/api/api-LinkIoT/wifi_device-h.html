@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wifi_device.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wifi-device-h">
+<h1>wifi_device.h<a class="headerlink" href="#wifi-device-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="wifiservice.md">Wifiservice</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides capabilities to enable and disable the station mode, connect to
+and disconnect from a station, query the station status, and listen for
+events.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row581507208191853"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p673192764191853"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p889541737191853"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1324749149191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1856265457191853"><p>EnableWifi (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p7499655191853"><p>WifiErrorCode</p>
+</p><p id="p418832470191853"><p>Enables the station mode.</p>
+</p></td></tr><tr id="row2071055609191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p38809131191853"><p>DisableWifi (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1905255347191853"><p>WifiErrorCode</p>
+</p><p id="p1300315416191853"><p>Disables the station mode.</p>
+</p></td></tr><tr id="row2049486627191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p324047387191853"><p>IsWifiActive (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p298660909191853"><p>int</p>
+</p><p id="p985109107191853"><p>Checks whether the station mode is enabled.</p>
+</p></td></tr><tr id="row142858618191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1034923022191853"><p>Scan (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2087987099191853"><p>WifiErrorCode</p>
+</p><p id="p1923101878191853"><p>Starts a Wi-Fi scan.</p>
+</p></td></tr><tr id="row621931012191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1432377812191853"><p>GetScanInfoList (WifiScanInfo <em>result, unsigned int</em>size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1683096515191853"><p>WifiErrorCode</p>
+</p><p id="p847993520191853"><p>Obtains an array of hotspots detected in a Wi-Fi scan.</p>
+</p></td></tr><tr id="row214096119191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p984886430191853"><p>AddDeviceConfig (const WifiDeviceConfig <em>config, int</em>result)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1651342390191853"><p>WifiErrorCode</p>
+</p><p id="p1502713762191853"><p>Adds a specified hotspot configuration for connecting to a hotspot.</p>
+</p></td></tr><tr id="row648270102191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p89298853191853"><p>GetDeviceConfigs (WifiDeviceConfig <em>result, unsigned int</em>size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1803196705191853"><p>WifiErrorCode</p>
+</p><p id="p742188183191853"><p>Obtains all hotspot configurations.</p>
+</p></td></tr><tr id="row1455103167191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p141530185191853"><p>RemoveDevice (int networkId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2063805126191853"><p>WifiErrorCode</p>
+</p><p id="p460306230191853"><p>Removes a hotspot configuration matching a specified networkId.</p>
+</p></td></tr><tr id="row121490422191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2099696918191853"><p>ConnectTo (int networkId)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p536721232191853"><p>WifiErrorCode</p>
+</p><p id="p127874559191853"><p>Connects to a hotspot matching a specified networkId.</p>
+</p></td></tr><tr id="row325018268191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p305212883191853"><p>Disconnect (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1276338179191853"><p>WifiErrorCode</p>
+</p><p id="p660136343191853"><p>Disconnects this Wi-Fi connection.</p>
+</p></td></tr><tr id="row709267078191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1583175374191853"><p>GetLinkedInfo (WifiLinkedInfo *result)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p643156249191853"><p>WifiErrorCode</p>
+</p><p id="p1591973955191853"><p>Obtains information about the connected hotspot.</p>
+</p></td></tr><tr id="row1543693749191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2088893449191853"><p>RegisterWifiEvent (WifiEvent *event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1041454910191853"><p>WifiErrorCode</p>
+</p><p id="p731885485191853"><p>Registers a callback for a specified Wi-Fi event.</p>
+</p></td></tr><tr id="row1431850078191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p23193008191853"><p>UnRegisterWifiEvent (const WifiEvent *event)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1254345849191853"><p>WifiErrorCode</p>
+</p><p id="p2124976191191853"><p>Unregisters a callback previously registered for a specified Wi-Fi
+event.</p>
+</p></td></tr><tr id="row68338882191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1973334294191853"><p>GetDeviceMacAddress (unsigned char *result)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p5389647191853"><p>WifiErrorCode</p>
+</p><p id="p1232103715191853"><p>Obtains the MAC address of this device.</p>
+</p></td></tr><tr id="row1972846923191853"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p726709410191853"><p>AdvanceScan (WifiScanParams *params)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p727949786191853"><p>WifiErrorCode</p>
+</p><p id="p61648187191853"><p>Starts a Wi-Fi scan based on a specified parameter.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-LinkIoT/wifi_device-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

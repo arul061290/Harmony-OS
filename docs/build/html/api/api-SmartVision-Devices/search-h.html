@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>search.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="search-h">
+<h1>search.h<a class="headerlink" href="#search-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="utils.md">UTILS</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides functions and related data structures, such as creating,
+destroying, or searching for a hash table.</p>
+<p>You can use the functions provided in this file to perform operations
+related to wide character types during development, such as, creating,
+destroying, or searching for a hash table, and creating or searching for
+a binary tree.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1055834200084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1941498265084832"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1823914872084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row935675605084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p91649125084832"><p>entry</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p436672527084832"><p>Defines a hash table entry.</p>
+</p></td></tr><tr id="row2008590779084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1561627315084832"><p>qelem</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p740165505084832"><p>Creates a queue from the doubly linked list for insque and remque.</p>
+</p></td></tr><tr id="row813672276084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p226533583084832"><p>hsearch_data</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1389304576084832"><p>Defines a hash table.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1143777142084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1387772072084832"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1406886958084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row767617264084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p786414861084832"><p>ENTRY</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1561047772084832"><p>typedef struct entry</p>
+</p><p id="p248696984084832"><p>Defines a hash table entry.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1605386500084832"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p323910773084832"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1275293549084832"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1594042147084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1422137759084832"><p>hcreate (size_t nel)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p541422531084832"><p>int</p>
+</p><p id="p323287233084832"><p>Creates a hash table based on the number of entries.</p>
+</p></td></tr><tr id="row471757059084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1269370464084832"><p>hdestroy (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p216591345084832"><p>void</p>
+</p><p id="p1058192982084832"><p>Destroys a hash table.</p>
+</p></td></tr><tr id="row1689805187084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p986878280084832"><p>hsearch (ENTRY item, ACTION action)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1238117922084832"><p>ENTRY *</p>
+</p><p id="p966646938084832"><p>Adds or searches for a hash entry.</p>
+</p></td></tr><tr id="row1373086841084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1439652699084832"><p>hcreate_r (size_t nel, struct hsearch_data *htab)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1527714999084832"><p>int</p>
+</p><p id="p92898088084832"><p>Creates a hash table based on the number of entries and its description.</p>
+</p></td></tr><tr id="row1952263373084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p391353750084832"><p>hdestroy_r (struct hsearch_data *htab)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2090871344084832"><p>void</p>
+</p><p id="p871760369084832"><p>Destroys a hash table.</p>
+</p></td></tr><tr id="row1817289055084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p27409443084832"><p>hsearch_r (ENTRY item, ACTION action, ENTRY **retval, struct
+hsearch_data *htab)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p933186558084832"><p>int</p>
+</p><p id="p1562829332084832"><p>Searches for a hash table.</p>
+</p></td></tr><tr id="row1120202478084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p77918855084832"><p>insque (void <em>element, void</em>pred)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p201509557084832"><p>void</p>
+</p><p id="p1955400905084832"><p>Adds an entry to a queue.</p>
+</p></td></tr><tr id="row1498806581084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1411728870084832"><p>remque (void *elem)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p843122873084832"><p>void</p>
+</p><p id="p1485454687084832"><p>Removes an entry from a queue.</p>
+</p></td></tr><tr id="row1106721771084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1321326596084832"><p>lsearch (const void <em>key, const void</em>base, size_t <em>nelp, size_t width,
+int(</em>compar)(const void <em>, const void</em>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1636656383084832"><p>void *</p>
+</p><p id="p1489206967084832"><p>Performs a linear search for a key in the array and adds a key to the
+end of the array if the key is not found.</p>
+</p></td></tr><tr id="row2043033534084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p225621448084832"><p>lfind (const void <em>key, const void</em>base, size_t <em>nelp, size_t width,
+int(</em>compar)(const void <em>, const void</em>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1975423887084832"><p>void *</p>
+</p><p id="p115084262084832"><p>Performs a linear search for a key in the array.</p>
+</p></td></tr><tr id="row132347029084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1788773448084832"><p>tdelete (const void *key, void **rootp, int(<em>compar)(const void</em>,
+const void *))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1901767552084832"><p>void *</p>
+</p><p id="p402149013084832"><p>Deletes a key from the binary tree.</p>
+</p></td></tr><tr id="row1472891968084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1649708395084832"><p>tfind (const void <em>key, void</em>const <em>rootp, int(</em>compar)(const void
+<em>, const void</em>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p756924118084832"><p>void *</p>
+</p><p id="p549918536084832"><p>Searches for a key in the binary tree.</p>
+</p></td></tr><tr id="row1585207759084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p429180707084832"><p>tsearch (const void <em>key, void</em>const <em>rootp, int(</em>compar)(const void
+<em>, const void</em>))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2022709116084832"><p>void *</p>
+</p><p id="p1293139361084832"><p>Searches for a key in the binary tree and adds a key to the tree if the
+key is not found.</p>
+</p></td></tr><tr id="row730118548084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p858448897084832"><p>twalk (const void <em>root, void(</em>action)(const void *nodep, VISIT
+which, int depth))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1553219314084832"><p>void</p>
+</p><p id="p1379259659084832"><p>Traverses a binary tree from left to right.</p>
+</p></td></tr><tr id="row628429883084832"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p21453645084832"><p>tdestroy (void <em>root, void(</em>free_node)(void *nodep))</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p821252188084832"><p>void</p>
+</p><p id="p711429991084832"><p>Releases all nodes in the binary tree.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/search-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

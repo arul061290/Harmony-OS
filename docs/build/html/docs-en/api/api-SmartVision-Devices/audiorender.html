@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AudioRender &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="audiorender">
+<h1>AudioRender<a class="headerlink" href="#audiorender" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="audio.md">Audio</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides capabilities for audio rendering, including controlling the
+rendering, setting audio attributes, scenes, and volume, obtaining
+hardware latency, and rendering audio frames.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-fields">
+<h2>Data Fields<a class="headerlink" href="#data-fields" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row627848022093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2138670895093529"><p>Variable Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p321138032093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2007957727093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1503626553093529"><p>control</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2090945373093529"><p>struct AudioControl</p>
+</p><p id="p153211130093529"><p>Defines the audio control. For details, see AudioControl.</p>
+</p></td></tr><tr id="row1841984408093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1433989772093529"><p>attr</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p963155598093529"><p>struct AudioAttribute</p>
+</p><p id="p1042286076093529"><p>Defines the audio attribute. For details, see AudioAttribute.</p>
+</p></td></tr><tr id="row1745890986093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1859519262093529"><p>scene</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2105830543093529"><p>struct AudioScene</p>
+</p><p id="p1863771863093529"><p>Defines the audio scene. For details, see AudioScene.</p>
+</p></td></tr><tr id="row451243574093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p561827211093529"><p>volume</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2089467282093529"><p>struct AudioVolume</p>
+</p><p id="p916508016093529"><p>Defines audio volume. For details, see AudioVolume.</p>
+</p></td></tr><tr id="row2074215241093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1797017029093529"><p>GetLatency )(struct AudioRender <em>render, uint32_t</em>ms)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1313839283093529"><p>int32_t(*</p>
+</p><p id="p390046843093529"><p>Obtains the estimated latency of the audio device driver.</p>
+</p></td></tr><tr id="row276977799093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p398448113093529"><p>RenderFrame )(struct AudioRender <em>render, const void</em>frame, uint64_t
+requestBytes, uint64_t *replyBytes)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p939637104093529"><p>int32_t(*</p>
+</p><p id="p1456099619093529"><p>Writes a frame of output data (downlink data) into the audio driver for
+rendering.</p>
+</p></td></tr><tr id="row584537330093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p822109862093529"><p>GetRenderPosition )(struct AudioRender <em>render, uint64_t</em>frames,
+struct AudioTimeStamp *time)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p447022631093529"><p>int32_t(*</p>
+</p><p id="p1964350547093529"><p>Obtains the last number of output audio frames.</p>
+</p></td></tr><tr id="row227992507093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p740040602093529"><p>SetRenderSpeed )(struct AudioRender *render, float speed)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p521982719093529"><p>int32_t(*</p>
+</p><p id="p1282932925093529"><p>Sets the audio rendering speed.</p>
+</p></td></tr><tr id="row1060396809093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1194427754093529"><p>GetRenderSpeed )(struct AudioRender <em>render, float</em>speed)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2102555257093529"><p>int32_t(*</p>
+</p><p id="p1352540305093529"><p>Obtains the current audio rendering speed.</p>
+</p></td></tr><tr id="row173790015093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2103236435093529"><p>SetChannelMode )(struct AudioRender *render, enum AudioChannelMode
+mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p753755891093529"><p>int32_t(*</p>
+</p><p id="p565312761093529"><p>Sets the channel mode for audio rendering.</p>
+</p></td></tr><tr id="row1500017285093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p840139834093529"><p>GetChannelMode )(struct AudioRender <em>render, enum
+AudioChannelMode</em>mode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p459292041093529"><p>int32_t(*</p>
+</p><p id="p1248647415093529"><p>Obtains the current channel mode for audio rendering.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-documentation">
+<h2><strong>Field Documentation</strong><a class="headerlink" href="#field-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="getchannelmode">
+<h2>GetChannelMode<a class="headerlink" href="#getchannelmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioRender</span><span class="p">::</span><span class="n">GetChannelMode</span><span class="p">)</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioRender</span><span class="p">](</span><span class="n">audiorender</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">render</span><span class="p">,</span> <span class="n">enum</span> <span class="p">[</span><span class="n">AudioChannelMode</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga78aab1fafb9657451804e42b42897123) *mode)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the current channel mode for audio rendering.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row454010964093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1901105570093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2011764168093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1051070001093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>render</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the AudioRender object to operate.</p>
+</td></tr><tr id="row2111023463093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>mode</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the channel mode to obtain.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the mode is successfully obtained; returns a negative
+value otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiorender.md#ae5aad5b26ccdd65ba501620851c5ecec">SetChannelMode</a></p>
+</div>
+<div class="section" id="getlatency">
+<h2>GetLatency<a class="headerlink" href="#getlatency" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioRender</span><span class="p">::</span><span class="n">GetLatency</span><span class="p">)</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioRender</span><span class="p">](</span><span class="n">audiorender</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">render</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="o">*</span><span class="n">ms</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the estimated latency of the audio device driver.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row714317588093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1771266111093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1207712711093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1772715070093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>render</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the AudioRender object to operate.</p>
+</td></tr><tr id="row612026893093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>ms</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the latency (in milliseconds) to be obtained.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the latency is obtained; returns a negative value
+otherwise.</p>
+</div>
+<div class="section" id="getrenderposition">
+<h2>GetRenderPosition<a class="headerlink" href="#getrenderposition" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioRender</span><span class="p">::</span><span class="n">GetRenderPosition</span><span class="p">)</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioRender</span><span class="p">](</span><span class="n">audiorender</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">render</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="o">*</span><span class="n">frames</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">AudioTimeStamp</span><span class="p">](</span><span class="n">audiotimestamp</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="p">[</span><span class="n">time</span><span class="p">](</span><span class="n">en</span><span class="o">-</span><span class="n">us_topic_0000001054879478</span><span class="o">.</span><span class="n">md</span><span class="c1">#gae7841e681c8c9d59818568d39553642c))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the last number of output audio frames.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row158685199093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1469853976093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p691855517093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row140163604093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>render</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the AudioRender object to operate.</p>
+</td></tr><tr id="row1094248506093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>frames</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the last number of output audio frames.</p>
+</td></tr><tr id="row908324837093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>time</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the timestamp associated with the frame.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the last number is obtained; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiorender.md#a463cab04d0805a5c7b3ba5884c468246">RenderFrame</a></p>
+</div>
+<div class="section" id="getrenderspeed">
+<h2>GetRenderSpeed<a class="headerlink" href="#getrenderspeed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioRender</span><span class="p">::</span><span class="n">GetRenderSpeed</span><span class="p">)</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioRender</span><span class="p">](</span><span class="n">audiorender</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">render</span><span class="p">,</span> <span class="nb">float</span> <span class="o">*</span><span class="n">speed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the current audio rendering speed.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1716199609093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1867866308093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1526727964093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row762573241093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>render</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the AudioRender object to operate.</p>
+</td></tr><tr id="row320766646093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>speed</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the current rendering speed to obtain.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the speed is successfully obtained; returns a negative
+value otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiorender.md#a5589427ae5a4ba6a8d2a19dd8eddbcd8">SetRenderSpeed</a></p>
+</div>
+<div class="section" id="renderframe">
+<h2>RenderFrame<a class="headerlink" href="#renderframe" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioRender</span><span class="p">::</span><span class="n">RenderFrame</span><span class="p">)</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioRender</span><span class="p">](</span><span class="n">audiorender</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">render</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="n">frame</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="n">requestBytes</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="o">*</span><span class="n">replyBytes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Writes a frame of output data (downlink data) into the audio driver for
+rendering.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1535336451093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1695575131093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1144008438093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2106997272093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>render</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the AudioRender object to operate.</p>
+</td></tr><tr id="row867632539093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>frame</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the frame to write.</p>
+</td></tr><tr id="row1887586639093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>requestBytes</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of the frame, in bytes.</p>
+</td></tr><tr id="row1789967755093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>replyBytes</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the actual length (in bytes) of the audio data
+to write.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the data is written successfully; returns a negative
+value otherwise.</p>
+</div>
+<div class="section" id="setchannelmode">
+<h2>SetChannelMode<a class="headerlink" href="#setchannelmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioRender</span><span class="p">::</span><span class="n">SetChannelMode</span><span class="p">)</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioRender</span><span class="p">](</span><span class="n">audiorender</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">render</span><span class="p">,</span> <span class="n">enum</span> <span class="p">[</span><span class="n">AudioChannelMode</span><span class="p">](</span><span class="n">audio</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga78aab1fafb9657451804e42b42897123) mode)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the channel mode for audio rendering.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row463189493093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1457072568093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2073183254093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row863003140093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>render</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the AudioRender object to operate.</p>
+</td></tr><tr id="row1898880801093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>mode</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the channel mode to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiorender.md#aad3d5e4104167620eacb2ba23edce50e">GetChannelMode</a></p>
+</div>
+<div class="section" id="setrenderspeed">
+<h2>SetRenderSpeed<a class="headerlink" href="#setrenderspeed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span><span class="p">(</span><span class="o">*</span> <span class="n">AudioRender</span><span class="p">::</span><span class="n">SetRenderSpeed</span><span class="p">)</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">AudioRender</span><span class="p">](</span><span class="n">audiorender</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">render</span><span class="p">,</span> <span class="nb">float</span> <span class="n">speed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the audio rendering speed.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1603531149093529"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p305349587093529"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1109444655093529"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1984273724093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>render</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the AudioRender object to operate.</p>
+</td></tr><tr id="row102845991093529"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>speed</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the rendering speed to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the setting is successful; returns a negative value
+otherwise.</p>
+<p><strong>See also:</strong></p>
+<p><a class="reference external" href="audiorender.md#af0a19dacb293d3fbe600902b93af1ee9">GetRenderSpeed</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/audiorender.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

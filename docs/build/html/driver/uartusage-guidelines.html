@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UART Usage Guidelines &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="uart-usage-guidelines">
+<h1>UART Usage Guidelines<a class="headerlink" href="#uart-usage-guidelines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-use">
+<h2>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="#fig1852173020185">Figure 1</a> shows the process of using a UART
+device.</p>
+<p><strong>Figure 1</strong> Process of using a UART device</p>
+<p><img alt="image1" src="../_images/en-us_image_0000001054006983.png" /></p>
+</div>
+<div class="section" id="obtaining-a-uart-device-handle">
+<h2>Obtaining a UART Device Handle<a class="headerlink" href="#obtaining-a-uart-device-handle" title="Permalink to this headline">¶</a></h2>
+<p>Before performing UART communication, call <strong>UartOpen</strong> to obtain a UART
+device handle. This function returns the pointer to the UART device
+handle with a specified port number.</p>
+<p>struct DevHandle *UartOpen(uint32_t port);</p>
+<p><strong>Table 1</strong> Description of <strong>UartOpen</strong></p>
+<table><thead align="left"><tr id="row1022175133111"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p13221551153117"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p122211251103111"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row6222451133114"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p92221518315"><p>port</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1322217518318"><p>UART port number.</p>
+</p></td></tr><tr id="row1122245153112"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p102221451123118"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1122215143113"><p>Description</p>
+</p></td></tr><tr id="row522275114317"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p422235114313"><p>NULL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5222351203112"><p>Failed to obtain the UART device handle.</p>
+</p></td></tr><tr id="row1222212513311"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p5222125115316"><p>Device handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p192228515311"><p>Pointer to the UART device handle.</p>
+</p></td></tr></tbody></table><p>The following example shows how to obtain a UART device handle based on
+the assumption that the UART port number is <strong>3</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">DevHandle</span> <span class="o">*</span><span class="n">handle</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>    <span class="o">/*</span> <span class="n">Pointer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">device</span> <span class="n">handle</span> <span class="o">*/</span>
+<span class="n">uint32_t</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>                  <span class="o">/*</span> <span class="n">UART</span> <span class="n">port</span> <span class="n">number</span> <span class="o">*/</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">UartOpen</span><span class="p">(</span><span class="n">port</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartOpen: failed!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-uart-baud-rate">
+<h2>Setting the UART Baud Rate<a class="headerlink" href="#setting-the-uart-baud-rate" title="Permalink to this headline">¶</a></h2>
+<p>After obtaining the UART device handle, set the UART baud rate by
+calling the following function:</p>
+<p>int32_t UartSetBaud(struct DevHandle *handle, uint32_t baudRate);</p>
+<p><strong>Table 2</strong> Description of <strong>UartSetBaud</strong></p>
+<table><thead align="left"><tr id="row15391205311323"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p11390453103216"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p839065316328"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2039115373216"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1639165310324"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p539115320328"><p>Pointer to the UART device handle.</p>
+</p></td></tr><tr id="row163911753143214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p13911653203215"><p>baudRate</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p163919537322"><p>Baud rate of the UART to set.</p>
+</p></td></tr><tr id="row539155343218"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1039185313321"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p123911753143213"><p>Description</p>
+</p></td></tr><tr id="row2391853153218"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p17391185310322"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14391653193210"><p>Succeeded in setting the UART baud rate.</p>
+</p></td></tr><tr id="row23912053143211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7391165320321"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p639185318322"><p>Failed to set the UART baud rate.</p>
+</p></td></tr></tbody></table><p>The following example shows how to set the UART baud rate to <strong>9600</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">baud</span> <span class="n">rate</span> <span class="n">to</span> <span class="mf">9600.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">UartSetBaud</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="mi">9600</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartSetBaud: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obtaining-the-uart-baud-rate">
+<h2>Obtaining the UART Baud Rate<a class="headerlink" href="#obtaining-the-uart-baud-rate" title="Permalink to this headline">¶</a></h2>
+<p>After setting the UART baud rate, obtain the current baud rate by
+calling the following function:</p>
+<p>int32_t UartGetBaud(struct DevHandle *handle, uint32_t *baudRate);</p>
+<p><strong>Table 3</strong> Description of <strong>UartGetBaud</strong></p>
+<table><thead align="left"><tr id="row19392653123215"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p6392105315326"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p53920531329"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row103921553103211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1539220536326"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p6392553203217"><p>Pointer to the UART device handle.</p>
+</p></td></tr><tr id="row1539211532322"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p93921053123210"><p>baudRate</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p93926536328"><p>Pointer to the UART baud rate.</p>
+</p></td></tr><tr id="row1239318531326"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p17392653123213"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1339365316327"><p>Description</p>
+</p></td></tr><tr id="row143939531328"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p2393953153213"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p8393165383218"><p>Succeeded in obtaining the UART baud rate.</p>
+</p></td></tr><tr id="row5393105363210"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p17393125363215"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1539325393211"><p>Failed to obtain the UART baud rate.</p>
+</p></td></tr></tbody></table><p>The following example shows how to obtain the UART baud rate:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint32_t</span> <span class="n">baudRate</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Obtain</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">baud</span> <span class="n">rate</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">UartGetBaud</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">baudRate</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartGetBaud: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-uart-device-attributes">
+<h2>Setting the UART Device Attributes<a class="headerlink" href="#setting-the-uart-device-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Before performing UART communication, set the UART device attributes by
+calling the following function:</p>
+<p>int32_t UartSetAttribute(struct DevHandle *handle, struct UartAttribute
+*attribute);</p>
+<p><strong>Table 4</strong> Description of <strong>UartSetAttribute</strong></p>
+<table><thead align="left"><tr id="row3530433103416"><th class="cellrowborder" valign="top" width="49.980000000000004%" id="mcps1.2.3.1.1"><p id="p1853073310341"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50.019999999999996%" id="mcps1.2.3.1.2"><p id="p553083393417"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row55303331347"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p1530113313341"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p3530173313346"><p>Pointer to the UART device handle.</p>
+</p></td></tr><tr id="row45309337342"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p553083319348"><p>attribute</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p5530133314343"><p>Pointer to the UART device attributes to set.</p>
+</p></td></tr><tr id="row12530833103415"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p185309331345"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p145309332344"><p>Description</p>
+</p></td></tr><tr id="row14530203310348"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p1653014339343"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p1453023323419"><p>Succeeded in setting the UART device attributes.</p>
+</p></td></tr><tr id="row6531163373412"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p16530123310345"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p1953118334347"><p>Failed to set the UART device attributes.</p>
+</p></td></tr></tbody></table><p>The following example shows how to set the UART device attributes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">struct</span> <span class="n">UartAttribute</span> <span class="n">attribute</span><span class="p">;</span>
+<span class="n">attribute</span><span class="o">.</span><span class="n">dataBits</span> <span class="o">=</span> <span class="n">UART_ATTR_DATABIT_7</span><span class="p">;</span>   <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">data</span> <span class="n">bits</span> <span class="n">to</span> <span class="mf">7.</span> <span class="o">*/</span>
+<span class="n">attribute</span><span class="o">.</span><span class="n">parity</span> <span class="o">=</span> <span class="n">UART_ATTR_PARITY_NONE</span><span class="p">;</span>   <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">parity</span> <span class="n">bit</span> <span class="n">to</span> <span class="n">no</span> <span class="n">parity</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">attribute</span><span class="o">.</span><span class="n">stopBits</span> <span class="o">=</span> <span class="n">UART_ATTR_STOPBIT_1</span><span class="p">;</span>   <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">stop</span> <span class="n">bit</span> <span class="n">to</span> <span class="mf">1.</span> <span class="o">*/</span>
+<span class="n">attribute</span><span class="o">.</span><span class="n">rts</span> <span class="o">=</span> <span class="n">UART_ATTR_RTS_DIS</span><span class="p">;</span>          <span class="o">/*</span> <span class="n">Disable</span> <span class="n">the</span> <span class="n">RTS</span> <span class="n">signal</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">attribute</span><span class="o">.</span><span class="n">cts</span> <span class="o">=</span> <span class="n">UART_ATTR_CTS_DIS</span><span class="p">;</span>          <span class="o">/*</span> <span class="n">Disable</span> <span class="n">the</span> <span class="n">CTS</span> <span class="n">signal</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">attribute</span><span class="o">.</span><span class="n">fifoRxEn</span> <span class="o">=</span> <span class="n">UART_ATTR_RX_FIFO_EN</span><span class="p">;</span>  <span class="o">/*</span> <span class="n">Enable</span> <span class="n">RX</span> <span class="n">FIFO</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">attribute</span><span class="o">.</span><span class="n">fifoTxEn</span> <span class="o">=</span> <span class="n">UART_ATTR_TX_FIFO_EN</span><span class="p">;</span>  <span class="o">/*</span> <span class="n">Enable</span> <span class="n">TX</span> <span class="n">FIFO</span><span class="o">.</span> <span class="o">*/</span>
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">device</span> <span class="n">attributes</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">UartSetAttribute</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attribute</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartSetAttribute: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obtaining-uart-device-attributes">
+<h2>Obtaining UART Device Attributes<a class="headerlink" href="#obtaining-uart-device-attributes" title="Permalink to this headline">¶</a></h2>
+<p>After setting the UART device attributes, obtain the current device
+attributes by calling the following function:</p>
+<p>int32_t UartGetAttribute(struct DevHandle *handle, struct UartAttribute
+*attribute);</p>
+<p><strong>Table 5</strong> Description of <strong>UartGetAttribute</strong></p>
+<table><thead align="left"><tr id="row18531193383420"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p85311833143420"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p17531103319348"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row35311533153413"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p453133333418"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p753193323420"><p>Pointer to the UART device handle.</p>
+</p></td></tr><tr id="row1953103315344"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p35315333346"><p>attribute</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14531633133416"><p>Pointer to the UART device attributes.</p>
+</p></td></tr><tr id="row45321433143415"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p653273363417"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1653203312347"><p>Description</p>
+</p></td></tr><tr id="row175320339342"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p10532163383412"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5532143319341"><p>Succeeded in obtaining the UART device attributes.</p>
+</p></td></tr><tr id="row125327337340"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p19532153317345"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p175321933163410"><p>Failed to obtain the UART device attributes.</p>
+</p></td></tr></tbody></table><p>The following example shows how to obtain the UART device attributes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">struct</span> <span class="n">UartAttribute</span> <span class="n">attribute</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Obtain</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">attributes</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">UartGetAttribute</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attribute</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartGetAttribute: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-uart-transmission-mode">
+<h2>Setting the UART Transmission Mode<a class="headerlink" href="#setting-the-uart-transmission-mode" title="Permalink to this headline">¶</a></h2>
+<p>Before performing UART communication, set the UART transmission mode by
+calling the following function:</p>
+<p>int32_t UartSetTransMode(struct DevHandle *handle, enum UartTransMode
+mode);</p>
+<p><strong>Table 6</strong> Description of <strong>UartSetTransMode</strong></p>
+<table><thead align="left"><tr id="row018922615318"><th class="cellrowborder" valign="top" width="49.980000000000004%" id="mcps1.2.3.1.1"><p id="p131891826835"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50.019999999999996%" id="mcps1.2.3.1.2"><p id="p101894269314"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row11893261734"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p81897261333"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p5190142618310"><p>Pointer to the UART device handle.</p>
+</p></td></tr><tr id="row1119082615317"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p1519012261314"><p>mode</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p121901026632"><p>UART transmission mode to set.</p>
+</p></td></tr><tr id="row19190152612317"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p131900266316"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p1519022616315"><p>Description</p>
+</p></td></tr><tr id="row919016261932"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p10190526334"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p1219012264318"><p>Succeeded in setting the UART transmission mode.</p>
+</p></td></tr><tr id="row1219017262313"><td class="cellrowborder" valign="top" width="49.980000000000004%" headers="mcps1.2.3.1.1 "><p id="p15190162616316"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50.019999999999996%" headers="mcps1.2.3.1.2 "><p id="p131906262311"><p>Failed to set the UART transmission mode.</p>
+</p></td></tr></tbody></table><p>The following example shows how to set the transmission mode to
+<strong>UART_MODE_RD_BLOCK</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">transmission</span> <span class="n">mode</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">UartSetTransMode</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">UART_MODE_RD_BLOCK</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartSetTransMode: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-data-of-a-specified-length-into-a-uart-device">
+<h2>Writing Data of a Specified Length into a UART Device<a class="headerlink" href="#writing-data-of-a-specified-length-into-a-uart-device" title="Permalink to this headline">¶</a></h2>
+<p>To write data into a UART device, call the following function:</p>
+<p>int32_t UartWrite(struct DevHandle *handle, uint8_t *data, uint32_t
+size);</p>
+<p><strong>Table 7</strong> Description of <strong>UartWrite</strong></p>
+<table><thead align="left"><tr id="row1578171123619"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p078112115360"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p37811711163612"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1878291143611"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p07818112360"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p178281113369"><p>Pointer to the UART device handle.</p>
+</p></td></tr><tr id="row7782811123614"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p8782911173610"><p>data</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p17782171120366"><p>Pointer to the data to write.</p>
+</p></td></tr><tr id="row1578251112367"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p3782911183612"><p>size</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p17782161110366"><p>Length of the data to write.</p>
+</p></td></tr><tr id="row1378281113363"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p87821411183616"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p13782111116361"><p>Description</p>
+</p></td></tr><tr id="row47822112365"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p107821011103613"><p>0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p11782191103610"><p>Succeeded in writing data into the UART device.</p>
+</p></td></tr><tr id="row11782911113611"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1578221111367"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p9782151110366"><p>Failed to write data into the UART device.</p>
+</p></td></tr></tbody></table><p>The following example shows how to write data of a specified length into
+the UART device:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint8_t</span> <span class="n">wbuff</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="o">/*</span> <span class="n">Write</span> <span class="mi">5</span><span class="o">-</span><span class="n">byte</span> <span class="n">data</span> <span class="n">into</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">device</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">UartWrite</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">wbuff</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartWrite: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reading-data-of-a-specified-length-from-a-uart-device">
+<h2>Reading Data of a Specified Length from a UART Device<a class="headerlink" href="#reading-data-of-a-specified-length-from-a-uart-device" title="Permalink to this headline">¶</a></h2>
+<p>To read data from a UART device, call the following function:</p>
+<p>int32_t UartRead(struct DevHandle *handle, uint8_t *data, uint32_t
+size);</p>
+<p><strong>Table 8</strong> Description of <strong>UartRead</strong></p>
+<table><thead align="left"><tr id="row023313171377"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p1123331710376"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p523321783715"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row6234417133712"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7233121716379"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p17234101753712"><p>Pointer to the UART device handle.</p>
+</p></td></tr><tr id="row18234151718372"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p16234191783711"><p>data</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p923417175378"><p>Pointer to the buffer for receiving the data.</p>
+</p></td></tr><tr id="row82341017193711"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p13234917103717"><p>size</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p182341817153717"><p>Length of the data to read.</p>
+</p></td></tr><tr id="row102341617123717"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p172341617163712"><p>Return Value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1623431763718"><p>Description</p>
+</p></td></tr><tr id="row4234151719372"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p3234131716375"><p>Non-negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p7234171783718"><p>Length of the data read from the UART device.</p>
+</p></td></tr><tr id="row112340173378"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1423431743714"><p>Negative value</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p32349178378"><p>Failed to read data from the UART device.</p>
+</p></td></tr></tbody></table><p>The following example shows how to read data of a specified length from
+the UART device:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int32_t</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">uint8_t</span> <span class="n">rbuff</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="o">/*</span> <span class="n">Read</span> <span class="mi">5</span><span class="o">-</span><span class="n">byte</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">UART</span> <span class="n">device</span><span class="o">.</span> <span class="o">*/</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">UartRead</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">rbuff</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HDF_LOGE</span><span class="p">(</span><span class="s2">&quot;UartRead: failed, ret </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><img alt="image2" src="../_images/icon-caution1.gif" /> <strong>CAUTION:</strong> Data is successfully read from the UART device
+if a non-negative value is returned. If the return value is <strong>0</strong>, no
+valid data can be read from the UART device. If the return value is
+greater than <strong>0</strong>, the return value is the length of the data
+actually read from the UART device. The length is less than or equal
+to the value of <strong>size</strong> and does not exceed the maximum length of
+data to read at a time specified by the UART controller in use.</p>
+</div></blockquote>
+</div>
+<div class="section" id="destroying-the-uart-device-handle">
+<h2>Destroying the UART Device Handle<a class="headerlink" href="#destroying-the-uart-device-handle" title="Permalink to this headline">¶</a></h2>
+<p>After the UART communication, destroy the UART device handle by calling
+the following function:</p>
+<p>void UartClose(struct DevHandle *handle);</p>
+<p>This function will release the resources previously obtained.</p>
+<p><strong>Table 9</strong> Description of <strong>UartClose</strong></p>
+<table><thead align="left"><tr id="row15334837351"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p933411316354"><p>Parameter</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p16334103143517"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row733483103513"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7334530358"><p>handle</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p133341331356"><p>Pointer to the UART device handle</p>
+</p></td></tr></tbody></table><p>The following example shows how to destroy the UART device handle:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UartClose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span> <span class="o">/*</span> <span class="n">Destroy</span> <span class="n">the</span> <span class="n">UART</span> <span class="n">device</span> <span class="n">handle</span><span class="o">.</span> <span class="o">*/</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/uartusage-guidelines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

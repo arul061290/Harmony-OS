@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to the Hi3518 Development Board &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction-to-the-hi3518-development-board">
+<h1>Introduction to the Hi3518 Development Board<a class="headerlink" href="#introduction-to-the-hi3518-development-board" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hi3518">
+<h2>Hi3518<a class="headerlink" href="#hi3518" title="Permalink to this headline">¶</a></h2>
+<p>Hi3518EV300 is a next-generation system on chip (SoC) designed for the
+industry-dedicated smart HD IP camera. It introduces a next-generation
+image signal processor (ISP), the latest H.265 video compression
+encoder, and the advanced low-power process and architecture design,
+leading the industry in terms of low bit rate, high image quality, and
+low power consumption.</p>
+<div class="line-block">
+<div class="line"><strong>Figure 1</strong> Front view of the Hi3518EV300 board</div>
+<div class="line"><img alt="image1" src="../../_images/front-view-of-the-hi3518ev300-board.png" /></div>
+</div>
+<p><strong>Figure 2</strong> Rear view of the Hi3518EV300 board</p>
+<p><img alt="image2" src="../../_images/hi3518正背面.png" /></p>
+</div>
+<div class="section" id="development-board-specifications">
+<h2>Development Board Specifications<a class="headerlink" href="#development-board-specifications" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table 1</strong> Specifications of the Hi3518 development board</p>
+<table><thead align="left"><tr id="r7d87cdc7a09d445c824000228ae4a3b0"><th class="cellrowborder" valign="top" width="28.749999999999996%" id="mcps1.2.3.1.1"><p id="a8ea7b45c00a54e7abd826c3b2bc934dc"><p>Type</p>
+</p></th><th class="cellrowborder" valign="top" width="71.25%" id="mcps1.2.3.1.2"><p id="aac42bd02e83846b187c02d3e976c0b09"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="r9c0a0b643fd7495ab799c1eab9fbe1ec"><td class="cellrowborder" valign="top" width="28.749999999999996%" headers="mcps1.2.3.1.1 "><p id="a1a129c845a45444f9d0b7dcc3aabf4c3"><p>Processor core</p>
+</p></td><td class="cellrowborder" valign="top" width="71.25%" headers="mcps1.2.3.1.2 "><ul id="ul12459548104218"><li><p>Hi3518EV300</p>
+</li></ul></td></tr><tr id="row1527851224210"><td class="cellrowborder" valign="top" width="28.749999999999996%" headers="mcps1.2.3.1.1 "><p id="p1327911123424"><p>Imaging device</p>
+</p></td><td class="cellrowborder" valign="top" width="71.25%" headers="mcps1.2.3.1.2 "><ul id="ul49841342134210"><li><p>1/2.9 F23</p>
+</li></ul></td></tr><tr id="r79097125b7f64c189f67ac280cdacae9"><td class="cellrowborder" valign="top" width="28.749999999999996%" headers="mcps1.2.3.1.1 "><p id="a2bf783139e304d0f9bfeefc56a55dc66"><p>External interfaces</p>
+</p></td><td class="cellrowborder" valign="top" width="71.25%" headers="mcps1.2.3.1.2 "><ul id="u6a04d9aa22f6410f91bbcdaf902d0e5f"><li><p>External microphone</p>
+</li><li><p>External 8 Ω/1.5 W speaker</p>
+</li></ul></td></tr><tr id="r785d104d71f6426aa9aab25d14a7581b"><td class="cellrowborder" valign="top" width="28.749999999999996%" headers="mcps1.2.3.1.1 "><p id="a59fb5f9ca2004dd2abeb636b2d4c04fa"><p>External memory interface</p>
+</p></td><td class="cellrowborder" valign="top" width="71.25%" headers="mcps1.2.3.1.2 "><ul id="u8f323b7322a14e109e2937b9660af0c4"><li><p>TF card</p>
+<p id="p167481654192716"><p>A maximum file size of 128 GB is allowed (FAT32 format).</p>
+</p></li></ul></td></tr><tr id="rae3f8ef812894db3951e01b4a1b85438"><td class="cellrowborder" valign="top" width="28.749999999999996%" headers="mcps1.2.3.1.1 "><p id="a81cd5d5655a44c4cbfc0a35b9f65450a"><p>WLAN protocol</p>
+</p></td><td class="cellrowborder" valign="top" width="71.25%" headers="mcps1.2.3.1.2 "><ul id="ul1311935314215"><li><p>802.11 b/g/n</p>
+</li></ul></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/docs-en/quick-start/introduction-to-the-hi3518-development-board.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

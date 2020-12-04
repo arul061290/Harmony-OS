@@ -1,0 +1,1477 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NET &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="net">
+<h1>NET<a class="headerlink" href="#net" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides functions and data structures related to network operations.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1047757445084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2146229792084823"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1318933958084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1534564455084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1688042362084823"><p>inet.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1641200125084823"><p>Provides functions and data structures related to network operations.</p>
+</p></td></tr><tr id="row514356347084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1587665685084823"><p>ifaddrs.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1744755110084823"><p>Provides functions and data structures related to network operations.</p>
+</p></td></tr><tr id="row268044906084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p397392420084823"><p>if.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1597332387084823"><p>Provides functions and data structures related to network operations.
+For example, you can use the functions to send and receive network data,
+manage network addresses, and convert bytes.</p>
+</p></td></tr><tr id="row926278315084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2054968073084823"><p>netdb.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1417806404084823"><p>Provides functions and data structures related to network operations.
+For example, you can use the functions to send and receive network data,
+manage network addresses, and convert bytes.</p>
+</p></td></tr><tr id="row149048245084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2002061914084823"><p>ether.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p942165214084823"><p>Provides functions and data structures related to network operations.
+For example, you can use the functions to send and receive network data,
+manage network addresses, and convert bytes.</p>
+</p></td></tr><tr id="row136094859084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p299256507084823"><p>resolv.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1468128296084823"><p>Provides functions and data structures related to network operations.
+For example, you can use the functions to send and receive network data,
+manage network addresses, and convert bytes.</p>
+</p></td></tr><tr id="row341046334084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p934105532084823"><p>socket.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1681376634084823"><p>Provides functions and data structures related to network operations.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row30351370084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1079662055084823"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1161517302084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row313274883084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1021591354084823"><p>ifaddrs</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1642104135084823"><p>Defines the network interface information.</p>
+</p></td></tr><tr id="row1785624815084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1881057384084823"><p>if_nameindex</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1378525544084823"><p>Defines the network adapter information.</p>
+</p></td></tr><tr id="row1318869958084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p243249055084823"><p>hostent</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1219649058084823"><p>Describes the host name and address information.</p>
+</p></td></tr><tr id="row362393367084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1686475780084823"><p>sockaddr</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1320721300084823"><p>Describes the socket address information.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row59204572084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1151802652084823"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p649792700084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1789918693084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p189589009084823"><p>h_addr h_addr_list[0]</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1172142733084823"><p>Defines the first address in h_addr_list for backward compatibility.</p>
+</p></td></tr><tr id="row1342128992084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p94068105084823"><p>SOL_SOCKET 1</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1645355675084823"><p>Defines options for socket level.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1391025972084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1738281706084823"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p306910854084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1250275585084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p800270581084823"><p>htonl (uint32_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1179693593084823"><p>uint32_t</p>
+</p><p id="p599929673084823"><p>Converts an integer from the host byte order to the network byte order.</p>
+</p></td></tr><tr id="row449321257084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1775991740084823"><p>htons (uint16_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p120715463084823"><p>uint16_t</p>
+</p><p id="p800992846084823"><p>Converts a 16-bit integer from the host byte order to the network byte
+order.</p>
+</p></td></tr><tr id="row1243646209084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1449019059084823"><p>ntohl (uint32_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1729338936084823"><p>uint32_t</p>
+</p><p id="p1913367858084823"><p>Converts an integer from the network byte order to the host byte order.</p>
+</p></td></tr><tr id="row914180479084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p150716387084823"><p>ntohs (uint16_t n)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p503326464084823"><p>uint16_t</p>
+</p><p id="p1057500798084823"><p>Converts a 16-bit integer from the network byte order to the host byte
+order.</p>
+</p></td></tr><tr id="row881408541084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p610302643084823"><p>inet_addr (const char *p)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p505064305084823"><p>in_addr_t</p>
+</p><p id="p1964642781084823"><p>Converts a string from the IPv4 numbers-and-dots notation to the binary
+data in network byte order.</p>
+</p></td></tr><tr id="row2007902605084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p692271414084823"><p>inet_network (const char *p)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2004891767084823"><p>in_addr_t</p>
+</p><p id="p1781649473084823"><p>Converts a string from the IPv4 numbers-and-dots notation to the binary
+data in host byte order.</p>
+</p></td></tr><tr id="row708223344084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p797277882084823"><p>inet_ntoa (struct in_addr in)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p185782435084823"><p>char *</p>
+</p><p id="p263079921084823"><p>Converts a network address to a string in dotted-decimal format.</p>
+</p></td></tr><tr id="row403912037084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1563467611084823"><p>inet_pton (int af, const char *__restrict s, void *__restrict a0)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p214467040084823"><p>int</p>
+</p><p id="p1144368463084823"><p>Converts a string to a network address in the specified address family.</p>
+</p></td></tr><tr id="row1283578422084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1137766884084823"><p>inet_ntop (int af, const void <em>restrict a0, char</em>restrict s, socklen_t
+l)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1587169913084823"><p>const char *</p>
+</p><p id="p885335151084823"><p>Converts a network address in the specified address family to a string.</p>
+</p></td></tr><tr id="row1806744518084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1967129962084823"><p>inet_aton (const char <em>s0, struct in_addr</em>dest)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1904699225084823"><p>int</p>
+</p><p id="p658664659084823"><p>Converts an IP address from the string format to the 32-bit binary
+format in network byte order.</p>
+</p></td></tr><tr id="row874352910084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1074753513084823"><p>inet_makeaddr (in_addr_t n, in_addr_t h)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p482694725084823"><p>struct in_addr</p>
+</p><p id="p2002819071084823"><p>Converts the network number and host address to the network address.</p>
+</p></td></tr><tr id="row1684606012084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p474259138084823"><p>inet_lnaof (struct in_addr in)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p416897157084823"><p>in_addr_t</p>
+</p><p id="p1864394858084823"><p>Converts an IP address into a host ID in host byte order without network
+bits.</p>
+</p></td></tr><tr id="row70574674084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1697956955084823"><p>inet_netof (struct in_addr in)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1136423648084823"><p>in_addr_t</p>
+</p><p id="p1877034083084823"><p>Extracts the network number from the in_addr structure and converts it
+to the host byte order.</p>
+</p></td></tr><tr id="row1011611382084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2138947338084823"><p>freeifaddrs (struct ifaddrs *ifp)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1782627935084823"><p>void</p>
+</p><p id="p1626722075084823"><p>Frees the network interface information obtained by getifaddrs.</p>
+</p></td></tr><tr id="row1523596962084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1185162351084823"><p>if_freenameindex (struct if_nameindex *idx)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p466150862084823"><p>void</p>
+</p><p id="p1227864924084823"><p>Frees the network adapter information obtained by if_nameindex.</p>
+</p></td></tr><tr id="row445255026084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p128079446084823"><p>setprotoent (int stayopen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p329862635084823"><p>void</p>
+</p><p id="p870887648084823"><p>Opens a connection to the database and sets the next entry to the first
+entry.</p>
+</p></td></tr><tr id="row1325757564084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1419864832084823"><p>getprotoent (void)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1264117452084823"><p>struct protoent *</p>
+</p><p id="p1441436231084823"><p>Retrieves the current protocol information.</p>
+</p></td></tr><tr id="row1509314093084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p379180379084823"><p>getprotobyname (const char *name)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2037369819084823"><p>struct protoent *</p>
+</p><p id="p37283784084823"><p>Retrieves the information about a specified protocol.</p>
+</p></td></tr><tr id="row1257886586084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p762204003084823"><p>getprotobynumber (int num)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1202841175084823"><p>struct protoent *</p>
+</p><p id="p1417548121084823"><p>Retrieves the information about a protocol with the specified number.</p>
+</p></td></tr><tr id="row831070986084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p670615805084823"><p>herror (const char *msg)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p883417745084823"><p>void</p>
+</p><p id="p1369101200084823"><p>Prints error information.</p>
+</p></td></tr><tr id="row1028826760084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1213445298084823"><p>hstrerror (int ecode)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p756976133084823"><p>const char *</p>
+</p><p id="p4806929084823"><p>Retrieves error information associated with the specified error number.</p>
+</p></td></tr><tr id="row1186471532084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p798569354084823"><p>ether_ntoa (const struct ether_addr *p_a)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1791524032084823"><p>char *</p>
+</p><p id="p1180844634084823"><p>Converts binary data in network byte order into a standard 48-bit
+Ethernet host address in the colon hexadecimal notation.</p>
+</p></td></tr><tr id="row1652457536084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2122460199084823"><p>ether_aton (const char *x)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1942310810084823"><p>struct ether_addr *</p>
+</p><p id="p1420654844084823"><p>Converts a standard 48-bit Ethernet host address in the colon
+hexadecimal notation into binary data in network byte order.</p>
+</p></td></tr><tr id="row238658457084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1108619190084823"><p>ether_ntoa_r (const struct ether_addr <em>p_a, char</em>x)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1047327804084823"><p>char *</p>
+</p><p id="p1194135536084823"><p>Converts binary data in network byte order into a standard 48-bit
+Ethernet host address in the colon hexadecimal notation. This function
+is reentrant.</p>
+</p></td></tr><tr id="row380346995084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p157075316084823"><p>ether_aton_r (const char <em>x, struct ether_addr</em>p_a)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p492539530084823"><p>struct ether_addr *</p>
+</p><p id="p2059059200084823"><p>Converts a standard 48-bit Ethernet host address in the colon
+hexadecimal notation into binary data in network byte order. This
+function is reentrant.</p>
+</p></td></tr><tr id="row240839655084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p518085811084823"><p>dn_comp (const char <em>src, unsigned char</em>dst, int space, unsigned char
+<strong>dnptrs, unsigned char</strong>lastdnptr)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1083627853084823"><p>int</p>
+</p><p id="p643173720084823"><p>Compresses a network domain name.</p>
+</p></td></tr><tr id="row1824161885084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1736534313084823"><p>dn_expand (const unsigned char <em>base, const unsigned char</em>end, const
+unsigned char <em>src, char</em>dest, int space)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p45439866084823"><p>int</p>
+</p><p id="p1039444744084823"><p>Expands a compressed domain name to a full domain name.</p>
+</p></td></tr><tr id="row1520625210084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p955533434084823"><p>socket (int domain, int type, int protocol)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p4462400084823"><p>int</p>
+</p><p id="p1156030327084823"><p>Creates a socket and returns its descriptor.</p>
+</p></td></tr><tr id="row1983761446084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p60461330084823"><p>shutdown (int sockfd, int how)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p529463257084823"><p>int</p>
+</p><p id="p1570123973084823"><p>Shuts down a socket.</p>
+</p></td></tr><tr id="row654350451084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2102185061084823"><p>bind (int sockfd, const struct sockaddr *addr, socklen_t addrlen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1091890261084823"><p>int</p>
+</p><p id="p1458386264084823"><p>Binds a local protocol address to a socket.</p>
+</p></td></tr><tr id="row79869139084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1689773652084823"><p>connect (int sockfd, const struct sockaddr *addr, socklen_t addrlen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1873549191084823"><p>int</p>
+</p><p id="p1670254800084823"><p>Initiates a connection to a socket.</p>
+</p></td></tr><tr id="row374008223084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1045510782084823"><p>listen (int sockfd, int backlog)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1363603361084823"><p>int</p>
+</p><p id="p1581751471084823"><p>Listens for network connections.</p>
+</p></td></tr><tr id="row91023670084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2076186408084823"><p>accept (int sockfd, struct sockaddr *__restrict addr, socklen_t
+*__restrict addrlen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p536890145084823"><p>int</p>
+</p><p id="p1756373391084823"><p>Accepts incoming connection requests.</p>
+</p></td></tr><tr id="row1489447192084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1459171001084823"><p>getsockname (int fd, struct sockaddr <em>restrict addr,
+socklen_t</em>restrict len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2087017641084823"><p>int</p>
+</p><p id="p1354254583084823"><p>Retrieves the local address of the specified socket.</p>
+</p></td></tr><tr id="row1573775141084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p552955141084823"><p>getpeername (int fd, struct sockaddr <em>restrict addr,
+socklen_t</em>restrict len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p100844166084823"><p>int</p>
+</p><p id="p15115223084823"><p>Retrieves the peer address of the specified socket.</p>
+</p></td></tr><tr id="row2076620619084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1336896639084823"><p>send (int fd, const void *buf, size_t len, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p894134392084823"><p>ssize_t</p>
+</p><p id="p124948650084823"><p>Sends data to another socket.</p>
+</p></td></tr><tr id="row1892679587084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1041327232084823"><p>recv (int fd, void *buf, size_t len, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1933928262084823"><p>ssize_t</p>
+</p><p id="p1969969914084823"><p>Receives data from another socket.</p>
+</p></td></tr><tr id="row1502978720084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p118297155084823"><p>sendto (int fd, const void <em>buf, size_t len, int flags, const struct
+sockaddr</em>addr, socklen_t alen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1855557799084823"><p>ssize_t</p>
+</p><p id="p321790663084823"><p>Sends data to another socket.</p>
+</p></td></tr><tr id="row2077239603084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p133768213084823"><p>recvfrom (int fd, void *__restrict buf, size_t len, int flags, struct
+sockaddr *__restrict addr, socklen_t *__restrict alen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1954533757084823"><p>ssize_t</p>
+</p><p id="p954022336084823"><p>Receives data from a specified socket.</p>
+</p></td></tr><tr id="row1683766634084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p509552132084823"><p>sendmsg (int fd, const struct msghdr *msg, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p465140908084823"><p>ssize_t</p>
+</p><p id="p721147421084823"><p>Sends data to another socket.</p>
+</p></td></tr><tr id="row1173903187084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p693882787084823"><p>recvmsg (int fd, struct msghdr *msg, int flags)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p190314286084823"><p>ssize_t</p>
+</p><p id="p1584086933084823"><p>Receives data from a specified socket.</p>
+</p></td></tr><tr id="row1932829784084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p891730494084823"><p>getsockopt (int fd, int level, int optname, void *__restrict optval,
+socklen_t *__restrict optlen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1595296975084823"><p>int</p>
+</p><p id="p1229495420084823"><p>Retrieves the socket options.</p>
+</p></td></tr><tr id="row1356725082084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2090018333084823"><p>setsockopt (int fd, int level, int optname, const void *optval,
+socklen_t optlen)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1522360728084823"><p>int</p>
+</p><p id="p390417633084823"><p>Sets the socket options.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="accept">
+<h2>accept()<a class="headerlink" href="#accept" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">accept</span> <span class="p">(</span><span class="nb">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">sockaddr</span><span class="p">](</span><span class="n">sockaddr</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">addrlen</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Accepts incoming connection requests.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1379205696084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1431243965084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p257873905084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row837867447084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sockfd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row915675019084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the socket address requiring for the
+connection.</p>
+</td></tr><tr id="row179275462084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addrlen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the address structure pointed to by addr.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns a valid socket if the operation is successful; returns <strong>-1</strong>
+and sets <strong>errno</strong> to a value in the following table if the operation
+fails.</p>
+<table><thead align="left"><tr id="row1470416530084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1994239455084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1235562631084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row771062085084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1903968236084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1635032206084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row360202523084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2042502427084823"><p>EOPNOTSUPP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p40810559084823"><p>The socket requiring for the connection is not of the NETCONN_TCP type.</p>
+</p></td></tr><tr id="row381042439084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p468525874084823"><p>EWOULDBLOCK</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p581179242084823"><p>Failure to receive events in non-blocking mode.</p>
+</p></td></tr><tr id="row740555412084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1060675232084823"><p>ENFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1569107010084823"><p>Failure to creat a new socket.</p>
+</p></td></tr><tr id="row843816412084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1484641784084823"><p>ECONNABORTED</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p722762628084823"><p>Failure to receive the remote information.</p>
+</p></td></tr><tr id="row854598062084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p628578973084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p492437975084823"><p>Memory copy exception.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="bind">
+<h2>bind()<a class="headerlink" href="#bind" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">bind</span> <span class="p">(</span><span class="nb">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="p">[</span><span class="n">sockaddr</span><span class="p">](</span><span class="n">sockaddr</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">addrlen</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Binds a local protocol address to a socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row473013099084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1928964312084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1222904834084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row913547152084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sockfd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1921267611084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the address to be bound to the socket.</p>
+</td></tr><tr id="row1717112217084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addrlen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the address structure pointed to by addr.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1424912561084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1073213464084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p759099792084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1846451236084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1415012060084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p447971340084823"><p>Invalid input parameter</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="connect">
+<h2>connect()<a class="headerlink" href="#connect" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">connect</span> <span class="p">(</span><span class="nb">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="p">[</span><span class="n">sockaddr</span><span class="p">](</span><span class="n">sockaddr</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">addrlen</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Initiates a connection to a socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2049739153084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p162296772084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1463161408084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1343597221084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sockfd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1320757767084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the address to be connected.</p>
+</td></tr><tr id="row750085475084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addrlen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the address structure pointed to by addr.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1988543378084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1475655049084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p771866223084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1256564046084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1844252288084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p775877436084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row2105239460084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1434705018084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p740702522084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row534047705084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1557911392084823"><p>EIO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1711662368084823"><p>Incorrect connection type obtained based on the socket descriptor</p>
+</p></td></tr><tr id="row1605958071084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p8625727084823"><p>ECONNREFUSED</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1036924109084823"><p>Restart due to connection failure</p>
+</p></td></tr><tr id="row941464218084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p484526459084823"><p>ECONNABORTED</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p323225667084823"><p>Shut-down due to connection failure</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="dn-comp">
+<h2>dn_comp()<a class="headerlink" href="#dn-comp" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">dn_comp</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">src</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="o">*</span> <span class="n">dst</span><span class="p">,</span> <span class="nb">int</span> <span class="n">space</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="o">**</span> <span class="n">dnptrs</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="o">**</span> <span class="n">lastdnptr</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Compresses a network domain name.</p>
+<p>To reduce the size of DNS messages, domain names in the messages are
+compressed. For details about the compression scheme, see RFC 1035.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row876650706084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p218745750084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1839448394084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row620738231084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>src</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the domain name to be compressed.</p>
+</td></tr><tr id="row1486902746084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>dst</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the compressed domain name.</p>
+</td></tr><tr id="row160941083084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>space</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of the compressed domain name.</p>
+</td></tr><tr id="row803168422084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>dnptrs</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to an array of pointers to previously compressed
+domain names. If the value is NULL, the current domain name will not be
+compressed.</p>
+</td></tr><tr id="row78966975084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>lastdnptr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the last element of the array. If the value is
+NULL, the array is not updated.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the length of the compressed domain name if the operation is
+successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="dn-expand">
+<h2>dn_expand()<a class="headerlink" href="#dn-expand" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">dn_expand</span> <span class="p">(</span><span class="n">const</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="o">*</span> <span class="n">base</span><span class="p">,</span> <span class="n">const</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="o">*</span> <span class="n">end</span><span class="p">,</span> <span class="n">const</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="o">*</span> <span class="n">src</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="nb">int</span> <span class="n">space</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Expands a compressed domain name to a full domain name.</p>
+<p>The compressed domain name is contained in a query or reply message.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row280542321084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1653377328084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p75746575084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row604905039084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>base</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the start of the DNS message body.</p>
+</td></tr><tr id="row519475699084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>end</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the end of the DNS message body.</p>
+</td></tr><tr id="row774193744084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>src</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the compressed domain name.</p>
+</td></tr><tr id="row1779529554084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>dest</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the expanded domain name.</p>
+</td></tr><tr id="row1371383957084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>space</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the memory size of the dest address.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the length of the compressed domain name if the operation is
+successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="ether-aton">
+<h2>ether_aton()<a class="headerlink" href="#ether-aton" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">ether_addr</span><span class="o">*</span> <span class="n">ether_aton</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a standard 48-bit Ethernet host address in the colon
+hexadecimal notation into binary data in network byte order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1352029745084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2014538241084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1371812510084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2140647533084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>x</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the host address to be converted.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the binary data if the operation is successful; returns <strong>0</strong>
+otherwise.</p>
+</div>
+<div class="section" id="ether-aton-r">
+<h2>ether_aton_r()<a class="headerlink" href="#ether-aton-r" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">ether_addr</span><span class="o">*</span> <span class="n">ether_aton_r</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">struct</span> <span class="n">ether_addr</span> <span class="o">*</span> <span class="n">p_a</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a standard 48-bit Ethernet host address in the colon
+hexadecimal notation into binary data in network byte order. This
+function is reentrant.</p>
+<p>This function is used in multitasking scenarios.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row155545281084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1925550878084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p11422782084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1980253129084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>x</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the host address to be converted.</p>
+</td></tr><tr id="row1660147145084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>p_a</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the temporary buffer during conversion.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the binary data represented by <strong>ether_addr</strong> if the operation
+is successful; returns <strong>0</strong> otherwise.</p>
+</div>
+<div class="section" id="ether-ntoa">
+<h2>ether_ntoa()<a class="headerlink" href="#ether-ntoa" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">ether_ntoa</span> <span class="p">(</span><span class="n">const</span> <span class="n">struct</span> <span class="n">ether_addr</span> <span class="o">*</span> <span class="n">p_a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts binary data in network byte order into a standard 48-bit
+Ethernet host address in the colon hexadecimal notation.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1829049680084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1798489600084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p938957796084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1577332872084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>p_a</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the binary data to be converted.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>Different from glibc (for example, 1:2:3:4:5:f), 0 is prefixed and
+letters are capitalized (for example, 01:02:03:04:05:0F).</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the host address if the operation is successful; returns <strong>0</strong>
+otherwise.</p>
+</div>
+<div class="section" id="ether-ntoa-r">
+<h2>ether_ntoa_r()<a class="headerlink" href="#ether-ntoa-r" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">ether_ntoa_r</span> <span class="p">(</span><span class="n">const</span> <span class="n">struct</span> <span class="n">ether_addr</span> <span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts binary data in network byte order into a standard 48-bit
+Ethernet host address in the colon hexadecimal notation. This function
+is reentrant.</p>
+<p>This function is used in multitasking scenarios.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1731519265084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1781089769084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1656034757084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1828162906084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>p_a</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the binary data to be converted.</p>
+</td></tr><tr id="row802480538084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>x</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the temporary buffer during conversion.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>Different from glibc (for example, 1:2:3:4:5:f), 0 is prefixed and
+letters are capitalized (for example, 01:02:03:04:05:0F).</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the host address if the operation is successful; returns <strong>0</strong>
+otherwise.</p>
+</div>
+<div class="section" id="freeifaddrs">
+<h2>freeifaddrs()<a class="headerlink" href="#freeifaddrs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">freeifaddrs</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">ifaddrs</span><span class="p">](</span><span class="n">ifaddrs</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">ifp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Frees the network interface information obtained by <strong>getifaddrs</strong>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row323193891084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1114462850084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1136452924084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row152353918084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>ifp</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the network interface information to be freed.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="getpeername">
+<h2>getpeername()<a class="headerlink" href="#getpeername" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">getpeername</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">sockaddr</span><span class="p">](</span><span class="n">sockaddr</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">restrict</span> <span class="nb">len</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Retrieves the peer address of the specified socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row854719437084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1455244313084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p523671561084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row190412682084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1560374389084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the address to be retrieved.</p>
+</td></tr><tr id="row1124363194084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the length of the address pointed to by addr.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1600748281084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p603033358084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1180991341084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row762581785084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p834625037084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p14899781084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row1236508396084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1428612853084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1350028215084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row1414667233084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p75413034084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1808224081084823"><p>Memory copy exception</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="getprotobyname">
+<h2>getprotobyname()<a class="headerlink" href="#getprotobyname" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">protoent</span><span class="o">*</span> <span class="n">getprotobyname</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Retrieves the information about a specified protocol.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1264675564084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1426514125084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1936774566084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1617210089084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the protocol name.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>The <strong>/etc/protocols</strong> configuration file is not supported. Only the
+following built-in protocols are supported:
+ip/icmp/igmp/ggp/ipencap/st/tcp/egp/pup/udp/hmp/xns-idp/rdp/iso-tp4/xtp/
+ddp/idpr-cmtp/ipv6/ipv6-route/ipv6-frag/idrp/rsvp/gre/esp/ah/skip/ipv6-icmp/
+ipv6-nonxt/ipv6-opts/rspf/vmtp/ospf/ipip/encap/pim/raw (This protocol
+does not have the <strong>aliases</strong> attribute, that is, <strong>aliases</strong> is empty.)</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the protocol information if the operation is successful; returns
+<strong>NULL</strong> otherwise.</p>
+</div>
+<div class="section" id="getprotobynumber">
+<h2>getprotobynumber()<a class="headerlink" href="#getprotobynumber" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">protoent</span><span class="o">*</span> <span class="n">getprotobynumber</span> <span class="p">(</span><span class="nb">int</span> <span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Retrieves the information about a protocol with the specified number.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1123612656084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p874116607084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1673302622084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row204975880084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>num</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the protocol number.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>The <strong>/etc/protocols</strong> configuration file is not supported. Only the
+following built-in protocols are supported:
+ip/icmp/igmp/ggp/ipencap/st/tcp/egp/pup/udp/hmp/xns-idp/rdp/iso-tp4/xtp/
+ddp/idpr-cmtp/ipv6/ipv6-route/ipv6-frag/idrp/rsvp/gre/esp/ah/skip/ipv6-icmp/
+ipv6-nonxt/ipv6-opts/rspf/vmtp/ospf/ipip/encap/pim/raw (This protocol
+does not have the <strong>aliases</strong> attribute, that is, <strong>aliases</strong> is empty.)</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the protocol information if the operation is successful; returns
+<strong>NULL</strong> otherwise.</p>
+</div>
+<div class="section" id="getprotoent">
+<h2>getprotoent()<a class="headerlink" href="#getprotoent" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">protoent</span><span class="o">*</span> <span class="n">getprotoent</span> <span class="p">(</span><span class="n">void</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Retrieves the current protocol information.</p>
+<p><strong>Attention:</strong></p>
+<p>The <strong>/etc/protocols</strong> configuration file is not supported. Only the
+following built-in protocols are supported:
+ip/icmp/igmp/ggp/ipencap/st/tcp/egp/pup/udp/hmp/xns-idp/rdp/iso-tp4/xtp/
+ddp/idpr-cmtp/ipv6/ipv6-route/ipv6-frag/idrp/rsvp/gre/esp/ah/skip/ipv6-icmp/
+ipv6-nonxt/ipv6-opts/rspf/vmtp/ospf/ipip/encap/pim/raw (This protocol
+does not have the <strong>aliases</strong> attribute, that is, <strong>aliases</strong> is empty.)</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the protocol information if the operation is successful; returns
+<strong>NULL</strong> otherwise.</p>
+</div>
+<div class="section" id="getsockname">
+<h2>getsockname()<a class="headerlink" href="#getsockname" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">getsockname</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">sockaddr</span><span class="p">](</span><span class="n">sockaddr</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">restrict</span> <span class="nb">len</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Retrieves the local address of the specified socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row861828025084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p641360247084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1570034585084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1941736497084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row484955514084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the address to be retrieved.</p>
+</td></tr><tr id="row1630390018084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the length of the address pointed to by addr.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row764667844084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1656004833084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2131096942084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1896204772084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p380882446084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1767604721084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row2090530146084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p650514981084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1111667326084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row1237617411084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2114351313084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2006966362084823"><p>Memory copy exception</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="getsockopt">
+<h2>getsockopt()<a class="headerlink" href="#getsockopt" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">getsockopt</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="nb">int</span> <span class="n">level</span><span class="p">,</span> <span class="nb">int</span> <span class="n">optname</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">optval</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">optlen</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Retrieves the socket options.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2073406695084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1678414043084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p637706286084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1661199333084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row892338765084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>level</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the protocol level at which the option resides. Only
+SOL_SOCKET is supported.</p>
+</td></tr><tr id="row2098060545084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>optname</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket options to be retrieved, which has the following
+values:</p>
+</td></tr><tr id="row1232255231084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>optval</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the option data.</p>
+</td></tr><tr id="row1378668498084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>optlen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the size of the buffer pointed to by optval.</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row1270987243084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1423551238084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1790588128084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1922410954084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p728424243084823"><p>SO_BROADCAST</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p457094588084823"><p>Permits sending broadcast messages.</p>
+</p></td></tr><tr id="row42210675084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1993850847084823"><p>SO_RCVTIMEO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2051723614084823"><p>Receiving data times out.</p>
+</p></td></tr><tr id="row427969252084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1375891976084823"><p>SO_RCVBUF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p663086364084823"><p>Sets or gets the maximum socket receiving buffer in bytes.</p>
+</p></td></tr><tr id="row337511287084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p277472213084823"><p>SO_TYPE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1525940346084823"><p>Gets the socket type.</p>
+</p></td></tr><tr id="row1863599406084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p369845599084823"><p>SO_DONTROUTE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1723525764084823"><p>Prohibits messages from being sent via a gateway.</p>
+</p></td></tr><tr id="row352867889084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1459721935084823"><p>SO_BINDTODEVICE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p172749770084823"><p>Binds this socket to a particular device.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row2000950584084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1193869717084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p186614159084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row45621270084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1495501760084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p329710601084823"><p>Small optlen</p>
+</p></td></tr><tr id="row1323515623084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p429324251084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p208988945084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row723965395084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1179506439084823"><p>EFAULT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1470735365084823"><p>The input parameter is a null pointer.</p>
+</p></td></tr><tr id="row133509397084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1453237817084823"><p>ENOBUFS</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p62817107084823"><p>Retrieved length exception</p>
+</p></td></tr><tr id="row676204255084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1714098176084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1478472875084823"><p>Memory copy exception</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="herror">
+<h2>herror()<a class="headerlink" href="#herror" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">herror</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Prints error information.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row97930123084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1643049107084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2139019972084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row850849804084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>msg</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the string to be printed together with the
+error information. This parameter can be null.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row744741456084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p346540472084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p415931069084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row528203365084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p848515815084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2145250195084823"><p>Incorrect symbols or parameters</p>
+</p></td></tr><tr id="row977816464084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1432834897084823"><p>EOVERFLOW</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p112747058084823"><p>Long item for printing</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="hstrerror">
+<h2>hstrerror()<a class="headerlink" href="#hstrerror" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">hstrerror</span> <span class="p">(</span><span class="nb">int</span> <span class="n">ecode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Retrieves error information associated with the specified error number.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row412661491084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p475614638084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p835810698084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row720975221084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>ecode</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the error number.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the string representing the error information.</p>
+</div>
+<div class="section" id="htonl">
+<h2>htonl()<a class="headerlink" href="#htonl" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">htonl</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts an integer from the host byte order to the network byte order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1440079419084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p153104345084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p910431910084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1022645866084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>n</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the integer in host byte order.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the original data if the system is in big-endian mode; returns
+the converted data otherwise.</p>
+</div>
+<div class="section" id="htons">
+<h2>htons()<a class="headerlink" href="#htons" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint16_t</span> <span class="n">htons</span> <span class="p">(</span><span class="n">uint16_t</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a 16-bit integer from the host byte order to the network byte
+order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1808404640084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2136296704084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2077050902084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row930057156084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>n</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the integer in host byte order.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the original data if the system is in big-endian mode; returns
+the converted data otherwise.</p>
+</div>
+<div class="section" id="if-freenameindex">
+<h2>if_freenameindex()<a class="headerlink" href="#if-freenameindex" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">if_freenameindex</span> <span class="p">(</span><span class="n">struct</span> <span class="p">[</span><span class="n">if_nameindex</span><span class="p">](</span><span class="n">if_nameindex</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">idx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Frees the network adapter information obtained by
+<a class="reference external" href="if_nameindex.md">if_nameindex</a>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1965190918084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2051737805084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1238119272084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1838635054084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>idx</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the network adapter to be freed.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="inet-addr">
+<h2>inet_addr()<a class="headerlink" href="#inet-addr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">in_addr_t</span> <span class="n">inet_addr</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a string from the IPv4 numbers-and-dots notation to the binary
+data in network byte order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1829721625084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p731450631084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p37913182084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row938925970084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>p</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the string to be converted.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the converted data if the operation is successful; returns
+<strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="inet-aton">
+<h2>inet_aton()<a class="headerlink" href="#inet-aton" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">inet_aton</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">s0</span><span class="p">,</span> <span class="n">struct</span> <span class="n">in_addr</span> <span class="o">*</span> <span class="n">dest</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts an IP address from the string format to the 32-bit binary
+format in network byte order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row399736680084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p286012934084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p800344843084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1943883977084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>s0</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the IP address to be converted.</p>
+</td></tr><tr id="row1791642676084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>dest</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the structure for conversion.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>1</strong> if the operation is successful; returns <strong>0</strong> otherwise.</p>
+</div>
+<div class="section" id="inet-lnaof">
+<h2>inet_lnaof()<a class="headerlink" href="#inet-lnaof" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">in_addr_t</span> <span class="n">inet_lnaof</span> <span class="p">(</span><span class="n">struct</span> <span class="n">in_addr</span> <span class="ow">in</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts an IP address into a host ID in host byte order without network
+bits.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2121052250084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p410324413084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p855171767084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row897954521084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>in</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the network address structure.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the converted host address.</p>
+</div>
+<div class="section" id="inet-makeaddr">
+<h2>inet_makeaddr()<a class="headerlink" href="#inet-makeaddr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">in_addr</span> <span class="n">inet_makeaddr</span> <span class="p">(</span><span class="n">in_addr_t</span> <span class="n">n</span><span class="p">,</span> <span class="n">in_addr_t</span> <span class="n">h</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts the network number and host address to the network address.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1082966079084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p346535731084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1927545299084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row546940565084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>n</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the network number.</p>
+</td></tr><tr id="row1089395758084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>h</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the host address.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the converted network address.</p>
+</div>
+<div class="section" id="inet-netof">
+<h2>inet_netof()<a class="headerlink" href="#inet-netof" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">in_addr_t</span> <span class="n">inet_netof</span> <span class="p">(</span><span class="n">struct</span> <span class="n">in_addr</span> <span class="ow">in</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Extracts the network number from the <strong>in_addr</strong> structure and converts
+it to the host byte order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row959296896084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p51623587084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1726098381084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row86045348084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>in</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the network address structure.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the converted network number.</p>
+</div>
+<div class="section" id="inet-network">
+<h2>inet_network()<a class="headerlink" href="#inet-network" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">in_addr_t</span> <span class="n">inet_network</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a string from the IPv4 numbers-and-dots notation to the binary
+data in host byte order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row257407154084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p490143167084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1698866119084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2015648079084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>p</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the string to be converted.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the converted data if the operation is successful; returns
+<strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="inet-ntoa">
+<h2>inet_ntoa()<a class="headerlink" href="#inet-ntoa" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="o">*</span> <span class="n">inet_ntoa</span> <span class="p">(</span><span class="n">struct</span> <span class="n">in_addr</span> <span class="ow">in</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a network address to a string in dotted-decimal format.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1020417686084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1597252110084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1784922478084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2126892489084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>in</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the network address to be converted.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the string.</p>
+</div>
+<div class="section" id="inet-ntop">
+<h2>inet_ntop()<a class="headerlink" href="#inet-ntop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">inet_ntop</span> <span class="p">(</span><span class="nb">int</span> <span class="n">af</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">a0</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">restrict</span> <span class="n">s</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">l</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a network address in the specified address family to a string.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1692276322084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1187774875084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p908834567084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1337264027084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>af</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the address family. Currently, only AF_INET and AF_INET6 are
+supported.</p>
+</td></tr><tr id="row1595287179084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>a0</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the data to be converted.</p>
+</td></tr><tr id="row1093617940084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>s</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the string to be converted.</p>
+</td></tr><tr id="row541153434084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>l</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of the string to be converted.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the converted string if the operation is successful; returns
+<strong>NULL</strong> and sets <strong>errno</strong> to a value in the following table if the
+operation fails.</p>
+<table><thead align="left"><tr id="row236582094084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p112226986084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1751532571084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1566998590084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1486345683084823"><p>ENOSPC</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p368548391084823"><p>Insufficient space for conversion</p>
+</p></td></tr><tr id="row779508333084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1126422819084823"><p>EAFNOSUPPORT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1665481447084823"><p>Unsupported address family</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="inet-pton">
+<h2>inet_pton()<a class="headerlink" href="#inet-pton" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">inet_pton</span> <span class="p">(</span><span class="nb">int</span> <span class="n">af</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">s</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">a0</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a string to a network address in the specified address family.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row677963574084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p745316743084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p107027145084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1349468179084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>af</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the address family. Currently, only AF_INET and AF_INET6 are
+supported.</p>
+</td></tr><tr id="row2019232020084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>s</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the string to be converted.</p>
+</td></tr><tr id="row1527222262084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>a0</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the converted data.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>1</strong> if the operation is successful; returns <strong>0</strong> if the input
+address family is invalid; returns <strong>-1</strong> if the operation fails. The
+error codes are set as follows:</p>
+<table><thead align="left"><tr id="row124011646084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p73348572084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p735866224084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1677782808084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2023440596084823"><p>EAFNOSUPPORT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p204837229084823"><p>Unsupported address family</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="listen">
+<h2>listen()<a class="headerlink" href="#listen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">listen</span> <span class="p">(</span><span class="nb">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="nb">int</span> <span class="n">backlog</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Listens for network connections.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1655825864084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1923471041084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p737116627084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row184594625084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sockfd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1163700684084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>backlog</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the maximum length of the queue to accept incoming connection
+requests.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row972888392084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p93440954084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p633113377084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1290767203084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2038771506084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1126909393084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row316215905084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p462483246084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p151625670084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row1258952350084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p137746405084823"><p>EIO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p278641451084823"><p>Incorrect connection type obtained based on the socket descriptor</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="ntohl">
+<h2>ntohl()<a class="headerlink" href="#ntohl" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">ntohl</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts an integer from the network byte order to the host byte order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row97124427084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p849941524084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p123596955084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1144785928084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>n</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the integer in network byte order.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the original data if the system is in big-endian mode; returns
+the converted data otherwise.</p>
+</div>
+<div class="section" id="ntohs">
+<h2>ntohs()<a class="headerlink" href="#ntohs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint16_t</span> <span class="n">ntohs</span> <span class="p">(</span><span class="n">uint16_t</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Converts a 16-bit integer from the network byte order to the host byte
+order.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row276832405084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p583881591084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1624678096084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row288620176084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>n</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the integer in network byte order.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the original data if the system is in big-endian mode; returns
+the converted data otherwise.</p>
+</div>
+<div class="section" id="recv">
+<h2>recv()<a class="headerlink" href="#recv" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssize_t</span> <span class="n">recv</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="nb">len</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Receives data from another socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1163876304084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p352840042084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1086023762084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row615477316084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row3737771084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>buf</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to a buffer for storing the data to be received.</p>
+</td></tr><tr id="row1972974549084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the buffer pointed to by buf.</p>
+</td></tr><tr id="row1782714043084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>flags</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket flags. This parameter has the following values:</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row91289597084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2137452185084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1943327084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row604178675084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1038433826084823"><p>MSG_DONTWAIT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p830671449084823"><p>Enables the non-blocking operation.</p>
+</p></td></tr><tr id="row612026160084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1984247144084823"><p>MSG_MORE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p236668915084823"><p>The caller has more data to send.</p>
+</p></td></tr><tr id="row1406106894084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2138572527084823"><p>MSG_NOSIGNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1007842752084823"><p>No signals are generated.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the length of the received data if the operation is successful;
+returns <strong>-1</strong> and sets <strong>errno</strong> to a value in the following table if
+the operation fails.</p>
+<table><thead align="left"><tr id="row1500899255084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2029456818084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1156605528084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row34585517084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p305660795084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1562829618084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row1817779288084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1921141584084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1101786070084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row2041841871084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1623262131084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p751989224084823"><p>Memory copy exception</p>
+</p></td></tr><tr id="row1666259970084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2128685742084823"><p>EOPNOTSUPP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p991468943084823"><p>Unsupported message type</p>
+</p></td></tr><tr id="row103756202084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p223838112084823"><p>ENOTCONN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1957682559084823"><p>Socket not connected</p>
+</p></td></tr><tr id="row29796804084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1505041602084823"><p>EWOULDBLOCK</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1058879245084823"><p>Blocking operation</p>
+</p></td></tr><tr id="row543654747084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1278033875084823"><p>ENOTCONN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p154883289084823"><p>Connection closed</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="recvfrom">
+<h2>recvfrom()<a class="headerlink" href="#recvfrom" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssize_t</span> <span class="n">recvfrom</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="nb">len</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span><span class="p">,</span> <span class="n">struct</span> <span class="p">[</span><span class="n">sockaddr</span><span class="p">](</span><span class="n">sockaddr</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">__restrict</span> <span class="n">alen</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Receives data from a specified socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1319404319084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1622932049084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p398277718084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1962548363084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1786370429084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>buf</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to a buffer for storing the data to be received.</p>
+</td></tr><tr id="row1778602904084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the buffer pointed to by buf.</p>
+</td></tr><tr id="row1648359073084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>flags</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket flags. This parameter has the following values:</p>
+</td></tr><tr id="row1537786393084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the source address.</p>
+</td></tr><tr id="row1755426118084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of the source address.</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row56305463084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p436118917084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p65628955084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1929038031084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1822520146084823"><p>MSG_DONTWAIT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1839807378084823"><p>Enables the non-blocking operation.</p>
+</p></td></tr><tr id="row1606252319084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1247180998084823"><p>MSG_MORE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p147767086084823"><p>The caller has more data to send.</p>
+</p></td></tr><tr id="row257521351084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p887055788084823"><p>MSG_NOSIGNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1602170031084823"><p>No signals are generated.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the length of the received data if the operation is successful;
+returns <strong>-1</strong> and sets <strong>errno</strong> to a value in the following table if
+the operation fails.</p>
+<table><thead align="left"><tr id="row29248982084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2062467396084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p476316748084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2061936245084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p921908893084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p261883851084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row1189373742084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1451472332084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2085536536084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row579626042084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p518839001084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p959502114084823"><p>Memory copy exception</p>
+</p></td></tr><tr id="row414320888084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1596788201084823"><p>EOPNOTSUPP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p996919876084823"><p>Unsupported message type</p>
+</p></td></tr><tr id="row2083732591084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p146695039084823"><p>ENOTCONN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1875517114084823"><p>Socket not connected</p>
+</p></td></tr><tr id="row348832648084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1648065503084823"><p>ENOTCONN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p340886670084823"><p>Connection closed</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="recvmsg">
+<h2>recvmsg()<a class="headerlink" href="#recvmsg" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssize_t</span> <span class="n">recvmsg</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">struct</span> <span class="n">msghdr</span> <span class="o">*</span> <span class="n">msg</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Receives data from a specified socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row401475206084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1051162356084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p2070571511084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1984314152084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row264958519084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>msg</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the address to receive the message header.</p>
+</td></tr><tr id="row1973671320084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>flags</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket flags. This parameter has the following values:</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row798953573084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p918537835084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1760117350084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row780251846084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1188221482084823"><p>MSG_DONTWAIT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p987141471084823"><p>Enables the non-blocking operation.</p>
+</p></td></tr><tr id="row117276719084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1676852946084823"><p>MSG_MORE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p562460877084823"><p>The caller has more data to send.</p>
+</p></td></tr><tr id="row652623572084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p527424179084823"><p>MSG_NOSIGNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p475758385084823"><p>No signals are generated.</p>
+</p></td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>This function does not allow sending ancillary data. Currently, the
+length of the array defined by <strong>msg_iov</strong> can only be <strong>1</strong>.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the length of the received data if the operation is successful;
+returns <strong>-1</strong> and sets <strong>errno</strong> to a value in the following table if
+the operation fails.</p>
+<table><thead align="left"><tr id="row862818298084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1823459342084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1567765943084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2055403192084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p40365758084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1669692814084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row860287692084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p735425770084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1738366564084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row83252755084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1246498422084823"><p>EDESTADDRREQ</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1819975022084823"><p>Invalid connection</p>
+</p></td></tr><tr id="row1365443800084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1286076022084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p996037119084823"><p>Memory copy exception</p>
+</p></td></tr><tr id="row1086994017084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p746229764084823"><p>EIO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1329183123084823"><p>Incorrect connection type obtained based on the socket descriptor</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="send">
+<h2>send()<a class="headerlink" href="#send" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssize_t</span> <span class="n">send</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="nb">len</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sends data to another socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row313975403084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p79857724084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1466918099084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1646582446084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1300296760084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>buf</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to a buffer for storing the data to be sent.</p>
+</td></tr><tr id="row923953487084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the buffer pointed to by buf.</p>
+</td></tr><tr id="row1910619424084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>flags</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket flags. This parameter has the following values:</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row66600780084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p917919754084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1629773578084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row623905464084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p843326383084823"><p>MSG_DONTWAIT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p736760687084823"><p>Enables the non-blocking operation.</p>
+</p></td></tr><tr id="row87888363084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1671948837084823"><p>MSG_MORE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1099191405084823"><p>The caller has more data to send.</p>
+</p></td></tr><tr id="row463441084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1814151195084823"><p>MSG_NOSIGNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p462998687084823"><p>No signals are generated.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the length of the sent data if the operation is successful;
+returns <strong>-1</strong> and sets <strong>errno</strong> to a value in the following table if
+the operation fails.</p>
+<table><thead align="left"><tr id="row1942091784084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p218588738084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p411014553084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1057452988084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p329872793084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1257927741084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row1636907274084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2144628364084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1756250114084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row1268183035084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1332128714084823"><p>EDESTADDRREQ</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1475478107084823"><p>Invalid connection</p>
+</p></td></tr><tr id="row481660221084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p952786110084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p936815030084823"><p>Memory copy exception</p>
+</p></td></tr><tr id="row612750376084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p174745111084823"><p>EOPNOTSUPP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1404629058084823"><p>Unsupported message type</p>
+</p></td></tr><tr id="row973270265084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1636784283084823"><p>ENOTCONN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1692820309084823"><p>Socket not connected</p>
+</p></td></tr><tr id="row1605519786084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1191463993084823"><p>EIO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p736429153084823"><p>Incorrect connection type obtained based on the socket descriptor</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="sendmsg">
+<h2>sendmsg()<a class="headerlink" href="#sendmsg" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssize_t</span> <span class="n">sendmsg</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">msghdr</span> <span class="o">*</span> <span class="n">msg</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sends data to another socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row350035034084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p409738972084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p891121321084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row780312861084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1774613777084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>msg</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the address of the message header to be sent.</p>
+</td></tr><tr id="row1828204158084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>flags</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket flags. This parameter has the following values:</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row1119056136084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1478155124084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p785904435084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1772173515084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p451087410084823"><p>MSG_DONTWAIT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1357820356084823"><p>Enables the non-blocking operation.</p>
+</p></td></tr><tr id="row1037337379084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p804326123084823"><p>MSG_MORE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1007242175084823"><p>The caller has more data to send.</p>
+</p></td></tr><tr id="row221686966084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1459107834084823"><p>MSG_NOSIGNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1175087172084823"><p>No signals are generated.</p>
+</p></td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>This function does not support ancillary data.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the length of the sent data if the operation is successful;
+returns <strong>-1</strong> and sets <strong>errno</strong> to a value in the following table if
+the operation fails.</p>
+<table><thead align="left"><tr id="row1981470304084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1147920678084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1055898280084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1318383575084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p412801910084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1319355679084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row503995057084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p607083616084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1547720412084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row1433702507084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p144047093084823"><p>EDESTADDRREQ</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1446127912084823"><p>Invalid connection</p>
+</p></td></tr><tr id="row726508079084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1992580812084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1267064552084823"><p>Memory copy exception</p>
+</p></td></tr><tr id="row1827190567084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1756727829084823"><p>EIO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1593228413084823"><p>Incorrect connection type obtained based on the socket descriptor</p>
+</p></td></tr><tr id="row318008328084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p513954176084823"><p>EOPNOTSUPP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p457985436084823"><p>Unsupported message type</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="sendto">
+<h2>sendto()<a class="headerlink" href="#sendto" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssize_t</span> <span class="n">sendto</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="nb">len</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span><span class="p">,</span> <span class="n">const</span> <span class="n">struct</span> <span class="p">[</span><span class="n">sockaddr</span><span class="p">](</span><span class="n">sockaddr</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">alen</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sends data to another socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1709866859084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p863717138084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1010540763084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1516871689084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row2135522025084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>buf</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to a buffer for storing the data to be sent.</p>
+</td></tr><tr id="row2023268723084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>len</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the buffer pointed to by buf.</p>
+</td></tr><tr id="row159267714084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>flags</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket flags. This parameter has the following values:</p>
+</td></tr><tr id="row157978790084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>addr</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the destination network address.</p>
+</td></tr><tr id="row463899146084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>alen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the length of the destination network address.</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row1466929067084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p225908342084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p170792468084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1525658608084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1681693426084823"><p>MSG_DONTWAIT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p676900467084823"><p>Enables the non-blocking operation.</p>
+</p></td></tr><tr id="row464326873084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1490178069084823"><p>MSG_MORE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p243473302084823"><p>The caller has more data to send.</p>
+</p></td></tr><tr id="row368789427084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1724685453084823"><p>MSG_NOSIGNAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1797894348084823"><p>No signals are generated.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the length of the sent data if the operation is successful;
+returns <strong>-1</strong> and sets <strong>errno</strong> to a value in the following table if
+the operation fails.</p>
+<table><thead align="left"><tr id="row1140366775084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p916945850084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p994457685084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row552704482084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p327598804084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p502903540084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row4467678084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1359322460084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1952322700084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row1641108362084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1920322968084823"><p>EDESTADDRREQ</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1484363329084823"><p>Invalid connection</p>
+</p></td></tr><tr id="row816810034084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1240930781084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2060269071084823"><p>Memory copy exception</p>
+</p></td></tr><tr id="row192673160084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1124741629084823"><p>EOPNOTSUPP</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1131599810084823"><p>Unsupported message type</p>
+</p></td></tr><tr id="row839950685084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1271288903084823"><p>ENOTCONN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1706069384084823"><p>Socket not connected</p>
+</p></td></tr><tr id="row963753011084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p541995692084823"><p>EIO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1011496646084823"><p>Incorrect connection type obtained based on the socket descriptor</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="setprotoent">
+<h2>setprotoent()<a class="headerlink" href="#setprotoent" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">setprotoent</span> <span class="p">(</span><span class="nb">int</span> <span class="n">stayopen</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Opens a connection to the database and sets the next entry to the first
+entry.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row430771729084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1322024849084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1351099798084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1847017149084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>stayopen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Reserved for interface compatibility (not used currently).</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>The <strong>stayopen</strong> parameter does not take effect. It is equivalent to
+nonzero for <a class="reference external" href="net.md#gaca0da70657afbc3e723990bb229deec3">getprotoent</a>
+and zero for
+<a class="reference external" href="net.md#ga83ac8a97dd9d895cda658af3aa46fd55">getprotobyname</a> and
+<strong>getprotobynumbmer</strong>.</p>
+</div>
+<div class="section" id="setsockopt">
+<h2>setsockopt()<a class="headerlink" href="#setsockopt" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">setsockopt</span> <span class="p">(</span><span class="nb">int</span> <span class="n">fd</span><span class="p">,</span> <span class="nb">int</span> <span class="n">level</span><span class="p">,</span> <span class="nb">int</span> <span class="n">optname</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span> <span class="n">optval</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">optlen</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the socket options.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row726508668084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2027903055084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1583665250084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1527903557084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>fd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row561969216084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>level</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the protocol level at which the option resides. Only
+SOL_SOCKET is supported.</p>
+</td></tr><tr id="row444237919084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>optname</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket options to set, which has the following values:</p>
+</td></tr><tr id="row1067282564084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>optval</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the option data.</p>
+</td></tr><tr id="row2070432915084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>optlen</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of the buffer pointed to by optval.</p>
+</td></tr></tbody></table><table><thead align="left"><tr id="row235443084084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p229193362084823"><p>value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p620209141084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1501392711084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1347434284084823"><p>SO_BROADCAST</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1020057416084823"><p>Permits sending broadcast messages.</p>
+</p></td></tr><tr id="row728421701084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p794798952084823"><p>SO_RCVTIMEO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1938914445084823"><p>Receiving data times out.</p>
+</p></td></tr><tr id="row1144698986084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1307522589084823"><p>SO_RCVBUF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1727665959084823"><p>Sets or gets the maximum socket receiving buffer in bytes.</p>
+</p></td></tr><tr id="row1973247278084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p897652198084823"><p>SO_DONTROUTE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1424788024084823"><p>Prohibits messages from being sent via a gateway.</p>
+</p></td></tr><tr id="row2130639263084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p478111566084823"><p>SO_BINDTODEVICE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p949093138084823"><p>Binds this socket to a particular device.</p>
+</p></td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row815602092084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p457075375084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1193192064084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row914598168084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1173960600084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p228099251084823"><p>Small optlen</p>
+</p></td></tr><tr id="row1860319567084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1808124713084823"><p>EBADF</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1969946626084823"><p>Invalid socket or socket status exception</p>
+</p></td></tr><tr id="row208691854084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1503844609084823"><p>EFAULT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p654504611084823"><p>The input parameter is a null pointer.</p>
+</p></td></tr><tr id="row1470691719084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p217200555084823"><p>ENOBUFS</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1480014926084823"><p>Retrieved length exception</p>
+</p></td></tr><tr id="row1112184819084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p300213916084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p421277630084823"><p>Memory copy exception</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="shutdown">
+<h2>shutdown()<a class="headerlink" href="#shutdown" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">shutdown</span> <span class="p">(</span><span class="nb">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="nb">int</span> <span class="n">how</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Shuts down a socket.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2025717216084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1863158709084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p215159424084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row895862934084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>sockfd</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket descriptor.</p>
+</td></tr><tr id="row1732529000084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>how</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates how to shut down the socket. You can disable either receptions
+by SHUT_RD or transmissions by SHUT_WR, or both by SHUT_RDWR.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> and sets
+<strong>errno</strong> to a value in the following table if the operation fails.</p>
+<table><thead align="left"><tr id="row1843261736084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p309037107084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1649634997084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row424376795084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1995657207084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p156309129084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row2105450373084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p524667204084823"><p>ENOTCONN</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1841966198084823"><p>Socket not connected</p>
+</p></td></tr><tr id="row1381384757084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p811790860084823"><p>ENOMEM</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p403083008084823"><p>Memory copy exception</p>
+</p></td></tr><tr id="row1318100245084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1314885873084823"><p>EIO</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p756520932084823"><p>Incorrect connection type obtained based on the socket descriptor</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="socket">
+<h2>socket()<a class="headerlink" href="#socket" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">socket</span> <span class="p">(</span><span class="nb">int</span> <span class="n">domain</span><span class="p">,</span> <span class="nb">int</span> <span class="nb">type</span><span class="p">,</span> <span class="nb">int</span> <span class="n">protocol</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Creates a socket and returns its descriptor.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row693173406084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p68987851084823"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p205165118084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row380428740084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>domain</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket domain.</p>
+</td></tr><tr id="row1891742263084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>type</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket type.</p>
+</td></tr><tr id="row1934315649084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>protocol</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the socket protocol.</p>
+</td></tr></tbody></table><p><strong>Attention:</strong></p>
+<p>Only the following socket domains are supported: <strong>AF_INET</strong>,
+<strong>AF_INET6</strong>. Only the socket types <strong>SOCK_RAW</strong>, <strong>SOCK_DGRAM</strong> and
+<strong>SOCK_STREAM</strong> are supported, and the OR operation between the extra
+socket flag and the socket type is not supported.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the descriptor for the new socket if the operation is
+successful; returns <strong>-1</strong> and sets <strong>errno</strong> to a value in the
+following table if the operation fails.</p>
+<table><thead align="left"><tr id="row767225229084823"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p85916433084823"><p>errno</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1178540684084823"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row740986349084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2074367511084823"><p>EAFNOSUPPORT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p281308060084823"><p>Invalid socket domain</p>
+</p></td></tr><tr id="row1331225350084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1862857912084823"><p>ESOCKTNOSUPPORT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p559313948084823"><p>Unsupported socket domain</p>
+</p></td></tr><tr id="row525864247084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1472660479084823"><p>EPROTONOSUPPORT</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1074970073084823"><p>Unsupported protocol</p>
+</p></td></tr><tr id="row388412961084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1361856284084823"><p>EINVAL</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1524082623084823"><p>Invalid input parameter</p>
+</p></td></tr><tr id="row1526417944084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p90040510084823"><p>ENOBUFS</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p204277078084823"><p>Connection setup error</p>
+</p></td></tr><tr id="row2056320679084823"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1529769463084823"><p>ENFILE</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1766815940084823"><p>File table addition exception</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/net.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

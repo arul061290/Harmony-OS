@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registry &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="registry">
+<h1>Registry<a class="headerlink" href="#registry" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides APIs for registering and discovering inter-process
+communication (IPC) capabilities.</p>
+<p>Based on the Samgr development framework, this module helps you to
+develop system capabilities and implement cross-process calls. This
+module is used when system capabilities need to be provided across
+processes.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row112523827084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p819560436084827"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1136875371084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row966121230084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p760668688084827"><p>iproxy_client.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1487505542084827"><p>Provides the client proxy class.</p>
+</p></td></tr><tr id="row462795068084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1616108859084827"><p>iproxy_server.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1330847962084827"><p>Provides the server proxy.</p>
+</p></td></tr><tr id="row735174859084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1879483444084827"><p>registry.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1052238857084827"><p>Provides basic APIs for remote service registration and discovery.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1689214566084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2040265981084827"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p838376888084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row406418592084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1843435540084827"><p>IClientProxy</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p489200166084827"><p>Defines the client proxy object.</p>
+</p></td></tr><tr id="row823064937084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p282270800084827"><p>IServerProxy</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p128699271084827"><p>Defines the base class of the server proxy object.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row664104587084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2066816544084827"><p>Macro Name and Value</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p989331980084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row728499191084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1190737157084827"><p>INHERIT_CLIENT_IPROXY</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p955300597084827"><p>Indicates the inherited macro of the client proxy.</p>
+</p></td></tr><tr id="row895390647084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1219145845084827"><p>INHERIT_IPROXY_ENTRY(T) INHERIT_IUNKNOWNENTRY(T)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p956801964084827"><p>Inherits the server proxy class.</p>
+</p></td></tr><tr id="row1893607541084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2132985730084827"><p>IPROXY_END IUNKNOWN_ENTRY_END</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1600849810084827"><p>Defines the end of the default initialization for the server proxy
+class.</p>
+</p></td></tr><tr id="row1061006930084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1817411649084827"><p>SERVER_PROXY_VER 0x80</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p791563653084827"><p>Defines the default version number of the server proxy.</p>
+</p></td></tr><tr id="row112252814084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p232443474084827"><p>INHERIT_SERVER_IPROXY</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p467422827084827"><p>Inherits the server proxy function.</p>
+</p></td></tr><tr id="row2119385925084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p982839624084827"><p>SERVER_IPROXY_BEGIN IUNKNOWN_ENTRY_BEGIN(SERVER_PROXY_VER)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p50798851084827"><p>Defines the beginning of the default initialization for the server proxy
+class.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row213166280084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1183586096084827"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1847727698084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row961452718084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p35474087084827"><p>INotify) (IOwner owner, int code, IpcIo *reply)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1912193013084827"><p>typedef int(*</p>
+</p><p id="p2046656237084827"><p>Called when a client request is responded.</p>
+</p></td></tr><tr id="row2141509408084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p794523028084827"><p>Creator) (const char <em>service, const char</em>feature, uint32 size)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p562864898084827"><p>typedef void <em>(</em></p>
+</p><p id="p419254573084827"><p>Indicates the creator of the customized client proxy.</p>
+</p></td></tr><tr id="row1206785248084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1726427226084827"><p>Destroyer) (const char <em>service, const char</em>feature, void *iproxy)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1669680763084827"><p>typedef void(*</p>
+</p><p id="p2134877405084827"><p>Indicates the destroyer of the customized client proxy.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row284964100084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p748639525084827"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1333946739084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1111232572084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p379448324084827"><p>SAMGR_GetRemoteIdentity (const char <em>service, const char</em>feature)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2108620922084827"><p>SvcIdentity</p>
+</p><p id="p1682349934084827"><p>Obtains the IPC address of a remote service and feature based on the
+service name and feature name.</p>
+</p></td></tr><tr id="row317447451084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2121296929084827"><p>SAMGR_RegisterFactory (const char <em>service, const char</em>feature,
+Creator creator, Destroyer destroyer)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p304287369084827"><p>int</p>
+</p><p id="p601742178084827"><p>Registers the factory method of the client proxy object with the Samgr.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="macro-definition-documentation">
+<h2><strong>Macro Definition Documentation</strong><a class="headerlink" href="#macro-definition-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="inherit-client-iproxy">
+<h2>INHERIT_CLIENT_IPROXY<a class="headerlink" href="#inherit-client-iproxy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define INHERIT_CLIENT_IPROXY</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Values</span><span class="p">:</span> <span class="p">[</span><span class="n">INHERIT_IUNKNOWN</span><span class="p">](</span><span class="n">samgr</span><span class="o">.</span><span class="n">md</span><span class="c1">#gab74532a22d6993d0ffc014d36253397f); \</span>
+
+ <span class="nb">int</span> <span class="p">(</span><span class="o">*</span><span class="n">Invoke</span><span class="p">)([</span><span class="n">IClientProxy</span><span class="p">](</span><span class="n">iclientproxy</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">proxy</span><span class="p">,</span> <span class="nb">int</span> <span class="n">funcId</span><span class="p">,</span> <span class="n">IpcIo</span> <span class="o">*</span><span class="n">request</span><span class="p">,</span> <span class="n">IOwner</span> <span class="n">owner</span><span class="p">,</span> <span class="p">[</span><span class="n">INotify</span><span class="p">](</span><span class="n">registry</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga362a17c1bda1aace88d42dcbc88bdfac) notify)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the inherited macro of the client proxy.</p>
+<p>This constant is used when a client proxy needs to be customized or
+generated by a tool.</p>
+</div>
+<div class="section" id="inherit-iproxy-entry">
+<h2>INHERIT_IPROXY_ENTRY<a class="headerlink" href="#inherit-iproxy-entry" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define INHERIT_IPROXY_ENTRY( T)   [INHERIT_IUNKNOWNENTRY](samgr.md#gad6324fd90dd636180efa2a59b377e65c)(T)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Inherits the server proxy class.</p>
+<p>When the server provides cross-process system capabilities, it uses
+<strong>INHERIT_IPROXY_ENTRY</strong> to define the server proxy class.</p>
+</div>
+<div class="section" id="inherit-server-iproxy">
+<h2>INHERIT_SERVER_IPROXY<a class="headerlink" href="#inherit-server-iproxy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define INHERIT_SERVER_IPROXY</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Values</span><span class="p">:</span> <span class="p">[</span><span class="n">INHERIT_IUNKNOWN</span><span class="p">](</span><span class="n">samgr</span><span class="o">.</span><span class="n">md</span><span class="c1">#gab74532a22d6993d0ffc014d36253397f); \</span>
+
+ <span class="n">int32</span> <span class="p">(</span><span class="o">*</span><span class="n">Invoke</span><span class="p">)([</span><span class="n">IServerProxy</span><span class="p">](</span><span class="n">iserverproxy</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span><span class="n">iProxy</span><span class="p">,</span> <span class="nb">int</span> <span class="n">funcId</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">origin</span><span class="p">,</span> <span class="n">IpcIo</span> <span class="o">*</span><span class="n">req</span><span class="p">,</span> <span class="n">IpcIo</span> <span class="o">*</span><span class="n">reply</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Inherits the server proxy function.</p>
+<p>When the server provides cross-process system capabilities, it uses
+<strong>INHERIT_SERVER_IPROXY</strong> to define the server proxy function.</p>
+</div>
+<div class="section" id="iproxy-end">
+<h2>IPROXY_END<a class="headerlink" href="#iproxy-end" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define IPROXY_END   [IUNKNOWN_ENTRY_END](samgr.md#ga4ef734474ece49aa938d8ebd5b54bdb3)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the end of the default initialization for the server proxy
+class.</p>
+<p>This macro is used for developing the server proxy class. You can
+inherit this macro to reduce the code amount and prevent class
+definition inconsistency.</p>
+</div>
+<div class="section" id="server-iproxy-begin">
+<h2>SERVER_IPROXY_BEGIN<a class="headerlink" href="#server-iproxy-begin" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define SERVER_IPROXY_BEGIN   [IUNKNOWN_ENTRY_BEGIN](samgr.md#ga52ec6b5b03d56b0dfe7277785246bda1)([SERVER_PROXY_VER](registry.md#gad513d97bfb873f27c9b8f69a5a418d55))</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the beginning of the default initialization for the server proxy
+class.</p>
+<p>This macro is used for developing the server proxy class. You can
+inherit this macro to reduce the code amount and prevent class
+definition inconsistency.</p>
+</div>
+<div class="section" id="server-proxy-ver">
+<h2>SERVER_PROXY_VER<a class="headerlink" href="#server-proxy-ver" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define SERVER_PROXY_VER   0x80</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Defines the default version number of the server proxy.</p>
+<p>The cross-process system capabilities are registered when Samgr uses
+<strong>SERVER_PROXY_VER</strong> to query the registered server proxy.</p>
+</div>
+<div class="section" id="typedef-documentation">
+<h2><strong>Typedef Documentation</strong><a class="headerlink" href="#typedef-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="creator">
+<h2>Creator<a class="headerlink" href="#creator" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">void</span><span class="o">*</span><span class="p">(</span><span class="o">*</span> <span class="n">Creator</span><span class="p">)</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">feature</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the creator of the customized client proxy.</p>
+<p>This macro creates a local client proxy for remote service APIs. If you
+want to call the remote APIs in the way that local APIs are called,
+implement this macro to encapsulate serialized data into the proxy. The
+system automatically calls this macro when creating a proxy object.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row2017480942084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2118264534084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p284304334084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1788198904084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>service</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the name of the service to which the function
+belongs.</p>
+</td></tr><tr id="row1671598904084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>feature</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the name of the feature to which the function
+belongs.</p>
+</td></tr><tr id="row2010378390084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of the head to be added when a client proxy is
+created. The required memory capacity is the head size plus the object
+size.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>void * Returns the applied memory capacity and initialize the memory
+for the client proxy.</p>
+</div>
+<div class="section" id="destroyer">
+<h2>Destroyer<a class="headerlink" href="#destroyer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">void</span><span class="p">(</span><span class="o">*</span> <span class="n">Destroyer</span><span class="p">)</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">feature</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">iproxy</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Indicates the destroyer of the customized client proxy.</p>
+<p>This macro destroys local client proxy for remote service APIs. If you
+want to call the remote APIs in the way that local APIs are called,
+implement this macro to encapsulate serialized data into the proxy. The
+system automatically calls this macro when destroying a proxy object.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1059402118084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1638408950084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p19697541084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1250788881084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>service</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the name of the service to which the function
+belongs.</p>
+</td></tr><tr id="row503561448084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>feature</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the name of the feature to which the function
+belongs.</p>
+</td></tr><tr id="row276166625084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>iproxy</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the start address of the memory that is applied
+by Creator.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="inotify">
+<h2>INotify<a class="headerlink" href="#inotify" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="nb">int</span><span class="p">(</span><span class="o">*</span> <span class="n">INotify</span><span class="p">)</span> <span class="p">(</span><span class="n">IOwner</span> <span class="n">owner</span><span class="p">,</span> <span class="nb">int</span> <span class="n">code</span><span class="p">,</span> <span class="n">IpcIo</span> <span class="o">*</span><span class="n">reply</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called when a client request is responded.</p>
+<p>The client implements this <strong>INotify</strong> callback to receive response data
+from the server. <strong>owner</strong> indicates the client proxy that receives the
+response data; <strong>code</strong> indicates the error code of the response data
+from the server; <strong>reply</strong> indicates the response data.</p>
+</div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="samgr-getremoteidentity">
+<h2>SAMGR_GetRemoteIdentity()<a class="headerlink" href="#samgr-getremoteidentity" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SvcIdentity</span> <span class="n">SAMGR_GetRemoteIdentity</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">service</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">feature</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the IPC address of a remote service and feature based on the
+service name and feature name.</p>
+<p>This function is used when <a class="reference external" href="iclientproxy.md">IClientProxy</a> cannot
+meet your requirements for calling IPCs. For example, if you need to
+receive the death notification of a remote service or feature, you can
+call this function to obtain the address of the remote service or
+feature and subscribe to the death notification from the IPC.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1241772755084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1095716672084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1984256719084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row525146671084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>service</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the name of the remote service.</p>
+</td></tr><tr id="row804508936084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>feature</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the name of the remote feature.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the IPC address of the remote service or feature. When the
+handle of the obtained address structure <strong>SvcIdentity</strong> is
+<strong>0xFFFFFFFF</strong>, the address is invalid.</p>
+<p><strong>Attention:</strong></p>
+<p>This function can be called only after <strong>GetFeatureApi</strong> in
+<a class="reference external" href="samgrlite.md">SamgrLite</a> is successfully called. Otherwise, an
+invalid address is returned. When the service or feature does not
+support IPC communication, an invalid address will be returned.</p>
+</div>
+<div class="section" id="samgr-registerfactory">
+<h2>SAMGR_RegisterFactory()<a class="headerlink" href="#samgr-registerfactory" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">SAMGR_RegisterFactory</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">service</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span> <span class="n">feature</span><span class="p">,</span> <span class="p">[</span><span class="n">Creator</span><span class="p">](</span><span class="n">registry</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga0c8aa2ef9883bd97b4f1309895adaa4c) creator, [Destroyer](registry.md#ga1e6298b1246357f70ad0b581e0eb9305) destroyer )</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Registers the factory method of the client proxy object with the Samgr.</p>
+<p>If you want to call the remote APIs in the way that local APIs are
+called, implement this function to encapsulate serialized data into the
+proxy. During system initialization, the module that uses the remote
+proxy calls the function as required.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row481271593084827"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p760675351084827"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p454843587084827"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1428800229084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>service</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the service name of the client proxy.</p>
+</td></tr><tr id="row1363604020084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>feature</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the feature name of the client proxy.</p>
+</td></tr><tr id="row150709120084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>creator</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the Creator function of the client proxy.</p>
+</td></tr><tr id="row1754737552084827"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>destroyer</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the Destroyer function of the client proxy.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>EC_SUCCESS</strong> if the registration is successful; returns other
+error codes if the registration fails.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/docs-en/api/api-SmartVision-Devices/registry.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

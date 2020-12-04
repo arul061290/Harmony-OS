@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mqueue.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mqueue-h">
+<h1>mqueue.h<a class="headerlink" href="#mqueue-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="ipc.md">IPC</a></p>
+<p><strong>Description:</strong></p>
+<p>Provides message queue operation functions and related structures.</p>
+<p>For example, you can use the functions to create, open, close, delete,
+read, and write a message queue, and to obtain and set its attributes.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1357532096084831"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1126610916084831"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p598848476084831"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1623340061084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1853045994084831"><p>mq_attr</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1589392064084831"><p>Describes message queue attributes.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1586553151084831"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p557343322084831"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p542346034084831"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row528002848084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p963714008084831"><p>mq_close (mqd_t mqdes)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1652431109084831"><p>int</p>
+</p><p id="p156856598084831"><p>Closes a message queue that is no longer used.</p>
+</p></td></tr><tr id="row1749386662084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p164735842084831"><p>mq_getattr (mqd_t mqdes, struct mq_attr *attr)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p839744025084831"><p>int</p>
+</p><p id="p1347121667084831"><p>Obtains the attributes of the message queue specified by the descriptor.
+The values of mq_maxmsg, mq_msgsize, and mq_curmsgs are fixed.</p>
+</p></td></tr><tr id="row1837364552084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1509502087084831"><p>mq_open (const char *name, int oflag,…)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p388697709084831"><p>mqd_t</p>
+</p><p id="p304639038084831"><p>Creates a message queue or opens an existing message queue.</p>
+</p></td></tr><tr id="row1351135507084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p492271851084831"><p>mq_receive (mqd_t mqdes, char <em>buffer, size_t size, unsigned</em>prioptr)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1624789446084831"><p>ssize_t</p>
+</p><p id="p393717103084831"><p>Receives a message from a specified message queue.</p>
+</p></td></tr><tr id="row1898195847084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1407021360084831"><p>mq_send (mqd_t mqdes, const char *buffer, size_t size, unsigned prio)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p740878554084831"><p>int</p>
+</p><p id="p245727963084831"><p>Sends a message to a specified message queue.</p>
+</p></td></tr><tr id="row1800643802084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1847885701084831"><p>mq_setattr (mqd_t mqdes, const struct mq_attr *__restrict newattr,
+struct mq_attr *__restrict oldattr)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p986131364084831"><p>int</p>
+</p><p id="p1356206786084831"><p>Sets the attributes of the message queue specified by the descriptor.
+The mq_maxmsg, mq_msgsize, and mq_curmsgs attributes cannot be modified.
+mq_flags supports the O_NONBLOCK attribute only.</p>
+</p></td></tr><tr id="row1970642142084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1238632493084831"><p>mq_timedreceive (mqd_t mqdes, char *__restrict buffer, size_t size,
+unsigned *__restrict prioptr, const struct timespec *__restrict
+timeout)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p251191204084831"><p>ssize_t</p>
+</p><p id="p515032415084831"><p>Receives a message from the message queue, with a timeout period
+specified.</p>
+</p></td></tr><tr id="row703504034084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1911150045084831"><p>mq_timedsend (mqd_t mqdes, const char <em>buffer, size_t size, unsigned
+prio, const struct timespec</em>timeout)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1313176928084831"><p>int</p>
+</p><p id="p946847412084831"><p>Sends a message to a specified message queue, with a timeout period
+specified.</p>
+</p></td></tr><tr id="row2127330527084831"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p551784950084831"><p>mq_unlink (const char *name)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p443714017084831"><p>int</p>
+</p><p id="p775559004084831"><p>Decreases the reference count of the message queue by 1, or deletes the
+message queue if the reference count is 0.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/mqueue-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

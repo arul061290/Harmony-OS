@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bundle_manager.h &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bundle-manager-h">
+<h1>bundle_manager.h<a class="headerlink" href="#bundle-manager-h" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Related Modules:</strong></p>
+<p><a class="reference external" href="bundlemanager.md">BundleManager</a></p>
+<p><strong>Description:</strong></p>
+<p>Declares functions used for managing application bundles and obtaining
+bundle information.</p>
+<p>You can use functions provided in this file to install, update, or
+uninstall an application, obtain <a class="reference external" href="abilityinfo.md">AbilityInfo</a> and
+<a class="reference external" href="bundleinfo.md">BundleInfo</a> about an application, obtain the bundle
+name of an application based on the application’s user ID (UID), and
+obtain <a class="reference external" href="bundleinfo.md">BundleInfo</a> objects of all applications or
+keep-alive applications in the system.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1578854507093524"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1119954181093524"><p>Typedef Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1395542995093524"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1989341526093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p715104919093524"><p>InstallerCallback) (const uint8_t resultCode, const void
+*resultMessage)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p201537064093524"><p>typedef void(*</p>
+</p><p id="p398651634093524"><p>Called when an application is installed, updated, or uninstalled.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row104506316093524"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1252524407093524"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1314004158093524"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row684537882093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1782456800093524"><p>RegisterCallback (BundleStatusCallback *BundleStatusCallback)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1672981302093524"><p>int32_t</p>
+</p><p id="p703890370093524"><p>Registers a callback to monitor the installation, update, and
+uninstallation state changes of an application.</p>
+</p></td></tr><tr id="row1918818587093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p28868020093524"><p>UnregisterCallback ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p51573455093524"><p>int32_t</p>
+</p><p id="p1932701562093524"><p>Unregisters a callback previously registered for monitoring the
+installation, update, and uninstallation state changes of an
+application.</p>
+</p></td></tr><tr id="row338895256093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p577833894093524"><p>Install (const char <em>hapPath, const InstallParam</em>installParam,
+InstallerCallback installerCallback)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p679552401093524"><p>bool</p>
+</p><p id="p1200763507093524"><p>Installs or updates an application.</p>
+</p></td></tr><tr id="row322610870093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p708888161093524"><p>Uninstall (const char <em>bundleName, const InstallParam</em>installParam,
+InstallerCallback installerCallback)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1598571794093524"><p>bool</p>
+</p><p id="p139496451093524"><p>Uninstalls an application.</p>
+</p></td></tr><tr id="row455369973093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2035346100093524"><p>QueryAbilityInfo (const Want <em>want, AbilityInfo</em>abilityInfo)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p940481416093524"><p>uint8_t</p>
+</p><p id="p1297071093093524"><p>Queries the AbilityInfo of an ability based on the information carried
+in the Want structure.</p>
+</p></td></tr><tr id="row589755105093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p194060647093524"><p>GetBundleInfo (const char <em>bundleName, int32_t flags,
+BundleInfo</em>bundleInfo)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1060241240093524"><p>uint8_t</p>
+</p><p id="p1976563097093524"><p>Obtains the BundleInfo of an application based on the specified bundle
+name.</p>
+</p></td></tr><tr id="row2111378669093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1437306654093524"><p>GetBundleInfos (const int flags, BundleInfo **bundleInfos, int32_t
+*len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p938588569093524"><p>uint8_t</p>
+</p><p id="p174585517093524"><p>Obtains the BundleInfo of all bundles in the system.</p>
+</p></td></tr><tr id="row24683789093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2087923994093524"><p>QueryKeepAliveBundleInfos (BundleInfo **bundleInfos, int32_t *len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1576599104093524"><p>uint8_t</p>
+</p><p id="p2096697820093524"><p>Obtains the BundleInfo of all keep-alive applications in the system.</p>
+</p></td></tr><tr id="row1578630687093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1791884562093524"><p>GetBundleInfosByMetaData (const char *metaDataKey, BundleInfo
+**bundleInfos, int32_t *len)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p26245787093524"><p>uint8_t</p>
+</p><p id="p1084706552093524"><p>Obtains the BundleInfo of application bundles based on the specified
+MetaData.</p>
+</p></td></tr><tr id="row978035039093524"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1041508641093524"><p>GetBundleNameForUid (int32_t uid, char **bundleName)</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p165039705093524"><p>uint8_t</p>
+</p><p id="p411537936093524"><p>Obtains the bundle name of an application based on the specified UID.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/bundle_manager-h.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

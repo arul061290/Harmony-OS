@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WLAN Overview &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wlan-overview">
+<h1>WLAN Overview<a class="headerlink" href="#wlan-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The WLAN module is developed based on the OpenHarmony Driver Foundation.
+It supports cross-OS migration, component adaptation, and modular
+assembly and compilation. Based on the unified APIs provided by the WLAN
+module, driver developers of WLAN vendors can adapt their driver code
+and developers of the hardware abstraction layer (HAL) are capable of
+creating, disabling, scanning, and connecting to WLAN hotspots. The
+following figure shows the framework of the WLAN module:</p>
+<p><strong>Figure 1</strong> WLAN framework</p>
+<p><img alt="image1" src="../_images/wifi框架2.png" /></p>
+</div>
+<div class="section" id="wlan-driver-api-architecture">
+<h2>WLAN Driver API Architecture<a class="headerlink" href="#wlan-driver-api-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The WLAN module provides the following three types of APIs:</p>
+<ul class="simple">
+<li><p>APIs for HAL developers</p></li>
+<li><p>APIs that can be called directly by driver developers</p></li>
+<li><p>APIs for driver developers of different vendors to implement</p></li>
+</ul>
+<p>This document provides guidelines on how to initialize a WLAN module.</p>
+<p><strong>Figure 2</strong> Available APIs of the WLAN module</p>
+<p><img alt="image2" src="../_images/接口分布图1.png" /></p>
+</div>
+<div class="section" id="available-apis">
+<h2>Available APIs<a class="headerlink" href="#available-apis" title="Permalink to this headline">¶</a></h2>
+<p>The WLAN driver module provides APIs for HAL developers, such as
+creating, disabling, scanning, connecting to or disconnecting from WLAN
+hotpots.</p>
+<p>The WLAN driver module provides APIs that can be directly called by
+driver developers, such as creating/releasing a <strong>WifiModule</strong>,
+connecting to/disconnecting from a WLAN hotspot, applying for/releasing
+a network data buffer, and converting between the <strong>pbuf</strong> structure of
+Lightweight TCP/IP Stack (lwIP) and a network data buffer.</p>
+<p>Table 1 describes some APIs.</p>
+<p><strong>Table 1</strong> APIs that can be directly called by driver developers</p>
+<table><thead align="left"><tr id="row121519334474"><th class="cellrowborder" valign="top" width="15.079999999999998%" id="mcps1.2.4.1.1"><p id="p1221510339475"><p>File</p>
+</p></th><th class="cellrowborder" valign="top" width="60.33%" id="mcps1.2.4.1.2"><p id="p0215153344716"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="24.59%" id="mcps1.2.4.1.3"><p id="p1421503315478"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row112150333476"><td class="cellrowborder" rowspan="4" valign="top" width="15.079999999999998%" headers="mcps1.2.4.1.1 "><p id="p2155710125317"><p>wifi_module.h</p>
+</p><p id="p189132019183"></p></td><td class="cellrowborder" valign="top" width="60.33%" headers="mcps1.2.4.1.2 "><p id="p363110387399"><p>struct WifiModule <em>WifiModuleCreate(const struct
+HdfConfigWifiModuleConfig</em>config);</p>
+</p></td><td class="cellrowborder" valign="top" width="24.59%" headers="mcps1.2.4.1.3 "><p id="p1363012387393"><p>Creates a WifiModule.</p>
+</p></td></tr><tr id="row112151233194714"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p7629163817393"><p>void WifiModuleDelete(struct WifiModule *module);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p2627638173917"><p>Deletes and releases data of a WifiModule.</p>
+</p></td></tr><tr id="row1121533316475"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p12626103814399"><p>int32_t DelFeature(struct WifiModule *module, uint16_t featureType);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1162543816393"><p>Deletes a feature from a WifiModule.</p>
+</p></td></tr><tr id="row172153335473"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p162433816392"><p>int32_t AddFeature(struct WifiModule <em>module, uint16_t featureType,
+struct WifiFeature</em>featureData);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p186235383393"><p>Adds a feature to a WifiModule.</p>
+</p></td></tr><tr id="row451796205011"><td class="cellrowborder" rowspan="4" valign="top" width="15.079999999999998%" headers="mcps1.2.4.1.1 "><p id="p2659417135013"><p>wifi_mac80211_ops.h</p>
+</p></td><td class="cellrowborder" valign="top" width="60.33%" headers="mcps1.2.4.1.2 "><p id="p175181615011"><p>int32_t (<em>startAp)(NetDevice</em>netDev);</p>
+</p></td><td class="cellrowborder" valign="top" width="24.59%" headers="mcps1.2.4.1.3 "><p id="p195182610507"><p>Starts an AP.</p>
+</p></td></tr><tr id="row5518663503"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p125181260501"><p>int32_t (<em>stopAp)(NetDevice</em>netDev);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1151815635014"><p>Stops an AP.</p>
+</p></td></tr><tr id="row851915617503"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p20519865500"><p>int32_t (<em>connect)(NetDevice</em>netDev, WifiConnectParams *param);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14519469509"><p>Starts a connection.</p>
+</p></td></tr><tr id="row18519136185016"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p145195620502"><p>int32_t (<em>disconnect)(NetDevice</em>netDev, uint16_t reasonCode);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p175191863503"><p>Cancels a connection.</p>
+</p></td></tr><tr id="row176421942125016"><td class="cellrowborder" rowspan="5" valign="top" width="15.079999999999998%" headers="mcps1.2.4.1.1 "><p id="p7937165012500"><p>hdf_netbuf.h</p>
+</p></td><td class="cellrowborder" valign="top" width="60.33%" headers="mcps1.2.4.1.2 "><p id="p1964211423505"><p>static inline void NetBufQueueInit(struct NetBufQueue *q);</p>
+</p></td><td class="cellrowborder" valign="top" width="24.59%" headers="mcps1.2.4.1.3 "><p id="p364254211507"><p>Initializes a network data buffer queue.</p>
+</p></td></tr><tr id="row664264225020"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p166421942115017"><p>struct NetBuf *NetBufAlloc(uint32_t size);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p3642164215501"><p>Applies for a network data buffer.</p>
+</p></td></tr><tr id="row19642134215018"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p964310425501"><p>void NetBufFree(struct NetBuf *nb);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1464312427503"><p>Releases a network data buffer.</p>
+</p></td></tr><tr id="row7643194215013"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p20643164218508"><p>struct NetBuf <em>Pbuf2NetBuf(const struct NetDevice</em>netdev, struct pbuf
+*lwipBuf);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p186437429509"><p>Converts the pbuf structure of lwIP to a network data buffer.</p>
+</p></td></tr><tr id="row7657132317518"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p86576231557"><p>struct pbuf <em>NetBuf2Pbuf(const struct NetBuf</em>nb);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1965702312510"><p>Converts a network data buffer to the pbuf structure of lwIP.</p>
+</p></td></tr></tbody></table><p>The WLAN driver module provides APIs for driver developers to implement
+capabilities, such as initializing/deregistering, opening/stopping a
+network device, and obtaining the state of a network device.</p>
+<p>Table 2 describes some APIs.</p>
+<p><strong>Table 2</strong> APIs for driver developers of WLAN vendors to implement</p>
+<table><thead align="left"><tr id="row194625016476"><th class="cellrowborder" valign="top" width="20.75%" id="mcps1.2.4.1.1"><p id="p10468502479"><p>File</p>
+</p></th><th class="cellrowborder" valign="top" width="52.75%" id="mcps1.2.4.1.2"><p id="p184615501477"><p>Function</p>
+</p></th><th class="cellrowborder" valign="top" width="26.5%" id="mcps1.2.4.1.3"><p id="p1146135044719"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row04616509472"><td class="cellrowborder" rowspan="6" valign="top" width="20.75%" headers="mcps1.2.4.1.1 "><p id="p14615017477"><p>net_device.h</p>
+</p></td><td class="cellrowborder" valign="top" width="52.75%" headers="mcps1.2.4.1.2 "><p id="p144943564611"><p>int32_t (<em>init)(struct NetDevice</em>netDev);</p>
+</p></td><td class="cellrowborder" valign="top" width="26.5%" headers="mcps1.2.4.1.3 "><p id="p18822442135411"><p>Initializes a network device.</p>
+</p></td></tr><tr id="row1546250114713"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1490010315564"><p>struct NetDevStats <em>(</em>getStats)(struct NetDevice *netDev);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p5900163115564"><p>Obtains the state of a network device.</p>
+</p></td></tr><tr id="row1646165010470"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p16909135319564"><p>int32_t (<em>setMacAddr)(struct NetDevice</em>netDev, void *addr);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p122001431115713"><p>Sets the MAC address.</p>
+</p></td></tr><tr id="row12471250184711"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p154213655215"><p>void (<em>deInit)(struct NetDevice</em>netDev);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14845675719"><p>Deinitializes a network device.</p>
+</p></td></tr><tr id="row13471050104719"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p16686131655218"><p>int32_t (<em>open)(struct NetDevice</em>netDev);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p164825613576"><p>Opens a network device.</p>
+</p></td></tr><tr id="row1747125054714"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p2310615407"><p>int32_t (<em>stop)(struct NetDevice</em>netDev);</p>
+</p></td><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1982212428542"><p>Stops a network device.</p>
+</p></td></tr></tbody></table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/driver/wlanoverview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

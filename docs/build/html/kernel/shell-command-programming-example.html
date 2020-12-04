@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shell Command Programming Example &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="shell-command-programming-example">
+<h1>Shell Command Programming Example<a class="headerlink" href="#shell-command-programming-example" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example-description">
+<h2>Example Description<a class="headerlink" href="#example-description" title="Permalink to this headline">¶</a></h2>
+<p>This section provides examples of how to add a shell command <strong>test</strong>
+using static registration and dynamic registration, respectively.</p>
+</div>
+<div class="section" id="static-registration">
+<h2>Static Registration<a class="headerlink" href="#static-registration" title="Permalink to this headline">¶</a></h2>
+<p>Development process:</p>
+<ol class="arabic simple">
+<li><p>Define the <strong>cmd_test</strong> execution function to be called to add a
+command.</p></li>
+<li><p>Use the <strong>SHELLCMD_ENTRY</strong> function to add the new command.</p></li>
+<li><p>Add a parameter to the <strong>liteos_tables_ldflags.mk</strong> link options for
+linking to the new command.</p></li>
+<li><p>Recompile the code and run it.</p></li>
+</ol>
+</div>
+<div class="section" id="static-registration-programming-example">
+<h2>Static Registration Programming Example<a class="headerlink" href="#static-registration-programming-example" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Define the <strong>cmd_test</strong> execution function to be called to add a
+command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;shell.h&quot;</span>
+<span class="c1">#include &quot;shcmd.h&quot;</span>
+<span class="nb">int</span> <span class="n">cmd_test</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;hello everybody!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the new command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SHELLCMD_ENTRY</span><span class="p">(</span><span class="n">test_shellcmd</span><span class="p">,</span> <span class="n">CMD_TYPE_EX</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">CMD_CBK_FUNC</span><span class="p">)</span><span class="n">cmd_test</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add a parameter to the link options for linking to the new command.</p>
+<p>Add <strong>-utest_shellcmd</strong> to the <strong>LITEOS_TABLES_LDFLAGS</strong> option in
+the <strong>liteos_tables_ldflags.mk</strong> file.</p>
+</li>
+<li><p>Recompile the code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span><span class="p">;</span><span class="n">make</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the <strong>help</strong> command to view all the commands registered in the
+system. The command output shows that the <strong>test</strong> command has been
+registered. (The following command output is for reference only.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># help</span>
+<span class="o">*******************</span><span class="n">shell</span> <span class="n">commands</span><span class="p">:</span><span class="o">*************************</span>
+
+<span class="n">arp</span>           <span class="n">cat</span>           <span class="n">cd</span>            <span class="n">chgrp</span>         <span class="n">chmod</span>         <span class="n">chown</span>         <span class="n">cp</span>            <span class="n">cpup</span>
+<span class="n">date</span>          <span class="n">dhclient</span>      <span class="n">dmesg</span>         <span class="n">dns</span>           <span class="nb">format</span>        <span class="n">free</span>          <span class="n">help</span>          <span class="n">hwi</span>
+<span class="n">ifconfig</span>      <span class="n">ipdebug</span>       <span class="n">kill</span>          <span class="n">log</span>           <span class="n">ls</span>            <span class="n">lsfd</span>          <span class="n">memcheck</span>      <span class="n">mkdir</span>
+<span class="n">mount</span>         <span class="n">netstat</span>       <span class="n">oom</span>           <span class="n">partinfo</span>      <span class="n">partition</span>     <span class="n">ping</span>          <span class="n">ping6</span>         <span class="n">pwd</span>
+<span class="n">reset</span>         <span class="n">rm</span>            <span class="n">rmdir</span>         <span class="n">sem</span>           <span class="n">statfs</span>        <span class="n">su</span>            <span class="n">swtmr</span>         <span class="n">sync</span>
+<span class="n">systeminfo</span>    <span class="n">task</span>          <span class="n">telnet</span>        <span class="n">test</span>          <span class="n">tftp</span>          <span class="n">touch</span>         <span class="n">umount</span>        <span class="n">uname</span>
+<span class="n">watch</span>         <span class="n">writeproc</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="dynamic-registration">
+<h2>Dynamic Registration<a class="headerlink" href="#dynamic-registration" title="Permalink to this headline">¶</a></h2>
+<p>Development process:</p>
+<ol class="arabic simple">
+<li><p>Use the <strong>osCmdReg</strong> function to add a new command.</p></li>
+<li><p>Recompile the code and run it.</p></li>
+</ol>
+</div>
+<div class="section" id="dynamic-registration-programming-example">
+<h2>Dynamic Registration Programming Example<a class="headerlink" href="#dynamic-registration-programming-example" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Call the <strong>osCmdReg</strong> function from the <strong>app_init</strong> function to
+dynamically register the command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;shell.h&quot;</span>
+<span class="c1">#include &quot;shcmd.h&quot;</span>
+<span class="nb">int</span> <span class="n">cmd_test</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;hello everybody!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">void</span> <span class="n">app_init</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">....</span>
+    <span class="o">....</span>
+    <span class="n">osCmdReg</span><span class="p">(</span><span class="n">CMD_TYPE_EX</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,(</span><span class="n">CMD_CBK_FUNC</span><span class="p">)</span><span class="n">cmd_test</span><span class="p">);</span>
+    <span class="o">....</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Recompile the code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span><span class="p">;</span><span class="n">make</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the <strong>help</strong> command to view all the commands registered in the
+system. The command output shows that the <strong>test</strong> command has been
+registered.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OHOS</span> <span class="c1"># help</span>
+<span class="o">*******************</span><span class="n">shell</span> <span class="n">commands</span><span class="p">:</span><span class="o">*************************</span>
+
+<span class="n">arp</span>           <span class="n">cat</span>           <span class="n">cd</span>            <span class="n">chgrp</span>         <span class="n">chmod</span>         <span class="n">chown</span>         <span class="n">cp</span>            <span class="n">cpup</span>
+<span class="n">date</span>          <span class="n">dhclient</span>      <span class="n">dmesg</span>         <span class="n">dns</span>           <span class="nb">format</span>        <span class="n">free</span>          <span class="n">help</span>          <span class="n">hwi</span>
+<span class="n">ifconfig</span>      <span class="n">ipdebug</span>       <span class="n">kill</span>          <span class="n">log</span>           <span class="n">ls</span>            <span class="n">lsfd</span>          <span class="n">memcheck</span>      <span class="n">mkdir</span>
+<span class="n">mount</span>         <span class="n">netstat</span>       <span class="n">oom</span>           <span class="n">partinfo</span>      <span class="n">partition</span>     <span class="n">ping</span>          <span class="n">ping6</span>         <span class="n">pwd</span>
+<span class="n">reset</span>         <span class="n">rm</span>            <span class="n">rmdir</span>         <span class="n">sem</span>           <span class="n">statfs</span>        <span class="n">su</span>            <span class="n">swtmr</span>         <span class="n">sync</span>
+<span class="n">systeminfo</span>    <span class="n">task</span>          <span class="n">telnet</span>        <span class="n">test</span>          <span class="n">tftp</span>          <span class="n">touch</span>         <span class="n">umount</span>        <span class="n">uname</span>
+<span class="n">watch</span>         <span class="n">writeproc</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kernel/shell-command-programming-example.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

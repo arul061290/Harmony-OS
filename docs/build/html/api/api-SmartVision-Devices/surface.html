@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+
+<html lang="y">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surface &#8212; Harmony 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="surface">
+<h1>Surface<a class="headerlink" href="#surface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Provides the capabilities of applying for and releasing shared memory in
+multimedia and graphics scenarios.</p>
+<p>Provides shared memory for multimedia and graphics.</p>
+<p>This module is used to apply for and release shared memory and is used
+by the multimedia and graphics modules across processes.</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+<p><strong>Since:</strong></p>
+<p>1.0</p>
+<p><strong>Version:</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row991080647093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p754545824093522"><p>File Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1936396249093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1784971280093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1423238432093522"><p>ibuffer_consumer_listener.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p890325285093522"><p>Declares the consumer listener used to notify consumers when the surface
+status is updated.</p>
+</p></td></tr><tr id="row681425548093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p730858407093522"><p>surface.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2021253754093522"><p>Provides the capabilities of applying for and releasing shared memory in
+multimedia and graphics scenarios.</p>
+</p></td></tr><tr id="row1509273340093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1194000063093522"><p>surface_buffer.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1704180026093522"><p>Provides functions such as setting the virtual address, size, and
+additional attributes of shared memory.</p>
+</p></td></tr><tr id="row655261039093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1234689917093522"><p>surface_type.h</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1580168438093522"><p>Provides the capabilities of setting shared memory parameters.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row127698623093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p348225689093522"><p>Data Structure Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p745961000093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row27223865093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1978932221093522"><p>OHOS::IBufferConsumerListener</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2032439082093522"><p>Defines the consumer listener used to notify consumers when the surface
+status is updated.</p>
+</p></td></tr><tr id="row1675268435093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1080781173093522"><p>OHOS::Surface</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p814876509093522"><p>Defines the consumer listener used to notify consumers when the surface
+status is updated.</p>
+</p></td></tr><tr id="row1038900142093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p2033559065093522"><p>OHOS::SurfaceBuffer</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1870344104093522"><p>Provides functions such as setting the virtual address, size, and
+additional attributes of shared memory.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row1165728887093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1533235906093522"><p>Enumeration Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1569093571093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row143723237093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1822453283093522"><p>OHOS::BufferConsumerUsage { OHOS::BUFFER_CONSUMER_USAGE_SORTWARE = 0,
+OHOS::BUFFER_CONSUMER_USAGE_HARDWARE,
+OHOS::BUFFER_CONSUMER_USAGE_HARDWARE_CONSUMER_CACHE,
+OHOS::BUFFER_CONSUMER_USAGE_HARDWARE_PRODUCER_CACHE,
+OHOS::BUFFER_CONSUMER_USAGE_MAX }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1845226383093522"><p>Enumerates shared memory usage scenarios, including physically
+contiguous memory and virtual memory.</p>
+</p></td></tr><tr id="row396713906093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p996031685093522"><p>OHOS::ImagePixelFormat { OHOS::IMAGE_PIXEL_FORMAT_NONE = 0,
+OHOS::IMAGE_PIXEL_FORMAT_RGB565 = 101,
+OHOS::IMAGE_PIXEL_FORMAT_ARGB1555, OHOS::IMAGE_PIXEL_FORMAT_RGB888,
+OHOS::IMAGE_PIXEL_FORMAT_ARGB8888, OHOS::IMAGE_PIXEL_FORMAT_YUYV = 201,
+OHOS::IMAGE_PIXEL_FORMAT_YVYU, OHOS::IMAGE_PIXEL_FORMAT_UYVY,
+OHOS::IMAGE_PIXEL_FORMAT_VYUY, OHOS::IMAGE_PIXEL_FORMAT_AYUV,
+OHOS::IMAGE_PIXEL_FORMAT_YUV410, OHOS::IMAGE_PIXEL_FORMAT_YVU410,
+OHOS::IMAGE_PIXEL_FORMAT_YUV411, OHOS::IMAGE_PIXEL_FORMAT_YVU411,
+OHOS::IMAGE_PIXEL_FORMAT_YUV420, OHOS::IMAGE_PIXEL_FORMAT_YVU420,
+OHOS::IMAGE_PIXEL_FORMAT_YUV422, OHOS::IMAGE_PIXEL_FORMAT_YVU422,
+OHOS::IMAGE_PIXEL_FORMAT_YUV444, OHOS::IMAGE_PIXEL_FORMAT_YVU444,
+OHOS::IMAGE_PIXEL_FORMAT_NV12 = 301, OHOS::IMAGE_PIXEL_FORMAT_NV21,
+OHOS::IMAGE_PIXEL_FORMAT_NV16, OHOS::IMAGE_PIXEL_FORMAT_NV61 }</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p802777964093522"><p>Enumerates a pixel format.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table><thead align="left"><tr id="row28315575093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p964742587093522"><p>Function Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p860860150093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1846512457093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1174626438093522"><p>OHOS::IBufferConsumerListener::OnBufferAvailable ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1957221819093522"><p>virtual void</p>
+</p><p id="p591243292093522"><p>Called to notify a consumer that a buffer is available for consumption.</p>
+</p></td></tr><tr id="row543083298093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p294548380093522"><p>OHOS::Surface::CreateSurface ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p769301519093522"><p>static Surface *</p>
+</p><p id="p744680206093522"><p>A constructor used to create a Surface object for consumers to use.</p>
+</p></td></tr><tr id="row732359013093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p374565277093522"><p>OHOS::Surface::~Surface ()</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p59921082093522"><p>virtual</p>
+</p><p id="p588201037093522"><p>A destructor used to delete the Surface instance.</p>
+</p></td></tr><tr id="row1868797235093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p149670164093522"><p>OHOS::Surface::SetQueueSize (uint8_t queueSize)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p100375817093522"><p>virtual void</p>
+</p><p id="p675008275093522"><p>Sets the number of buffers that can be allocated to the surface. The
+default value is 1. The value range is [1, 10].</p>
+</p></td></tr><tr id="row272134287093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p960377493093522"><p>OHOS::Surface::GetQueueSize ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1604341591093522"><p>virtual uint8_t</p>
+</p><p id="p1435638854093522"><p>Obtains the number of surface buffers that can be allocated to the
+surface. The default value is 1. The value range is [1, 10].</p>
+</p></td></tr><tr id="row1278737614093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1021020927093522"><p>OHOS::Surface::SetWidthAndHeight (uint32_t width, uint32_t height)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1270707431093522"><p>virtual void</p>
+</p><p id="p986910988093522"><p>Sets the width and height of the surface for calculating its stride and
+size. The default value range of width and height is (0,7680].</p>
+</p></td></tr><tr id="row1957272126093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1925624685093522"><p>OHOS::Surface::GetWidth ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p739560101093522"><p>virtual uint32_t</p>
+</p><p id="p1485717479093522"><p>Obtains the width of the surface.</p>
+</p></td></tr><tr id="row1257730026093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1410970598093522"><p>OHOS::Surface::GetHeight ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p786746692093522"><p>virtual uint32_t</p>
+</p><p id="p1689944196093522"><p>Obtains the height of the surface.</p>
+</p></td></tr><tr id="row1007491308093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p749588638093522"><p>OHOS::Surface::SetFormat (uint32_t format)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p791482778093522"><p>virtual void</p>
+</p><p id="p1779410944093522"><p>Sets the pixel format of the surface. For details, see ImageFormat. The
+default pixel format is IMAGE_PIXEL_FORMAT_RGB565.</p>
+</p></td></tr><tr id="row2095045221093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p697579884093522"><p>OHOS::Surface::GetFormat ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p996321262093522"><p>virtual uint32_t</p>
+</p><p id="p1828867495093522"><p>Obtains the pixel format of the surface. For details, see ImageFormat.
+The default pixel format is IMAGE_PIXEL_FORMAT_RGB565.</p>
+</p></td></tr><tr id="row1160097259093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p613946927093522"><p>OHOS::Surface::SetStrideAlignment (uint32_t strideAlignment)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p200596140093522"><p>virtual void</p>
+</p><p id="p741210185093522"><p>Sets the number of bytes for stride alignment.</p>
+</p></td></tr><tr id="row1170255729093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p919702408093522"><p>OHOS::Surface::GetStrideAlignment ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p463612115093522"><p>virtual uint32_t</p>
+</p><p id="p75065834093522"><p>Obtains the number of bytes for stride alignment. By default, 4-byte
+aligned is used.</p>
+</p></td></tr><tr id="row1217832452093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p267470810093522"><p>OHOS::Surface::GetStride ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p273853232093522"><p>virtual uint32_t</p>
+</p><p id="p1186843778093522"><p>Obtains the stride of the surface.</p>
+</p></td></tr><tr id="row110361914093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1117759598093522"><p>OHOS::Surface::SetSize (uint32_t size)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p354722398093522"><p>virtual void</p>
+</p><p id="p457647320093522"><p>Sets the size of the shared memory to allocate.</p>
+</p></td></tr><tr id="row38685159093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p851014734093522"><p>OHOS::Surface::GetSize ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p812301268093522"><p>virtual uint32_t</p>
+</p><p id="p1079646186093522"><p>Obtains the size of the shared memory to allocate.</p>
+</p></td></tr><tr id="row2020865934093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p866713812093522"><p>OHOS::Surface::SetUsage (uint32_t usage)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p49495158093522"><p>virtual void</p>
+</p><p id="p373522716093522"><p>Sets the usage scenario of the buffer. Physically contiguous memory and
+virtual memory (by default) are supported. By default, virtual memory is
+allocated.</p>
+</p></td></tr><tr id="row52321942093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p711949938093522"><p>OHOS::Surface::GetUsage ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1286285344093522"><p>virtual uint32_t</p>
+</p><p id="p2071590851093522"><p>Obtains the usage scenario of the buffer. Physically contiguous memory
+and virtual memory are supported.</p>
+</p></td></tr><tr id="row1757625223093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p444722713093522"><p>OHOS::Surface::SetUserData (const std::string &amp;key, const std::string
+&amp;value)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2101665934093522"><p>virtual void</p>
+</p><p id="p305242951093522"><p>Sets surface user data, which is stored in the format of &lt;key, value&gt;.</p>
+</p></td></tr><tr id="row1519759113093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1624532381093522"><p>OHOS::Surface::GetUserData (const std::string &amp;key)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1447758633093522"><p>virtual std::string</p>
+</p><p id="p1521679580093522"><p>Obtains surface user data.</p>
+</p></td></tr><tr id="row1876356462093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p76741984093522"><p>OHOS::Surface::RequestBuffer (uint8_t wait=0)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1498392338093522"><p>virtual SurfaceBuffer *</p>
+</p><p id="p1142522236093522"><p>Obtains a buffer to write data.</p>
+</p></td></tr><tr id="row725000942093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p552561168093522"><p>OHOS::Surface::FlushBuffer (SurfaceBuffer *buffer)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1195668321093522"><p>virtual int32_t</p>
+</p><p id="p2116919036093522"><p>Flushes a buffer to the dirty queue for consumers to use.</p>
+</p></td></tr><tr id="row760727815093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1899747238093522"><p>OHOS::Surface::AcquireBuffer ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p602819726093522"><p>virtual SurfaceBuffer *</p>
+</p><p id="p1377525821093522"><p>Obtains a buffer.</p>
+</p></td></tr><tr id="row2056133337093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p762274931093522"><p>OHOS::Surface::ReleaseBuffer (SurfaceBuffer *buffer)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p264309635093522"><p>virtual bool</p>
+</p><p id="p1829560895093522"><p>Releases the consumed buffer.</p>
+</p></td></tr><tr id="row1785327074093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p320269696093522"><p>OHOS::Surface::CancelBuffer (SurfaceBuffer *buffer)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p411347964093522"><p>virtual void</p>
+</p><p id="p507302144093522"><p>Releases a buffer to the free queue.</p>
+</p></td></tr><tr id="row12137020093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1812744777093522"><p>OHOS::Surface::RegisterConsumerListener (IBufferConsumerListener
+&amp;listener)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1219339323093522"><p>virtual void</p>
+</p><p id="p1381587269093522"><p>Registers a consumer listener.</p>
+</p></td></tr><tr id="row68443442093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p48130014093522"><p>OHOS::Surface::UnregisterConsumerListener ()=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1278275888093522"><p>virtual void</p>
+</p><p id="p1295912550093522"><p>Unregisters the consumer listener.</p>
+</p></td></tr><tr id="row1634324332093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p767083059093522"><p>OHOS::SurfaceBuffer::GetVirAddr () const =0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p6249625093522"><p>virtual void *</p>
+</p><p id="p1657382860093522"><p>Obtains the virtual address of shared memory for producers and
+consumers.</p>
+</p></td></tr><tr id="row179597031093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p41357252093522"><p>OHOS::SurfaceBuffer::GetPhyAddr () const =0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2017610963093522"><p>virtual uint64_t</p>
+</p><p id="p1748760164093522"><p>Obtains the physical address of shared memory.</p>
+</p></td></tr><tr id="row729332118093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1500487961093522"><p>OHOS::SurfaceBuffer::GetSize () const =0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p409318303093522"><p>virtual uint32_t</p>
+</p><p id="p620724688093522"><p>Obtains the size of shared memory.</p>
+</p></td></tr><tr id="row996074276093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1237964316093522"><p>OHOS::SurfaceBuffer::SetSize (uint32_t size)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1805754698093522"><p>virtual void</p>
+</p><p id="p1142843219093522"><p>Sets the size of shared memory.</p>
+</p></td></tr><tr id="row221995900093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1299022683093522"><p>OHOS::SurfaceBuffer::SetInt32 (uint32_t key, int32_t value)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1525714969093522"><p>virtual int32_t</p>
+</p><p id="p210568588093522"><p>Sets an extra attribute value of the int32 type.</p>
+</p></td></tr><tr id="row1163105656093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1064929051093522"><p>OHOS::SurfaceBuffer::GetInt32 (uint32_t key, int32_t &amp;value)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p582303982093522"><p>virtual int32_t</p>
+</p><p id="p1216826053093522"><p>Obtains an extra attribute value of the int32 type.</p>
+</p></td></tr><tr id="row1896457092093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p77287894093522"><p>OHOS::SurfaceBuffer::SetInt64 (uint32_t key, int64_t value)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p231412705093522"><p>virtual int32_t</p>
+</p><p id="p1478847373093522"><p>Sets an extra attribute value of the int64 type.</p>
+</p></td></tr><tr id="row331065389093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p id="p1639881366093522"><p>OHOS::SurfaceBuffer::GetInt64 (uint32_t key, int64_t &amp;value)=0</p>
+</p></td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p725388409093522"><p>virtual int32_t</p>
+</p><p id="p1696775664093522"><p>Obtains an extra attribute value of the int64 type.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="details">
+<h2><strong>Details</strong><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enumeration-type-documentation">
+<h2><strong>Enumeration Type Documentation</strong><a class="headerlink" href="#enumeration-type-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bufferconsumerusage">
+<h2>BufferConsumerUsage<a class="headerlink" href="#bufferconsumerusage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">BufferConsumerUsage</span><span class="p">](</span><span class="n">surface</span><span class="o">.</span><span class="n">md</span><span class="c1">#ga16d4d4f73d748455e45924ffbdd1e891)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates shared memory usage scenarios, including physically
+contiguous memory and virtual memory.</p>
+<table><thead align="left"><tr id="row1954360736093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p2070855943093522"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1197833794093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1050824716093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>BUFFER_CONSUMER_USAGE_SORTWARE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p346125354093522"><p>Virtual memory</p>
+</p></td></tr><tr id="row599945098093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>BUFFER_CONSUMER_USAGE_HARDWARE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p178958550093522"><p>Physically contiguous memory. The cache is not used.</p>
+</p></td></tr><tr id="row1985929625093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>BUFFER_CONSUMER_USAGE_HARDWARE_CONSUMER_CACHE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1138913875093522"><p>Physically contiguous memory. Consumers use the cache.</p>
+</p></td></tr><tr id="row435389110093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>BUFFER_CONSUMER_USAGE_HARDWARE_PRODUCER_CACHE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p804717536093522"><p>Physically contiguous memory. Producers use the cache.</p>
+</p></td></tr><tr id="row678590830093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>BUFFER_CONSUMER_USAGE_MAX</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p456967245093522"><p>Valid maximum value, used to determine whether the current shared memory
+usage scenario is within a proper range.</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="imagepixelformat">
+<h2>ImagePixelFormat<a class="headerlink" href="#imagepixelformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">[</span><span class="n">OHOS</span><span class="p">::</span><span class="n">ImagePixelFormat</span><span class="p">](</span><span class="n">surface</span><span class="o">.</span><span class="n">md</span><span class="c1">#gaa191d6e3b92a0f527744d43e056ae025)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enumerates a pixel format.</p>
+<table><thead align="left"><tr id="row1774443806093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1967209365093522"><p>Enumerator</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1739829629093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row216541131093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_NONE</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p530997455093522"><p>Invalid pixel format</p>
+</p></td></tr><tr id="row632361893093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_RGB565</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p408108500093522"><p>RGB565 pixel format</p>
+</p></td></tr><tr id="row701960207093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_ARGB1555</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p586337403093522"><p>ARGB555 pixel format</p>
+</p></td></tr><tr id="row475110400093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_RGB888</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p416190313093522"><p>RGB888 pixel format</p>
+</p></td></tr><tr id="row757807403093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_ARGB8888</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p32158943093522"><p>ARGB8888 pixel format</p>
+</p></td></tr><tr id="row972428251093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YUYV</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1768356108093522"><p>YUYV pixel format</p>
+</p></td></tr><tr id="row1992087266093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YVYU</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p271207672093522"><p>YVYU pixel format</p>
+</p></td></tr><tr id="row1443576476093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_UYVY</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p246730627093522"><p>UYVY pixel format</p>
+</p></td></tr><tr id="row822937360093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_VYUY</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1172783294093522"><p>VYUY pixel format</p>
+</p></td></tr><tr id="row1495948877093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_AYUV</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1424510681093522"><p>AYUV pixel format</p>
+</p></td></tr><tr id="row126816652093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YUV410</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1873620770093522"><p>YUV410 pixel format</p>
+</p></td></tr><tr id="row826880473093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YVU410</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p296116606093522"><p>YVU410 pixel format</p>
+</p></td></tr><tr id="row674710350093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YUV411</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1931512995093522"><p>YUV411 pixel format</p>
+</p></td></tr><tr id="row1279181849093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YVU411</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p588119412093522"><p>YVU411 pixel format</p>
+</p></td></tr><tr id="row267685813093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YUV420</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p198486022093522"><p>YUV420 pixel format</p>
+</p></td></tr><tr id="row959370604093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YVU420</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p2006583671093522"><p>YVU420 pixel format</p>
+</p></td></tr><tr id="row1785477284093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YUV422</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1288059798093522"><p>YUV422 pixel format</p>
+</p></td></tr><tr id="row1899886850093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YVU422</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p633702189093522"><p>YVU422 pixel format</p>
+</p></td></tr><tr id="row1618610702093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YUV444</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1548537193093522"><p>YUV444 pixel format</p>
+</p></td></tr><tr id="row727472218093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_YVU444</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p704315175093522"><p>YVU444 pixel format</p>
+</p></td></tr><tr id="row1753140297093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_NV12</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1001533320093522"><p>NV12 pixel format</p>
+</p></td></tr><tr id="row784963122093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_NV21</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p906259118093522"><p>NV21 pixel format</p>
+</p></td></tr><tr id="row557585883093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_NV16</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p748605835093522"><p>NV16 pixel format</p>
+</p></td></tr><tr id="row546528190093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IMAGE_PIXEL_FORMAT_NV61</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p id="p1405772801093522"><p>NV61 pixel format</p>
+</p></td></tr></tbody></table></div>
+<div class="section" id="function-documentation">
+<h2><strong>Function Documentation</strong><a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="acquirebuffer">
+<h2>AcquireBuffer()<a class="headerlink" href="#acquirebuffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="p">[</span><span class="n">SurfaceBuffer</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surfacebuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">AcquireBuffer</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains a buffer.</p>
+<p>Consumers can use this function to obtain the buffer placed in the dirty
+queue by producers. If there is no buffer in the queue, <strong>nullptr</strong> is
+returned.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the pointer to the <a class="reference external" href="ohos-surfacebuffer.md">SurfaceBuffer</a>
+object.</p>
+</div>
+<div class="section" id="cancelbuffer">
+<h2>CancelBuffer()<a class="headerlink" href="#cancelbuffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">CancelBuffer</span> <span class="p">([</span><span class="n">SurfaceBuffer</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surfacebuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">buffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Releases a buffer to the free queue.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row428479733093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p364918596093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1852700230093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row393232421093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SurfaceBuffer</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the buffer to be released by producers.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="createsurface">
+<h2>CreateSurface()<a class="headerlink" href="#createsurface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="p">[</span><span class="n">Surface</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surface</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">CreateSurface</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>A constructor used to create a <a class="reference external" href="surface.md">Surface</a> object for
+consumers to use.</p>
+<p>In multi-process scenarios, this function is provided for consumers to
+obtain buffers generated by producers for consumption. In single-process
+scenarios, this function can be used by both consumers and producers.</p>
+</div>
+<div class="section" id="flushbuffer">
+<h2>FlushBuffer()<a class="headerlink" href="#flushbuffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">FlushBuffer</span> <span class="p">([</span><span class="n">SurfaceBuffer</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surfacebuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">buffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Flushes a buffer to the dirty queue for consumers to use.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row525219332093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p347922815093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1695809104093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2142795346093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SurfaceBuffer</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the buffer flushed by producers.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="getformat">
+<h2>GetFormat()<a class="headerlink" href="#getformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetFormat</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the pixel format of the surface. For details, see
+<strong>ImageFormat</strong>. The default pixel format is
+<strong>IMAGE_PIXEL_FORMAT_RGB565</strong>.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the pixel format.</p>
+</div>
+<div class="section" id="getheight">
+<h2>GetHeight()<a class="headerlink" href="#getheight" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetHeight</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the height of the surface.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the surface height, in pixels.</p>
+</div>
+<div class="section" id="getint32">
+<h2>GetInt32()<a class="headerlink" href="#getint32" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">GetInt32</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="o">&amp;</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains an extra attribute value of the int32 type.</p>
+<p>Obtains an extra attribute value of the int32 type, The extra attribute
+is stored in the format of &lt;key, value&gt;. Each key corresponds to a
+value. If the key does not exist or the value is not int32, <strong>-1</strong> is
+returned.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row417571214093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p815568340093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1355492295093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1346946195093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key of a key-value pair for which the value is to be
+obtained.</p>
+</td></tr><tr id="row130478357093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the value of the key-value pair obtained.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="getint64">
+<h2>GetInt64()<a class="headerlink" href="#getint64" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">GetInt64</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">key</span><span class="p">,</span> <span class="n">int64_t</span> <span class="o">&amp;</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains an extra attribute value of the int64 type.</p>
+<p>Obtains an extra attribute value of the int64 type, The extra attribute
+is stored in the format of &lt;key, value&gt;. Each key corresponds to a
+value. If the key does not exist or the value is not int64, <strong>-1</strong> is
+returned.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1416779926093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1545183283093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p302390368093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1205189071093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key of a key-value pair for which the value is to be
+obtained.</p>
+</td></tr><tr id="row807217888093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the value of the key-value pair obtained.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="getphyaddr">
+<h2>GetPhyAddr()<a class="headerlink" href="#getphyaddr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint64_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">GetPhyAddr</span> <span class="p">()</span> <span class="n">const</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the physical address of shared memory.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the physical address of shared memory.</p>
+</div>
+<div class="section" id="getqueuesize">
+<h2>GetQueueSize()<a class="headerlink" href="#getqueuesize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint8_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetQueueSize</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the number of surface buffers that can be allocated to the
+surface. The default value is <strong>1</strong>. The value range is [1, 10].</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the number of buffers.</p>
+</div>
+<div class="section" id="getsize-1-2">
+<h2>GetSize() [1/2]<a class="headerlink" href="#getsize-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">GetSize</span> <span class="p">()</span> <span class="n">const</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the size of shared memory.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the size of shared memory.</p>
+</div>
+<div class="section" id="getsize-2-2">
+<h2>GetSize() [2/2]<a class="headerlink" href="#getsize-2-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetSize</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the size of the shared memory to allocate.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the size of the shared memory.</p>
+</div>
+<div class="section" id="getstride">
+<h2>GetStride()<a class="headerlink" href="#getstride" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetStride</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the stride of the surface.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the stride.</p>
+</div>
+<div class="section" id="getstridealignment">
+<h2>GetStrideAlignment()<a class="headerlink" href="#getstridealignment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetStrideAlignment</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the number of bytes for stride alignment. By default, 4-byte
+aligned is used.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the number of bytes for stride alignment.</p>
+</div>
+<div class="section" id="getusage">
+<h2>GetUsage()<a class="headerlink" href="#getusage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetUsage</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the usage scenario of the buffer. Physically contiguous memory
+and virtual memory are supported.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the usage scenario of the buffer. For details, see
+<strong>BUFFER_CONSUMER_USAGE</strong>.</p>
+</div>
+<div class="section" id="getuserdata">
+<h2>GetUserData()<a class="headerlink" href="#getuserdata" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetUserData</span> <span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains surface user data.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1495388560093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1888017654093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1397953285093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1698051109093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key of a key-value pair for which the value is to be
+obtained.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the value of the key-value pair obtained.</p>
+</div>
+<div class="section" id="getviraddr">
+<h2>GetVirAddr()<a class="headerlink" href="#getviraddr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span><span class="o">*</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">GetVirAddr</span> <span class="p">()</span> <span class="n">const</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the virtual address of shared memory for producers and
+consumers.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the virtual address of shared memory.</p>
+</div>
+<div class="section" id="getwidth">
+<h2>GetWidth()<a class="headerlink" href="#getwidth" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">uint32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">GetWidth</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains the width of the surface.</p>
+<p><strong>Returns:</strong></p>
+<p>Returns the surface width, in pixels.</p>
+</div>
+<div class="section" id="onbufferavailable">
+<h2>OnBufferAvailable()<a class="headerlink" href="#onbufferavailable" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">IBufferConsumerListener</span><span class="p">::</span><span class="n">OnBufferAvailable</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Called to notify a consumer that a buffer is available for consumption.</p>
+</div>
+<div class="section" id="registerconsumerlistener">
+<h2>RegisterConsumerListener()<a class="headerlink" href="#registerconsumerlistener" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">RegisterConsumerListener</span> <span class="p">([</span><span class="n">IBufferConsumerListener</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">ibufferconsumerlistener</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Registers a consumer listener.</p>
+<p>When a buffer is placed in the dirty queue, <strong>OnBufferAvailable</strong> is
+called to notify consumers. If the listener is repeatedly registered,
+only the latest one is retained.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1858543718093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p565351977093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1298120082093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row825584713093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>IBufferConsumerListener</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the listener to register.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="releasebuffer">
+<h2>ReleaseBuffer()<a class="headerlink" href="#releasebuffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="nb">bool</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">ReleaseBuffer</span> <span class="p">([</span><span class="n">SurfaceBuffer</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surfacebuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span> <span class="o">*</span> <span class="n">buffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Releases the consumed buffer.</p>
+<p>After a consumer has used a <a class="reference external" href="ohos-surfacebuffer.md">SurfaceBuffer</a>
+object, the consumer can release it through
+<a class="reference external" href="surface.md#ga4150c81248f516882ef120731d9abb66">ReleaseBuffer</a>. The
+released object is placed into the free queue so that producers can
+apply for the object.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1921437500093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1052500455093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1118091098093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row958882598093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>SurfaceBuffer</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pointer to the buffer released.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>true</strong> if the buffer is released; returns <strong>false</strong> otherwise.</p>
+</div>
+<div class="section" id="requestbuffer">
+<h2>RequestBuffer()<a class="headerlink" href="#requestbuffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="p">[</span><span class="n">SurfaceBuffer</span><span class="p">](</span><span class="n">ohos</span><span class="o">-</span><span class="n">surfacebuffer</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="o">*</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">RequestBuffer</span> <span class="p">(</span><span class="n">uint8_t</span> <span class="n">wait</span> <span class="o">=</span> <span class="p">[</span><span class="o">/</span><span class="n">topic</span><span class="o">/</span><span class="n">body</span><span class="o">/</span><span class="n">section</span><span class="o">/</span><span class="n">screen</span><span class="o">/</span><span class="n">code</span>
+     <span class="p">{</span><span class="s2">&quot;&quot;</span><span class="p">})</span> <span class="mi">0</span> <span class="p">(</span><span class="n">code</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Obtains a buffer to write data.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1425411524093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1928751659093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1147381337093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row76953583093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>wait</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Specifies whether the function waits for an available buffer. If wait is
+1, the function waits until there is an available buffer in the free
+queue before returning a pointer. If the wait is 0, the function does
+not wait and returns nullptr if there is no buffer in the free queue.
+The default value is 0.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns the pointer to the buffer if the operation is successful;
+returns <strong>nullptr</strong> otherwise.</p>
+</div>
+<div class="section" id="setformat">
+<h2>SetFormat()<a class="headerlink" href="#setformat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">SetFormat</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="nb">format</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the pixel format of the surface. For details, see <strong>ImageFormat</strong>.
+The default pixel format is <strong>IMAGE_PIXEL_FORMAT_RGB565</strong>.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row696300499093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1430989887093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1018238003093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row224947726093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>format</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the pixel format to be set.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setint32">
+<h2>SetInt32()<a class="headerlink" href="#setint32" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">SetInt32</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets an extra attribute value of the int32 type.</p>
+<p>Sets an extra attribute value of the int32 type, The extra attribute is
+stored in the format of &lt;key, value&gt;. Each key corresponds to a value.
+If the same keys are used in two calls, the value in the second call
+overwrites that in the first call.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row308273715093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1048005965093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p254477601093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row2144087666093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key of a key-value pair to set.</p>
+</td></tr><tr id="row1527686003093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the value of the key-value pair to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="setint64">
+<h2>SetInt64()<a class="headerlink" href="#setint64" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">int32_t</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">SetInt64</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">key</span><span class="p">,</span> <span class="n">int64_t</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets an extra attribute value of the int64 type.</p>
+<p>Sets an extra attribute value of the int64 type. The storage mode of the
+extra attribute is &lt;key, value&gt;. the value in the second call overwrites
+that in the first call.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1821982467093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p431643286093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1249340594093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row100745709093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key of a key-value pair to set.</p>
+</td></tr><tr id="row1396934070093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the value of the key-value pair to set.</p>
+</td></tr></tbody></table><p><strong>Returns:</strong></p>
+<p>Returns <strong>0</strong> if the operation is successful; returns <strong>-1</strong> otherwise.</p>
+</div>
+<div class="section" id="setqueuesize">
+<h2>SetQueueSize()<a class="headerlink" href="#setqueuesize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">SetQueueSize</span> <span class="p">(</span><span class="n">uint8_t</span> <span class="n">queueSize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the number of buffers that can be allocated to the surface. The
+default value is <strong>1</strong>. The value range is [1, 10].</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row237738390093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1391823093093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p279519691093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row314026052093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>queueSize</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the number of buffers to set.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setsize-1-2">
+<h2>SetSize() [1/2]<a class="headerlink" href="#setsize-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">SurfaceBuffer</span><span class="p">::</span><span class="n">SetSize</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the size of shared memory.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1964401960093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1761464265093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1492540553093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1356906098093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of shared memory to set.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setsize-2-2">
+<h2>SetSize() [2/2]<a class="headerlink" href="#setsize-2-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">SetSize</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the size of the shared memory to allocate.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1927993416093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p278520826093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p868684216093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row767884298093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>size</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the size of the shared memory. The value range is
+(0,58982400].</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setstridealignment">
+<h2>SetStrideAlignment()<a class="headerlink" href="#setstridealignment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">SetStrideAlignment</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">strideAlignment</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the number of bytes for stride alignment.</p>
+<p>By default, 4-byte aligned is used. The value range is [4,32].</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row107509189093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1431596508093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p370289831093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row967049534093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>strideAlignment</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the number of bytes for stride alignment.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setusage">
+<h2>SetUsage()<a class="headerlink" href="#setusage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">SetUsage</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">usage</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the usage scenario of the buffer. Physically contiguous memory and
+virtual memory (by default) are supported. By default, virtual memory is
+allocated.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1225467442093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p528656405093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p663759617093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1767270424093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>usage</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the usage scenario of the buffer. For details, see
+BUFFER_CONSUMER_USAGE.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setuserdata">
+<h2>SetUserData()<a class="headerlink" href="#setuserdata" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">SetUserData</span> <span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">key</span><span class="p">,</span> <span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets surface user data, which is stored in the format of &lt;key, value&gt;.</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row775540920093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p432850629093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p331886343093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1763214403093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>key</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the key of a key-value pair to store.</p>
+</td></tr><tr id="row1119314720093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>value</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the value of the key-value pair to store.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="setwidthandheight">
+<h2>SetWidthAndHeight()<a class="headerlink" href="#setwidthandheight" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">SetWidthAndHeight</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">width</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">height</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Sets the width and height of the surface for calculating its stride and
+size. The default value range of width and height is (0,7680].</p>
+<p><strong>Parameters:</strong></p>
+<table><thead align="left"><tr id="row1701349937093522"><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.1"><p id="p1155991930093522"><p>Name</p>
+</p></th><th class="cellrowborder" valign="top" width="50%" id="mcps1.1.3.1.2"><p id="p1504613562093522"><p>Description</p>
+</p></th></tr></thead><tbody><tr id="row1171147660093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>width</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the surface width, in pixels.</p>
+</td></tr><tr id="row1643539050093522"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.1 "><p>height</p>
+</td><td class="cellrowborder" valign="top" width="50%" headers="mcps1.1.3.1.2 "><p>Indicates the surface height, in pixels.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="unregisterconsumerlistener">
+<h2>UnregisterConsumerListener()<a class="headerlink" href="#unregisterconsumerlistener" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">void</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="n">UnregisterConsumerListener</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Unregisters the consumer listener.</p>
+<p>After the listener is unregistered, no callback is triggered when a
+buffer is placed in the dirty queue.</p>
+</div>
+<div class="section" id="surface-1">
+<span id="id1"></span><h2>~Surface()<a class="headerlink" href="#surface-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">OHOS</span><span class="p">::</span><span class="n">Surface</span><span class="p">::</span><span class="o">~</span><span class="n">Surface</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>A destructor used to delete the <a class="reference external" href="ohos-surface.md">Surface</a> instance.</p>
+<p>This function releases the surface and all buffers applied for the
+surface.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Harmony</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Arul.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/api-SmartVision-Devices/surface.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
