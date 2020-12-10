@@ -4,19 +4,19 @@ Welcome to Harmony-os documentation!
 .. toctree::
    :maxdepth: 1
       
-   docs/quick-start/Readme-EN
-   docs/get-code/Readme-EN.rst
-   docs/driver/Readme-EN.rst
-   docs/api/api-LinkIoT/Readme-EN.rst
-   docs/api/api-SmartVision-Devices/Readme-EN.rst
-   docs/bundles/Readme-EN.rst
-   docs/contribute/Readme-EN.rst
-   docs/guide/Readme-EN.rst
-   docs/kernel/Readme-EN.rst
-   docs/security/Readme-EN.rst
-   docs/subsystems/Readme-EN.rst
-   docs/readme/Readme-EN.rst
-   docs/term/glossary.rst
+   quick-start/Readme-EN
+   get-code/Readme-EN.rst
+   driver/Readme-EN.rst
+   api/api-LinkIoT/Readme-EN.rst
+   api/api-SmartVision-Devices/Readme-EN.rst
+   bundles/Readme-EN.rst
+   contribute/Readme-EN.rst
+   Readme-EN.rst
+   kernel/Readme-EN.rst
+   security/Readme-EN.rst
+   subsystems/Readme-EN.rst
+   readme/Readme-EN.rst
+   term/glossary.rst
 
 
 
